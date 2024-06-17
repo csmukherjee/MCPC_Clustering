@@ -13,7 +13,23 @@ def modularity(G, communities, weight="weight", resolution=1):
     mod = 0
     #loop through every community
     for community in communities:
-        if len(community) == 2:
+        com_sum=0
+        #loop through every pair of nodes in the community
+        if len(community) > 0:
+            for u, v in itertools.combinations(community, 2):
+                #add the weight of the edge between the two nodes
+                if G.has_edge(u,v):
+                    com_sum+= (
+                        G[u][v]['weight']
+                    )
+            for node in community:
+                #add the weight of the self-loop
+                #if there is a self loop
+                if G.has_edge(node,node):
+                    com_sum+= (
+                        G[node][node]['weight']
+                    )
+        if com_sum >=2:
             mod+=1
     return mod
 
@@ -37,8 +53,12 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
         See :ref:`Randomness<randomness>`.
 
     """
+    nx.draw(G, with_labels=True)
     node2com = {u: i for i, u in enumerate(G.nodes())}
     inner_partition = [{u} for u in G.nodes()]
+    # print('size of inner_partition: ',len(inner_partition))
+    # print('inner_partition: ',inner_partition)
+    # print('edge weight from 0 to 1: ',G[0][1]['weight'])
     if is_directed:
         in_degrees = dict(G.in_degree(weight="weight"))
         out_degrees = dict(G.out_degree(weight="weight"))
@@ -94,22 +114,26 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                         / m**2
                     )
                 else:
-                    print('neighbor_com: ',nbr_com)
-                    new_partition = copy.deepcopy(partition)
-                    print('u: ',u)
-                    print('partition: ',new_partition)
-                    print('node2com[u]: ',node2com[u])
+                    #print('neighbor_com: ',nbr_com)
+                    new_partition = copy.deepcopy(inner_partition)
+                    # print('u: ',u)
+                    # print('partition: ',new_partition)
+                    # print('node2com[u]: ',node2com[u])
                     new_partition[node2com[u]].remove(u)
+                    # print('node2com[u]: ',node2com[u])
                     #add the node to the new community
                     new_partition[nbr_com].add(u)
+                    # print('new_partition: ',new_partition)
                     #remove any empty set
-                    new_partition = list(filter(len, new_partition))
-                    partition_temp = list(filter(len,partition))
+                    #new_partition = list(filter(len, new_partition))
+                    partition_temp = copy.deepcopy(inner_partition)
+                    #partition_temp = list(filter(len, partition_temp))
                     #print('new_partition: ',new_partition)
                     gain = (
                         modularity(G, new_partition, weight="weight", resolution=resolution)
                         - modularity(G, partition_temp, weight="weight", resolution=resolution) 
                     )
+                    # print('gain: ',gain)
                 if gain > best_mod:
                     best_mod = gain
                     best_com = nbr_com
@@ -119,7 +143,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
             else:
                 Stot[best_com] += degree
             if best_com != node2com[u]:
-                print('best_com: ',best_com)
+                # print('best_com: ',best_com)
                 com = G.nodes[u].get("nodes", {u})
                 partition[node2com[u]].difference_update(com)
                 inner_partition[node2com[u]].remove(u)
