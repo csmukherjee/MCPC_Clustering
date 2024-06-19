@@ -9,6 +9,56 @@ import copy
 from networkx.utils import py_random_state
 from networkx.algorithms.community.louvain import _neighbor_weights
 
+def directed_modularity(G,partition,m):
+
+    in_degrees = dict(G.in_degree(weight="weight"))
+    out_degrees = dict(G.out_degree(weight="weight"))
+
+    c_iden={}
+    c=0
+    Q=0
+    for clusters in partition:
+
+        for ell in clusters:
+            c_iden[ell]=c
+
+        c=c+1
+
+    for (u,v) in G.edges():
+
+        if(c_iden[u]==c_iden[v]):
+
+            Q=Q+ (G[u][v]['weight']- out_degrees[u]*in_degrees[v]/(2*m))
+
+    Q=(0.5/m)*Q
+
+def update_directed_modularity(G,c_iden,m,u,c_num_new):
+
+    out_neighbors=list(G.successors(u))
+    in_neighbors=list(G.predecessors(u))
+
+    Q_c=0
+
+    for v in out_neighbors:
+
+        if(c_iden[u]==c_iden[v]):
+            Q_c=Q_c-( G[u][v]['weight']- G.out_degree(u,weight='weight')*G.in_degree(v,weight='weight')/(2*m) )
+        
+        if(c_iden[v]==c_num_new):
+            Q_c=Q_c+( G[u][v]['weight']- G.out_degree(u,weight='weight')*G.in_degree(v,weight='weight')/(2*m) )
+
+    for v in in_neighbors:
+
+        if(c_iden[u]==c_iden[v]):
+            Q_c=Q_c- ( G[v][u]['weight']- G.out_degree(v,weight='weight')*G.in_degree(u,weight='weight')/(2*m) )
+        
+        if(c_iden[v]==c_num_new):
+            Q_c=Q_c +( G[v][u]['weight']- G.out_degree(v,weight='weight')*G.in_degree(u,weight='weight')/(2*m) )
+
+
+    return Q_c
+
+
 def modularity(G, communities, weight="weight", resolution=1):
     mod = 0
     #loop through every community
@@ -82,7 +132,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
         See :ref:`Randomness<randomness>`.
 
     """
-    nx.draw(G, with_labels=True)
+    #nx.draw(G, with_labels=True)
     node2com = {u: i for i, u in enumerate(G.nodes())}
     inner_partition = [{u} for u in G.nodes()]
     # print('size of inner_partition: ',len(inner_partition))
@@ -91,6 +141,8 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
     if is_directed:
         in_degrees = dict(G.in_degree(weight="weight"))
         out_degrees = dict(G.out_degree(weight="weight"))
+
+
         
         # Calculate weights for both in and out neighbors without considering self-loops
         nbrs = {}
@@ -134,10 +186,17 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                     new_partition[nbr_com].add(u)
                     # print('new_partition: ',new_partition)
                     partition_temp = copy.deepcopy(inner_partition)
-                    gain = (
-                        directed_modularity(G, new_partition, weight="weight", resolution=resolution)
-                        - directed_modularity(G, partition_temp, weight="weight", resolution=resolution)    
-                    )
+                    
+                    # gain=(
+                    #     directed_modularity(G, new_partition, weight="weight", resolution=resolution)
+                    #     - directed_modularity(G, partition_temp, weight="weight", resolution=resolution)    
+                    # )
+                    gain = update_directed_modularity(G,node2com,m,u,nbr_com)
+                    
+                    #print(gain,u,inner_partition[nbr_com])
+                    
+                    
+                    
                     # print('gain: ',gain)
                 else:
                     #print('neighbor_com: ',nbr_com)
