@@ -354,7 +354,7 @@ def _neighbor_weights(nbrs, node2com):
         weights[node2com[nbr]] += wt
     return weights
 
-
+#merging graph
 def _gen_graph(G, partition):
     """Generate a new graph based on the partitions of a given graph"""
     H = G.__class__()
@@ -374,7 +374,7 @@ def _gen_graph(G, partition):
         H.add_edge(com1, com2, weight=wt + temp)
     return H
 
-
+#multigraph -> graph
 def _convert_multigraph(G, weight, is_directed):
     """Convert a Multigraph to normal Graph"""
     if is_directed:
