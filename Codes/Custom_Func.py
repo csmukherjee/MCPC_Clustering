@@ -5,9 +5,8 @@ import itertools
 from collections import defaultdict, deque
 
 import networkx as nx
-import copy
+import copy, random
 from networkx.utils import py_random_state
-from networkx.algorithms.community.louvain import _neighbor_weights
 
 def directed_modularity(G,partition,m):
 
@@ -113,7 +112,6 @@ def directed_modularity(G, communities, weight="weight", resolution=1):
     return mod
 
 @py_random_state("seed")
-@nx._dispatchable(edge_attrs="weight")
 def louvain_partitions(
     G, weight="weight", resolution=1, threshold=0.0000001, seed=None
 ):
@@ -203,7 +201,7 @@ def louvain_partitions(
         partition, inner_partition, improvement = _one_level(
             graph, m, partition, resolution, is_directed, seed
         )
-  
+
 def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
     """Calculate one level of the Louvain partitions tree
 
@@ -251,7 +249,10 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
         Stot = list(degrees.values())
         nbrs = {u: {v: data["weight"] for v, data in G[u].items() if v != u} for u in G}
     rand_nodes = list(G.nodes)
+    # random.seed(seed)
+    # random.shuffle(rand_nodes)
     seed.shuffle(rand_nodes)
+    # print('rand_nodes: ',rand_nodes)
     nb_moves = 1
     improvement = False
     while nb_moves > 0:
@@ -288,7 +289,6 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                     #print(gain,u,inner_partition[nbr_com])
                     
                     
-                    
                     # print('gain: ',gain)
                 else:
                     #print('neighbor_com: ',nbr_com)
@@ -314,6 +314,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                 if gain > best_mod:
                     best_mod = gain
                     best_com = nbr_com
+                    print('custom gain: ',best_mod)
             # if is_directed:
             #     # Stot_in[best_com] += in_degree
             #     # Stot_out[best_com] += out_degree
@@ -332,6 +333,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
     partition = list(filter(len, partition))
     inner_partition = list(filter(len, inner_partition))
     # print('inner_partition: ',inner_partition)
+   
     return partition, inner_partition, improvement
 
 def _gen_graph(G, partition):
