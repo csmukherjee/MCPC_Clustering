@@ -6,6 +6,12 @@ from networkx.algorithms.community import modularity
 from networkx.utils import py_random_state
 from networkx.algorithms.community.louvain import _neighbor_weights
 
+DEBUG = True
+
+def log(s):
+    if DEBUG:
+        print(s)
+
 def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
     """Calculate one level of the Louvain partitions tree
 
@@ -49,6 +55,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
         nbrs = {u: {v: data["weight"] for v, data in G[u].items() if v != u} for u in G}
     rand_nodes = list(G.nodes)
     seed.shuffle(rand_nodes)
+    log("rand_nodes: "+ str(rand_nodes))
     nb_moves = 1
     improvement = False
     while nb_moves > 0:

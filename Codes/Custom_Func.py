@@ -8,6 +8,12 @@ import networkx as nx
 import copy, random
 from networkx.utils import py_random_state
 
+DEBUG = True
+
+def log(s):
+    if DEBUG:
+        print(s)
+
 def directed_modularity(G,partition,m):
 
     in_degrees = dict(G.in_degree(weight="weight"))
@@ -252,7 +258,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
     # random.seed(seed)
     # random.shuffle(rand_nodes)
     seed.shuffle(rand_nodes)
-    # print('rand_nodes: ',rand_nodes)
+    log('rand_nodes: '+str(rand_nodes))
     nb_moves = 1
     improvement = False
     while nb_moves > 0:
