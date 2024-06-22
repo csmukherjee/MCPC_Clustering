@@ -364,12 +364,6 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                 improvement = True
                 nb_moves += 1
                 node2com[u] = best_com
-<<<<<<< Updated upstream
-
-=======
-            #print("\n merge",u,best_com,inner_partition[best_com])
->>>>>>> Stashed changes
-            
             
         
     partition = list(filter(len, partition))
