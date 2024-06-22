@@ -8,8 +8,8 @@ import networkx as nx
 import copy, random
 from networkx.utils import py_random_state
 
-#DEBUG = False
-DEBUG = True
+DEBUG = False
+#DEBUG = True
 
 def log(s):
     if DEBUG:

@@ -6,8 +6,8 @@ from networkx.algorithms.community import modularity
 from networkx.utils import py_random_state
 from networkx.algorithms.community.louvain import _neighbor_weights
 
-#DEBUG = False
-DEBUG = True
+DEBUG = False
+#DEBUG = True
 
 def log(s):
     if DEBUG:
