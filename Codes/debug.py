@@ -85,8 +85,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                     Stot[best_com] * degree
                 ) / (2 * m**2)
             for nbr_com, wt in weights2com.items():
-                log('check u:'+str(u))
-                log('check nbr_com: '+str(nbr_com))
+                
                 if is_directed:
                     gain = (
                         remove_cost
@@ -103,7 +102,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                     # log('nbr_com: '+str(nbr_com))
                     # log('inner_partition: '+str(inner_partition))
                     # # log('m: '+str(m))
-                    log('gain: '+str(gain))
+                    log('u:'+str(u)+' nbr_com: '+str(inner_partition[nbr_com])+ ' gain: '+str(gain))
                     
                 else:
                     gain = (
