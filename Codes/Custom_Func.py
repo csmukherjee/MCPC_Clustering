@@ -8,8 +8,8 @@ import networkx as nx
 import copy, random
 from networkx.utils import py_random_state
 
-DEBUG = False
-#DEBUG = True
+#DEBUG = False
+DEBUG = True
 
 def log(s):
     if DEBUG:
@@ -320,7 +320,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                     # log('nbr_com: '+str(nbr_com))
                     # log('inner_partition: '+str(inner_partition))
                     # # log('m: '+str(m))
-                    # log('gain: '+str(gain))
+                    log('gain: '+str(gain))
                 else:
                     new_partition = copy.deepcopy(inner_partition)
                     new_partition[node2com[u]].remove(u)
