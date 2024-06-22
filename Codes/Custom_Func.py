@@ -37,29 +37,58 @@ def directed_modularity(G,partition,m):
 
     Q=(0.5/m)*Q
 
-def update_directed_modularity(G,c_iden,m,u,c_num_new):
+def update_directed_modularity(G,node2com,m,u,c_num_new,inner_partition):
 
     out_neighbors=list(G.successors(u))
     in_neighbors=list(G.predecessors(u))
-
+    # log('u: '+str(u))
+    # log('out_neighbors: '+str(out_neighbors))
+    # log('in_neighbors: '+str(in_neighbors))
     Q_c=0
+    #Addition in new community
+    for n in inner_partition[c_num_new]:
+        if G.has_edge(u,n):
+            Q_c+=(G[u][n]['weight'])/m
+        if G.has_edge(n,u):
+            Q_c+=(G[n][u]['weight'])/m
+        Q_c -= (G.out_degree(u,weight='weight')*G.in_degree(n,weight='weight'))/(m*m)
+        Q_c -= (G.out_degree(n,weight='weight')*G.in_degree(u,weight='weight'))/(m*m)
+    #Subtraction from old community
+    for n in inner_partition[node2com[u]]:
+        if n==u:
+            continue
+        if G.has_edge(u,n):
+            Q_c-=(G[u][n]['weight'])/m
+        if G.has_edge(n,u):
+            Q_c-=(G[n][u]['weight'])/m
+        Q_c += (G.out_degree(u,weight='weight')*G.in_degree(n,weight='weight'))/(m*m)
+        Q_c += (G.out_degree(n,weight='weight')*G.in_degree(u,weight='weight'))/(m*m)
+    # for n in node2com[c_num_new]:
+    #     if G.has_edge(u,n):
+    #         Q_c+=(G[u][n]['weight'])/m
+    #     if G.has_edge(n,u):
+    #         Q_c+=(G[n][u]['weight'])/m
+    #     Q_c -= (G.out_degree(u,weight='weight')*G.in_degree(n,weight='weight'))/(m*m)
+    #     Q_c -= (G.out_degree(n,weight='weight')*G.in_degree(u,weight='weight'))/(m*m)
+    # for v in out_neighbors:
 
-    for v in out_neighbors:
+    #     if(node2com[u]==node2com[v]):
+    #         # Q_c=Q_c-( G[u][v]['weight']- G.out_degree(u,weight='weight')*G.in_degree(v,weight='weight')/(2*m) )
+    #         Q_c=Q_c-( G[u][v]['weight']- G.out_degree(u,weight='weight')*G.in_degree(v,weight='weight')/(m) )/m
+            
+    #     if(node2com[v]==c_num_new):
+    #         # Q_c=Q_c+( G[u][v]['weight']- G.out_degree(u,weight='weight')*G.in_degree(v,weight='weight')/(2*m) )
+    #         Q_c=Q_c+( G[u][v]['weight']- G.out_degree(u,weight='weight')*G.in_degree(v,weight='weight')/(m) )/m
 
-        if(c_iden[u]==c_iden[v]):
-            Q_c=Q_c-( G[u][v]['weight']- G.out_degree(u,weight='weight')*G.in_degree(v,weight='weight')/(2*m) )
-        
-        if(c_iden[v]==c_num_new):
-            Q_c=Q_c+( G[u][v]['weight']- G.out_degree(u,weight='weight')*G.in_degree(v,weight='weight')/(2*m) )
+    # for v in in_neighbors:
 
-    for v in in_neighbors:
+    #     if(node2com[u]==node2com[v]):
+    #         # Q_c=Q_c- ( G[v][u]['weight']- G.out_degree(v,weight='weight')*G.in_degree(u,weight='weight')/(2*m) )
+    #         Q_c=Q_c- ( G[v][u]['weight']- G.out_degree(v,weight='weight')*G.in_degree(u,weight='weight')/(m) )/m
 
-        if(c_iden[u]==c_iden[v]):
-            Q_c=Q_c- ( G[v][u]['weight']- G.out_degree(v,weight='weight')*G.in_degree(u,weight='weight')/(2*m) )
-        
-        if(c_iden[v]==c_num_new):
-            Q_c=Q_c +( G[v][u]['weight']- G.out_degree(v,weight='weight')*G.in_degree(u,weight='weight')/(2*m) )
-
+    #     if(node2com[v]==c_num_new):
+    #         # Q_c=Q_c +( G[v][u]['weight']- G.out_degree(v,weight='weight')*G.in_degree(u,weight='weight')/(2*m) )
+    #         Q_c=Q_c +( G[v][u]['weight']- G.out_degree(v,weight='weight')*G.in_degree(u,weight='weight')/(m) )/m
 
     return Q_c
 
@@ -275,27 +304,22 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                 degree = degrees[u]
             for nbr_com, wt in weights2com.items():
                 if is_directed:
-                    #print('neighbor_com: ',nbr_com)
-                    new_partition = copy.deepcopy(inner_partition)
-                    # print('u: ',u)
-                    # print('partition: ',new_partition)
-                    # print('node2com[u]: ',node2com[u])
-                    new_partition[node2com[u]].remove(u)
-                    # print('node2com[u]: ',node2com[u])
-                    new_partition[nbr_com].add(u)
-                    # print('new_partition: ',new_partition)
-                    partition_temp = copy.deepcopy(inner_partition)
-                    
+                    #takes O(n) time
+                    # new_partition = copy.deepcopy(inner_partition)
+                    # new_partition[node2com[u]].remove(u)
+                    # new_partition[nbr_com].add(u)
+                    #partition_temp = copy.deepcopy(inner_partition)
                     # gain=(
                     #     directed_modularity(G, new_partition, weight="weight", resolution=resolution)
                     #     - directed_modularity(G, partition_temp, weight="weight", resolution=resolution)    
                     # )
-                    gain = update_directed_modularity(G,node2com,m,u,nbr_com)
+                    gain = update_directed_modularity(G,node2com,m,u,nbr_com,inner_partition)
                     
-                    #print(gain,u,inner_partition[nbr_com])
-                    
-                    
-                    # print('gain: ',gain)
+                    log('u: '+str(u))
+                    log('nbr_com: '+str(nbr_com))
+                    log('inner_partition: '+str(inner_partition))
+                    # log('m: '+str(m))
+                    log('gain: '+str(gain))
                 else:
                     #print('neighbor_com: ',nbr_com)
                     new_partition = copy.deepcopy(inner_partition)
@@ -320,7 +344,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                 if gain > best_mod:
                     best_mod = gain
                     best_com = nbr_com
-                    print('custom gain: ',best_mod)
+                    # log('custom gain: '+str(best_mod))
             # if is_directed:
             #     # Stot_in[best_com] += in_degree
             #     # Stot_out[best_com] += out_degree
