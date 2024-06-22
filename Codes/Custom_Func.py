@@ -49,6 +49,8 @@ def update_directed_modularity(G,node2com,m,u,c_num_new,inner_partition):
     Q_c=0
     #Addition in new community
     for n in inner_partition[c_num_new]:
+        if n==u:
+            continue
         if G.has_edge(u,n):
             Q_c+=(G[u][n]['weight'])/m
         if G.has_edge(n,u):
@@ -301,8 +303,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
             # else:
             #     degree = degrees[u]
             for nbr_com, wt in weights2com.items():
-                log('check u:'+str(u))
-                log('check nbr_com: '+str(nbr_com))
+                
 
                 if is_directed:
                     #takes O(n) time
@@ -320,7 +321,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                     # log('nbr_com: '+str(nbr_com))
                     # log('inner_partition: '+str(inner_partition))
                     # # log('m: '+str(m))
-                    log('gain: '+str(gain))
+                    log('u:'+str(u)+' nbr_com: '+str(inner_partition[nbr_com])+ ' gain: '+str(gain))
                 else:
                     new_partition = copy.deepcopy(inner_partition)
                     new_partition[node2com[u]].remove(u)
