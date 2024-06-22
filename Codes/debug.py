@@ -6,14 +6,16 @@ from networkx.algorithms.community import modularity
 from networkx.utils import py_random_state
 from networkx.algorithms.community.louvain import _neighbor_weights
 
-#DEBUG = False
-DEBUG = True
+DEBUG = False
+#DEBUG = True
 
 def log(s):
     if DEBUG:
         print(s)
 
 def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
+
+    #print("Debug One_level")
     """Calculate one level of the Louvain partitions tree
 
     Parameters
@@ -116,6 +118,11 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                     best_mod = gain
                     best_com = nbr_com
                     # log("original gain:"+ str(best_mod))
+
+
+#                print("Check",round(gain,4),u,inner_partition[nbr_com])
+
+
             if is_directed:
                 Stot_in[best_com] += in_degree
                 Stot_out[best_com] += out_degree

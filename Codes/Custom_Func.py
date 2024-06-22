@@ -8,8 +8,8 @@ import networkx as nx
 import copy, random
 from networkx.utils import py_random_state
 
-#DEBUG = False
-DEBUG = True
+DEBUG = False
+#DEBUG = True
 
 def log(s):
     if DEBUG:
@@ -239,7 +239,11 @@ def louvain_partitions(
             graph, m, partition, resolution, is_directed, seed
         )
 
+
 def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
+
+    print("One level call")
+
     """Calculate one level of the Louvain partitions tree
 
     Parameters
@@ -340,11 +344,16 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                     best_mod = gain
                     best_com = nbr_com
                     # log('custom gain: '+str(best_mod))
+
+                #print("Check",round(gain,4),u,inner_partition[nbr_com])
+
             # if is_directed:
             #     # Stot_in[best_com] += in_degree
             #     # Stot_out[best_com] += out_degree
             # else:
             #     Stot[best_com] += degree
+
+            
             if best_com != node2com[u]:
                 # print('best_com: ',best_com)
                 com = G.nodes[u].get("nodes", {u})
@@ -355,8 +364,14 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                 improvement = True
                 nb_moves += 1
                 node2com[u] = best_com
+<<<<<<< Updated upstream
 
+=======
+            #print("\n merge",u,best_com,inner_partition[best_com])
+>>>>>>> Stashed changes
             
+            
+        
     partition = list(filter(len, partition))
     inner_partition = list(filter(len, inner_partition))
     # print('inner_partition: ',inner_partition)
