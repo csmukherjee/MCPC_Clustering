@@ -356,6 +356,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                 nb_moves += 1
                 node2com[u] = best_com
 
+            #print("Check",gain,u,inner_partition[nbr_com])
             
     partition = list(filter(len, partition))
     inner_partition = list(filter(len, inner_partition))
