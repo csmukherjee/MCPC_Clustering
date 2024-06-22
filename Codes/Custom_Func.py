@@ -8,7 +8,8 @@ import networkx as nx
 import copy, random
 from networkx.utils import py_random_state
 
-DEBUG = True
+DEBUG = False
+#DEBUG = True
 
 def log(s):
     if DEBUG:
@@ -39,8 +40,9 @@ def directed_modularity(G,partition,m):
 
 def update_directed_modularity(G,node2com,m,u,c_num_new,inner_partition):
 
-    out_neighbors=list(G.successors(u))
-    in_neighbors=list(G.predecessors(u))
+    # out_neighbors=list(G.successors(u))
+    # in_neighbors=list(G.predecessors(u))
+
     # log('u: '+str(u))
     # log('out_neighbors: '+str(out_neighbors))
     # log('in_neighbors: '+str(in_neighbors))
@@ -260,14 +262,9 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
     #nx.draw(G, with_labels=True)
     node2com = {u: i for i, u in enumerate(G.nodes())}
     inner_partition = [{u} for u in G.nodes()]
-    # print('size of inner_partition: ',len(inner_partition))
-    # print('inner_partition: ',inner_partition)
-    # print('edge weight from 0 to 1: ',G[0][1]['weight'])
     if is_directed:
         in_degrees = dict(G.in_degree(weight="weight"))
         out_degrees = dict(G.out_degree(weight="weight"))
-
-
         
         # Calculate weights for both in and out neighbors without considering self-loops
         nbrs = {}
@@ -279,6 +276,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
             for n, _, wt in G.in_edges(u, data="weight"):
                 if u != n:
                     nbrs[u][n] += wt
+        log("nbrs: "+ str(nbrs))
     else:
         degrees = dict(G.degree(weight="weight"))
         Stot = list(degrees.values())
@@ -296,13 +294,16 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
             best_mod = 0
             best_com = node2com[u]
             weights2com = _neighbor_weights(nbrs[u], node2com)
-            if is_directed:
-                in_degree = in_degrees[u]
-                out_degree = out_degrees[u]
-                
-            else:
-                degree = degrees[u]
+            log('weights2com: '+str(weights2com))
+            # if is_directed:
+            #     in_degree = in_degrees[u]
+            #     out_degree = out_degrees[u]
+            # else:
+            #     degree = degrees[u]
             for nbr_com, wt in weights2com.items():
+                log('check u:'+str(u))
+                log('check nbr_com: '+str(nbr_com))
+
                 if is_directed:
                     #takes O(n) time
                     # new_partition = copy.deepcopy(inner_partition)
@@ -315,27 +316,21 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                     # )
                     gain = update_directed_modularity(G,node2com,m,u,nbr_com,inner_partition)
                     
-                    log('u: '+str(u))
-                    log('nbr_com: '+str(nbr_com))
-                    log('inner_partition: '+str(inner_partition))
-                    # log('m: '+str(m))
-                    log('gain: '+str(gain))
+                    # log('u: '+str(u))
+                    # log('nbr_com: '+str(nbr_com))
+                    # log('inner_partition: '+str(inner_partition))
+                    # # log('m: '+str(m))
+                    # log('gain: '+str(gain))
                 else:
-                    #print('neighbor_com: ',nbr_com)
                     new_partition = copy.deepcopy(inner_partition)
-                    # print('u: ',u)
-                    # print('partition: ',new_partition)
-                    # print('node2com[u]: ',node2com[u])
                     new_partition[node2com[u]].remove(u)
-                    # print('node2com[u]: ',node2com[u])
+                    
                     #add the node to the new community
                     new_partition[nbr_com].add(u)
-                    # print('new_partition: ',new_partition)
                     #remove any empty set
                     #new_partition = list(filter(len, new_partition))
                     partition_temp = copy.deepcopy(inner_partition)
                     #partition_temp = list(filter(len, partition_temp))
-                    #print('new_partition: ',new_partition)
                     gain = (
                         modularity(G, new_partition, weight="weight", resolution=resolution)
                         - modularity(G, partition_temp, weight="weight", resolution=resolution) 

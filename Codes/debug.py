@@ -6,7 +6,8 @@ from networkx.algorithms.community import modularity
 from networkx.utils import py_random_state
 from networkx.algorithms.community.louvain import _neighbor_weights
 
-DEBUG = True
+DEBUG = False
+#DEBUG = True
 
 def log(s):
     if DEBUG:
@@ -49,6 +50,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
             for n, _, wt in G.in_edges(u, data="weight"):
                 if u != n:
                     nbrs[u][n] += wt
+        # log("nbrs: "+ str(nbrs))
     else:
         degrees = dict(G.degree(weight="weight"))
         Stot = list(degrees.values())
@@ -64,6 +66,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
             best_mod = 0
             best_com = node2com[u]
             weights2com = _neighbor_weights(nbrs[u], node2com)
+            log('weights2com: '+str(weights2com))
             if is_directed:
                 in_degree = in_degrees[u]
                 out_degree = out_degrees[u]
@@ -82,6 +85,8 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                     Stot[best_com] * degree
                 ) / (2 * m**2)
             for nbr_com, wt in weights2com.items():
+                log('check u:'+str(u))
+                log('check nbr_com: '+str(nbr_com))
                 if is_directed:
                     gain = (
                         remove_cost
@@ -93,12 +98,12 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                         )
                         / m**2
                     )
-                    # log('node2com: '+str(node2com))
-                    log('u: '+str(u))
-                    log('inner_partition: '+str(inner_partition))
-                    log('nbr_com: '+str(nbr_com))
-                    # log('m: '+str(m))
-                    log('gain: '+str(gain))
+                    # # log('node2com: '+str(node2com))
+                    # log('u: '+str(u))
+                    # log('nbr_com: '+str(nbr_com))
+                    # log('inner_partition: '+str(inner_partition))
+                    # # log('m: '+str(m))
+                    # log('gain: '+str(gain))
                     
                 else:
                     gain = (
