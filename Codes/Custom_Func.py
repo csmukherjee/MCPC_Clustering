@@ -265,29 +265,31 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
     node2com = {u: i for i, u in enumerate(G.nodes())}
     inner_partition = [{u} for u in G.nodes()]
     if is_directed:
-        in_degrees = dict(G.in_degree(weight="weight"))
-        out_degrees = dict(G.out_degree(weight="weight"))
+        # in_degrees = dict(G.in_degree(weight="weight"))
+        # out_degrees = dict(G.out_degree(weight="weight"))
         
         # Calculate weights for both in and out neighbors without considering self-loops
         nbrs = {}
         for u in G:
-            nbrs[u] = defaultdict(float)
-            for _, n, wt in G.out_edges(u, data="weight"):
+            nbrs[u] = set()
+            for _, n in G.out_edges(u):
                 if u != n:
-                    nbrs[u][n] += wt
-            for n, _, wt in G.in_edges(u, data="weight"):
+                    #nbrs[u][n] += wt
+                    nbrs[u].add(n)
+            for n, _, in G.in_edges(u):
                 if u != n:
-                    nbrs[u][n] += wt
-        log("nbrs: "+ str(nbrs))
+                    # nbrs[u][n] += wt
+                    nbrs[u].add(n)
+        # log("nbrs: "+ str(nbrs))
     else:
-        degrees = dict(G.degree(weight="weight"))
-        Stot = list(degrees.values())
+        # degrees = dict(G.degree(weight="weight"))
+        # Stot = list(degrees.values())
         nbrs = {u: {v: data["weight"] for v, data in G[u].items() if v != u} for u in G}
     rand_nodes = list(G.nodes)
     # random.seed(seed)
     # random.shuffle(rand_nodes)
     seed.shuffle(rand_nodes)
-    log('rand_nodes: '+str(rand_nodes))
+    # log('rand_nodes: '+str(rand_nodes))
     nb_moves = 1
     improvement = False
     while nb_moves > 0:
@@ -295,16 +297,18 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
         for u in rand_nodes:
             best_mod = 0
             best_com = node2com[u]
-            weights2com = _neighbor_weights(nbrs[u], node2com)
-            log('weights2com: '+str(weights2com))
+            #weights2com = _neighbor_weights(nbrs[u], node2com)
+            # log('weights2com: '+str(weights2com))
             # if is_directed:
             #     in_degree = in_degrees[u]
             #     out_degree = out_degrees[u]
             # else:
             #     degree = degrees[u]
-            for nbr_com, wt in weights2com.items():
-                
-
+            # for nbr_com, wt in weights2com.items():
+            nbr_coms = set()
+            for nbr in nbrs[u]:
+                nbr_coms.add(node2com[nbr])
+            for nbr_com in nbr_coms:
                 if is_directed:
                     #takes O(n) time
                     # new_partition = copy.deepcopy(inner_partition)
@@ -316,12 +320,11 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                     #     - directed_modularity(G, partition_temp, weight="weight", resolution=resolution)    
                     # )
                     gain = update_directed_modularity(G,node2com,m,u,nbr_com,inner_partition)
-                    
                     # log('u: '+str(u))
                     # log('nbr_com: '+str(nbr_com))
                     # log('inner_partition: '+str(inner_partition))
                     # # log('m: '+str(m))
-                    log('u:'+str(u)+' nbr_com: '+str(inner_partition[nbr_com])+ ' gain: '+str(gain))
+                    # log('u:'+str(u)+' nbr_com: '+str(inner_partition[nbr_com])+ ' gain: '+str(gain))
                 else:
                     new_partition = copy.deepcopy(inner_partition)
                     new_partition[node2com[u]].remove(u)
