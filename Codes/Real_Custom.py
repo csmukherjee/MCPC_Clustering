@@ -8,8 +8,9 @@ import networkx as nx
 import copy, random
 from networkx.utils import py_random_state
 
-#DEBUG = False
-DEBUG = True
+import FlowRank as FR
+DEBUG = False
+#DEBUG = True
 
 def log(s):
     if DEBUG:
@@ -40,12 +41,6 @@ def directed_modularity(G,partition,m):
 
 def update_directed_modularity(G,node2com,m,u,c_num_new,inner_partition):
 
-    # out_neighbors=list(G.successors(u))
-    # in_neighbors=list(G.predecessors(u))
-
-    # log('u: '+str(u))
-    # log('out_neighbors: '+str(out_neighbors))
-    # log('in_neighbors: '+str(in_neighbors))
     Q_c=0
     #Addition in new community
     for n in inner_partition[c_num_new]:
@@ -67,32 +62,6 @@ def update_directed_modularity(G,node2com,m,u,c_num_new,inner_partition):
             Q_c-=(G[n][u]['weight'])/m
         Q_c += (G.out_degree(u,weight='weight')*G.in_degree(n,weight='weight'))/(m*m)
         Q_c += (G.out_degree(n,weight='weight')*G.in_degree(u,weight='weight'))/(m*m)
-    # for n in node2com[c_num_new]:
-    #     if G.has_edge(u,n):
-    #         Q_c+=(G[u][n]['weight'])/m
-    #     if G.has_edge(n,u):
-    #         Q_c+=(G[n][u]['weight'])/m
-    #     Q_c -= (G.out_degree(u,weight='weight')*G.in_degree(n,weight='weight'))/(m*m)
-    #     Q_c -= (G.out_degree(n,weight='weight')*G.in_degree(u,weight='weight'))/(m*m)
-    # for v in out_neighbors:
-
-    #     if(node2com[u]==node2com[v]):
-    #         # Q_c=Q_c-( G[u][v]['weight']- G.out_degree(u,weight='weight')*G.in_degree(v,weight='weight')/(2*m) )
-    #         Q_c=Q_c-( G[u][v]['weight']- G.out_degree(u,weight='weight')*G.in_degree(v,weight='weight')/(m) )/m
-            
-    #     if(node2com[v]==c_num_new):
-    #         # Q_c=Q_c+( G[u][v]['weight']- G.out_degree(u,weight='weight')*G.in_degree(v,weight='weight')/(2*m) )
-    #         Q_c=Q_c+( G[u][v]['weight']- G.out_degree(u,weight='weight')*G.in_degree(v,weight='weight')/(m) )/m
-
-    # for v in in_neighbors:
-
-    #     if(node2com[u]==node2com[v]):
-    #         # Q_c=Q_c- ( G[v][u]['weight']- G.out_degree(v,weight='weight')*G.in_degree(u,weight='weight')/(2*m) )
-    #         Q_c=Q_c- ( G[v][u]['weight']- G.out_degree(v,weight='weight')*G.in_degree(u,weight='weight')/(m) )/m
-
-    #     if(node2com[v]==c_num_new):
-    #         # Q_c=Q_c +( G[v][u]['weight']- G.out_degree(v,weight='weight')*G.in_degree(u,weight='weight')/(2*m) )
-    #         Q_c=Q_c +( G[v][u]['weight']- G.out_degree(v,weight='weight')*G.in_degree(u,weight='weight')/(m) )/m
 
     return Q_c
 
@@ -106,8 +75,8 @@ def custom_directed_modularity(G,node2com,m,u,c_num_new,inner_partition,node2FR)
             Q_c+=(G[u][n]['weight'])/m
         if G.has_edge(n,u):
             Q_c+=(G[n][u]['weight'])/m
-        Q_c -= (1-node2FR(u))*node2FR(n)/(m*m)
-        Q_c -= (1-node2FR(n))*node2FR(u)/(m*m)
+        Q_c -= (1-node2FR[u])*node2FR[n]/(m*m)
+        Q_c -= (1-node2FR[n])*node2FR[u]/(m*m)
     #Subtraction from old community
     for n in inner_partition[node2com[u]]:
         if n==u:
@@ -116,8 +85,8 @@ def custom_directed_modularity(G,node2com,m,u,c_num_new,inner_partition,node2FR)
             Q_c-=(G[u][n]['weight'])/m
         if G.has_edge(n,u):
             Q_c-=(G[n][u]['weight'])/m
-        Q_c += (1-node2FR(u))*node2FR(n)/(m*m)
-        Q_c += (1-node2FR(n))*node2FR(u)/(m*m)    
+        Q_c += (1-node2FR[u])*node2FR[n]/(m*m)
+        Q_c += (1-node2FR[n])*node2FR[u]/(m*m)   
     return Q_c
 
 
@@ -237,7 +206,7 @@ def louvain_partitions(
     if nx.is_empty(G):
         yield partition
         return
-    mod = modularity(G, partition, resolution=resolution, weight=weight)
+    # mod = modularity(G, partition, resolution=resolution, weight=weight)
     is_directed = G.is_directed()
     if G.is_multigraph():
         graph = _convert_multigraph(G, weight, is_directed)
@@ -247,21 +216,22 @@ def louvain_partitions(
         graph.add_weighted_edges_from(G.edges(data=weight, default=1))
 
     m = graph.size(weight="weight")
-    partition, inner_partition, improvement = _one_level(
+    partition, inner_partition, improvement, total_improvement = _one_level(
         graph, m, partition, resolution, is_directed, seed
     )
-    improvement = True
-    while improvement:
+    # improvement = True
+    total_improvement=threshold+1
+    while total_improvement > threshold:
         # gh-5901 protect the sets in the yielded list from further manipulation here
         yield [s.copy() for s in partition]
-        new_mod = modularity(
-            graph, inner_partition, resolution=resolution, weight="weight"
-        )
-        if new_mod - mod <= threshold:
-            return
-        mod = new_mod
+        # new_mod = modularity(
+        #     graph, inner_partition, resolution=resolution, weight="weight"
+        # )
+        # if new_mod - mod <= threshold:
+        #     return
+        # mod = new_mod
         graph = _gen_graph(graph, inner_partition)
-        partition, inner_partition, improvement = _one_level(
+        partition, inner_partition, improvement, total_improvement = _one_level(
             graph, m, partition, resolution, is_directed, seed
         )
 
@@ -289,8 +259,6 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
     node2com = {u: i for i, u in enumerate(G.nodes())}
     inner_partition = [{u} for u in G.nodes()]
     if is_directed:
-        in_degrees = dict(G.in_degree(weight="weight"))
-        out_degrees = dict(G.out_degree(weight="weight"))
         
         # Calculate weights for both in and out neighbors without considering self-loops
         nbrs = {}
@@ -304,16 +272,22 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                     nbrs[u][n] += wt
         log("nbrs: "+ str(nbrs))
     else:
-        degrees = dict(G.degree(weight="weight"))
-        Stot = list(degrees.values())
         nbrs = {u: {v: data["weight"] for v, data in G[u].items() if v != u} for u in G}
     rand_nodes = list(G.nodes)
     # random.seed(seed)
     # random.shuffle(rand_nodes)
     seed.shuffle(rand_nodes)
     log('rand_nodes: '+str(rand_nodes))
+
+    #Calculte Flow Rank
+    node2FR = dict()
+    for i in FR.FLOW_ng(G.edges(),G.nodes(),1):
+        node_num = int(i[1])
+        node2FR[node_num] = i[0]
+
     nb_moves = 1
     improvement = False
+    total_improvement=0
     while nb_moves > 0:
         nb_moves = 0
         for u in rand_nodes:
@@ -339,7 +313,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                     #     directed_modularity(G, new_partition, weight="weight", resolution=resolution)
                     #     - directed_modularity(G, partition_temp, weight="weight", resolution=resolution)    
                     # )
-                    gain = update_directed_modularity(G,node2com,m,u,nbr_com,inner_partition)
+                    gain = custom_directed_modularity(G,node2com,m,u,nbr_com,inner_partition,node2FR)
                     
                     # log('u: '+str(u))
                     # log('nbr_com: '+str(nbr_com))
@@ -380,14 +354,14 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                 improvement = True
                 nb_moves += 1
                 node2com[u] = best_com
-
+                total_improvement+=best_mod
             #print("Check",gain,u,inner_partition[nbr_com])
             
     partition = list(filter(len, partition))
     inner_partition = list(filter(len, inner_partition))
     # print('inner_partition: ',inner_partition)
    
-    return partition, inner_partition, improvement
+    return partition, inner_partition, improvement, total_improvement
 
 def _gen_graph(G, partition):
     """Generate a new graph based on the partitions of a given graph"""
