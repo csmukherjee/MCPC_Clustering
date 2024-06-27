@@ -97,7 +97,7 @@ def update_directed_modularity(G,node2com,m,u,c_num_new,inner_partition):
     return Q_c
 
 def custom_directed_modularity(G,partition,m):
-    
+    return
 
 
 def modularity(G, communities, weight="weight", resolution=1):
