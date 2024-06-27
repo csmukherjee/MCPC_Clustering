@@ -49,6 +49,8 @@ def update_directed_modularity(G,node2com,m,u,c_num_new,inner_partition):
     Q_c=0
     #Addition in new community
     for n in inner_partition[c_num_new]:
+        if n==u:
+            continue
         if G.has_edge(u,n):
             Q_c+=(G[u][n]['weight'])/m
         if G.has_edge(n,u):
