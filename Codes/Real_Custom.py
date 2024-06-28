@@ -7,6 +7,7 @@ from collections import defaultdict, deque
 import networkx as nx
 import copy, random
 from networkx.utils import py_random_state
+import math
 
 import FlowRank as FR
 DEBUG = False
@@ -66,7 +67,8 @@ def update_directed_modularity(G,node2com,m,u,c_num_new,inner_partition):
     return Q_c
 
 #334614 diverge or converge
-def custom_directed_modularity(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=334614):
+#1. Penalty = -resolution*(1-FR(u))*FR(n)/(m*m)
+def custom_directed_modularity_1(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=24.5):
     Q_c=0
     #Addition in new community
     for n in inner_partition[c_num_new]:
@@ -76,8 +78,8 @@ def custom_directed_modularity(G,node2com,m,u,c_num_new,inner_partition,node2FR,
             Q_c+=(G[u][n]['weight'])/m
         if G.has_edge(n,u):
             Q_c+=(G[n][u]['weight'])/m
-        Q_c -= resolution*(1-node2FR[u])*node2FR[n]/(m*m)
-        Q_c -= resolution*(1-node2FR[n])*node2FR[u]/(m*m)
+        Q_c -= resolution*(1-node2FR[u])*node2FR[n]/(m)
+        Q_c -= resolution*(1-node2FR[n])*node2FR[u]/(m)
     #Subtraction from old community
     for n in inner_partition[node2com[u]]:
         if n==u:
@@ -86,10 +88,67 @@ def custom_directed_modularity(G,node2com,m,u,c_num_new,inner_partition,node2FR,
             Q_c-=(G[u][n]['weight'])/m
         if G.has_edge(n,u):
             Q_c-=(G[n][u]['weight'])/m
-        Q_c += resolution*(1-node2FR[u])*node2FR[n]/(m*m)
-        Q_c += resolution*(1-node2FR[n])*node2FR[u]/(m*m)   
+        Q_c += resolution*(1-node2FR[u])*node2FR[n]/(m)
+        Q_c += resolution*(1-node2FR[n])*node2FR[u]/(m)   
     return Q_c
 
+#2. Penalty = -resolution*log(FR(u)^-1)*FR(n)/(m*m)
+def custom_directed_modularity_2(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=1):
+    Q_c=0
+    #Addition in new community
+    for n in inner_partition[c_num_new]:
+        if n==u:
+            continue
+        if G.has_edge(u,n):
+            Q_c+=(G[u][n]['weight'])/m
+        if G.has_edge(n,u):
+            Q_c+=(G[n][u]['weight'])/m
+        if node2FR[n]==0:
+            Q_c += resolution*math.log(1/0.001)*node2FR[n]/(m)
+            Q_c += resolution*math.log(1/0.001)*node2FR[u]/(m)
+        else:
+            Q_c += resolution*math.log(1/node2FR[n])*node2FR[n]/(m)
+            Q_c += resolution*math.log(1/node2FR[n])*node2FR[u]/(m)
+    #Subtraction from old community
+    for n in inner_partition[node2com[u]]:
+        if n==u:
+            continue
+        if G.has_edge(u,n):
+            Q_c-=(G[u][n]['weight'])/m
+        if G.has_edge(n,u):
+            Q_c-=(G[n][u]['weight'])/m
+        if node2FR[n]==0:
+            Q_c -= resolution*math.log(1/0.001)*node2FR[n]/(m)
+            Q_c -= resolution*math.log(1/0.001)*node2FR[u]/(m)
+        else:
+            Q_c -= resolution*math.log(1/node2FR[n])*node2FR[n]/(m)
+            Q_c -= resolution*math.log(1/node2FR[n])*node2FR[u]/(m)
+    return Q_c
+
+#3. Penalty = -resolution*FR(n)/(m*m)
+def custom_directed_modularity_3(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=4.09017165):
+    Q_c=0
+    #Addition in new community
+    for n in inner_partition[c_num_new]:
+        if n==u:
+            continue
+        if G.has_edge(u,n):
+            Q_c+=(G[u][n]['weight'])/m
+        if G.has_edge(n,u):
+            Q_c+=(G[n][u]['weight'])/m
+        Q_c -= resolution*node2FR[n]/(m)
+        Q_c -= resolution*node2FR[u]/(m)
+    #Subtraction from old community
+    for n in inner_partition[node2com[u]]:
+        if n==u:
+            continue
+        if G.has_edge(u,n):
+            Q_c-=(G[u][n]['weight'])/m
+        if G.has_edge(n,u):
+            Q_c-=(G[n][u]['weight'])/m
+        Q_c += resolution*node2FR[n]/(m)
+        Q_c += resolution*node2FR[u]/(m)   
+    return Q_c
 
 def modularity(G, communities, weight="weight", resolution=1):
     mod = 0
@@ -314,7 +373,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                     #     directed_modularity(G, new_partition, weight="weight", resolution=resolution)
                     #     - directed_modularity(G, partition_temp, weight="weight", resolution=resolution)    
                     # )
-                    gain = custom_directed_modularity(G,node2com,m,u,nbr_com,inner_partition,node2FR)
+                    gain = custom_directed_modularity_3(G,node2com,m,u,nbr_com,inner_partition,node2FR)
                     
                     # log('u: '+str(u))
                     # log('nbr_com: '+str(nbr_com))
