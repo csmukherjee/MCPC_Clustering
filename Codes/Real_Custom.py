@@ -65,7 +65,8 @@ def update_directed_modularity(G,node2com,m,u,c_num_new,inner_partition):
 
     return Q_c
 
-def custom_directed_modularity(G,node2com,m,u,c_num_new,inner_partition,node2FR):
+#334614 diverge or converge
+def custom_directed_modularity(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=334614):
     Q_c=0
     #Addition in new community
     for n in inner_partition[c_num_new]:
@@ -75,8 +76,8 @@ def custom_directed_modularity(G,node2com,m,u,c_num_new,inner_partition,node2FR)
             Q_c+=(G[u][n]['weight'])/m
         if G.has_edge(n,u):
             Q_c+=(G[n][u]['weight'])/m
-        Q_c -= (1-node2FR[u])*node2FR[n]/(m*m)
-        Q_c -= (1-node2FR[n])*node2FR[u]/(m*m)
+        Q_c -= resolution*(1-node2FR[u])*node2FR[n]/(m*m)
+        Q_c -= resolution*(1-node2FR[n])*node2FR[u]/(m*m)
     #Subtraction from old community
     for n in inner_partition[node2com[u]]:
         if n==u:
@@ -85,8 +86,8 @@ def custom_directed_modularity(G,node2com,m,u,c_num_new,inner_partition,node2FR)
             Q_c-=(G[u][n]['weight'])/m
         if G.has_edge(n,u):
             Q_c-=(G[n][u]['weight'])/m
-        Q_c += (1-node2FR[u])*node2FR[n]/(m*m)
-        Q_c += (1-node2FR[n])*node2FR[u]/(m*m)   
+        Q_c += resolution*(1-node2FR[u])*node2FR[n]/(m*m)
+        Q_c += resolution*(1-node2FR[n])*node2FR[u]/(m*m)   
     return Q_c
 
 
