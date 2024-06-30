@@ -68,7 +68,7 @@ def update_directed_modularity(G,node2com,m,u,c_num_new,inner_partition):
 
 #334614 diverge or converge
 #1. Penalty = -resolution*(1-FR(u))*FR(n)/(m*m)
-def custom_directed_modularity_1(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=24.5):
+def custom_directed_modularity_1(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=0.014):
     Q_c=0
     #Addition in new community
     for n in inner_partition[c_num_new]:
@@ -78,8 +78,8 @@ def custom_directed_modularity_1(G,node2com,m,u,c_num_new,inner_partition,node2F
             Q_c+=(G[u][n]['weight'])/m
         if G.has_edge(n,u):
             Q_c+=(G[n][u]['weight'])/m
-        Q_c -= resolution*(1-node2FR[u])*node2FR[n]/(m)
-        Q_c -= resolution*(1-node2FR[n])*node2FR[u]/(m)
+        Q_c -= resolution*(1-node2FR[u])*node2FR[n]
+        Q_c -= resolution*(1-node2FR[n])*node2FR[u]
     #Subtraction from old community
     for n in inner_partition[node2com[u]]:
         if n==u:
@@ -88,8 +88,8 @@ def custom_directed_modularity_1(G,node2com,m,u,c_num_new,inner_partition,node2F
             Q_c-=(G[u][n]['weight'])/m
         if G.has_edge(n,u):
             Q_c-=(G[n][u]['weight'])/m
-        Q_c += resolution*(1-node2FR[u])*node2FR[n]/(m)
-        Q_c += resolution*(1-node2FR[n])*node2FR[u]/(m)   
+        Q_c += resolution*(1-node2FR[u])*node2FR[n]
+        Q_c += resolution*(1-node2FR[n])*node2FR[u]   
     return Q_c
 
 #2. Penalty = -resolution*log(FR(u)^-1)*FR(n)/(m*m)
@@ -373,7 +373,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                     #     directed_modularity(G, new_partition, weight="weight", resolution=resolution)
                     #     - directed_modularity(G, partition_temp, weight="weight", resolution=resolution)    
                     # )
-                    gain = custom_directed_modularity_3(G,node2com,m,u,nbr_com,inner_partition,node2FR)
+                    gain = custom_directed_modularity_1(G,node2com,m,u,nbr_com,inner_partition,node2FR)
                     
                     # log('u: '+str(u))
                     # log('nbr_com: '+str(nbr_com))
