@@ -126,7 +126,7 @@ def custom_directed_modularity_2(G,node2com,m,u,c_num_new,inner_partition,node2F
     return Q_c
 
 #3. Penalty = -resolution*FR(n)/(m*m)
-def custom_directed_modularity_3(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=0.00178):
+def custom_directed_modularity_3(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=1):
     Q_c=0
     #Addition in new community
     for n in inner_partition[c_num_new]:
@@ -136,8 +136,8 @@ def custom_directed_modularity_3(G,node2com,m,u,c_num_new,inner_partition,node2F
             Q_c+=(G[u][n]['weight'])/m
         if G.has_edge(n,u):
             Q_c+=(G[n][u]['weight'])/m
-        Q_c -= resolution*node2FR[n]
-        Q_c -= resolution*node2FR[u]
+        Q_c -= resolution*node2FR[n]/m
+        Q_c -= resolution*node2FR[u]/m
     #Subtraction from old community
     for n in inner_partition[node2com[u]]:
         if n==u:
@@ -146,8 +146,34 @@ def custom_directed_modularity_3(G,node2com,m,u,c_num_new,inner_partition,node2F
             Q_c-=(G[u][n]['weight'])/m
         if G.has_edge(n,u):
             Q_c-=(G[n][u]['weight'])/m
-        Q_c += resolution*node2FR[n]
-        Q_c += resolution*node2FR[u]  
+        Q_c += resolution*node2FR[n]/m
+        Q_c += resolution*node2FR[u]/m 
+    return Q_c
+
+#4. Penalty = FR(n)*FR(u)*d_in*d_out/(m)
+def custom_directed_modularity_4(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=1.13):
+    Q_c=0
+    #Addition in new community
+    for n in inner_partition[c_num_new]:
+        if n==u:
+            continue
+        if G.has_edge(u,n):
+            Q_c+=(G[u][n]['weight'])/m
+        if G.has_edge(n,u):
+            Q_c+=(G[n][u]['weight'])/m
+        Q_c -= resolution*G.out_degree(u,weight='weight')*G.in_degree(n,weight='weight')*node2FR[u]*node2FR[n]/(m*m)
+        Q_c -= resolution*G.out_degree(n,weight='weight')*G.in_degree(u,weight='weight')*node2FR[u]*node2FR[n]/(m*m)
+    #Subtraction from old community
+    for n in inner_partition[node2com[u]]:
+        if n==u:
+            continue
+        if G.has_edge(u,n):
+            Q_c-=(G[u][n]['weight'])/m
+        if G.has_edge(n,u):
+            Q_c-=(G[n][u]['weight'])/m
+        Q_c += resolution*G.out_degree(u,weight='weight')*G.in_degree(n,weight='weight')*node2FR[u]*node2FR[n]/(m*m)
+        Q_c += resolution*G.out_degree(n,weight='weight')*G.in_degree(u,weight='weight')*node2FR[u]*node2FR[n]/(m*m)
+    
     return Q_c
 
 def modularity(G, communities, weight="weight", resolution=1):
@@ -275,9 +301,15 @@ def louvain_partitions(
         graph.add_nodes_from(G)
         graph.add_weighted_edges_from(G.edges(data=weight, default=1))
 
+    #Calculte Flow Rank
+    node2FR = dict()
+    for i in FR.FLOW_ng(G.edges(),G.nodes(),1):
+        node_num = int(i[1])
+        node2FR[node_num] = i[0]
+    
     m = graph.size(weight="weight")
     partition, inner_partition, improvement, total_improvement = _one_level(
-        graph, m, partition, resolution, is_directed, seed
+        graph, m, partition, resolution, is_directed, seed, node2FR
     )
     # improvement = True
     total_improvement=threshold+1
@@ -290,12 +322,12 @@ def louvain_partitions(
         # if new_mod - mod <= threshold:
         #     return
         # mod = new_mod
-        graph = _gen_graph(graph, inner_partition)
+        graph, node2FR = _gen_graph(graph, inner_partition,node2FR)
         partition, inner_partition, improvement, total_improvement = _one_level(
-            graph, m, partition, resolution, is_directed, seed
+            graph, m, partition, resolution, is_directed, seed, node2FR
         )
 
-def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
+def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node2FR={}):
     """Calculate one level of the Louvain partitions tree
 
     Parameters
@@ -339,11 +371,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
     seed.shuffle(rand_nodes)
     log('rand_nodes: '+str(rand_nodes))
 
-    #Calculte Flow Rank
-    node2FR = dict()
-    for i in FR.FLOW_ng(G.edges(),G.nodes(),1):
-        node_num = int(i[1])
-        node2FR[node_num] = i[0]
+    
 
     nb_moves = 1
     improvement = False
@@ -373,7 +401,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
                     #     directed_modularity(G, new_partition, weight="weight", resolution=resolution)
                     #     - directed_modularity(G, partition_temp, weight="weight", resolution=resolution)    
                     # )
-                    gain = custom_directed_modularity_3(G,node2com,m,u,nbr_com,inner_partition,node2FR)
+                    gain = custom_directed_modularity_4(G,node2com,m,u,nbr_com,inner_partition,node2FR)
                     
                     # log('u: '+str(u))
                     # log('nbr_com: '+str(nbr_com))
@@ -423,15 +451,24 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None):
    
     return partition, inner_partition, improvement, total_improvement
 
-def _gen_graph(G, partition):
+def _gen_graph(G, partition, node2FR):
     """Generate a new graph based on the partitions of a given graph"""
     H = G.__class__()
     node2com = {}
+    node2FR_new = {}
+
     for i, part in enumerate(partition):
         nodes = set()
+        
         for node in part:
+            #New node's FR is the average of all nodes in the community
+            node2FR_new[i] = node2FR_new.get(i, 0) + node2FR[node]
+
             node2com[node] = i
             nodes.update(G.nodes[node].get("nodes", {node}))
+       
+        #Average the FR of the community
+        node2FR_new[i] /= len(part)
         H.add_node(i, nodes=nodes)
 
     for node1, node2, wt in G.edges(data=True):
@@ -440,7 +477,7 @@ def _gen_graph(G, partition):
         com2 = node2com[node2]
         temp = H.get_edge_data(com1, com2, {"weight": 0})["weight"]
         H.add_edge(com1, com2, weight=wt + temp)
-    return H
+    return H, node2FR_new
 
 def _neighbor_weights(nbrs, node2com):
     """Calculate weights between node and its neighbor communities.
