@@ -17,218 +17,6 @@ def log(s):
     if DEBUG:
         print(s)
 
-def directed_modularity(G,partition,m):
-
-    in_degrees = dict(G.in_degree(weight="weight"))
-    out_degrees = dict(G.out_degree(weight="weight"))
-
-    c_iden={}
-    c=0
-    Q=0
-    for clusters in partition:
-
-        for ell in clusters:
-            c_iden[ell]=c
-
-        c=c+1
-
-    for (u,v) in G.edges():
-
-        if(c_iden[u]==c_iden[v]):
-
-            Q=Q+ (G[u][v]['weight']- out_degrees[u]*in_degrees[v]/(2*m))
-
-    Q=(0.5/m)*Q
-
-def update_directed_modularity(G,node2com,m,u,c_num_new,inner_partition):
-
-    Q_c=0
-    #Addition in new community
-    for n in inner_partition[c_num_new]:
-        if n==u:
-            continue
-        if G.has_edge(u,n):
-            Q_c+=(G[u][n]['weight'])/m
-        if G.has_edge(n,u):
-            Q_c+=(G[n][u]['weight'])/m
-        Q_c -= (G.out_degree(u,weight='weight')*G.in_degree(n,weight='weight'))/(m*m)
-        Q_c -= (G.out_degree(n,weight='weight')*G.in_degree(u,weight='weight'))/(m*m)
-    #Subtraction from old community
-    for n in inner_partition[node2com[u]]:
-        if n==u:
-            continue
-        if G.has_edge(u,n):
-            Q_c-=(G[u][n]['weight'])/m
-        if G.has_edge(n,u):
-            Q_c-=(G[n][u]['weight'])/m
-        Q_c += (G.out_degree(u,weight='weight')*G.in_degree(n,weight='weight'))/(m*m)
-        Q_c += (G.out_degree(n,weight='weight')*G.in_degree(u,weight='weight'))/(m*m)
-
-    return Q_c
-
-#334614 diverge or converge
-#1. Penalty = -resolution*(1-FR(u))*FR(n)/(m*m)
-def custom_directed_modularity_1(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=0.014):
-    Q_c=0
-    #Addition in new community
-    for n in inner_partition[c_num_new]:
-        if n==u:
-            continue
-        if G.has_edge(u,n):
-            Q_c+=(G[u][n]['weight'])/m
-        if G.has_edge(n,u):
-            Q_c+=(G[n][u]['weight'])/m
-        Q_c -= resolution*(1-node2FR[u])*node2FR[n]
-        Q_c -= resolution*(1-node2FR[n])*node2FR[u]
-    #Subtraction from old community
-    for n in inner_partition[node2com[u]]:
-        if n==u:
-            continue
-        if G.has_edge(u,n):
-            Q_c-=(G[u][n]['weight'])/m
-        if G.has_edge(n,u):
-            Q_c-=(G[n][u]['weight'])/m
-        Q_c += resolution*(1-node2FR[u])*node2FR[n]
-        Q_c += resolution*(1-node2FR[n])*node2FR[u]   
-    return Q_c
-
-#2. Penalty = -resolution*log(FR(u)^-1)*FR(n)/(m*m)
-def custom_directed_modularity_2(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=1):
-    Q_c=0
-    #Addition in new community
-    for n in inner_partition[c_num_new]:
-        if n==u:
-            continue
-        if G.has_edge(u,n):
-            Q_c+=(G[u][n]['weight'])/m
-        if G.has_edge(n,u):
-            Q_c+=(G[n][u]['weight'])/m
-        if node2FR[n]==0:
-            Q_c += resolution*math.log(1/0.001)*node2FR[n]/(m)
-            Q_c += resolution*math.log(1/0.001)*node2FR[u]/(m)
-        else:
-            Q_c += resolution*math.log(1/node2FR[n])*node2FR[n]/(m)
-            Q_c += resolution*math.log(1/node2FR[n])*node2FR[u]/(m)
-    #Subtraction from old community
-    for n in inner_partition[node2com[u]]:
-        if n==u:
-            continue
-        if G.has_edge(u,n):
-            Q_c-=(G[u][n]['weight'])/m
-        if G.has_edge(n,u):
-            Q_c-=(G[n][u]['weight'])/m
-        if node2FR[n]==0:
-            Q_c -= resolution*math.log(1/0.001)*node2FR[n]/(m)
-            Q_c -= resolution*math.log(1/0.001)*node2FR[u]/(m)
-        else:
-            Q_c -= resolution*math.log(1/node2FR[n])*node2FR[n]/(m)
-            Q_c -= resolution*math.log(1/node2FR[n])*node2FR[u]/(m)
-    return Q_c
-
-#3. Penalty = -resolution*FR(n)/(m*m)
-def custom_directed_modularity_3(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=1):
-    Q_c=0
-    #Addition in new community
-    for n in inner_partition[c_num_new]:
-        if n==u:
-            continue
-        if G.has_edge(u,n):
-            Q_c+=(G[u][n]['weight'])/m
-        if G.has_edge(n,u):
-            Q_c+=(G[n][u]['weight'])/m
-        Q_c -= resolution*node2FR[n]/m
-        Q_c -= resolution*node2FR[u]/m
-    #Subtraction from old community
-    for n in inner_partition[node2com[u]]:
-        if n==u:
-            continue
-        if G.has_edge(u,n):
-            Q_c-=(G[u][n]['weight'])/m
-        if G.has_edge(n,u):
-            Q_c-=(G[n][u]['weight'])/m
-        Q_c += resolution*node2FR[n]/m
-        Q_c += resolution*node2FR[u]/m 
-    return Q_c
-
-#4. Penalty = FR(n)*FR(u)*d_in*d_out/(m)
-def custom_directed_modularity_4(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=0.9):
-    Q_c=0
-    #Addition in new community
-    for n in inner_partition[c_num_new]:
-        if n==u:
-            continue
-        if G.has_edge(u,n):
-            Q_c+=(G[u][n]['weight'])/m
-        if G.has_edge(n,u):
-            Q_c+=(G[n][u]['weight'])/m
-        Q_c -= resolution*G.out_degree(u,weight='weight')*G.in_degree(n,weight='weight')*node2FR[u]*node2FR[n]/(m*m)
-        Q_c -= resolution*G.out_degree(n,weight='weight')*G.in_degree(u,weight='weight')*node2FR[u]*node2FR[n]/(m*m)
-    #Subtraction from old community
-    for n in inner_partition[node2com[u]]:
-        if n==u:
-            continue
-        if G.has_edge(u,n):
-            Q_c-=(G[u][n]['weight'])/m
-        if G.has_edge(n,u):
-            Q_c-=(G[n][u]['weight'])/m
-        Q_c += resolution*G.out_degree(u,weight='weight')*G.in_degree(n,weight='weight')*node2FR[u]*node2FR[n]/(m*m)
-        Q_c += resolution*G.out_degree(n,weight='weight')*G.in_degree(u,weight='weight')*node2FR[u]*node2FR[n]/(m*m)
-    
-    return Q_c
-
-def modularity(G, communities, weight="weight", resolution=1):
-    mod = 0
-    #loop through every community
-    for community in communities:
-        com_sum=0
-        #loop through every pair of nodes in the community
-        if len(community) > 0:
-            for u, v in itertools.combinations(community, 2):
-                #add the weight of the edge between the two nodes
-                if G.has_edge(u,v):
-                    com_sum+= (
-                        G[u][v]['weight']
-                    )
-            for node in community:
-                #add the weight of the self-loop
-                #if there is a self loop
-                if G.has_edge(node,node):
-                    com_sum+= (
-                        G[node][node]['weight']
-                    )
-        if com_sum >=2:
-            mod+=1
-    return mod
-
-def directed_modularity(G, communities, weight="weight", resolution=1):
-    mod = 0
-    #loop through every community
-    for community in communities:
-        com_sum=0
-        #loop through every pair of nodes in the community
-        if len(community) > 0:
-            for u, v in itertools.combinations(community, 2):
-                #add the weight of the edge between the two nodes
-                if G.has_edge(u,v):
-                    com_sum+= (
-                        G[u][v]['weight']
-                    )
-                if G.has_edge(v,u):
-                    com_sum+= (
-                        G[v][u]['weight']
-                    )
-            for node in community:
-                #add the weight of the self-loop
-                #if there is a self loop
-                if G.has_edge(node,node):
-                    com_sum+= (
-                        G[node][node]['weight']
-                    )
-        if com_sum >=2:
-            mod+=1
-        # print('mod: ',mod)
-    return mod
-
 @py_random_state("seed")
 def louvain_partitions(
     G, weight="weight", resolution=1, threshold=0.0000001, seed=None
@@ -351,7 +139,12 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
     node2com = {u: i for i, u in enumerate(G.nodes())}
     inner_partition = [{u} for u in G.nodes()]
     if is_directed:
-        
+        in_degrees = dict(G.in_degree(weight="weight")) #key = node, value = in_degree
+        out_degrees = dict(G.out_degree(weight="weight")) #key = node, value = out_degree
+        F_in = {u: in_degrees[u]*node2FR[u] for u in G} #F_in(i) = FR(i)*in_degree(i)
+        F_out = {u: out_degrees[u]*node2FR[u] for u in G} #F_out(i) = FR(i)*out_degree(i)
+        Stot_in = list(F_in.values()) #Each community's total incoming F(i)
+        Stot_out = list(F_out.values()) #Each community's total outgoing F(i)
         # Calculate weights for both in and out neighbors without considering self-loops
         nbrs = {}
         for u in G:
@@ -366,13 +159,8 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
     else:
         nbrs = {u: {v: data["weight"] for v, data in G[u].items() if v != u} for u in G}
     rand_nodes = list(G.nodes)
-    # random.seed(seed)
-    # random.shuffle(rand_nodes)
     seed.shuffle(rand_nodes)
     log('rand_nodes: '+str(rand_nodes))
-
-    
-
     nb_moves = 1
     improvement = False
     total_improvement=0
@@ -383,53 +171,45 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
             best_com = node2com[u]
             weights2com = _neighbor_weights(nbrs[u], node2com)
             log('weights2com: '+str(weights2com))
-            # if is_directed:
-            #     in_degree = in_degrees[u]
-            #     out_degree = out_degrees[u]
-            # else:
-            #     degree = degrees[u]
+            if is_directed:
+                Fin = F_in[u]
+                Fout = F_out[u]
+                Stot_in[best_com] -= Fin
+                Stot_out[best_com] -= Fout
+                remove_cost = (
+                    -weights2com[best_com] / m
+                    + resolution
+                    * (Fout * Stot_in[best_com] + Fin * Stot_out[best_com])
+                    / m**2
+                )
+            else:
+                log('skip for now')
             for nbr_com, wt in weights2com.items():
-                
-
                 if is_directed:
-                    #takes O(n) time
-                    # new_partition = copy.deepcopy(inner_partition)
-                    # new_partition[node2com[u]].remove(u)
-                    # new_partition[nbr_com].add(u)
-                    #partition_temp = copy.deepcopy(inner_partition)
-                    # gain=(
-                    #     directed_modularity(G, new_partition, weight="weight", resolution=resolution)
-                    #     - directed_modularity(G, partition_temp, weight="weight", resolution=resolution)    
-                    # )
-                    gain = custom_directed_modularity_4(G,node2com,m,u,nbr_com,inner_partition,node2FR)
-                    
+                    gain = (
+                        remove_cost
+                        + wt / m
+                        - resolution
+                        * (
+                            Fout * Stot_in[nbr_com]
+                            + Fin * Stot_out[nbr_com]
+                        )
+                        / m**2
+                    )
                     # log('u: '+str(u))
                     # log('nbr_com: '+str(nbr_com))
                     # log('inner_partition: '+str(inner_partition))
                     # # log('m: '+str(m))
                     log('u:'+str(u)+' nbr_com: '+str(inner_partition[nbr_com])+ ' gain: '+str(gain))
                 else:
-                    new_partition = copy.deepcopy(inner_partition)
-                    new_partition[node2com[u]].remove(u)
-                    
-                    #add the node to the new community
-                    new_partition[nbr_com].add(u)
-                    #remove any empty set
-                    #new_partition = list(filter(len, new_partition))
-                    partition_temp = copy.deepcopy(inner_partition)
-                    #partition_temp = list(filter(len, partition_temp))
-                    gain = (
-                        modularity(G, new_partition, weight="weight", resolution=resolution)
-                        - modularity(G, partition_temp, weight="weight", resolution=resolution) 
-                    )
-                    # print('gain: ',gain)
+                    log('skip for now')
                 if gain > best_mod:
                     best_mod = gain
                     best_com = nbr_com
                     # log('custom gain: '+str(best_mod))
-            # if is_directed:
-            #     # Stot_in[best_com] += in_degree
-            #     # Stot_out[best_com] += out_degree
+            if is_directed:
+                Stot_in[best_com] += Fin
+                Stot_out[best_com] += Fout
             # else:
             #     Stot[best_com] += degree
             if best_com != node2com[u]:
