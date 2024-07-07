@@ -8,7 +8,7 @@ from sklearn.decomposition import PCA
 import sklearn
 
 
-import community as community_louvain
+# import community as community_louvain
 import networkx as nx
 from sklearn.metrics.cluster import normalized_mutual_info_score
 from sklearn.metrics.cluster import adjusted_rand_score

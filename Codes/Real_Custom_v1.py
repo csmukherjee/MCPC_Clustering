@@ -151,11 +151,7 @@ def custom_directed_modularity_3(G,node2com,m,u,c_num_new,inner_partition,node2F
     return Q_c
 
 #4. Penalty = FR(n)*FR(u)*d_in*d_out/(m)
-<<<<<<< Updated upstream
-def custom_directed_modularity_4(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=0.9):
-=======
 def custom_directed_modularity_4(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=1):
->>>>>>> Stashed changes
     Q_c=0
     #Addition in new community
     for n in inner_partition[c_num_new]:
