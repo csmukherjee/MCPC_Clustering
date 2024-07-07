@@ -155,12 +155,12 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
             for n, _, wt in G.in_edges(u, data="weight"):
                 if u != n:
                     nbrs[u][n] += wt
-        log("nbrs: "+ str(nbrs))
+        # log("nbrs: "+ str(nbrs))
     else:
         nbrs = {u: {v: data["weight"] for v, data in G[u].items() if v != u} for u in G}
     rand_nodes = list(G.nodes)
     seed.shuffle(rand_nodes)
-    log('rand_nodes: '+str(rand_nodes))
+    # log('rand_nodes: '+str(rand_nodes))
     nb_moves = 1
     improvement = False
     total_improvement=0
@@ -170,7 +170,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
             best_mod = 0
             best_com = node2com[u]
             weights2com = _neighbor_weights(nbrs[u], node2com)
-            log('weights2com: '+str(weights2com))
+            # log('weights2com: '+str(weights2com))
             if is_directed:
                 Fin = F_in[u]
                 Fout = F_out[u]
@@ -183,7 +183,8 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
                     / m**2
                 )
             else:
-                log('skip for now')
+                # log('skip for now')
+                print('')
             for nbr_com, wt in weights2com.items():
                 if is_directed:
                     gain = (
@@ -200,9 +201,10 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
                     # log('nbr_com: '+str(nbr_com))
                     # log('inner_partition: '+str(inner_partition))
                     # # log('m: '+str(m))
-                    log('u:'+str(u)+' nbr_com: '+str(inner_partition[nbr_com])+ ' gain: '+str(gain))
+                    # log('u:'+str(u)+' nbr_com: '+str(inner_partition[nbr_com])+ ' gain: '+str(gain))
                 else:
-                    log('skip for now')
+                    # log('skip for now')
+                    print('')
                 if gain > best_mod:
                     best_mod = gain
                     best_com = nbr_com
