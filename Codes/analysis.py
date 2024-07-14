@@ -8,9 +8,10 @@ from sklearn.metrics import completeness_score as completeness
 
 def metrics_summary(labels,label,res_list,names):
     colors = ['red', 'blue', 'green', 'yellow', 'black']
-    n=len(labels)
-
-    
+    n=len(names)
+    print(res_list)
+    #flatten res_list into a single list
+    res_list_flat = [item for sublist in res_list for item in sublist]
     
     NMI_list=[]
     Purity_list=[]
@@ -27,7 +28,7 @@ def metrics_summary(labels,label,res_list,names):
             Homogeneity_list.append(round(homogeneity(label,label_new),2))
             Completeness_list.append(round(completeness(label,label_new),2))
     data = {'NMI':NMI_list,'Purity':Purity_list,'V-score':V_list,'Homogeneity':Homogeneity_list,'Completeness':Completeness_list}
-    df = pd.DataFrame(data, index=res_list*len(names))
+    df = pd.DataFrame(data, index=res_list_flat)
     print(df)
 
     #NMI vs Purity Plot
@@ -76,9 +77,9 @@ def metrics_summary(labels,label,res_list,names):
         for idx, label_new in enumerate(labels[i]):
             if first:
                 first = False
-                plt.scatter(res_list[idx],round(NMI(label,label_new),2),marker='x',color=colors[i], label = names[i])
+                plt.scatter(res_list[i][idx],round(NMI(label,label_new),2),marker='x',color=colors[i], label = names[i])
             else:
-                plt.scatter(res_list[idx],round(NMI(label,label_new),2),marker='x',color=colors[i])
+                plt.scatter(res_list[i][idx],round(NMI(label,label_new),2),marker='x',color=colors[i])
             
         
         plt.legend(loc='lower center')
