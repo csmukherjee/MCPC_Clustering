@@ -1,4 +1,4 @@
-"""Closed Form solution for Custom -di*dj*Fr(i)*Fr(j)/m"""
+"""Closed Form solution for Custom -di*dj*Fr(i)*Fr(j)/m + FR order choosing nodes"""
 
 import itertools
 from collections import defaultdict, deque
@@ -20,7 +20,7 @@ def log(s):
 def louvain_partitions(
     G, weight="weight", resolution=1, threshold=0.0000001, seed=None
 ):
-
+    
     partition = [{u} for u in G.nodes()]
     if nx.is_empty(G):
         yield partition
@@ -85,15 +85,16 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
         # log("nbrs: "+ str(nbrs))
     else:
         nbrs = {u: {v: data["weight"] for v, data in G[u].items() if v != u} for u in G}
-    rand_nodes = list(G.nodes)
-    seed.shuffle(rand_nodes)
+    #rand_nodes = list(G.nodes)
+    sorted_nodes = sorted(G.nodes, key=lambda x: node2FR[x], reverse=True)
+    #seed.shuffle(rand_nodes)
     # log('rand_nodes: '+str(rand_nodes))
     nb_moves = 1
     improvement = False
     total_improvement=0
     while nb_moves > 0:
         nb_moves = 0
-        for u in rand_nodes:
+        for u in sorted_nodes:
             best_mod = 0
             best_com = node2com[u]
             weights2com = _neighbor_weights(nbrs[u], node2com)
