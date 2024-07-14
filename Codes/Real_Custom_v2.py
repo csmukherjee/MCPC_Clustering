@@ -8,6 +8,8 @@ import copy, random
 from networkx.utils import py_random_state
 import math
 
+import numpy as np
+
 import FlowRank as FR
 DEBUG = False
 #DEBUG = True
@@ -36,7 +38,8 @@ def louvain_partitions(
 
     #Calculte Flow Rank
     node2FR = dict()
-    for i in FR.FLOW_ng(G.edges(),G.nodes(),1):
+    n_s=G.number_of_nodes()
+    for i in FR.FLOW_ng_prop(G.edges(),G.nodes(),int(np.log2(n_s))):
         node_num = int(i[1])
         node2FR[node_num] = i[0]
     
