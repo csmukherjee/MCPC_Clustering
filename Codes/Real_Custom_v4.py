@@ -1,4 +1,4 @@
-"""Closed Form solution for Custom -di*dj*Fr(i)*Fr(j)/m + FR order choosing nodes"""
+"""Closed Form solution for Custom -di*dj*Fr(i)*Fr(j)/m + FR order choosing nodes + FR recalculation after every iteration"""
 
 import itertools
 from collections import defaultdict, deque
@@ -34,7 +34,7 @@ def louvain_partitions(
         graph.add_nodes_from(G)
         graph.add_weighted_edges_from(G.edges(data=weight, default=1))
 
-    #Calculte Flow Rank
+    #Calculate Flow Rank
     node2FR = dict()
     for i in FR.FLOW_ng(G.edges(),G.nodes(),1):
         node_num = int(i[1])
@@ -55,7 +55,14 @@ def louvain_partitions(
         # if new_mod - mod <= threshold:
         #     return
         # mod = new_mod
-        graph, node2FR = _gen_graph(graph, inner_partition,node2FR)
+        graph = _gen_graph(graph, inner_partition)
+
+        #Recalculate Flow Rank
+        node2FR = dict()
+        for i in FR.FLOW_ng(G.edges(),G.nodes(),1):
+            node_num = int(i[1])
+            node2FR[node_num] = i[0]
+        
         partition, inner_partition, improvement, total_improvement = _one_level(
             graph, m, partition, resolution, is_directed, seed, node2FR
         )
@@ -161,24 +168,15 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
    
     return partition, inner_partition, improvement, total_improvement
 
-def _gen_graph(G, partition, node2FR):
+def _gen_graph(G, partition):
     """Generate a new graph based on the partitions of a given graph"""
     H = G.__class__()
     node2com = {}
-    node2FR_new = {}
-
     for i, part in enumerate(partition):
         nodes = set()
-        
         for node in part:
-            #New node's FR is the average of all nodes in the community
-            node2FR_new[i] = node2FR_new.get(i, 0) + node2FR[node]
-
             node2com[node] = i
             nodes.update(G.nodes[node].get("nodes", {node}))
-       
-        #Average the FR of the community
-        node2FR_new[i] /= len(part)
         H.add_node(i, nodes=nodes)
 
     for node1, node2, wt in G.edges(data=True):
@@ -187,7 +185,7 @@ def _gen_graph(G, partition, node2FR):
         com2 = node2com[node2]
         temp = H.get_edge_data(com1, com2, {"weight": 0})["weight"]
         H.add_edge(com1, com2, weight=wt + temp)
-    return H, node2FR_new
+    return H
 
 def _neighbor_weights(nbrs, node2com):
     """Calculate weights between node and its neighbor communities.
