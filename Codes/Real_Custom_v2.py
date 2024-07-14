@@ -36,13 +36,19 @@ def louvain_partitions(
         graph.add_nodes_from(G)
         graph.add_weighted_edges_from(G.edges(data=weight, default=1))
 
-    #Calculte Flow Rank
+    # #Calculte Flow Rank
+    # node2FR = dict()
+    # n_s=G.number_of_nodes()
+    # for i in FR.FLOW_ng_prop(G.edges(),G.nodes(),int(np.log2(n_s))):
+    #     node_num = int(i[1])
+    #     node2FR[node_num] = i[0]
+    
+    #Calculate Flow Rank
     node2FR = dict()
-    n_s=G.number_of_nodes()
-    for i in FR.FLOW_ng_prop(G.edges(),G.nodes(),int(np.log2(n_s))):
+    for i in FR.FLOW_ng(G.edges(),G.nodes(),1):
         node_num = int(i[1])
         node2FR[node_num] = i[0]
-    
+
     m = graph.size(weight="weight")
     partition, inner_partition, improvement, total_improvement = _one_level(
         graph, m, partition, resolution, is_directed, seed, node2FR
@@ -64,7 +70,6 @@ def louvain_partitions(
         )
 
 def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node2FR={}):
-
     #nx.draw(G, with_labels=True)
     node2com = {u: i for i, u in enumerate(G.nodes())}
     inner_partition = [{u} for u in G.nodes()]
