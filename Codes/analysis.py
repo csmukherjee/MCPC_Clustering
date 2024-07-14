@@ -9,7 +9,7 @@ from sklearn.metrics import completeness_score as completeness
 def metrics_summary(labels,label,res_list,names):
     colors = ['red', 'blue', 'green', 'yellow', 'black']
     n=len(names)
-    print(res_list)
+    #print(res_list)
     #flatten res_list into a single list
     res_list_flat = [item for sublist in res_list for item in sublist]
     
@@ -22,6 +22,8 @@ def metrics_summary(labels,label,res_list,names):
     for i in range(n):
         first = True
         for label_new in labels[i]:
+            #print('label_new',label_new)
+            #print('label_new_len',len(label_new))
             NMI_list.append(round(NMI(label,label_new),2))
             Purity_list.append(round(met.purity_score(label,label_new),2))
             V_list.append(round(v_score(label,label_new),2))
