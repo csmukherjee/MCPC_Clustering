@@ -21,14 +21,27 @@ def metrics_summary(labels,label,res_list,names):
     #Metrics Table
     for i in range(n):
         first = True
-        for label_new in labels[i]:
+        max_NMI = [0,0]
+        max_Purity = [0,0]
+        max_res = [0,0]
+        for k, label_new in enumerate(labels[i]):
             #print('label_new',label_new)
             #print('label_new_len',len(label_new))
-            NMI_list.append(round(NMI(label,label_new),2))
-            Purity_list.append(round(met.purity_score(label,label_new),2))
-            V_list.append(round(v_score(label,label_new),2))
-            Homogeneity_list.append(round(homogeneity(label,label_new),2))
-            Completeness_list.append(round(completeness(label,label_new),2))
+            if(round(NMI(label,label_new),3)>max_NMI[0]):
+                max_NMI[0] = round(NMI(label,label_new),3)
+                max_NMI[1]= round(met.purity_score(label,label_new),3)
+                max_res[0] = res_list[i][k]
+            if(round(met.purity_score(label,label_new),3)>max_Purity[1]):
+                max_Purity[0] = round(NMI(label,label_new),3)
+                max_Purity[1]= round(met.purity_score(label,label_new),3)
+                max_res[1] = res_list[i][k]
+            NMI_list.append(round(NMI(label,label_new),3))
+            Purity_list.append(round(met.purity_score(label,label_new),3))
+            V_list.append(round(v_score(label,label_new),3))
+            Homogeneity_list.append(round(homogeneity(label,label_new),3))
+            Completeness_list.append(round(completeness(label,label_new),3))
+        print('Max NMI and Purity for',names[i],':\n',max_NMI,'res:',max_res[0],'\n',max_Purity,'res:',max_res[1] )
+    
     data = {'NMI':NMI_list,'Purity':Purity_list,'V-score':V_list,'Homogeneity':Homogeneity_list,'Completeness':Completeness_list}
     df = pd.DataFrame(data, index=res_list_flat)
     print(df)
@@ -37,16 +50,11 @@ def metrics_summary(labels,label,res_list,names):
     for i in range(n):
         first = True
         for label_new in labels[i]:
-            NMI_list.append(round(NMI(label,label_new),2))
-            Purity_list.append(round(met.purity_score(label,label_new),2))
-            V_list.append(round(v_score(label,label_new),2))
-            Homogeneity_list.append(round(homogeneity(label,label_new),2))
-            Completeness_list.append(round(completeness(label,label_new),2))
             if first:
                 first = False
-                plt.scatter(round(NMI(label,label_new),2),round(met.purity_score(label,label_new),2),marker='x',color=colors[i], label = names[i])
+                plt.scatter(round(NMI(label,label_new),3),round(met.purity_score(label,label_new),3),marker='x',color=colors[i], label = names[i])
             else:
-                plt.scatter(round(NMI(label,label_new),2),round(met.purity_score(label,label_new),2),marker='x',color=colors[i])
+                plt.scatter(round(NMI(label,label_new),3),round(met.purity_score(label,label_new),3),marker='x',color=colors[i])
             
         
         plt.legend(loc='lower center')
@@ -62,9 +70,9 @@ def metrics_summary(labels,label,res_list,names):
         for label_new in labels[i]:
             if first:
                 first = False
-                plt.scatter(round(completeness(label,label_new),2),round(homogeneity(label,label_new),2),marker='x',color=colors[i], label = names[i])
+                plt.scatter(round(completeness(label,label_new),3),round(homogeneity(label,label_new),3),marker='x',color=colors[i], label = names[i])
             else:
-                plt.scatter(round(completeness(label,label_new),2),round(homogeneity(label,label_new),2),marker='x',color=colors[i])
+                plt.scatter(round(completeness(label,label_new),3),round(homogeneity(label,label_new),3),marker='x',color=colors[i])
             
         
         plt.legend(loc='lower center')
@@ -79,9 +87,9 @@ def metrics_summary(labels,label,res_list,names):
         for idx, label_new in enumerate(labels[i]):
             if first:
                 first = False
-                plt.scatter(res_list[i][idx],round(NMI(label,label_new),2),marker='x',color=colors[i], label = names[i])
+                plt.scatter(res_list[i][idx],round(NMI(label,label_new),3),marker='x',color=colors[i], label = names[i])
             else:
-                plt.scatter(res_list[i][idx],round(NMI(label,label_new),2),marker='x',color=colors[i])
+                plt.scatter(res_list[i][idx],round(NMI(label,label_new),3),marker='x',color=colors[i])
             
         
         plt.legend(loc='lower center')
