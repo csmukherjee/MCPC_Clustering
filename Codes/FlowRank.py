@@ -109,8 +109,8 @@ def mat_PR(mat_list,wt_list,walk_len_c1):
     return vec
 
 @njit
-def short_walk(adj_list,v_cover,v):
-
+def short_walk(adj_list,v_cover,v): 
+#One round of random walk to higher FR neighbors, return the sequence of visited nodes & length
     vset=[v]
     times=1
 
