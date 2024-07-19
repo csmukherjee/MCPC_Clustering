@@ -1,8 +1,8 @@
 """General Custom with functions and methods as parameters
 Mod_type
-Func 0: Default Directed Louvain
-Func 1: di*dj*Fr(i)*Fr(j)/m
-Func 2: di*dj*Fr(j)/m
+Func 0 (Louvain): Default Directed Louvain
+Func 1 (Cust 1): di*dj*Fr(i)*Fr(j)/m 
+Func 2 (Cust 2): di*dj*Fr(j)/m
 
 FR_type
 FR 0: FLOW
