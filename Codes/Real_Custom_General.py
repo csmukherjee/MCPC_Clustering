@@ -1,11 +1,16 @@
 """General Custom with functions and methods as parameters
-Func 1: Default Directed Louvain
-Func 2: di*dj*Fr(i)*Fr(j)/m
-Func 3: di*dj*Fr(j)/m
+Mod_type
+Func 0: Default Directed Louvain
+Func 1: di*dj*Fr(i)*Fr(j)/m
+Func 2: di*dj*Fr(j)/m
 
-FR 1: FLOW
-FR 2: FLOW_ng
-FR 3: FLOW_ng_prop
+FR_type
+FR 0: FLOW
+FR 1: FLOW_ng
+FR 2: FLOW_ng_prop
+
+FR_order = True: Order nodes by FR, False: Random order
+FR_Recalc = True: Recalculate FR every iteration, False: Average FR every iteration
 """
 
 import itertools
@@ -16,7 +21,7 @@ import copy, random
 from networkx.utils import py_random_state
 import math
 import numpy as np
-import FlowRank as FR
+import FlowRank_General as FR
 DEBUG = False
 #DEBUG = True
 
@@ -35,7 +40,7 @@ def FlowRank_Func(edge_list,vlist,walk_len_c1,c_const=0,type=0):
 
 @py_random_state("seed")
 def louvain_partitions(
-    G, weight="weight", resolution=1, threshold=0.0000001, seed=None, FR_order=False, FR_Recalc=False, FR_type=0
+    G, weight="weight", resolution=1, threshold=0.0000001, seed=None, FR_order=False, FR_Recalc=False, FR_type=0, Mod_type=0
 ):
     
     partition = [{u} for u in G.nodes()]
@@ -59,7 +64,7 @@ def louvain_partitions(
     
     m = graph.size(weight="weight")
     partition, inner_partition, improvement, total_improvement = _one_level(
-        graph, m, partition, resolution, is_directed, seed, node2FR, FR_order
+        graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, Mod_type
     )
     # improvement = True
     total_improvement=threshold+1
@@ -85,19 +90,30 @@ def louvain_partitions(
             graph, node2FR = _gen_graph_2(graph, inner_partition,node2FR)
         
         partition, inner_partition, improvement, total_improvement = _one_level(
-            graph, m, partition, resolution, is_directed, seed, node2FR, FR_order
+            graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, Mod_type
         )
 
-def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node2FR={}, FR_order=False):
+def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node2FR={}, FR_order=False, Mod_type=0):
     #print("once")
     #nx.draw(G, with_labels=True)
     node2com = {u: i for i, u in enumerate(G.nodes())}
     inner_partition = [{u} for u in G.nodes()]
+
+    #F_in and F_out are the general functions in the penalty term F_in(i)*F_out(j)/m in the modularity func
+    #We can change F_in and F_out accordingly
     if is_directed:
         in_degrees = dict(G.in_degree(weight="weight")) #key = node, value = in_degree
         out_degrees = dict(G.out_degree(weight="weight")) #key = node, value = out_degree
-        F_in = {u: in_degrees[u]*node2FR[u] for u in G} #F_in(i) = FR(i)*in_degree(i)
-        F_out = {u: out_degrees[u]*node2FR[u] for u in G} #F_out(i) = FR(i)*out_degree(i)
+        if Mod_type==0:
+            F_in = {u: in_degrees[u] for u in G}
+            F_out = {u: out_degrees[u] for u in G}
+        elif Mod_type==1:
+            F_in = {u: in_degrees[u]*node2FR[u] for u in G} #F_in(i) = FR(i)*in_degree(i)
+            F_out = {u: out_degrees[u]*node2FR[u] for u in G} #F_out(i) = FR(i)*out_degree(i)
+        elif Mod_type==2:
+            F_in = {u: in_degrees[u] for u in G}
+            F_out = {u: out_degrees[u]*node2FR[u] for u in G} #F_out(i) = FR(i)*out_degree(i)
+        
         Stot_in = list(F_in.values()) #Each community's total incoming F(i)
         Stot_out = list(F_out.values()) #Each community's total outgoing F(i)
         # Calculate weights for both in and out neighbors without considering self-loops

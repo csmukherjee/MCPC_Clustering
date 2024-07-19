@@ -1,0 +1,108 @@
+Max NMI and Purity for Rd+FR_Re+FL+Cust_2 :
+ [0.809, 0.667] res: 0.5 
+ [0.686, 0.82] res: 3.7
+Max NMI and Purity for Rd+FR_avg+FL+Cust_2 :
+ [0.806, 0.667] res: 1.7 
+ [0.795, 0.677] res: 3.6
+Max NMI and Purity for Rd+FR_Re+FL_ng+Cust_1 :
+ [0.805, 0.667] res: 0.2 
+ [0.724, 0.799] res: 3.0
+Max NMI and Purity for Rd+FR_Re+FL_pr+Cust_2 :
+ [0.805, 0.667] res: 0.4 
+ [0.65, 0.802] res: 3.4
+Max NMI and Purity for Rd+FR_Re+FL+Cust_1 :
+ [0.804, 0.667] res: 0.4 
+ [0.719, 0.818] res: 3.3
+Max NMI and Purity for Ord+FR_avg+FL_ng+Louv :
+ [0.802, 0.667] res: 0.175 
+ [0.753, 0.802] res: 0.8
+Max NMI and Purity for Ord+FR_Re+FL_ng+Louv :
+ [0.802, 0.667] res: 0.175 
+ [0.772, 0.817] res: 0.775
+Max NMI and Purity for Ord+FR_avg+FL_ng+Cust_2 :
+ [0.799, 0.666] res: 0.6 
+ [0.756, 0.817] res: 2.9
+Max NMI and Purity for Ord+FR_Re+FL_ng+Cust_2 :
+ [0.799, 0.666] res: 0.2 
+ [0.712, 0.819] res: 2.9
+Max NMI and Purity for Rd+FR_avg+FL_pr+Cust_2 :
+ [0.796, 0.667] res: 0.8 
+ [0.737, 0.805] res: 2.0
+Max NMI and Purity for Ord+FR_Re+FL_pr+Cust_2 :
+ [0.795, 0.664] res: 0.2 
+ [0.686, 0.808] res: 2.2
+Max NMI and Purity for Rd+FR_avg+FL+Louv :
+ [0.794, 0.664] res: 0.175 
+ [0.72, 0.803] res: 1.0
+Max NMI and Purity for Rd+FR_avg+FL_ng+Louv :
+ [0.794, 0.664] res: 0.175 
+ [0.72, 0.803] res: 1.0
+Max NMI and Purity for Rd+FR_avg+FL_ng+Cust_1 :
+ [0.794, 0.664] res: 2.1 
+ [0.794, 0.664] res: 2.1
+Max NMI and Purity for Rd+FR_avg+FL_pr+Louv :
+ [0.794, 0.664] res: 0.175 
+ [0.72, 0.803] res: 1.0
+Max NMI and Purity for Rd+FR_avg+FL_pr+Cust_1 :
+ [0.794, 0.663] res: 0.8 
+ [0.755, 0.813] res: 3.6
+Max NMI and Purity for Rd+FR_Re+FL+Louv :
+ [0.794, 0.664] res: 0.175 
+ [0.72, 0.803] res: 1.0
+Max NMI and Purity for Rd+FR_Re+FL_ng+Louv :
+ [0.794, 0.664] res: 0.175 
+ [0.72, 0.803] res: 1.0
+Max NMI and Purity for Rd+FR_Re+FL_pr+Louv :
+ [0.794, 0.664] res: 0.175 
+ [0.72, 0.803] res: 1.0
+Max NMI and Purity for Rd+FR_Re+FL_pr+Cust_1 :
+ [0.794, 0.664] res: 0.3 
+ [0.775, 0.812] res: 1.5
+Max NMI and Purity for Ord+FR_avg+FL_pr+Louv :
+ [0.794, 0.664] res: 0.35 
+ [0.723, 0.797] res: 0.925
+Max NMI and Purity for Ord+FR_avg+FL_pr+Cust_1 :
+ [0.794, 0.664] res: 1.1 
+ [0.769, 0.811] res: 3.4
+Max NMI and Purity for Ord+FR_avg+FL_pr+Cust_2 :
+ [0.794, 0.664] res: 0.4 
+ [0.701, 0.818] res: 3.6
+Max NMI and Purity for Ord+FR_Re+FL_pr+Louv :
+ [0.794, 0.664] res: 0.35 
+ [0.762, 0.806] res: 0.8
+Max NMI and Purity for Ord+FR_Re+FL_pr+Cust_1 :
+ [0.794, 0.664] res: 0.3 
+ [0.677, 0.807] res: 3.8
+Max NMI and Purity for Rd+FR_avg+FL_ng+Cust_2 :
+ [0.793, 0.663] res: 0.6 
+ [0.749, 0.814] res: 3.1
+Max NMI and Purity for Rd+FR_Re+FL_ng+Cust_2 :
+ [0.793, 0.663] res: 0.2 
+ [0.683, 0.805] res: 3.2
+Max NMI and Purity for Ord+FR_avg+FL+Louv :
+ [0.791, 0.663] res: 0.2 
+ [0.757, 0.811] res: 0.85
+Max NMI and Purity for Ord+FR_avg+FL_ng+Cust_1 :
+ [0.79, 0.659] res: 2.2 
+ [0.775, 0.669] res: 3.5
+Max NMI and Purity for Ord+FR_Re+FL+Louv :
+ [0.79, 0.662] res: 0.225 
+ [0.773, 0.811] res: 0.725
+Max NMI and Purity for Ord+FR_Re+FL_ng+Cust_1 :
+ [0.79, 0.659] res: 0.3 
+ [0.727, 0.792] res: 2.4
+Max NMI and Purity for Ord+FR_avg+FL+Cust_2 :
+ [0.789, 0.662] res: 1.9 
+ [0.784, 0.673] res: 3.0
+Max NMI and Purity for Ord+FR_Re+FL+Cust_2 :
+ [0.789, 0.662] res: 0.5 
+ [0.685, 0.81] res: 3.2
+Max NMI and Purity for Ord+FR_Re+FL+Cust_1 :
+ [0.788, 0.663] res: 0.4 
+ [0.744, 0.802] res: 2.4
+Max NMI and Purity for Ord+FR_avg+FL+Cust_1 :
+ [0.69, 0.546] res: 0.8 
+ [0.689, 0.546] res: 0.4
+Max NMI and Purity for Rd+FR_avg+FL+Cust_1 :
+ [0.689, 0.546] res: 0.9 
+ [0.689, 0.546] res: 0.9
