@@ -3,6 +3,11 @@ Mod_type
 Func 0 (Louvain): Default Directed Louvain
 Func 1 (Cust 1): di*dj*Fr(i)*Fr(j)/m 
 Func 2 (Cust 2): di*dj*Fr(j)/m
+Func 3 (Cust 3): di*dj*x^(Fr[i]+Fr[j]) (x = can put in as parameter)
+Func 4 (Cust 4): di*dj*x^(Fr[j]) (x = can put in as parameter)
+Func 5 (Cust 5): di*dj*log(1+Fr[i])*log(1+Fr[j])
+Func 6 (Cust 6): di*dj*log(1+Fr[j])
+Func 7 (Cust 7): First round di*dj*Fr(j)/m, After that normal Louvain
 
 FR_type
 FR 0: FLOW
@@ -40,7 +45,7 @@ def FlowRank_Func(edge_list,vlist,walk_len_c1,c_const=0,type=0):
 
 @py_random_state("seed")
 def louvain_partitions(
-    G, weight="weight", resolution=1, threshold=0.0000001, seed=None, FR_order=False, FR_Recalc=False, FR_type=0, Mod_type=0
+    G, weight="weight", resolution=1, threshold=0.0000001, seed=None, FR_order=False, FR_Recalc=False, FR_type=0, Mod_type=0, exp_base=2
 ):
     
     partition = [{u} for u in G.nodes()]
@@ -63,9 +68,15 @@ def louvain_partitions(
         node2FR[node_num] = i[0]
     
     m = graph.size(weight="weight")
-    partition, inner_partition, improvement, total_improvement = _one_level(
-        graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, Mod_type
-    )
+
+    if Mod_type==7:
+        partition, inner_partition, improvement, total_improvement = _one_level(
+            graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, 2, exp_base
+        )
+    else:
+        partition, inner_partition, improvement, total_improvement = _one_level(
+            graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, Mod_type, exp_base
+        )
     # improvement = True
     total_improvement=threshold+1
     while total_improvement > threshold:
@@ -93,7 +104,7 @@ def louvain_partitions(
             graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, Mod_type
         )
 
-def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node2FR={}, FR_order=False, Mod_type=0):
+def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node2FR={}, FR_order=False, Mod_type=0,exp_base=8):
     #print("once")
     #nx.draw(G, with_labels=True)
     node2com = {u: i for i, u in enumerate(G.nodes())}
@@ -104,7 +115,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
     if is_directed:
         in_degrees = dict(G.in_degree(weight="weight")) #key = node, value = in_degree
         out_degrees = dict(G.out_degree(weight="weight")) #key = node, value = out_degree
-        if Mod_type==0:
+        if Mod_type==0 or Mod_type==7:
             F_in = {u: in_degrees[u] for u in G}
             F_out = {u: out_degrees[u] for u in G}
         elif Mod_type==1:
@@ -113,6 +124,18 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
         elif Mod_type==2:
             F_in = {u: in_degrees[u] for u in G}
             F_out = {u: out_degrees[u]*node2FR[u] for u in G} #F_out(i) = FR(i)*out_degree(i)
+        elif Mod_type==3:
+            F_in = {u: in_degrees[u]*(exp_base**node2FR[u]) for u in G}
+            F_out = {u: out_degrees[u]*(exp_base**node2FR[u]) for u in G}
+        elif Mod_type==4:
+            F_in = {u: in_degrees[u] for u in G}
+            F_out = {u: out_degrees[u]*(exp_base**node2FR[u]) for u in G}
+        elif Mod_type==5:
+            F_in = {u: in_degrees[u]*np.log2(1+node2FR[u]) for u in G}
+            F_out = {u: out_degrees[u]*np.log2(1+node2FR[u]) for u in G}
+        elif Mod_type==6:
+            F_in = {u: in_degrees[u] for u in G}
+            F_out = {u: out_degrees[u]*np.log2(1+node2FR[u]) for u in G}
         
         Stot_in = list(F_in.values()) #Each community's total incoming F(i)
         Stot_out = list(F_out.values()) #Each community's total outgoing F(i)
