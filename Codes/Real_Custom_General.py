@@ -100,11 +100,13 @@ def louvain_partitions(
         else: #If we just average FR every iteration
             graph, node2FR = _gen_graph_2(graph, inner_partition,node2FR)
         
+        if Mod_type==7:
+            resolution = 0.25
         partition, inner_partition, improvement, total_improvement = _one_level(
-            graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, Mod_type
+            graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, Mod_type, exp_base
         )
 
-def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node2FR={}, FR_order=False, Mod_type=0,exp_base=8):
+def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node2FR={}, FR_order=False, Mod_type=0,exp_base=2):
     #print("once")
     #nx.draw(G, with_labels=True)
     node2com = {u: i for i, u in enumerate(G.nodes())}
@@ -115,6 +117,12 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
     if is_directed:
         in_degrees = dict(G.in_degree(weight="weight")) #key = node, value = in_degree
         out_degrees = dict(G.out_degree(weight="weight")) #key = node, value = out_degree
+        if Mod_type==32:
+            Mod_type=3
+            exp_base = 8
+        if Mod_type==42:
+            Mod_type=4
+            exp_base =8
         if Mod_type==0 or Mod_type==7:
             F_in = {u: in_degrees[u] for u in G}
             F_out = {u: out_degrees[u] for u in G}
