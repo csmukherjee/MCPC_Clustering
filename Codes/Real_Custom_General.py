@@ -107,9 +107,9 @@ def louvain_partitions(
             graph, node2FR = _gen_graph_2(graph, inner_partition,node2FR)
         
         if Mod_type==7:
-            resolution = 0.25 #resolution for Louvain
+            resolution = 0.175 #resolution for Louvain, 0.175 for Zhengmix, 0.25 for Fashion
         if Mod_type==8:
-            resolution = 0.25
+            resolution = 0.175
         partition, inner_partition, improvement, total_improvement = _one_level(
             graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, Mod_type, exp_base
         )
@@ -117,6 +117,7 @@ def louvain_partitions(
 def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node2FR={}, FR_order=False, Mod_type=0,exp_base=2):
     #print("once")
     #nx.draw(G, with_labels=True)
+    
     node2com = {u: i for i, u in enumerate(G.nodes())}
     inner_partition = [{u} for u in G.nodes()]
 
