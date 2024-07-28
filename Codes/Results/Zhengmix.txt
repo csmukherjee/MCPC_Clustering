@@ -256,6 +256,8 @@ Max NMI and Purity for Rd+FR_avg+FL+Cust5 :
  [0.687, 0.546] res: 0.4
 
  _______________________________________________________________________________________
+ exp base 8 and Cust 7 
+ 
  Max NMI and Purity for Rd+FR_avg+FL_ng+Cust_4 :
  [0.798, 0.666] res: 0.1 
  [0.678, 0.82] res: 1.2
