@@ -48,10 +48,12 @@ def cust9(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=0.0):
             continue
         if G.has_edge(u,n):
             Q_c+=(G[u][n]['weight'])/m
+        else:
+            Q_c -= resolution*float(G.out_degree(u,weight='weight')*G.in_degree(n,weight='weight'))*(node2FR[n])/(m*m)  
         if G.has_edge(n,u):
             Q_c+=(G[n][u]['weight'])/m
-        Q_c -= resolution*float(G.out_degree(u,weight='weight')*G.in_degree(n,weight='weight'))*(1+node2FR[n])/(m*m)   
-        Q_c -= resolution*float(G.out_degree(n,weight='weight')*G.in_degree(u,weight='weight'))*(1+node2FR[u])/(m*m)
+        else:
+            Q_c -= resolution*float(G.out_degree(n,weight='weight')*G.in_degree(u,weight='weight'))*(node2FR[u])/(m*m)
         # Q_c -= (G.out_degree(u,weight='weight')*G.in_degree(n,weight='weight'))/(m*m)   
         # Q_c -= (G.out_degree(n,weight='weight')*G.in_degree(u,weight='weight'))/(m*m)
        
@@ -61,10 +63,12 @@ def cust9(G,node2com,m,u,c_num_new,inner_partition,node2FR,resolution=0.0):
             continue
         if G.has_edge(u,n):
             Q_c-=(G[u][n]['weight'])/m
+        else:
+            Q_c += resolution*float(G.out_degree(u,weight='weight')*G.in_degree(n,weight='weight'))*(node2FR[n])/(m*m)
         if G.has_edge(n,u):
             Q_c-=(G[n][u]['weight'])/m
-        Q_c += resolution*float(G.out_degree(u,weight='weight')*G.in_degree(n,weight='weight'))*(1+node2FR[n])/(m*m)
-        Q_c += resolution*float(G.out_degree(n,weight='weight')*G.in_degree(u,weight='weight'))*(1+node2FR[u])/(m*m)
+        else:
+            Q_c += resolution*float(G.out_degree(n,weight='weight')*G.in_degree(u,weight='weight'))*(node2FR[u])/(m*m)
         # Q_c += (G.out_degree(u,weight='weight')*G.in_degree(n,weight='weight'))/(m*m)
         # Q_c += (G.out_degree(n,weight='weight')*G.in_degree(u,weight='weight'))/(m*m)
 
@@ -149,6 +153,7 @@ def louvain_partitions(
         )
 
 def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node2FR={}, FR_order=False, Mod_type=0,exp_base=2):
+    print("one_level")
     """Calculate one level of the Louvain partitions tree
 
     Parameters
@@ -268,6 +273,9 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
                 nb_moves += 1
                 node2com[u] = best_com
                 total_improvement+=best_mod
+                
+                #print("gain:", gain, "best_mod:", best_mod, "total_improvement:", total_improvement)
+                #gain=0
             #print("Check",gain,u,inner_partition[nbr_com])
             
     partition = list(filter(len, partition))
