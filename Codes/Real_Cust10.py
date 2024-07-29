@@ -9,9 +9,10 @@ Func 5 (Cust 5): di*dj*log(1+Fr[i])*log(1+Fr[j])
 Func 6 (Cust 6): di*dj*log(1+Fr[j])
 Func 7 (Cust 7): First round Cust2, After that normal Louvain
 Func 8 (Cust 8): First round Cust6, After that normal Louvain
-Func 9 (Cust 9): di*dj*(1+Fr[j])/m
-
-
+Func 9 (Cust 9): Aij is now Aij*Fr[j]
+Func 10 (Cust 10): Aij is now Aij*Fr[j] and penalty = di*dj*Fr[j]
+Func 11 (Cust 11): di/x^Fr[i] * dj*x^Fr[j]
+Func 12 (Cust 12): edge weight e(u,v) = Fr[v] and normal louvain
 
 FR_type
 FR 0: FLOW
@@ -73,6 +74,16 @@ def louvain_partitions(
     
     m = graph.size(weight="weight")
 
+    #Edge weights to FlowRank
+    if Mod_type==12:
+        #change edge weights of e(i,j) from 1 to FR[j]
+        for u,v in graph.edges():
+            graph[u][v]['weight'] = node2FR[v]
+    elif Mod_type==13:
+        #change edge weights of e(i,j) from 1 to FR[i]*FR[j]
+        for u,v in graph.edges():
+            graph[u][v]['weight'] = node2FR[u]*node2FR[v]
+    
     if Mod_type==7:
         partition, inner_partition, improvement, total_improvement = _one_level(
             graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, 2, exp_base
@@ -123,6 +134,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
     node2com = {u: i for i, u in enumerate(G.nodes())}
     inner_partition = [{u} for u in G.nodes()]
 
+    
     #F_in and F_out are the general functions in the penalty term F_in(i)*F_out(j)/m in the modularity func
     #We can change F_in and F_out accordingly
     if is_directed:
@@ -134,7 +146,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
         if Mod_type==42:
             Mod_type=4
             exp_base =8
-        if Mod_type==0 or Mod_type==7 or Mod_type==8:
+        if Mod_type==0 or Mod_type==7 or Mod_type==8 or Mod_type==9 or Mod_type==12 or Mod_type==13:
             F_in = {u: in_degrees[u] for u in G}
             F_out = {u: out_degrees[u] for u in G}
         elif Mod_type==1:
@@ -155,6 +167,9 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
         elif Mod_type==6:
             F_in = {u: in_degrees[u] for u in G}
             F_out = {u: out_degrees[u]*np.log2(1+node2FR[u]) for u in G}
+        elif Mod_type==11:
+            F_in = {u: in_degrees[u]/(exp_base**node2FR[u]) for u in G}
+            F_out = {u: out_degrees[u]*(exp_base**node2FR[u]) for u in G}
         
         
         Stot_in = list(F_in.values()) #Each community's total incoming F(i)
@@ -165,10 +180,16 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
             nbrs[u] = defaultdict(float)
             for _, n, wt in G.out_edges(u, data="weight"):
                 if u != n:
-                    nbrs[u][n] += wt
+                    if Mod_type==10 or Mod_type==9:
+                        nbrs[u][n] += wt*node2FR[n]
+                    else:
+                        nbrs[u][n] += wt
             for n, _, wt in G.in_edges(u, data="weight"):
                 if u != n:
-                    nbrs[u][n] += wt
+                    if Mod_type==10 or Mod_type==9:
+                        nbrs[u][n] += wt*node2FR[u]
+                    else:
+                        nbrs[u][n] += wt
         # log("nbrs: "+ str(nbrs))
     else:
         nbrs = {u: {v: data["weight"] for v, data in G[u].items() if v != u} for u in G}
@@ -202,7 +223,7 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
                     * (Fout * Stot_in[best_com] + Fin * Stot_out[best_com])
                     / m**2
                 )
-               
+                
             else:
                 # log('skip for now')
                 print('')
