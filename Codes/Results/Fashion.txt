@@ -946,3 +946,90 @@ Max NMI and Purity for Rd+FR_avg+FL_pr+Cust_11+base:4 :
 Max NMI and Purity for Rd+FR_Re+FL_pr+Cust_11+base:4 :
  [0.643, 0.666] res: 0.5 
  [0.617, 0.694] res: 1.0
+
+ _______________________________________________________________________________________
+ pagerank
+ Max NMI and Purity for Ord+FR_avg+PgRk+Cust11 :
+ [0.674, 0.664] res: 0.45 
+ [0.606, 0.688] res: 0.9500000000000001
+Max NMI and Purity for Ord+FR_avg+PgRk+Cust4 :
+ [0.67, 0.627] res: 0.05 
+ [0.537, 0.743] res: 0.65
+Max NMI and Purity for Ord+FR_Re+PgRk+Cust4 :
+ [0.67, 0.632] res: 0.05 
+ [0.54, 0.722] res: 0.8500000000000001
+Max NMI and Purity for Ord+FR_avg+PgRk+Cust2 :
+ [0.667, 0.625] res: 0.25 
+ [0.618, 0.694] res: 0.9500000000000001
+Max NMI and Purity for Ord+FR_avg+PgRk+Cust6 :
+ [0.667, 0.625] res: 0.25 
+ [0.618, 0.694] res: 0.9500000000000001
+Max NMI and Purity for Ord+FR_avg+PgRk+Cust1 :
+ [0.666, 0.626] res: 0.35 
+ [0.62, 0.703] res: 0.9500000000000001
+Max NMI and Purity for Ord+FR_avg+PgRk+Cust5 :
+ [0.666, 0.625] res: 0.25 
+ [0.616, 0.696] res: 0.9500000000000001
+Max NMI and Purity for Rd+FR_avg+PgRk+Cust1 :
+ [0.66, 0.623] res: 0.35 
+ [0.608, 0.672] res: 0.75
+Max NMI and Purity for Ord+FR_Re+PgRk+Cust11 :
+ [0.659, 0.486] res: 0.15000000000000002 
+ [0.612, 0.701] res: 0.8500000000000001
+Max NMI and Purity for Rd+FR_avg+PgRk+Cust5 :
+ [0.658, 0.622] res: 0.35 
+ [0.606, 0.666] res: 0.9500000000000001
+Max NMI and Purity for Rd+FR_avg+PgRk+Cust11 :
+ [0.657, 0.559] res: 0.15000000000000002 
+ [0.613, 0.706] res: 0.9500000000000001
+Max NMI and Purity for Rd+FR_Re+PgRk+Cust11 :
+ [0.657, 0.613] res: 0.25 
+ [0.616, 0.701] res: 0.8500000000000001
+Max NMI and Purity for Ord+FR_avg+PgRk+Cust7 :
+ [0.657, 0.558] res: 0.05 
+ [0.65, 0.602] res: 0.55
+Max NMI and Purity for Ord+FR_Re+PgRk+Cust2 :
+ [0.657, 0.558] res: 0.25 
+ [0.615, 0.67] res: 0.8500000000000001
+Max NMI and Purity for Ord+FR_Re+PgRk+Cust6 :
+ [0.657, 0.558] res: 0.25 
+ [0.615, 0.669] res: 0.9500000000000001
+Max NMI and Purity for Rd+FR_Re+PgRk+Cust5 :
+ [0.656, 0.622] res: 0.35 
+ [0.609, 0.679] res: 0.9500000000000001
+Max NMI and Purity for Ord+FR_Re+PgRk+Cust1 :
+ [0.652, 0.482] res: 0.15000000000000002 
+ [0.612, 0.686] res: 0.9500000000000001
+Max NMI and Purity for Rd+FR_avg+PgRk+Cust7 :
+ [0.651, 0.559] res: 0.8500000000000001 
+ [0.651, 0.559] res: 0.8500000000000001
+Max NMI and Purity for Rd+FR_Re+PgRk+Cust7 :
+ [0.651, 0.559] res: 0.8500000000000001 
+ [0.651, 0.559] res: 0.8500000000000001
+Max NMI and Purity for Rd+FR_avg+PgRk+Cust2 :
+ [0.649, 0.553] res: 0.25 
+ [0.631, 0.668] res: 0.75
+Max NMI and Purity for Rd+FR_avg+PgRk+Cust6 :
+ [0.649, 0.578] res: 0.35 
+ [0.607, 0.671] res: 0.9500000000000001
+Max NMI and Purity for Rd+FR_Re+PgRk+Cust2 :
+ [0.649, 0.553] res: 0.25 
+ [0.623, 0.677] res: 0.65
+Max NMI and Purity for Rd+FR_Re+PgRk+Cust4 :
+ [0.646, 0.622] res: 0.05 
+ [0.539, 0.744] res: 0.9500000000000001
+Max NMI and Purity for Rd+FR_Re+PgRk+Cust6 :
+ [0.646, 0.557] res: 0.25 
+ [0.616, 0.671] res: 0.9500000000000001
+Max NMI and Purity for Ord+FR_Re+PgRk+Cust7 :
+ [0.645, 0.525] res: 0.05 
+ [0.645, 0.526] res: 0.55
+Max NMI and Purity for Rd+FR_Re+PgRk+Cust1 :
+ [0.642, 0.556] res: 0.25 
+ [0.613, 0.671] res: 0.8500000000000001
+Max NMI and Purity for Rd+FR_avg+PgRk+Cust4 :
+ [0.635, 0.562] res: 0.05 
+ [0.529, 0.756] res: 0.8500000000000001
+Max NMI and Purity for Ord+FR_Re+PgRk+Cust5 :
+ [0.633, 0.607] res: 0.45 
+ [0.62, 0.696] res: 0.8500000000000001

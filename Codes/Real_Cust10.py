@@ -50,7 +50,7 @@ def FlowRank_Func(edge_list,vlist,walk_len_c1,c_const=0,type=0):
 
 @py_random_state("seed")
 def louvain_partitions(
-    G, weight="weight", resolution=1, threshold=0.0000001, seed=None, FR_order=False, FR_Recalc=False, FR_type=0, Mod_type=0, exp_base=2
+    G, weight="weight", resolution=1, threshold=0.0000001, seed=None, FR_order=False, FR_Recalc=False, FR_type=0, Mod_type=0, exp_base=6
 ):
     
     partition = [{u} for u in G.nodes()]
@@ -68,9 +68,13 @@ def louvain_partitions(
 
     #Calculate Flow Rank
     node2FR = dict()
-    for i in FlowRank_Func(graph.edges(),graph.nodes(),np.log2(graph.number_of_nodes()),0,FR_type):
-        node_num = int(i[1])
-        node2FR[node_num] = i[0]
+    if FR_type==3:
+        pg_rank = nx.pagerank(graph)
+        node2FR = {k: pg_rank[k]*graph.number_of_nodes() for k in pg_rank}
+    else:
+        for i in FlowRank_Func(graph.edges(),graph.nodes(),np.log2(graph.number_of_nodes()),0,FR_type):
+            node_num = int(i[1])
+            node2FR[node_num] = i[0]
     
     m = graph.size(weight="weight")
 
@@ -113,9 +117,13 @@ def louvain_partitions(
             graph = _gen_graph(graph, inner_partition)
             #Calculate Flow Rank
             node2FR = dict()
-            for i in FlowRank_Func(graph.edges(),graph.nodes(),np.log2(graph.number_of_nodes()),0,FR_type):
-                node_num = int(i[1])
-                node2FR[node_num] = i[0]
+            if FR_type==3:
+                pg_rank = nx.pagerank(graph)
+                node2FR = {k: pg_rank[k]*graph.number_of_nodes() for k in pg_rank}
+            else:
+                for i in FlowRank_Func(graph.edges(),graph.nodes(),np.log2(graph.number_of_nodes()),0,FR_type):
+                    node_num = int(i[1])
+                    node2FR[node_num] = i[0]
         else: #If we just average FR every iteration
             graph, node2FR = _gen_graph_2(graph, inner_partition,node2FR)
         
@@ -127,7 +135,7 @@ def louvain_partitions(
             graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, Mod_type, exp_base
         )
 
-def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node2FR={}, FR_order=False, Mod_type=0,exp_base=2):
+def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node2FR={}, FR_order=False, Mod_type=0,exp_base=6):
     #print("once")
     #nx.draw(G, with_labels=True)
     
