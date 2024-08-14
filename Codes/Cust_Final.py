@@ -1,18 +1,9 @@
 """General Custom with functions and methods as parameters
 Mod_type
 Func 0 (Louvain): Default Directed Louvain
-Func 1 (Cust 1): di*dj*Fr(i)*Fr(j)/m 
 Func 2 (Cust 2): di*dj*Fr(j)/m
-Func 3 (Cust 3): di*dj*x^(Fr[i]+Fr[j]) (x = can put in as parameter)
-Func 4 (Cust 4): di*dj*x^(Fr[j]) (x = can put in as parameter)
-Func 5 (Cust 5): di*dj*log(1+Fr[i])*log(1+Fr[j])
 Func 6 (Cust 6): di*dj*log(1+Fr[j])
-Func 7 (Cust 7): First round Cust2, After that normal Louvain
-Func 8 (Cust 8): First round Cust6, After that normal Louvain
-Func 9 (Cust 9): Aij is now Aij*Fr[j]
-Func 10 (Cust 10): Aij is now Aij*Fr[j] and penalty = di*dj*Fr[j]
 Func 11 (Cust 11): di/x^Fr[i] * dj*x^Fr[j]
-Func 12 (Cust 12): edge weight e(u,v) = Fr[v] and normal louvain
 
 FR_type
 FR 0: FLOW
@@ -69,7 +60,7 @@ def louvain_partitions(
     #Calculate Flow Rank
     node2FR = dict()
     if FR_type==3:
-        pg_rank = nx.pagerank(graph)
+        pg_rank = nx.pagerank(graph,alpha=0.5)
         node2FR = {k: pg_rank[k]*graph.number_of_nodes() for k in pg_rank}
     else:
         for i in FlowRank_Func(graph.edges(),graph.nodes(),np.log2(graph.number_of_nodes()),0,FR_type):
@@ -118,7 +109,7 @@ def louvain_partitions(
             #Calculate Flow Rank
             node2FR = dict()
             if FR_type==3:
-                pg_rank = nx.pagerank(graph)
+                pg_rank = nx.pagerank(graph,alpha=0.5)
                 node2FR = {k: pg_rank[k]*graph.number_of_nodes() for k in pg_rank}
             else:
                 for i in FlowRank_Func(graph.edges(),graph.nodes(),np.log2(graph.number_of_nodes()),0,FR_type):
