@@ -70,7 +70,7 @@ def louvain_partitions(
     #Calculate Flow Rank
     node2FR = dict()
     if FR_type==3:
-                pg_rank = nx.pagerank(graph)
+                pg_rank = nx.pagerank(graph, alpha=0.5)
                 node2FR = {k: pg_rank[k]*graph.number_of_nodes() for k in pg_rank}
     else:
         for i in FlowRank_Func(graph.edges(),graph.nodes(),np.log2(graph.number_of_nodes()),0,FR_type):
@@ -109,7 +109,7 @@ def louvain_partitions(
             #Calculate Flow Rank
             node2FR = dict()
             if FR_type==3:
-                pg_rank = nx.pagerank(graph)
+                pg_rank = nx.pagerank(graph, alpha=0.5)
                 node2FR = {k: pg_rank[k]*graph.number_of_nodes() for k in pg_rank}
             else:
                 for i in FlowRank_Func(graph.edges(),graph.nodes(),np.log2(graph.number_of_nodes()),0,FR_type):
