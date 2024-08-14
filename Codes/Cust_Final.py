@@ -48,7 +48,7 @@ def louvain_partitions(
     if nx.is_empty(G):
         yield partition
         return
-    # mod = modularity(G, partition, resolution=resolution, weight=weight)
+    
     is_directed = G.is_directed()
     if G.is_multigraph():
         graph = _convert_multigraph(G, weight, is_directed)
@@ -69,39 +69,16 @@ def louvain_partitions(
     
     m = graph.size(weight="weight")
 
-    #Edge weights to FlowRank
-    if Mod_type==12:
-        #change edge weights of e(i,j) from 1 to FR[j]
-        for u,v in graph.edges():
-            graph[u][v]['weight'] = node2FR[v]
-    elif Mod_type==13:
-        #change edge weights of e(i,j) from 1 to FR[i]*FR[j]
-        for u,v in graph.edges():
-            graph[u][v]['weight'] = node2FR[u]*node2FR[v]
     
-    if Mod_type==7:
-        partition, inner_partition, improvement, total_improvement = _one_level(
-            graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, 2, exp_base
-        )
-    elif Mod_type==8:
-        partition, inner_partition, improvement, total_improvement = _one_level(
-            graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, 6, exp_base
-        )
-    else:
-        partition, inner_partition, improvement, total_improvement = _one_level(
-            graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, Mod_type, exp_base
-        )
+    partition, inner_partition, improvement, total_improvement = _one_level(
+        graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, Mod_type, exp_base
+    )
+        
     # improvement = True
     total_improvement=threshold+1
     while total_improvement > threshold:
         # gh-5901 protect the sets in the yielded list from further manipulation here
         yield [s.copy() for s in partition]
-        # new_mod = modularity(
-        #     graph, inner_partition, resolution=resolution, weight="weight"
-        # )
-        # if new_mod - mod <= threshold:
-        #     return
-        # mod = new_mod
 
         #If we recalculate FR every iteration
         if FR_Recalc:
@@ -118,51 +95,26 @@ def louvain_partitions(
         else: #If we just average FR every iteration
             graph, node2FR = _gen_graph_2(graph, inner_partition,node2FR)
         
-        if Mod_type==7:
-            resolution = 0.175 #resolution for Louvain, 0.175 for Zhengmix, 0.25 for Fashion
-        if Mod_type==8:
-            resolution = 0.175
         partition, inner_partition, improvement, total_improvement = _one_level(
             graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, Mod_type, exp_base
         )
 
 def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node2FR={}, FR_order=False, Mod_type=0,exp_base=6):
-    #print("once")
-    #nx.draw(G, with_labels=True)
-    
     node2com = {u: i for i, u in enumerate(G.nodes())}
     inner_partition = [{u} for u in G.nodes()]
 
-    
     #F_in and F_out are the general functions in the penalty term F_in(i)*F_out(j)/m in the modularity func
     #We can change F_in and F_out accordingly
     if is_directed:
         in_degrees = dict(G.in_degree(weight="weight")) #key = node, value = in_degree
         out_degrees = dict(G.out_degree(weight="weight")) #key = node, value = out_degree
-        if Mod_type==32:
-            Mod_type=3
-            exp_base = 8
-        if Mod_type==42:
-            Mod_type=4
-            exp_base =8
-        if Mod_type==0 or Mod_type==7 or Mod_type==8 or Mod_type==9 or Mod_type==12 or Mod_type==13:
+        
+        if Mod_type==0:
             F_in = {u: in_degrees[u] for u in G}
             F_out = {u: out_degrees[u] for u in G}
-        elif Mod_type==1:
-            F_in = {u: in_degrees[u]*node2FR[u] for u in G} #F_in(i) = FR(i)*in_degree(i)
-            F_out = {u: out_degrees[u]*node2FR[u] for u in G} #F_out(i) = FR(i)*out_degree(i)
-        elif Mod_type==2 or Mod_type==10:
+        elif Mod_type==2:
             F_in = {u: in_degrees[u] for u in G}
             F_out = {u: out_degrees[u]*node2FR[u] for u in G} #F_out(i) = FR(i)*out_degree(i)
-        elif Mod_type==3:
-            F_in = {u: in_degrees[u]*(exp_base**node2FR[u]) for u in G}
-            F_out = {u: out_degrees[u]*(exp_base**node2FR[u]) for u in G}
-        elif Mod_type==4:
-            F_in = {u: in_degrees[u] for u in G}
-            F_out = {u: out_degrees[u]*(exp_base**node2FR[u]) for u in G}
-        elif Mod_type==5:
-            F_in = {u: in_degrees[u]*np.log2(1+node2FR[u]) for u in G}
-            F_out = {u: out_degrees[u]*np.log2(1+node2FR[u]) for u in G}
         elif Mod_type==6:
             F_in = {u: in_degrees[u] for u in G}
             F_out = {u: out_degrees[u]*np.log2(1+node2FR[u]) for u in G}
@@ -178,21 +130,12 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
         for u in G:
             nbrs[u] = defaultdict(float)
             for _, n, wt in G.out_edges(u, data="weight"):
-                if u != n:
-                    if Mod_type==10 or Mod_type==9:
-                        nbrs[u][n] += wt*node2FR[n]
-                    else:
-                        nbrs[u][n] += wt
+                if u != n: 
+                    nbrs[u][n] += wt
             for n, _, wt in G.in_edges(u, data="weight"):
                 if u != n:
-                    if Mod_type==10 or Mod_type==9:
-                        nbrs[u][n] += wt*node2FR[u]
-                    else:
-                        nbrs[u][n] += wt
-        # log("nbrs: "+ str(nbrs))
-    else:
-        nbrs = {u: {v: data["weight"] for v, data in G[u].items() if v != u} for u in G}
-    
+                    nbrs[u][n] += wt
+
     #Traversal Order
     if FR_order:
         node_list = sorted(G.nodes, key=lambda x: node2FR[x], reverse=True)
@@ -200,7 +143,6 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
         node_list = list(G.nodes)
         seed.shuffle(node_list)
     
-   
     nb_moves = 1
     improvement = False
     total_improvement=0
@@ -210,7 +152,6 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
             best_mod = 0
             best_com = node2com[u]
             weights2com = _neighbor_weights(nbrs[u], node2com)
-            # log('weights2com: '+str(weights2com))
             if is_directed:
                 Fin = F_in[u]
                 Fout = F_out[u]
@@ -223,9 +164,6 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
                     / m**2
                 )
                 
-            else:
-                # log('skip for now')
-                print('')
             for nbr_com, wt in weights2com.items():
                 if is_directed:
                     gain = (
@@ -238,25 +176,15 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
                         )
                         / m**2
                     )
-                    # log('u: '+str(u))
-                    # log('nbr_com: '+str(nbr_com))
-                    # log('inner_partition: '+str(inner_partition))
-                    # # log('m: '+str(m))
-                    # log('u:'+str(u)+' nbr_com: '+str(inner_partition[nbr_com])+ ' gain: '+str(gain))
-                else:
-                    # log('skip for now')
-                    print('')
+               
                 if gain > best_mod:
                     best_mod = gain
                     best_com = nbr_com
-                    # log('custom gain: '+str(best_mod))
             if is_directed:
                 Stot_in[best_com] += Fin
                 Stot_out[best_com] += Fout
-            # else:
-            #     Stot[best_com] += degree
+            
             if best_com != node2com[u]:
-                # print('best_com: ',best_com)
                 com = G.nodes[u].get("nodes", {u})
                 partition[node2com[u]].difference_update(com)
                 inner_partition[node2com[u]].remove(u)
@@ -266,11 +194,9 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
                 nb_moves += 1
                 node2com[u] = best_com
                 total_improvement+=best_mod
-            #print("Check",gain,u,inner_partition[nbr_com])
-            
+                      
     partition = list(filter(len, partition))
     inner_partition = list(filter(len, inner_partition))
-    # print('inner_partition: ',inner_partition)
    
     return partition, inner_partition, improvement, total_improvement
 
