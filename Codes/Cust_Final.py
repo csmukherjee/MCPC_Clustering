@@ -195,9 +195,9 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
                 node2com[u] = best_com
                 total_improvement+=best_mod
                       
-    partition = list(filter(len, partition))
-    inner_partition = list(filter(len, inner_partition))
-   
+    partition = list(filter(len, partition)) # The partition of original graph nodes 
+    inner_partition = list(filter(len, inner_partition)) # The partition of newly merged nodes in this round
+    
     return partition, inner_partition, improvement, total_improvement
 
 #Merge Nodes and create a new graph
