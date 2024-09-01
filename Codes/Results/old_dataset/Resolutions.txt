@@ -1,0 +1,17 @@
+Zhengmix
+Mod_type
+Func 0 (Louvain): Default Directed Louvain
+
+Func 1 (Cust 1): di*dj*Fr(i)*Fr(j)/m 
+
+Func 2 (Cust 2): di*dj*Fr(j)/m
+
+Func 3 (Cust 3): di*dj*x^(Fr[i]+Fr[j]) (x = can put in as parameter)
+
+Func 4 (Cust 4): di*dj*x^(Fr[j]) (x = can put in as parameter)
+
+Func 5 (Cust 5): di*dj*log(1+Fr[i])*log(1+Fr[j])
+
+Func 6 (Cust 6): di*dj*log(1+Fr[j])
+
+
