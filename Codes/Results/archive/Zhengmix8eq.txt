@@ -1,0 +1,35 @@
+Zhengmix8eq: FL + 5 hops
+   Max NMI = [0.825,0.932] res:= 0.06
+   Partition sizes: 185 211 159 26 125 73 19 
+   Max Purity = [0.759,0.975] res:= 0.01
+   Partition sizes: 185 370 151 73 19 
+Zhengmix8eq: FL_ng + 5 hops
+   Max NMI = [0.803,0.929] res:= 0.11
+   Partition sizes: 128 228 4 3 7 158 67 29 174 
+   Max Purity = [0.699,0.945] res:= 0.01
+   Partition sizes: 128 409 4 3 158 67 29 
+Zhengmix8eq: FL_ng_prop + 5 hops
+   Max NMI = [0.792,0.939] res:= 0.06
+   Partition sizes: 114 251 178 153 1 1 72 27 1 
+   Max Purity = [0.716,0.991] res:= 0.01
+   Partition sizes: 114 429 153 1 1 99 1 
+Zhengmix8eq: FL + log(n) hops
+   Max NMI = [0.832,0.917] res:= 0.11
+   Partition sizes: 175 192 26 143 89 7 28 138 
+   Max Purity = [0.783,0.99] res:= 0.01
+   Partition sizes: 175 169 89 7 358 
+Zhengmix8eq: FL_ng + log(n) hops
+   Max NMI = [0.835,0.945] res:= 0.06
+   Partition sizes: 139 1 1 180 74 31 199 173 
+   Max Purity = [0.771,0.996] res:= 0.01
+   Partition sizes: 139 1 1 180 105 372 
+Zhengmix8eq: FL_ng_prop + log(n) hops
+   Max NMI = [0.781,0.932] res:= 0.06
+   Partition sizes: 109 4 242 168 2 66 1 24 182 
+   Max Purity = [0.688,0.95] res:= 0.01
+   Partition sizes: 109 4 424 168 2 66 1 24 
+Zhengmix8eq: PageRank
+   Max NMI = [0.822,0.976] res:= 0.06
+   Partition sizes: 99 283 117 1 113 8 177 
+   Max Purity = [0.711,0.989] res:= 0.01
+   Partition sizes: 99 117 1 113 8 460 

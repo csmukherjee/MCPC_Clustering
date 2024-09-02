@@ -1,0 +1,66 @@
+True Labels: [0, 1, 2, ] # of Comms: 3
+seeds (All nodes): Louv
+   Max NMI = [0.691,0.88] res:= 0.31
+   Partition sizes: [52, 70, 87, ] # of comm: 3
+   Max Purity = [0.494,0.9] res:= 1.61
+   Partition sizes: [16, 14, 24, 25, 12, 14, 21, 14, 29, 18, 22, ] # of comm: 11
+seeds(All nodes): FL + Cust2
+   Max NMI = [0.691,0.88] res:= 0.41
+   Partition sizes: [52, 70, 87, ] # of comm: 3
+   Max Purity = [0.542,0.895] res:= 1.71
+   Partition sizes: [24, 30, 25, 28, 21, 14, 47, 20, ] # of comm: 8
+seeds(All nodes): FL + Cust6
+   Max NMI = [0.691,0.88] res:= 0.31
+   Partition sizes: [52, 70, 87, ] # of comm: 3
+   Max Purity = [0.542,0.895] res:= 1.51
+   Partition sizes: [24, 30, 25, 28, 21, 14, 47, 20, ] # of comm: 8
+seeds(All nodes): FL + Cust11
+   Max NMI = [0.643,0.9] res:= 0.31
+   Partition sizes: [64, 23, 47, 75, ] # of comm: 4
+   Max Purity = [0.488,0.904] res:= 1.81
+   Partition sizes: [23, 16, 13, 23, 13, 16, 15, 14, 18, 25, 22, 11, ] # of comm: 12
+seeds(All nodes): FL_ng + Cust2
+   Max NMI = [0.649,0.88] res:= 0.51
+   Partition sizes: [52, 23, 47, 87, ] # of comm: 4
+   Max Purity = [0.559,0.895] res:= 1.21
+   Partition sizes: [30, 22, 23, 25, 28, 47, 34, ] # of comm: 7
+seeds(All nodes): FL_ng + Cust6
+   Max NMI = [0.649,0.88] res:= 0.51
+   Partition sizes: [52, 23, 87, 47, ] # of comm: 4
+   Max Purity = [0.559,0.895] res:= 1.11
+   Partition sizes: [30, 22, 23, 25, 47, 28, 34, ] # of comm: 7
+seeds(All nodes): FL_ng + Cust11
+   Max NMI = [0.691,0.88] res:= 0.31
+   Partition sizes: [52, 70, 87, ] # of comm: 3
+   Max Purity = [0.494,0.9] res:= 1.51
+   Partition sizes: [16, 14, 24, 12, 14, 21, 29, 18, 25, 14, 22, ] # of comm: 11
+seeds(All nodes): FL_ng_prop + Cust2
+   Max NMI = [0.649,0.88] res:= 0.41
+   Partition sizes: [52, 23, 47, 87, ] # of comm: 4
+   Max Purity = [0.638,0.895] res:= 0.61
+   Partition sizes: [52, 23, 25, 47, 62, ] # of comm: 5
+seeds(All nodes): FL_ng_prop + Cust6
+   Max NMI = [0.649,0.88] res:= 0.41
+   Partition sizes: [52, 47, 23, 87, ] # of comm: 4
+   Max Purity = [0.638,0.895] res:= 0.51
+   Partition sizes: [52, 23, 25, 47, 62, ] # of comm: 5
+seeds(All nodes): FL_ng_prop + Cust11
+   Max NMI = [0.691,0.88] res:= 0.31
+   Partition sizes: [52, 70, 87, ] # of comm: 3
+   Max Purity = [0.5,0.904] res:= 1.51
+   Partition sizes: [14, 16, 24, 25, 13, 16, 21, 29, 18, 11, 22, ] # of comm: 11
+seeds (All nodes): PageRank + Cust2
+   Max NMI = [0.691,0.88] res:= 0.21
+   Partition sizes: [52, 70, 87, ] # of comm: 3
+   Max Purity = [0.494,0.9] res:= 1.71
+   Partition sizes: [16, 24, 14, 12, 14, 27, 21, 14, 29, 18, 20, ] # of comm: 11
+seeds (All nodes): PageRank + Cust6
+   Max NMI = [0.691,0.88] res:= 0.21
+   Partition sizes: [52, 70, 87, ] # of comm: 3
+   Max Purity = [0.494,0.9] res:= 1.71
+   Partition sizes: [16, 24, 14, 12, 14, 27, 21, 14, 29, 18, 20, ] # of comm: 11
+seeds (All nodes): PageRank + Cust11
+   Max NMI = [0.638,0.895] res:= 0.41
+   Partition sizes: [52, 23, 25, 47, 62, ] # of comm: 5
+   Max Purity = [0.494,0.9] res:= 1.51
+   Partition sizes: [22, 16, 14, 23, 12, 14, 14, 29, 18, 26, 21, ] # of comm: 11
