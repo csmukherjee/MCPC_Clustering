@@ -1,0 +1,66 @@
+True Labels: [0, 1, ] # of Comms: 2
+breast-cancer (All nodes): Louv
+   Max NMI = [0.672,0.94] res:= 0.11
+   Partition sizes: [192, 377, ] # of comm: 2
+   Max Purity = [0.317,0.947] res:= 1.91
+   Partition sizes: [48, 45, 61, 24, 36, 53, 32, 40, 46, 31, 31, 45, 22, 55, ] # of comm: 14
+breast-cancer(All nodes): FL + Cust2
+   Max NMI = [0.729,0.954] res:= 1.11
+   Partition sizes: [198, 371, ] # of comm: 2
+   Max Purity = [0.729,0.954] res:= 1.11
+   Partition sizes: [198, 371, ] # of comm: 2
+breast-cancer(All nodes): FL + Cust6
+   Max NMI = [0.709,0.947] res:= 1.61
+   Partition sizes: [379, 190, ] # of comm: 2
+   Max Purity = [0.709,0.947] res:= 1.61
+   Partition sizes: [379, 190, ] # of comm: 2
+breast-cancer(All nodes): FL + Cust11
+   Max NMI = [0.688,0.944] res:= 0.11
+   Partition sizes: [192, 377, ] # of comm: 2
+   Max Purity = [0.312,0.947] res:= 1.71
+   Partition sizes: [38, 62, 44, 41, 31, 31, 31, 45, 42, 34, 24, 42, 46, 58, ] # of comm: 14
+breast-cancer(All nodes): FL_ng + Cust2
+   Max NMI = [0.675,0.94] res:= 0.31
+   Partition sizes: [190, 379, ] # of comm: 2
+   Max Purity = [0.675,0.94] res:= 0.31
+   Partition sizes: [190, 379, ] # of comm: 2
+breast-cancer(All nodes): FL_ng + Cust6
+   Max NMI = [0.669,0.938] res:= 0.21
+   Partition sizes: [189, 380, ] # of comm: 2
+   Max Purity = [0.669,0.938] res:= 0.21
+   Partition sizes: [189, 380, ] # of comm: 2
+breast-cancer(All nodes): FL_ng + Cust11
+   Max NMI = [0.682,0.942] res:= 0.11
+   Partition sizes: [191, 378, ] # of comm: 2
+   Max Purity = [0.36,0.946] res:= 1.01
+   Partition sizes: [43, 68, 64, 57, 58, 45, 57, 127, 50, ] # of comm: 9
+breast-cancer(All nodes): FL_ng_prop + Cust2
+   Max NMI = [0.669,0.938] res:= 0.21
+   Partition sizes: [189, 380, ] # of comm: 2
+   Max Purity = [0.415,0.942] res:= 1.81
+   Partition sizes: [66, 125, 39, 175, 105, 59, ] # of comm: 6
+breast-cancer(All nodes): FL_ng_prop + Cust6
+   Max NMI = [0.679,0.94] res:= 0.21
+   Partition sizes: [188, 381, ] # of comm: 2
+   Max Purity = [0.362,0.942] res:= 1.71
+   Partition sizes: [125, 66, 39, 56, 91, 59, 54, 79, ] # of comm: 8
+breast-cancer(All nodes): FL_ng_prop + Cust11
+   Max NMI = [0.682,0.942] res:= 0.11
+   Partition sizes: [191, 378, ] # of comm: 2
+   Max Purity = [0.359,0.946] res:= 1.11
+   Partition sizes: [127, 53, 48, 54, 55, 62, 51, 64, 55, ] # of comm: 9
+breast-cancer (All nodes): PageRank + Cust2
+   Max NMI = [0.682,0.942] res:= 0.11
+   Partition sizes: [378, 191, ] # of comm: 2
+   Max Purity = [0.327,0.947] res:= 1.81
+   Partition sizes: [45, 62, 27, 36, 39, 40, 7, 42, 54, 34, 44, 83, 56, ] # of comm: 13
+breast-cancer (All nodes): PageRank + Cust6
+   Max NMI = [0.682,0.942] res:= 0.11
+   Partition sizes: [378, 191, ] # of comm: 2
+   Max Purity = [0.322,0.946] res:= 1.61
+   Partition sizes: [46, 38, 63, 44, 40, 52, 58, 45, 44, 34, 48, 57, ] # of comm: 12
+breast-cancer (All nodes): PageRank + Cust11
+   Max NMI = [0.669,0.938] res:= 0.11
+   Partition sizes: [189, 380, ] # of comm: 2
+   Max Purity = [0.324,0.956] res:= 1.71
+   Partition sizes: [34, 41, 62, 13, 55, 34, 32, 20, 31, 45, 45, 44, 53, 60, ] # of comm: 14

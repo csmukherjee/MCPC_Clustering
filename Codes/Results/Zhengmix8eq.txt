@@ -1,35 +1,66 @@
-Zhengmix8eq: FL + 5 hops
-   Max NMI = [0.825,0.932] res:= 0.06
-   Partition sizes: 185 211 159 26 125 73 19 
-   Max Purity = [0.759,0.975] res:= 0.01
-   Partition sizes: 185 370 151 73 19 
-Zhengmix8eq: FL_ng + 5 hops
-   Max NMI = [0.803,0.929] res:= 0.11
-   Partition sizes: 128 228 4 3 7 158 67 29 174 
-   Max Purity = [0.699,0.945] res:= 0.01
-   Partition sizes: 128 409 4 3 158 67 29 
-Zhengmix8eq: FL_ng_prop + 5 hops
-   Max NMI = [0.792,0.939] res:= 0.06
-   Partition sizes: 114 251 178 153 1 1 72 27 1 
-   Max Purity = [0.716,0.991] res:= 0.01
-   Partition sizes: 114 429 153 1 1 99 1 
-Zhengmix8eq: FL + log(n) hops
-   Max NMI = [0.832,0.917] res:= 0.11
-   Partition sizes: 175 192 26 143 89 7 28 138 
-   Max Purity = [0.783,0.99] res:= 0.01
-   Partition sizes: 175 169 89 7 358 
-Zhengmix8eq: FL_ng + log(n) hops
-   Max NMI = [0.835,0.945] res:= 0.06
-   Partition sizes: 139 1 1 180 74 31 199 173 
-   Max Purity = [0.771,0.996] res:= 0.01
-   Partition sizes: 139 1 1 180 105 372 
-Zhengmix8eq: FL_ng_prop + log(n) hops
-   Max NMI = [0.781,0.932] res:= 0.06
-   Partition sizes: 109 4 242 168 2 66 1 24 182 
-   Max Purity = [0.688,0.95] res:= 0.01
-   Partition sizes: 109 4 424 168 2 66 1 24 
-Zhengmix8eq: PageRank
-   Max NMI = [0.822,0.976] res:= 0.06
-   Partition sizes: 99 283 117 1 113 8 177 
-   Max Purity = [0.711,0.989] res:= 0.01
-   Partition sizes: 99 117 1 113 8 460 
+True Labels: [0, 1, 2, 3, 4, 5, 6, 7, ] # of Comms: 8
+Zhengmix8eq(All nodes): Louv
+   Max NMI = [0.787,0.659] res:= 0.31
+   Partition sizes: [503, 1458, 592, 599, 842, ] # of comm: 5
+   Max Purity = [0.668,0.815] res:= 1.91
+   Partition sizes: [98, 250, 158, 340, 186, 282, 220, 313, 58, 71, 140, 386, 358, 151, 268, 213, 94, 408, ] # of comm: 18
+Zhengmix8eq(All nodes): FL + Cust2
+   Max NMI = [0.797,0.664] res:= 1.11
+   Partition sizes: [505, 1426, 592, 598, 873, ] # of comm: 5
+   Max Purity = [0.793,0.665] res:= 1.51
+   Partition sizes: [505, 29, 563, 598, 895, 1404, ] # of comm: 6
+Zhengmix8eq(All nodes): FL + Cust6
+   Max NMI = [0.801,0.666] res:= 1.51
+   Partition sizes: [505, 29, 563, 598, 1404, 895, ] # of comm: 6
+   Max Purity = [0.782,0.673] res:= 1.91
+   Partition sizes: [507, 29, 562, 595, 44, 1435, 822, ] # of comm: 7
+Zhengmix8eq(All nodes): FL + Cust11
+   Max NMI = [0.787,0.658] res:= 0.31
+   Partition sizes: [504, 1468, 592, 598, 832, ] # of comm: 5
+   Max Purity = [0.681,0.814] res:= 1.71
+   Partition sizes: [258, 92, 154, 226, 302, 46, 29, 245, 317, 68, 97, 421, 371, 344, 139, 46, 442, 397, ] # of comm: 18
+Zhengmix8eq(All nodes): FL_ng + Cust2
+   Max NMI = [0.799,0.666] res:= 0.51
+   Partition sizes: [504, 1402, 592, 598, 898, ] # of comm: 5
+   Max Purity = [0.743,0.738] res:= 1.81
+   Partition sizes: [412, 92, 888, 522, 534, 58, 598, 844, 46, ] # of comm: 9
+Zhengmix8eq(All nodes): FL_ng + Cust6
+   Max NMI = [0.803,0.667] res:= 0.61
+   Partition sizes: [504, 1396, 592, 598, 904, ] # of comm: 5
+   Max Purity = [0.759,0.808] res:= 1.91
+   Partition sizes: [412, 92, 512, 93, 499, 598, 914, 462, 46, 366, ] # of comm: 10
+Zhengmix8eq(All nodes): FL_ng + Cust11
+   Max NMI = [0.785,0.656] res:= 0.21
+   Partition sizes: [506, 1476, 591, 597, 824, ] # of comm: 5
+   Max Purity = [0.687,0.82] res:= 1.81
+   Partition sizes: [253, 96, 157, 278, 446, 220, 313, 58, 100, 71, 422, 173, 358, 317, 44, 241, 447, ] # of comm: 17
+Zhengmix8eq(All nodes): FL_ng_prop + Cust2
+   Max NMI = [0.796,0.666] res:= 0.41
+   Partition sizes: [504, 1411, 592, 599, 888, ] # of comm: 5
+   Max Purity = [0.747,0.796] res:= 1.51
+   Partition sizes: [96, 408, 983, 269, 176, 93, 499, 599, 44, 464, 363, ] # of comm: 11
+Zhengmix8eq(All nodes): FL_ng_prop + Cust6
+   Max NMI = [0.79,0.663] res:= 0.31
+   Partition sizes: [504, 1423, 592, 599, 876, ] # of comm: 5
+   Max Purity = [0.725,0.798] res:= 1.51
+   Partition sizes: [96, 408, 241, 484, 717, 93, 499, 518, 68, 393, 112, 365, ] # of comm: 12
+Zhengmix8eq(All nodes): FL_ng_prop + Cust11
+   Max NMI = [0.782,0.656] res:= 0.21
+   Partition sizes: [506, 1471, 591, 597, 829, ] # of comm: 5
+   Max Purity = [0.677,0.816] res:= 1.71
+   Partition sizes: [98, 251, 157, 255, 44, 208, 220, 313, 58, 70, 117, 399, 209, 297, 46, 358, 508, 386, ] # of comm: 18
+Zhengmix8eq (All nodes): PageRank + Cust2
+   Max NMI = [0.784,0.661] res:= 0.41
+   Partition sizes: [504, 1435, 592, 598, 865, ] # of comm: 5
+   Max Purity = [0.74,0.814] res:= 0.81
+   Partition sizes: [410, 96, 487, 475, 460, 93, 498, 586, 477, 368, 44, ] # of comm: 11
+Zhengmix8eq (All nodes): PageRank + Cust6
+   Max NMI = [0.802,0.667] res:= 0.31
+   Partition sizes: [504, 1402, 592, 598, 898, ] # of comm: 5
+   Max Purity = [0.702,0.823] res:= 1.41
+   Partition sizes: [410, 96, 257, 417, 266, 29, 313, 249, 70, 419, 108, 335, 170, 44, 353, 458, ] # of comm: 16
+Zhengmix8eq (All nodes): PageRank + Cust11
+   Max NMI = [0.804,0.668] res:= 0.31
+   Partition sizes: [503, 2, 1385, 2, 591, 1, 598, 909, 1, 2, ] # of comm: 10
+   Max Purity = [0.681,0.82] res:= 1.81
+   Partition sizes: [147, 2, 257, 1, 96, 18, 2, 173, 361, 362, 5, 233, 295, 58, 56, 492, 5, 46, 214, 264, 4, 348, 46, 509, ] # of comm: 24

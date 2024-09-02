@@ -1,0 +1,66 @@
+True Labels: [0, 1, 2, 3, 4, ] # of Comms: 5
+bbc_news (All nodes): Louv
+   Max NMI = [0.779,0.932] res:= 0.31
+   Partition sizes: [227, 347, 237, 289, 126, 264, ] # of comm: 6
+   Max Purity = [0.769,0.934] res:= 0.51
+   Partition sizes: [227, 237, 289, 65, 61, 278, 333, ] # of comm: 7
+bbc_news(All nodes): FL + Cust2
+   Max NMI = [0.794,0.933] res:= 0.81
+   Partition sizes: [295, 229, 288, 281, 65, 332, ] # of comm: 6
+   Max Purity = [0.794,0.933] res:= 0.81
+   Partition sizes: [295, 229, 288, 281, 65, 332, ] # of comm: 6
+bbc_news(All nodes): FL + Cust6
+   Max NMI = [0.79,0.932] res:= 0.61
+   Partition sizes: [293, 287, 229, 279, 65, 337, ] # of comm: 6
+   Max Purity = [0.753,0.938] res:= 1.81
+   Partition sizes: [272, 61, 227, 269, 249, 65, 83, 264, ] # of comm: 8
+bbc_news(All nodes): FL + Cust11
+   Max NMI = [0.785,0.936] res:= 0.21
+   Partition sizes: [318, 239, 126, 227, 293, 287, ] # of comm: 6
+   Max Purity = [0.759,0.944] res:= 0.71
+   Partition sizes: [204, 226, 286, 268, 121, 65, 259, 61, ] # of comm: 8
+bbc_news(All nodes): FL_ng + Cust2
+   Max NMI = [0.793,0.94] res:= 0.61
+   Partition sizes: [226, 242, 293, 126, 319, 284, ] # of comm: 6
+   Max Purity = [0.712,0.941] res:= 1.81
+   Partition sizes: [293, 205, 226, 98, 238, 148, 65, 61, 81, 75, ] # of comm: 10
+bbc_news(All nodes): FL_ng + Cust6
+   Max NMI = [0.802,0.944] res:= 0.61
+   Partition sizes: [226, 318, 293, 126, 248, 279, ] # of comm: 6
+   Max Purity = [0.802,0.944] res:= 0.61
+   Partition sizes: [226, 318, 293, 126, 248, 279, ] # of comm: 6
+bbc_news(All nodes): FL_ng + Cust11
+   Max NMI = [0.784,0.934] res:= 0.31
+   Partition sizes: [228, 234, 126, 329, 285, 288, ] # of comm: 6
+   Max Purity = [0.656,0.938] res:= 1.11
+   Partition sizes: [70, 105, 93, 61, 19, 85, 130, 123, 65, 141, 179, 192, 150, 77, ] # of comm: 14
+bbc_news(All nodes): FL_ng_prop + Cust2
+   Max NMI = [0.802,0.944] res:= 0.41
+   Partition sizes: [228, 342, 277, 126, 249, 268, ] # of comm: 6
+   Max Purity = [0.789,0.944] res:= 0.71
+   Partition sizes: [228, 335, 249, 61, 277, 65, 275, ] # of comm: 7
+bbc_news(All nodes): FL_ng_prop + Cust6
+   Max NMI = [0.782,0.934] res:= 0.51
+   Partition sizes: [227, 126, 336, 292, 275, 234, ] # of comm: 6
+   Max Purity = [0.729,0.939] res:= 1.11
+   Partition sizes: [227, 263, 61, 80, 273, 268, 65, 161, 92, ] # of comm: 9
+bbc_news(All nodes): FL_ng_prop + Cust11
+   Max NMI = [0.785,0.935] res:= 0.31
+   Partition sizes: [227, 234, 281, 292, 330, 126, ] # of comm: 6
+   Max Purity = [0.691,0.939] res:= 1.01
+   Partition sizes: [88, 227, 142, 19, 92, 70, 276, 77, 65, 61, 196, 177, ] # of comm: 12
+bbc_news (All nodes): PageRank + Cust2
+   Max NMI = [0.777,0.932] res:= 0.31
+   Partition sizes: [288, 237, 226, 127, 334, 278, ] # of comm: 6
+   Max Purity = [0.751,0.94] res:= 0.71
+   Partition sizes: [269, 65, 256, 226, 241, 289, 62, 82, ] # of comm: 8
+bbc_news (All nodes): PageRank + Cust6
+   Max NMI = [0.781,0.933] res:= 0.31
+   Partition sizes: [288, 228, 269, 342, 126, 237, ] # of comm: 6
+   Max Purity = [0.752,0.941] res:= 0.71
+   Partition sizes: [269, 228, 256, 61, 215, 65, 114, 282, ] # of comm: 8
+bbc_news (All nodes): PageRank + Cust11
+   Max NMI = [0.789,0.933] res:= 0.21
+   Partition sizes: [288, 234, 326, 65, 292, 285, ] # of comm: 6
+   Max Purity = [0.726,0.939] res:= 0.81
+   Partition sizes: [215, 226, 161, 92, 273, 111, 65, 62, 285, ] # of comm: 9
