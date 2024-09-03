@@ -225,6 +225,9 @@ def FLOW(edge_list,vlist,walk_len_c1,c_const=0):
     for (u,v) in edge_list:
         adj_list1[u].append(v)
 
+    # for i in range(n):
+    #     if len(adj_list1[i])==0:
+    #         print('Node:',i, 'has no neighbors')
     adj_list=List(List(x) for x in adj_list1)
 
     v_cover_order=flow_calc(adj_list,vlist,walk_len_c1,c_const)
