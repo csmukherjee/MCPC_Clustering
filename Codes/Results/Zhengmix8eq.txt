@@ -64,3 +64,4 @@ Zhengmix8eq (All nodes): PageRank + Cust11
    Partition sizes: [503, 2, 1385, 2, 591, 1, 598, 909, 1, 2, ] # of comm: 10
    Max Purity = [0.681,0.82] res:= 1.81
    Partition sizes: [147, 2, 257, 1, 96, 18, 2, 173, 361, 362, 5, 233, 295, 58, 56, 492, 5, 46, 214, 264, 4, 348, 46, 509, ] # of comm: 24
+

@@ -38,6 +38,11 @@ def FlowRank_Func(edge_list,vlist,walk_len_c1,c_const=0,type=0):
     elif type==2:
         return FR.FLOW_ng_prop(edge_list,vlist,walk_len_c1,c_const)
 
+def add_self_loops(G):
+    #if node has no outgoing edge, add a self loop
+    for node in G.nodes():
+        if not list(G.successors(node)):
+            G.add_edge(node, node, weight=1)
 
 @py_random_state("seed")
 def louvain_partitions(
@@ -57,8 +62,12 @@ def louvain_partitions(
         graph.add_nodes_from(G)
         graph.add_weighted_edges_from(G.edges(data=weight, default=1))
 
+    #Add self loops for nodes that have no outgoing edges
+    add_self_loops(graph)
+
     #Calculate Flow Rank
     node2FR = dict()
+    
     if FR_type==3:
         pg_rank = nx.pagerank(graph,alpha=0.5)
         node2FR = {k: pg_rank[k]*graph.number_of_nodes() for k in pg_rank}
