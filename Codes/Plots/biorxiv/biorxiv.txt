@@ -1,0 +1,25 @@
+biorxiv (top 20.0%): FL + 5 hops
+# of nodes not included: 27836
+NMI after top 20.0% nodes: 0.421
+Max NMI: 0.421
+Purity after top 20.0% nodes: 0.223
+Max Purity: 0.24
+biorxiv (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 29327
+NMI after top 20.0% nodes: 0.407
+Max NMI: 0.407
+Purity after top 20.0% nodes: 0.171
+Max Purity: 0.202
+biorxiv (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 33021
+NMI after top 20.0% nodes: 0.411
+Max NMI: 0.411
+Purity after top 20.0% nodes: 0.14
+Max Purity: 0.189
+biorxiv (top 20.0%): PageRank
+# of nodes not included: 25229
+NMI after top 20.0% nodes: 0.46
+Max NMI: 0.46
+Purity after top 20.0% nodes: 0.303
+Max Purity: 0.312
+biorxiv (top 20.0%): FL + 5 hops

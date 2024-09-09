@@ -1,0 +1,72 @@
+Eu core (top 20.0%): FL + 5 hops
+# of nodes not included: 789
+NMI after top 20.0% nodes: 0.632
+Max NMI: 0.632
+Purity after top 20.0% nodes: 0.363
+Max Purity: 0.384
+Eu core (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 793
+NMI after top 20.0% nodes: 0.655
+Max NMI: 0.655
+Purity after top 20.0% nodes: 0.363
+Max Purity: 0.382
+Eu core (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 798
+NMI after top 20.0% nodes: 0.667
+Max NMI: 0.667
+Purity after top 20.0% nodes: 0.289
+Max Purity: 0.3
+Eu core (top 20.0%): PageRank
+# of nodes not included: 127
+NMI after top 20.0% nodes: 0.166
+Max NMI: 0.166
+Purity after top 20.0% nodes: 0.9
+Max Purity: 0.975
+Eu core (top 20.0%): FL + 5 hops
+# of nodes not included: 794
+NMI after top 20.0% nodes: 0.649
+Max NMI: 0.649
+Purity after top 20.0% nodes: 0.313
+Max Purity: 0.318
+Eu core (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 795
+NMI after top 20.0% nodes: 0.679
+Max NMI: 0.679
+Purity after top 20.0% nodes: 0.289
+Max Purity: 0.295
+Eu core (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 799
+NMI after top 20.0% nodes: 0.685
+Max NMI: 0.685
+Purity after top 20.0% nodes: 0.249
+Max Purity: 0.252
+Eu core (top 20.0%): PageRank
+# of nodes not included: 707
+NMI after top 20.0% nodes: 0.507
+Max NMI: 0.507
+Purity after top 20.0% nodes: 0.816
+Max Purity: 0.821
+Eu core (top 20.0%): FL + 5 hops
+# of nodes not included: 794
+NMI after top 20.0% nodes: 0.686
+Max NMI: 0.686
+Purity after top 20.0% nodes: 0.244
+Max Purity: 0.256
+Eu core (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 798
+NMI after top 20.0% nodes: 0.683
+Max NMI: 0.683
+Purity after top 20.0% nodes: 0.229
+Max Purity: 0.237
+Eu core (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 800
+NMI after top 20.0% nodes: 0.692
+Max NMI: 0.692
+Purity after top 20.0% nodes: 0.229
+Max Purity: 0.229
+Eu core (top 20.0%): PageRank
+# of nodes not included: 739
+NMI after top 20.0% nodes: 0.679
+Max NMI: 0.679
+Purity after top 20.0% nodes: 0.617
+Max Purity: 0.635
