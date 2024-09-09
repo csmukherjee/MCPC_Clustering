@@ -1,0 +1,87 @@
+# of nodes not included: 540
+NMI after top 20.0% nodes: 0.885
+Max NMI: 0.89
+# of nodes not included: 575
+NMI after top 20.0% nodes: 0.866
+Max NMI: 0.877
+# of nodes not included: 967
+NMI after top 20.0% nodes: 0.861
+Max NMI: 0.882
+# of nodes not included: 942
+NMI after top 20.0% nodes: 0.914
+Max NMI: 0.914
+# of nodes not included: 658
+NMI after top 20.0% nodes: 0.878
+Max NMI: 0.883
+mRNA (top 20.0%): FL + 5 hops + Survive: 0
+# of nodes not included: 635
+NMI after top 20.0% nodes: 0.885
+Max NMI: 0.89
+Purity after top 20.0% nodes: 0.748
+Max Purity: 0.804
+mRNA (top 20.0%): FL_ng + 5 hops + Survive: 0
+# of nodes not included: 507
+NMI after top 20.0% nodes: 0.873
+Max NMI: 0.883
+Purity after top 20.0% nodes: 0.757
+Max Purity: 0.801
+mRNA (top 20.0%): FL_ng_prop + 5 hops + Survive: 0
+# of nodes not included: 571
+NMI after top 20.0% nodes: 0.854
+Max NMI: 0.874
+Purity after top 20.0% nodes: 0.744
+Max Purity: 0.801
+mRNA (top 20.0%): PageRank + Survive: 0
+# of nodes not included: 1031
+NMI after top 20.0% nodes: 0.912
+Max NMI: 0.912
+Purity after top 20.0% nodes: 0.844
+Max Purity: 0.851
+mRNA (top 20.0%): FL + 5 hops + Survive: 0
+# of nodes not included: 630
+NMI after top 20.0% nodes: 0.874
+Max NMI: 0.881
+Purity after top 20.0% nodes: 0.709
+Max Purity: 0.784
+mRNA (top 20.0%): FL_ng + 5 hops + Survive: 0
+# of nodes not included: 517
+NMI after top 20.0% nodes: 0.866
+Max NMI: 0.876
+Purity after top 20.0% nodes: 0.725
+Max Purity: 0.777
+mRNA (top 20.0%): FL_ng_prop + 5 hops + Survive: 0
+# of nodes not included: 858
+NMI after top 20.0% nodes: 0.849
+Max NMI: 0.874
+Purity after top 20.0% nodes: 0.704
+Max Purity: 0.772
+mRNA (top 20.0%): PageRank + Survive: 0
+# of nodes not included: 1167
+NMI after top 20.0% nodes: 0.906
+Max NMI: 0.906
+Purity after top 20.0% nodes: 0.823
+Max Purity: 0.832
+mRNA (top 20.0%): FL + 5 hops + Survive: 0
+# of nodes not included: 660
+NMI after top 20.0% nodes: 0.873
+Max NMI: 0.878
+Purity after top 20.0% nodes: 0.698
+Max Purity: 0.786
+mRNA (top 20.0%): FL_ng + 5 hops + Survive: 0
+# of nodes not included: 808
+NMI after top 20.0% nodes: 0.853
+Max NMI: 0.867
+Purity after top 20.0% nodes: 0.656
+Max Purity: 0.752
+mRNA (top 20.0%): FL_ng_prop + 5 hops + Survive: 0
+# of nodes not included: 1367
+NMI after top 20.0% nodes: 0.832
+Max NMI: 0.855
+Purity after top 20.0% nodes: 0.615
+Max Purity: 0.722
+mRNA (top 20.0%): PageRank + Survive: 0
+# of nodes not included: 1211
+NMI after top 20.0% nodes: 0.901
+Max NMI: 0.901
+Purity after top 20.0% nodes: 0.796
+Max Purity: 0.809
