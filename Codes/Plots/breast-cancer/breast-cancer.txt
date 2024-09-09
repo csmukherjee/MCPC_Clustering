@@ -1,0 +1,72 @@
+breast-cancer (top 20.0%): FL + 5 hops
+# of nodes not included: 21
+NMI after top 20.0% nodes: 0.603
+Max NMI: 0.63
+Purity after top 20.0% nodes: 0.699
+Max Purity: 0.814
+breast-cancer (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 81
+NMI after top 20.0% nodes: 0.462
+Max NMI: 0.484
+Purity after top 20.0% nodes: 0.363
+Max Purity: 0.584
+breast-cancer (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 195
+NMI after top 20.0% nodes: 0.345
+Max NMI: 0.436
+Purity after top 20.0% nodes: 0.31
+Max Purity: 0.5
+breast-cancer (top 20.0%): PageRank
+# of nodes not included: 67
+NMI after top 20.0% nodes: 0.558
+Max NMI: 0.566
+Purity after top 20.0% nodes: 0.584
+Max Purity: 0.614
+breast-cancer (top 20.0%): FL + 5 hops
+# of nodes not included: 157
+NMI after top 20.0% nodes: 0.514
+Max NMI: 0.514
+Purity after top 20.0% nodes: 0.407
+Max Purity: 0.531
+breast-cancer (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 84
+NMI after top 20.0% nodes: 0.438
+Max NMI: 0.472
+Purity after top 20.0% nodes: 0.327
+Max Purity: 0.594
+breast-cancer (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 196
+NMI after top 20.0% nodes: 0.34
+Max NMI: 0.43
+Purity after top 20.0% nodes: 0.265
+Max Purity: 0.478
+breast-cancer (top 20.0%): PageRank
+# of nodes not included: 111
+NMI after top 20.0% nodes: 0.477
+Max NMI: 0.509
+Purity after top 20.0% nodes: 0.442
+Max Purity: 0.633
+breast-cancer (top 20.0%): FL + 5 hops
+# of nodes not included: 308
+NMI after top 20.0% nodes: 0.453
+Max NMI: 0.455
+Purity after top 20.0% nodes: 0.327
+Max Purity: 0.387
+breast-cancer (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 139
+NMI after top 20.0% nodes: 0.399
+Max NMI: 0.429
+Purity after top 20.0% nodes: 0.257
+Max Purity: 0.474
+breast-cancer (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 222
+NMI after top 20.0% nodes: 0.319
+Max NMI: 0.415
+Purity after top 20.0% nodes: 0.204
+Max Purity: 0.478
+breast-cancer (top 20.0%): PageRank
+# of nodes not included: 242
+NMI after top 20.0% nodes: 0.399
+Max NMI: 0.47
+Purity after top 20.0% nodes: 0.31
+Max Purity: 0.511

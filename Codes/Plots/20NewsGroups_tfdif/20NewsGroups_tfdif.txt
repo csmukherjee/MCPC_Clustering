@@ -1,0 +1,72 @@
+20NewsGroups_tfdif (top 20.0%): FL + 5 hops
+# of nodes not included: 5250
+NMI after top 20.0% nodes: 0.563
+Max NMI: 0.563
+Purity after top 20.0% nodes: 0.111
+Max Purity: 0.167
+20NewsGroups_tfdif (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 5663
+NMI after top 20.0% nodes: 0.574
+Max NMI: 0.574
+Purity after top 20.0% nodes: 0.118
+Max Purity: 0.174
+20NewsGroups_tfdif (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 5982
+NMI after top 20.0% nodes: 0.57
+Max NMI: 0.57
+Purity after top 20.0% nodes: 0.116
+Max Purity: 0.194
+20NewsGroups_tfdif (top 20.0%): PageRank
+# of nodes not included: 5307
+NMI after top 20.0% nodes: 0.492
+Max NMI: 0.492
+Purity after top 20.0% nodes: 0.16
+Max Purity: 0.178
+20NewsGroups_tfdif (top 20.0%): FL + 5 hops
+# of nodes not included: 5256
+NMI after top 20.0% nodes: 0.564
+Max NMI: 0.564
+Purity after top 20.0% nodes: 0.11
+Max Purity: 0.166
+20NewsGroups_tfdif (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 5663
+NMI after top 20.0% nodes: 0.574
+Max NMI: 0.574
+Purity after top 20.0% nodes: 0.118
+Max Purity: 0.174
+20NewsGroups_tfdif (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 5982
+NMI after top 20.0% nodes: 0.57
+Max NMI: 0.57
+Purity after top 20.0% nodes: 0.116
+Max Purity: 0.194
+20NewsGroups_tfdif (top 20.0%): PageRank
+# of nodes not included: 5313
+NMI after top 20.0% nodes: 0.494
+Max NMI: 0.494
+Purity after top 20.0% nodes: 0.16
+Max Purity: 0.179
+20NewsGroups_tfdif (top 20.0%): FL + 5 hops
+# of nodes not included: 5336
+NMI after top 20.0% nodes: 0.566
+Max NMI: 0.566
+Purity after top 20.0% nodes: 0.113
+Max Purity: 0.168
+20NewsGroups_tfdif (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 5663
+NMI after top 20.0% nodes: 0.574
+Max NMI: 0.574
+Purity after top 20.0% nodes: 0.118
+Max Purity: 0.174
+20NewsGroups_tfdif (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 5982
+NMI after top 20.0% nodes: 0.57
+Max NMI: 0.57
+Purity after top 20.0% nodes: 0.116
+Max Purity: 0.194
+20NewsGroups_tfdif (top 20.0%): PageRank
+# of nodes not included: 5326
+NMI after top 20.0% nodes: 0.5
+Max NMI: 0.5
+Purity after top 20.0% nodes: 0.158
+Max Purity: 0.176

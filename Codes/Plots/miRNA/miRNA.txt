@@ -1,0 +1,72 @@
+miRNA (top 20.0%): FL + 5 hops + Survive: 0
+# of nodes not included: 595
+NMI after top 20.0% nodes: 0.888
+Max NMI: 0.889
+Purity after top 20.0% nodes: 0.794
+Max Purity: 0.859
+miRNA (top 20.0%): FL_ng + 5 hops + Survive: 0
+# of nodes not included: 574
+NMI after top 20.0% nodes: 0.871
+Max NMI: 0.873
+Purity after top 20.0% nodes: 0.784
+Max Purity: 0.841
+miRNA (top 20.0%): FL_ng_prop + 5 hops + Survive: 0
+# of nodes not included: 562
+NMI after top 20.0% nodes: 0.848
+Max NMI: 0.857
+Purity after top 20.0% nodes: 0.757
+Max Purity: 0.84
+miRNA (top 20.0%): PageRank + Survive: 0
+# of nodes not included: 741
+NMI after top 20.0% nodes: 0.883
+Max NMI: 0.883
+Purity after top 20.0% nodes: 0.869
+Max Purity: 0.873
+miRNA (top 20.0%): FL + 5 hops + Survive: 0
+# of nodes not included: 593
+NMI after top 20.0% nodes: 0.885
+Max NMI: 0.886
+Purity after top 20.0% nodes: 0.777
+Max Purity: 0.842
+miRNA (top 20.0%): FL_ng + 5 hops + Survive: 0
+# of nodes not included: 723
+NMI after top 20.0% nodes: 0.868
+Max NMI: 0.873
+Purity after top 20.0% nodes: 0.74
+Max Purity: 0.82
+miRNA (top 20.0%): FL_ng_prop + 5 hops + Survive: 0
+# of nodes not included: 706
+NMI after top 20.0% nodes: 0.843
+Max NMI: 0.857
+Purity after top 20.0% nodes: 0.725
+Max Purity: 0.821
+miRNA (top 20.0%): PageRank + Survive: 0
+# of nodes not included: 814
+NMI after top 20.0% nodes: 0.887
+Max NMI: 0.888
+Purity after top 20.0% nodes: 0.855
+Max Purity: 0.86
+miRNA (top 20.0%): FL + 5 hops + Survive: 0
+# of nodes not included: 1083
+NMI after top 20.0% nodes: 0.884
+Max NMI: 0.885
+Purity after top 20.0% nodes: 0.689
+Max Purity: 0.774
+miRNA (top 20.0%): FL_ng + 5 hops + Survive: 0
+# of nodes not included: 1006
+NMI after top 20.0% nodes: 0.87
+Max NMI: 0.874
+Purity after top 20.0% nodes: 0.696
+Max Purity: 0.785
+miRNA (top 20.0%): FL_ng_prop + 5 hops + Survive: 0
+# of nodes not included: 1376
+NMI after top 20.0% nodes: 0.842
+Max NMI: 0.858
+Purity after top 20.0% nodes: 0.647
+Max Purity: 0.747
+miRNA (top 20.0%): PageRank + Survive: 0
+# of nodes not included: 1454
+NMI after top 20.0% nodes: 0.886
+Max NMI: 0.891
+Purity after top 20.0% nodes: 0.765
+Max Purity: 0.782

@@ -1,0 +1,72 @@
+FashionMNIST (top 20.0%): FL + 5 hops
+# of nodes not included: 7599
+NMI after top 20.0% nodes: 0.613
+Max NMI: 0.617
+Purity after top 20.0% nodes: 0.298
+Max Purity: 0.329
+FashionMNIST (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 7592
+NMI after top 20.0% nodes: 0.571
+Max NMI: 0.589
+Purity after top 20.0% nodes: 0.248
+Max Purity: 0.285
+FashionMNIST (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 8400
+NMI after top 20.0% nodes: 0.54
+Max NMI: 0.562
+Purity after top 20.0% nodes: 0.214
+Max Purity: 0.27
+FashionMNIST (top 20.0%): PageRank
+# of nodes not included: 7964
+NMI after top 20.0% nodes: 0.636
+Max NMI: 0.636
+Purity after top 20.0% nodes: 0.358
+Max Purity: 0.369
+FashionMNIST (top 20.0%): FL + 5 hops
+# of nodes not included: 9252
+NMI after top 20.0% nodes: 0.592
+Max NMI: 0.596
+Purity after top 20.0% nodes: 0.207
+Max Purity: 0.24
+FashionMNIST (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 8590
+NMI after top 20.0% nodes: 0.56
+Max NMI: 0.573
+Purity after top 20.0% nodes: 0.208
+Max Purity: 0.242
+FashionMNIST (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 9991
+NMI after top 20.0% nodes: 0.539
+Max NMI: 0.556
+Purity after top 20.0% nodes: 0.181
+Max Purity: 0.228
+FashionMNIST (top 20.0%): PageRank
+# of nodes not included: 8981
+NMI after top 20.0% nodes: 0.62
+Max NMI: 0.62
+Purity after top 20.0% nodes: 0.277
+Max Purity: 0.288
+FashionMNIST (top 20.0%): FL + 5 hops
+# of nodes not included: 10017
+NMI after top 20.0% nodes: 0.573
+Max NMI: 0.574
+Purity after top 20.0% nodes: 0.165
+Max Purity: 0.202
+FashionMNIST (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 10043
+NMI after top 20.0% nodes: 0.545
+Max NMI: 0.554
+Purity after top 20.0% nodes: 0.139
+Max Purity: 0.178
+FashionMNIST (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 11095
+NMI after top 20.0% nodes: 0.525
+Max NMI: 0.541
+Purity after top 20.0% nodes: 0.14
+Max Purity: 0.196
+FashionMNIST (top 20.0%): PageRank
+# of nodes not included: 10424
+NMI after top 20.0% nodes: 0.591
+Max NMI: 0.591
+Purity after top 20.0% nodes: 0.202
+Max Purity: 0.222

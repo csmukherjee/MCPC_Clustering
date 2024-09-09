@@ -1,0 +1,72 @@
+seeds (top 20.0%): FL + 5 hops
+# of nodes not included: 123
+NMI after top 20.0% nodes: 0.786
+Max NMI: 0.839
+Purity after top 20.0% nodes: 0.707
+Max Purity: 0.837
+seeds (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 101
+NMI after top 20.0% nodes: 0.767
+Max NMI: 0.767
+Purity after top 20.0% nodes: 0.634
+Max Purity: 0.677
+seeds (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 114
+NMI after top 20.0% nodes: 0.686
+Max NMI: 0.686
+Purity after top 20.0% nodes: 0.537
+Max Purity: 0.663
+seeds (top 20.0%): PageRank
+# of nodes not included: 128
+NMI after top 20.0% nodes: 0.921
+Max NMI: 0.921
+Purity after top 20.0% nodes: 0.927
+Max Purity: 0.937
+seeds (top 20.0%): FL + 5 hops
+# of nodes not included: 128
+NMI after top 20.0% nodes: 0.737
+Max NMI: 0.765
+Purity after top 20.0% nodes: 0.537
+Max Purity: 0.691
+seeds (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 117
+NMI after top 20.0% nodes: 0.711
+Max NMI: 0.721
+Purity after top 20.0% nodes: 0.512
+Max Purity: 0.663
+seeds (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 114
+NMI after top 20.0% nodes: 0.647
+Max NMI: 0.647
+Purity after top 20.0% nodes: 0.488
+Max Purity: 0.663
+seeds (top 20.0%): PageRank
+# of nodes not included: 128
+NMI after top 20.0% nodes: 0.921
+Max NMI: 0.921
+Purity after top 20.0% nodes: 0.927
+Max Purity: 0.937
+seeds (top 20.0%): FL + 5 hops
+# of nodes not included: 143
+NMI after top 20.0% nodes: 0.735
+Max NMI: 0.772
+Purity after top 20.0% nodes: 0.561
+Max Purity: 0.712
+seeds (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 117
+NMI after top 20.0% nodes: 0.711
+Max NMI: 0.721
+Purity after top 20.0% nodes: 0.512
+Max Purity: 0.663
+seeds (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 114
+NMI after top 20.0% nodes: 0.647
+Max NMI: 0.647
+Purity after top 20.0% nodes: 0.488
+Max Purity: 0.663
+seeds (top 20.0%): PageRank
+# of nodes not included: 131
+NMI after top 20.0% nodes: 0.845
+Max NMI: 0.878
+Purity after top 20.0% nodes: 0.805
+Max Purity: 0.892

@@ -1,0 +1,72 @@
+bbc_news (top 20.0%): FL + 5 hops
+# of nodes not included: 582
+NMI after top 20.0% nodes: 0.726
+Max NMI: 0.726
+Purity after top 20.0% nodes: 0.406
+Max Purity: 0.488
+bbc_news (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 591
+NMI after top 20.0% nodes: 0.693
+Max NMI: 0.705
+Purity after top 20.0% nodes: 0.409
+Max Purity: 0.464
+bbc_news (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 752
+NMI after top 20.0% nodes: 0.642
+Max NMI: 0.666
+Purity after top 20.0% nodes: 0.386
+Max Purity: 0.459
+bbc_news (top 20.0%): PageRank
+# of nodes not included: 690
+NMI after top 20.0% nodes: 0.76
+Max NMI: 0.76
+Purity after top 20.0% nodes: 0.5
+Max Purity: 0.516
+bbc_news (top 20.0%): FL + 5 hops
+# of nodes not included: 614
+NMI after top 20.0% nodes: 0.729
+Max NMI: 0.729
+Purity after top 20.0% nodes: 0.403
+Max Purity: 0.486
+bbc_news (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 639
+NMI after top 20.0% nodes: 0.678
+Max NMI: 0.696
+Purity after top 20.0% nodes: 0.389
+Max Purity: 0.436
+bbc_news (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 767
+NMI after top 20.0% nodes: 0.63
+Max NMI: 0.65
+Purity after top 20.0% nodes: 0.336
+Max Purity: 0.444
+bbc_news (top 20.0%): PageRank
+# of nodes not included: 725
+NMI after top 20.0% nodes: 0.749
+Max NMI: 0.749
+Purity after top 20.0% nodes: 0.49
+Max Purity: 0.507
+bbc_news (top 20.0%): FL + 5 hops
+# of nodes not included: 659
+NMI after top 20.0% nodes: 0.695
+Max NMI: 0.695
+Purity after top 20.0% nodes: 0.349
+Max Purity: 0.479
+bbc_news (top 20.0%): FL_ng + 5 hops
+# of nodes not included: 730
+NMI after top 20.0% nodes: 0.658
+Max NMI: 0.673
+Purity after top 20.0% nodes: 0.346
+Max Purity: 0.418
+bbc_news (top 20.0%): FL_ng_prop + 5 hops
+# of nodes not included: 818
+NMI after top 20.0% nodes: 0.621
+Max NMI: 0.638
+Purity after top 20.0% nodes: 0.305
+Max Purity: 0.403
+bbc_news (top 20.0%): PageRank
+# of nodes not included: 776
+NMI after top 20.0% nodes: 0.709
+Max NMI: 0.709
+Purity after top 20.0% nodes: 0.46
+Max Purity: 0.497

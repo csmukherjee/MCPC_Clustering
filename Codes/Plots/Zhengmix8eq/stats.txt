@@ -1,0 +1,386 @@
+Zhengmix8eq (top 20.0%): FL + 5 hops
+Number of nodes not included:  227
+NMI after top  20.0 % nodes: 0.762
+Max NMI:  0.771
+Zhengmix8eq (top 20.0%): FL_ng + 5 hops
+Number of nodes not included:  211
+NMI after top  20.0 % nodes: 0.71
+Max NMI:  0.725
+Zhengmix8eq (top 20.0%): FL_ng_prop + 5 hops
+Number of nodes not included:  341
+NMI after top  20.0 % nodes: 0.69
+Max NMI:  0.738
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  242
+NMI after top  20.0 % nodes: 0.779
+Max NMI:  0.795
+Zhengmix8eq (top 20.0%): FL + 5 hops
+Number of nodes not included:  329
+NMI after top  20.0 % nodes: 0.769
+Max NMI:  0.782
+Zhengmix8eq (top 20.0%): FL_ng + 5 hops
+Number of nodes not included:  363
+NMI after top  20.0 % nodes: 0.722
+Max NMI:  0.737
+Zhengmix8eq (top 20.0%): FL_ng_prop + 5 hops
+Number of nodes not included:  459
+NMI after top  20.0 % nodes: 0.699
+Max NMI:  0.74
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  560
+NMI after top  20.0 % nodes: 0.758
+Max NMI:  0.78
+Zhengmix8eq (top 20.0%): FL + 5 hops
+Number of nodes not included:  469
+NMI after top  20.0 % nodes: 0.719
+Max NMI:  0.729
+Zhengmix8eq (top 20.0%): FL_ng + 5 hops
+Number of nodes not included:  669
+NMI after top  20.0 % nodes: 0.68
+Max NMI:  0.702
+Zhengmix8eq (top 20.0%): FL_ng_prop + 5 hops
+Number of nodes not included:  714
+NMI after top  20.0 % nodes: 0.66
+Max NMI:  0.706
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  643
+NMI after top  20.0 % nodes: 0.741
+Max NMI:  0.756
+Zhengmix8eq (top 20.0%): FL + log(n) hops
+Number of nodes not included:  437
+NMI after top  20.0 % nodes: 0.782
+Max NMI:  0.791
+Zhengmix8eq (top 20.0%): FL_ng + log(n) hops
+Number of nodes not included:  360
+NMI after top  20.0 % nodes: 0.778
+Max NMI:  0.787
+Zhengmix8eq (top 20.0%): FL_ng_prop + log(n) hops
+Number of nodes not included:  448
+NMI after top  20.0 % nodes: 0.751
+Max NMI:  0.782
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  242
+NMI after top  20.0 % nodes: 0.779
+Max NMI:  0.797
+Zhengmix8eq (top 20.0%): FL + log(n) hops
+Number of nodes not included:  491
+NMI after top  20.0 % nodes: 0.804
+Max NMI:  0.81
+Zhengmix8eq (top 20.0%): FL_ng + log(n) hops
+Number of nodes not included:  409
+NMI after top  20.0 % nodes: 0.748
+Max NMI:  0.76
+Zhengmix8eq (top 20.0%): FL_ng_prop + log(n) hops
+Number of nodes not included:  519
+NMI after top  20.0 % nodes: 0.729
+Max NMI:  0.757
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  560
+NMI after top  20.0 % nodes: 0.758
+Max NMI:  0.78
+Zhengmix8eq (top 20.0%): FL + log(n) hops
+Number of nodes not included:  820
+NMI after top  20.0 % nodes: 0.731
+Max NMI:  0.755
+Zhengmix8eq (top 20.0%): FL_ng + log(n) hops
+Number of nodes not included:  511
+NMI after top  20.0 % nodes: 0.714
+Max NMI:  0.732
+Zhengmix8eq (top 20.0%): FL_ng_prop + log(n) hops
+Number of nodes not included:  640
+NMI after top  20.0 % nodes: 0.695
+Max NMI:  0.729
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  643
+NMI after top  20.0 % nodes: 0.741
+Max NMI:  0.75
+Zhengmix8eq (top 20.0%): FL + 5 hops
+Number of nodes not included:  286
+NMI after top  20.0 % nodes: 0.754
+Max NMI:  0.765
+Zhengmix8eq (top 20.0%): FL_ng + 5 hops
+Number of nodes not included:  211
+NMI after top  20.0 % nodes: 0.71
+Max NMI:  0.73
+Zhengmix8eq (top 20.0%): FL_ng_prop + 5 hops
+Number of nodes not included:  341
+NMI after top  20.0 % nodes: 0.69
+Max NMI:  0.726
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  242
+NMI after top  20.0 % nodes: 0.779
+Max NMI:  0.784
+Zhengmix8eq (top 20.0%): FL + 5 hops
+Number of nodes not included:  311
+NMI after top  20.0 % nodes: 0.768
+Max NMI:  0.774
+Zhengmix8eq (top 20.0%): FL_ng + 5 hops
+Number of nodes not included:  363
+NMI after top  20.0 % nodes: 0.722
+Max NMI:  0.738
+Zhengmix8eq (top 20.0%): FL_ng_prop + 5 hops
+Number of nodes not included:  459
+NMI after top  20.0 % nodes: 0.699
+Max NMI:  0.734
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  560
+NMI after top  20.0 % nodes: 0.758
+Max NMI:  0.773
+Zhengmix8eq (top 20.0%): FL + 5 hops
+Number of nodes not included:  484
+NMI after top  20.0 % nodes: 0.721
+Max NMI:  0.727
+Zhengmix8eq (top 20.0%): FL_ng + 5 hops
+Number of nodes not included:  669
+NMI after top  20.0 % nodes: 0.68
+Max NMI:  0.706
+Zhengmix8eq (top 20.0%): FL_ng_prop + 5 hops
+Number of nodes not included:  714
+NMI after top  20.0 % nodes: 0.66
+Max NMI:  0.708
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  643
+NMI after top  20.0 % nodes: 0.741
+Max NMI:  0.754
+Zhengmix8eq (top 20.0%): FL + log(n) hops
+Number of nodes not included:  330
+NMI after top  20.0 % nodes: 0.796
+Max NMI:  0.812
+Zhengmix8eq (top 20.0%): FL_ng + log(n) hops
+Number of nodes not included:  360
+NMI after top  20.0 % nodes: 0.778
+Max NMI:  0.78
+Zhengmix8eq (top 20.0%): FL_ng_prop + log(n) hops
+Number of nodes not included:  448
+NMI after top  20.0 % nodes: 0.751
+Max NMI:  0.777
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  242
+NMI after top  20.0 % nodes: 0.779
+Max NMI:  0.784
+Zhengmix8eq (top 20.0%): FL + log(n) hops
+Number of nodes not included:  457
+NMI after top  20.0 % nodes: 0.768
+Max NMI:  0.787
+Zhengmix8eq (top 20.0%): FL_ng + log(n) hops
+Number of nodes not included:  409
+NMI after top  20.0 % nodes: 0.748
+Max NMI:  0.754
+Zhengmix8eq (top 20.0%): FL_ng_prop + log(n) hops
+Number of nodes not included:  519
+NMI after top  20.0 % nodes: 0.729
+Max NMI:  0.75
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  560
+NMI after top  20.0 % nodes: 0.758
+Max NMI:  0.773
+Zhengmix8eq (top 20.0%): FL + log(n) hops
+Number of nodes not included:  555
+NMI after top  20.0 % nodes: 0.727
+Max NMI:  0.735
+Zhengmix8eq (top 20.0%): FL_ng + log(n) hops
+Number of nodes not included:  511
+NMI after top  20.0 % nodes: 0.714
+Max NMI:  0.726
+Zhengmix8eq (top 20.0%): FL_ng_prop + log(n) hops
+Number of nodes not included:  640
+NMI after top  20.0 % nodes: 0.695
+Max NMI:  0.724
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  643
+NMI after top  20.0 % nodes: 0.741
+Max NMI:  0.754
+Zhengmix8eq (top 20.0%): FL + 5 hops
+Number of nodes not included:  224
+NMI after top  20.0 % nodes: 0.763
+Max NMI:  0.774
+Zhengmix8eq (top 20.0%): FL_ng + 5 hops
+Number of nodes not included:  211
+NMI after top  20.0 % nodes: 0.71
+Max NMI:  0.731
+Zhengmix8eq (top 20.0%): FL_ng_prop + 5 hops
+Number of nodes not included:  341
+NMI after top  20.0 % nodes: 0.69
+Max NMI:  0.728
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  242
+NMI after top  20.0 % nodes: 0.779
+Max NMI:  0.799
+Zhengmix8eq (top 20.0%): FL + 5 hops
+Number of nodes not included:  379
+NMI after top  20.0 % nodes: 0.762
+Max NMI:  0.787
+Zhengmix8eq (top 20.0%): FL_ng + 5 hops
+Number of nodes not included:  363
+NMI after top  20.0 % nodes: 0.722
+Max NMI:  0.736
+Zhengmix8eq (top 20.0%): FL_ng_prop + 5 hops
+Number of nodes not included:  459
+NMI after top  20.0 % nodes: 0.699
+Max NMI:  0.728
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  560
+NMI after top  20.0 % nodes: 0.758
+Max NMI:  0.785
+Zhengmix8eq (top 20.0%): FL + 5 hops
+Number of nodes not included:  517
+NMI after top  20.0 % nodes: 0.722
+Max NMI:  0.74
+Zhengmix8eq (top 20.0%): FL_ng + 5 hops
+Number of nodes not included:  669
+NMI after top  20.0 % nodes: 0.68
+Max NMI:  0.707
+Zhengmix8eq (top 20.0%): FL_ng_prop + 5 hops
+Number of nodes not included:  714
+NMI after top  20.0 % nodes: 0.66
+Max NMI:  0.702
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  643
+NMI after top  20.0 % nodes: 0.741
+Max NMI:  0.765
+Zhengmix8eq (top 20.0%): FL + log(n) hops
+Number of nodes not included:  422
+NMI after top  20.0 % nodes: 0.802
+Max NMI:  0.821
+Zhengmix8eq (top 20.0%): FL_ng + log(n) hops
+Number of nodes not included:  360
+NMI after top  20.0 % nodes: 0.778
+Max NMI:  0.783
+Zhengmix8eq (top 20.0%): FL_ng_prop + log(n) hops
+Number of nodes not included:  448
+NMI after top  20.0 % nodes: 0.751
+Max NMI:  0.78
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  242
+NMI after top  20.0 % nodes: 0.779
+Max NMI:  0.797
+Zhengmix8eq (top 20.0%): FL + log(n) hops
+Number of nodes not included:  544
+NMI after top  20.0 % nodes: 0.778
+Max NMI:  0.798
+Zhengmix8eq (top 20.0%): FL_ng + log(n) hops
+Number of nodes not included:  409
+NMI after top  20.0 % nodes: 0.748
+Max NMI:  0.764
+Zhengmix8eq (top 20.0%): FL_ng_prop + log(n) hops
+Number of nodes not included:  519
+NMI after top  20.0 % nodes: 0.729
+Max NMI:  0.756
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  560
+NMI after top  20.0 % nodes: 0.758
+Max NMI:  0.787
+Zhengmix8eq (top 20.0%): FL + log(n) hops
+Number of nodes not included:  750
+NMI after top  20.0 % nodes: 0.723
+Max NMI:  0.74
+Zhengmix8eq (top 20.0%): FL_ng + log(n) hops
+Number of nodes not included:  511
+NMI after top  20.0 % nodes: 0.714
+Max NMI:  0.732
+Zhengmix8eq (top 20.0%): FL_ng_prop + log(n) hops
+Number of nodes not included:  640
+NMI after top  20.0 % nodes: 0.695
+Max NMI:  0.734
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  643
+NMI after top  20.0 % nodes: 0.741
+Max NMI:  0.765
+Zhengmix8eq (top 20.0%): FL + 5 hops
+Number of nodes not included:  205
+NMI after top  20.0 % nodes: 0.758
+Max NMI:  0.776
+Zhengmix8eq (top 20.0%): FL_ng + 5 hops
+Number of nodes not included:  211
+NMI after top  20.0 % nodes: 0.71
+Max NMI:  0.733
+Zhengmix8eq (top 20.0%): FL_ng_prop + 5 hops
+Number of nodes not included:  341
+NMI after top  20.0 % nodes: 0.69
+Max NMI:  0.728
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  242
+NMI after top  20.0 % nodes: 0.779
+Max NMI:  0.797
+Zhengmix8eq (top 20.0%): FL + 5 hops
+Number of nodes not included:  229
+NMI after top  20.0 % nodes: 0.766
+Max NMI:  0.784
+Zhengmix8eq (top 20.0%): FL_ng + 5 hops
+Number of nodes not included:  363
+NMI after top  20.0 % nodes: 0.722
+Max NMI:  0.739
+Zhengmix8eq (top 20.0%): FL_ng_prop + 5 hops
+Number of nodes not included:  459
+NMI after top  20.0 % nodes: 0.699
+Max NMI:  0.73
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  560
+NMI after top  20.0 % nodes: 0.758
+Max NMI:  0.788
+Zhengmix8eq (top 20.0%): FL + 5 hops
+C:\Users\MSI\AppData\Local\Temp\ipykernel_6644\2305382694.py:55: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+  plt.figure()
+Number of nodes not included:  485
+NMI after top  20.0 % nodes: 0.723
+Max NMI:  0.749
+Zhengmix8eq (top 20.0%): FL_ng + 5 hops
+Number of nodes not included:  669
+NMI after top  20.0 % nodes: 0.68
+Max NMI:  0.71
+Zhengmix8eq (top 20.0%): FL_ng_prop + 5 hops
+Number of nodes not included:  714
+NMI after top  20.0 % nodes: 0.66
+Max NMI:  0.703
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  643
+NMI after top  20.0 % nodes: 0.741
+Max NMI:  0.765
+Zhengmix8eq (top 20.0%): FL + log(n) hops
+Number of nodes not included:  466
+NMI after top  20.0 % nodes: 0.769
+Max NMI:  0.794
+Zhengmix8eq (top 20.0%): FL_ng + log(n) hops
+Number of nodes not included:  360
+NMI after top  20.0 % nodes: 0.778
+Max NMI:  0.785
+Zhengmix8eq (top 20.0%): FL_ng_prop + log(n) hops
+Number of nodes not included:  448
+NMI after top  20.0 % nodes: 0.751
+Max NMI:  0.781
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  242
+NMI after top  20.0 % nodes: 0.779
+Max NMI:  0.797
+Zhengmix8eq (top 20.0%): FL + log(n) hops
+Number of nodes not included:  595
+NMI after top  20.0 % nodes: 0.773
+Max NMI:  0.8
+Zhengmix8eq (top 20.0%): FL_ng + log(n) hops
+Number of nodes not included:  409
+NMI after top  20.0 % nodes: 0.748
+Max NMI:  0.762
+Zhengmix8eq (top 20.0%): FL_ng_prop + log(n) hops
+Number of nodes not included:  519
+NMI after top  20.0 % nodes: 0.729
+Max NMI:  0.76
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  560
+NMI after top  20.0 % nodes: 0.758
+Max NMI:  0.788
+Zhengmix8eq (top 20.0%): FL + log(n) hops
+Number of nodes not included:  589
+NMI after top  20.0 % nodes: 0.728
+Max NMI:  0.744
+Zhengmix8eq (top 20.0%): FL_ng + log(n) hops
+Number of nodes not included:  511
+NMI after top  20.0 % nodes: 0.714
+Max NMI:  0.733
+Zhengmix8eq (top 20.0%): FL_ng_prop + log(n) hops
+Number of nodes not included:  640
+NMI after top  20.0 % nodes: 0.695
+Max NMI:  0.735
+Zhengmix8eq (top 20.0%): PageRank
+Number of nodes not included:  643
+NMI after top  20.0 % nodes: 0.741
+Max NMI:  0.765
