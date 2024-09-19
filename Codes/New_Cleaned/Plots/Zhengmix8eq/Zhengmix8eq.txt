@@ -1,0 +1,73 @@
+------------------------------------------------------------------------
+Zhengmix8eq (top 20.0%): FL + log(n) hops
+# of nodes not included: 470
+NMI after top 20.0% nodes: 0.75
+Max NMI: 0.76
+Purity after top 20.0% nodes: 0.685
+Max Purity: 0.846
+Zhengmix8eq (top 20.0%): FL_ng + log(n) hops
+# of nodes not included: 213
+NMI after top 20.0% nodes: 0.78
+Max NMI: 0.781
+Purity after top 20.0% nodes: 0.707
+Max Purity: 0.795
+Zhengmix8eq (top 20.0%): FL_ng_prop + log(n) hops
+# of nodes not included: 156
+NMI after top 20.0% nodes: 0.773
+Max NMI: 0.795
+Purity after top 20.0% nodes: 0.704
+Max Purity: 0.801
+Zhengmix8eq (top 20.0%): PageRank
+# of nodes not included: 502
+NMI after top 20.0% nodes: 0.779
+Max NMI: 0.793
+Purity after top 20.0% nodes: 0.856
+Max Purity: 0.884
+Zhengmix8eq (top 20.0%): FL + log(n) hops
+# of nodes not included: 633
+NMI after top 20.0% nodes: 0.736
+Max NMI: 0.753
+Purity after top 20.0% nodes: 0.617
+Max Purity: 0.787
+Zhengmix8eq (top 20.0%): FL_ng + log(n) hops
+# of nodes not included: 249
+NMI after top 20.0% nodes: 0.773
+Max NMI: 0.779
+Purity after top 20.0% nodes: 0.649
+Max Purity: 0.774
+Zhengmix8eq (top 20.0%): FL_ng_prop + log(n) hops
+# of nodes not included: 184
+NMI after top 20.0% nodes: 0.733
+Max NMI: 0.749
+Purity after top 20.0% nodes: 0.603
+Max Purity: 0.715
+Zhengmix8eq (top 20.0%): PageRank
+# of nodes not included: 630
+NMI after top 20.0% nodes: 0.763
+Max NMI: 0.778
+Purity after top 20.0% nodes: 0.751
+Max Purity: 0.772
+Zhengmix8eq (top 20.0%): FL + log(n) hops
+# of nodes not included: 651
+NMI after top 20.0% nodes: 0.728
+Max NMI: 0.74
+Purity after top 20.0% nodes: 0.571
+Max Purity: 0.723
+Zhengmix8eq (top 20.0%): FL_ng + log(n) hops
+# of nodes not included: 381
+NMI after top 20.0% nodes: 0.706
+Max NMI: 0.713
+Purity after top 20.0% nodes: 0.467
+Max Purity: 0.614
+Zhengmix8eq (top 20.0%): FL_ng_prop + log(n) hops
+# of nodes not included: 358
+NMI after top 20.0% nodes: 0.709
+Max NMI: 0.721
+Purity after top 20.0% nodes: 0.494
+Max Purity: 0.656
+Zhengmix8eq (top 20.0%): PageRank
+# of nodes not included: 650
+NMI after top 20.0% nodes: 0.744
+Max NMI: 0.757
+Purity after top 20.0% nodes: 0.687
+Max Purity: 0.701
