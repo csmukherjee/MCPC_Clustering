@@ -15,8 +15,8 @@ from collections import Counter
 
 
 #Set this to whatever you want. Maybe we can write a wrapper here. 
-#datapath_main='../'
-datapath_main = 'I:/내 드라이브/backup/document/USC/Research/MCPC/final_dataset/Final database/'
+datapath_main='../../'
+#datapath_main = 'I:/내 드라이브/backup/document/USC/Research/MCPC/final_dataset/Final database/'
 
 def load_data(dataset_name,kchoice=15,pca_dim=50):
 
