@@ -219,6 +219,7 @@ def merge_by_vote(reset_or_static, rand_or_FR_order, node_ordered_by_FR, H_label
     if rand_or_FR_order==0: #0 = random order
         random.shuffle(node_ordered_by_FR)    
 
+
     node_linked_list = dllist(node_ordered_by_FR)
     while(flag):
         flag = 0
