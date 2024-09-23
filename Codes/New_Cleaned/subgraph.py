@@ -8,15 +8,13 @@ from llist import dllist
 FUnctions for Top k% induced subgraph
 
 '''             
-def getInducedSubgraph(G, k, node_list): #G = original graph, k = pick top k percent, node2FR = node to FR value
-    k = int(k*len(node_list))
-    top_nodes = node_list[:k]
+def getInducedSubgraph(G, k, top_nodes): #G = original graph, k = pick top k percent, node2FR = node to FR value
     #Remove nodes also remove adjacent edges
     H = G.copy()
     for u in G.nodes:
         if u not in top_nodes:
             H.remove_node(u)
-    return H, node_list
+    return H
 
 def FlowRank_Func(edge_list,vlist,walk_len_c1,c_const=0,type=0):
     if type==0:
@@ -193,92 +191,68 @@ def vote(G, H_label, node):
     else:
         return most_common_label
     
-def merge_by_vote(reset_or_static, rand_or_FR_order, node_ordered_by_FR, H_label, G, label):
+
+def merge_by_vote(top_nodes, nodes_rest, H_label, G, label):
     
     flag = 1
     cnt = 0
-    n = len(node_ordered_by_FR)
+    n = len(top_nodes)
     
     H_label_compressed = []
-    for i in range(n):
+    True_label_compressed = []
+    for i in top_nodes:
         if H_label[i] != -1:
             H_label_compressed.append(H_label[i])
-    True_label_compressed = []
-    for i in range(n):
-        if H_label[i] != -1:
             True_label_compressed.append(label[i])
     
     NMI_List = [NMI(H_label_compressed, True_label_compressed)]
     Purity_List = [met.purity_score(H_label_compressed, True_label_compressed)]
     total_inEdge = 0
-    for node in G.nodes():
+    for node in top_nodes:
         if H_label[node] != -1:
             total_inEdge += len(G.in_edges(node))
     InEdge_List = [total_inEdge]
+ 
 
-    if rand_or_FR_order==0: #0 = random order
-        random.shuffle(node_ordered_by_FR)    
-
-
-    node_linked_list = dllist(node_ordered_by_FR)
+    
+    node_linked_list = dllist(nodes_rest)
+    
     while(flag):
         flag = 0
-        #Reset Traversal (If found a node to merge, start the loop over)
-        if reset_or_static==0: #0 = reset
+        #Reset Traversal (If found a node to merge, start the loop over)    
+        nd = node_linked_list.first
+        while nd:
             
-            nd = node_linked_list.first
-            while nd:
-                node = nd.value
-                #Already has a community assigned (Skip)
-                if H_label[node] != -1:
-                    nd = nd.next
-                    continue
-                new_comm = vote(G, H_label, node)
-
-                if new_comm != -1:
-                    H_label[node] = new_comm
-                    node_linked_list.remove(nd)
-                    H_label_compressed.append(new_comm)
-                    True_label_compressed.append(label[node])
-                    InEdge_List.append(InEdge_List[-1] + len(G.in_edges(node)))
-                    flag=1
-                    cnt +=1
-                    #Calculate new NMI every 5% of nodes
-                    if cnt > n/20:
-                        new_nmi = NMI(H_label_compressed, True_label_compressed)
-                        new_purity = met.purity_score(H_label_compressed, True_label_compressed) 
-                        NMI_List.append(new_nmi)
-                        Purity_List.append(new_purity) 
-                        cnt = 0
-                    else:
-                        NMI_List.append(NMI_List[-1])
-                        Purity_List.append(Purity_List[-1])
-                    break
-                nd = nd.next
-        #Static Change (Update all nodes at once every loop) 
+            node = nd.value
+            nd_next = nd.next
+            #Already has a community assigned (Skip)
+            if H_label[node] != -1:
+                nd = nd_next
+                continue
+            
+            new_comm = vote(G, H_label, node)
+            if new_comm != -1:
+                H_label[node] = new_comm
+                node_linked_list.remove(nd)
+                H_label_compressed.append(new_comm)
+                True_label_compressed.append(label[node])
+                InEdge_List.append(InEdge_List[-1] + len(G.in_edges(node)))
+                flag=1
+                cnt +=1
+                #Calculate new NMI every 5% of nodes
+                if cnt > n/20:
+                    new_nmi = NMI(H_label_compressed, True_label_compressed)
+                    new_purity = met.purity_score(H_label_compressed, True_label_compressed) 
+                    NMI_List.append(new_nmi)
+                    Purity_List.append(new_purity) 
+                    cnt = 0
+                else:
+                    NMI_List.append(NMI_List[-1])
+                    Purity_List.append(Purity_List[-1])
+                
+            nd = nd_next
+            
         
-        else: #1 = static
-            H_label_new = H_label.copy()
-            for node in node_ordered_by_FR:
-                #Already has a community assigned (Skip)
-                if H_label[node] != -1:
-                    continue
-                new_comm = vote(G, H_label, node)
-                if new_comm != -1:
-                    H_label_new[node] = new_comm
-                    flag=1
-                    cnt +=1
-                    if cnt > n/20:
-                        new_nmi = get_NMI2(H_label_new, label)
-                        new_purity = get_Purity2(H_label_new, label)
-                        #print('NMI:',new_nmi)
-                        NMI_List.append(new_nmi)
-                        Purity_List.append(new_purity)
-                        cnt = 0
-                    else:
-                        NMI_List.append(NMI_List[-1])
-                        Purity_List.append(Purity_List[-1])
-            H_label = H_label_new
     NMI_List[-1] = NMI(H_label_compressed, True_label_compressed)
     Purity_List[-1] = get_Purity2(H_label_compressed, True_label_compressed)
     return NMI_List, Purity_List, InEdge_List
