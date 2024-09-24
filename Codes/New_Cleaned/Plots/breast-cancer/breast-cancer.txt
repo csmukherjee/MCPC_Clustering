@@ -1,0 +1,386 @@
+------------------------------------------------------------------------
+ ---breast-cancer (top 20.0%): FL + log(n) hops| res: 0.25
+NMI baseline: 0.672
+NMI_Louvain_twice: 0.188
+# of nodes not included: 0
+NMI after top 20.0% nodes: 0.665
+Max NMI: 0.698
+Purity after top 20.0% nodes: 0.77
+Max Purity: 0.844
+ ---breast-cancer (top 20.0%): FL_ng + log(n) hops| res: 0.25
+NMI baseline: 0.672
+NMI_Louvain_twice: 0.19
+# of nodes not included: 106
+NMI after top 20.0% nodes: 0.462
+Max NMI: 0.496
+Purity after top 20.0% nodes: 0.478
+Max Purity: 0.668
+ ---breast-cancer (top 20.0%): FL_ng_prop + log(n) hops| res: 0.25
+NMI baseline: 0.672
+NMI_Louvain_twice: 0.188
+# of nodes not included: 146
+NMI after top 20.0% nodes: 0.357
+Max NMI: 0.389
+Purity after top 20.0% nodes: 0.381
+Max Purity: 0.589
+ ---breast-cancer (top 20.0%): PageRank| res: 0.25
+NMI baseline: 0.672
+NMI_Louvain_twice: 0.187
+# of nodes not included: 42
+NMI after top 20.0% nodes: 0.695
+Max NMI: 0.705
+Purity after top 20.0% nodes: 0.841
+Max Purity: 0.87
+ ---breast-cancer (top 20.0%): FL + log(n) hops| res: 0.5
+NMI baseline: 0.461
+NMI_Louvain_twice: 0.188
+# of nodes not included: 6
+NMI after top 20.0% nodes: 0.585
+Max NMI: 0.632
+Purity after top 20.0% nodes: 0.681
+Max Purity: 0.813
+ ---breast-cancer (top 20.0%): FL_ng + log(n) hops| res: 0.5
+NMI baseline: 0.461
+NMI_Louvain_twice: 0.189
+# of nodes not included: 163
+NMI after top 20.0% nodes: 0.432
+Max NMI: 0.449
+Purity after top 20.0% nodes: 0.381
+Max Purity: 0.525
+ ---breast-cancer (top 20.0%): FL_ng_prop + log(n) hops| res: 0.5
+NMI baseline: 0.461
+NMI_Louvain_twice: 0.19
+# of nodes not included: 161
+NMI after top 20.0% nodes: 0.357
+Max NMI: 0.392
+Purity after top 20.0% nodes: 0.363
+Max Purity: 0.645
+ ---breast-cancer (top 20.0%): PageRank| res: 0.5
+NMI baseline: 0.461
+NMI_Louvain_twice: 0.187
+# of nodes not included: 67
+NMI after top 20.0% nodes: 0.558
+Max NMI: 0.562
+Purity after top 20.0% nodes: 0.584
+Max Purity: 0.597
+ ---breast-cancer (top 20.0%): FL + log(n) hops| res: 1
+NMI baseline: 0.347
+NMI_Louvain_twice: 0.194
+# of nodes not included: 233
+NMI after top 20.0% nodes: 0.479
+Max NMI: 0.53
+Purity after top 20.0% nodes: 0.425
+Max Purity: 0.56
+ ---breast-cancer (top 20.0%): FL_ng + log(n) hops| res: 1
+NMI baseline: 0.347
+NMI_Louvain_twice: 0.189
+# of nodes not included: 164
+NMI after top 20.0% nodes: 0.41
+Max NMI: 0.433
+Purity after top 20.0% nodes: 0.345
+Max Purity: 0.536
+ ---breast-cancer (top 20.0%): FL_ng_prop + log(n) hops| res: 1
+NMI baseline: 0.347
+NMI_Louvain_twice: 0.188
+# of nodes not included: 213
+NMI after top 20.0% nodes: 0.354
+Max NMI: 0.392
+Purity after top 20.0% nodes: 0.301
+Max Purity: 0.506
+ ---breast-cancer (top 20.0%): PageRank| res: 1
+NMI baseline: 0.347
+NMI_Louvain_twice: 0.191
+# of nodes not included: 111
+NMI after top 20.0% nodes: 0.477
+Max NMI: 0.515
+Purity after top 20.0% nodes: 0.442
+Max Purity: 0.633
+ ---breast-cancer (top 20.0%): FL + log(n) hops| res: 1.5
+NMI baseline: 0.31
+NMI_Louvain_twice: 0.198
+# of nodes not included: 289
+NMI after top 20.0% nodes: 0.455
+Max NMI: 0.485
+Purity after top 20.0% nodes: 0.363
+Max Purity: 0.493
+ ---breast-cancer (top 20.0%): FL_ng + log(n) hops| res: 1.5
+NMI baseline: 0.31
+NMI_Louvain_twice: 0.19
+# of nodes not included: 165
+NMI after top 20.0% nodes: 0.398
+Max NMI: 0.426
+Purity after top 20.0% nodes: 0.31
+Max Purity: 0.537
+ ---breast-cancer (top 20.0%): FL_ng_prop + log(n) hops| res: 1.5
+NMI baseline: 0.31
+NMI_Louvain_twice: 0.189
+# of nodes not included: 289
+NMI after top 20.0% nodes: 0.309
+Max NMI: 0.358
+Purity after top 20.0% nodes: 0.265
+Max Purity: 0.471
+ ---breast-cancer (top 20.0%): PageRank| res: 1.5
+NMI baseline: 0.31
+NMI_Louvain_twice: 0.192
+# of nodes not included: 248
+NMI after top 20.0% nodes: 0.418
+Max NMI: 0.472
+Purity after top 20.0% nodes: 0.381
+Max Purity: 0.492
+ ---breast-cancer (top 20.0%): FL + log(n) hops| res: 2
+NMI baseline: 0.309
+NMI_Louvain_twice: 0.192
+# of nodes not included: 250
+NMI after top 20.0% nodes: 0.452
+Max NMI: 0.498
+Purity after top 20.0% nodes: 0.381
+Max Purity: 0.574
+ ---breast-cancer (top 20.0%): FL_ng + log(n) hops| res: 2
+NMI baseline: 0.309
+NMI_Louvain_twice: 0.189
+# of nodes not included: 285
+NMI after top 20.0% nodes: 0.39
+Max NMI: 0.422
+Purity after top 20.0% nodes: 0.292
+Max Purity: 0.451
+ ---breast-cancer (top 20.0%): FL_ng_prop + log(n) hops| res: 2
+NMI baseline: 0.309
+NMI_Louvain_twice: 0.189
+# of nodes not included: 337
+NMI after top 20.0% nodes: 0.333
+Max NMI: 0.364
+Purity after top 20.0% nodes: 0.195
+Max Purity: 0.362
+ ---breast-cancer (top 20.0%): PageRank| res: 2
+NMI baseline: 0.309
+NMI_Louvain_twice: 0.192
+# of nodes not included: 244
+NMI after top 20.0% nodes: 0.399
+Max NMI: 0.466
+Purity after top 20.0% nodes: 0.31
+Max Purity: 0.517
+ ---breast-cancer (top 20.0%): FL + log(n) hops| res: 5
+NMI baseline: 0.26
+NMI_Louvain_twice: 0.186
+# of nodes not included: 424
+NMI after top 20.0% nodes: 0.349
+Max NMI: 0.362
+Purity after top 20.0% nodes: 0.133
+Max Purity: 0.207
+ ---breast-cancer (top 20.0%): FL_ng + log(n) hops| res: 5
+NMI baseline: 0.26
+NMI_Louvain_twice: 0.184
+# of nodes not included: 370
+NMI after top 20.0% nodes: 0.341
+Max NMI: 0.377
+Purity after top 20.0% nodes: 0.177
+Max Purity: 0.357
+ ---breast-cancer (top 20.0%): FL_ng_prop + log(n) hops| res: 5
+NMI baseline: 0.26
+NMI_Louvain_twice: 0.185
+# of nodes not included: 354
+NMI after top 20.0% nodes: 0.321
+Max NMI: 0.342
+Purity after top 20.0% nodes: 0.15
+Max Purity: 0.353
+ ---breast-cancer (top 20.0%): PageRank| res: 5
+NMI baseline: 0.26
+NMI_Louvain_twice: 0.187
+# of nodes not included: 378
+NMI after top 20.0% nodes: 0.325
+Max NMI: 0.348
+Purity after top 20.0% nodes: 0.15
+Max Purity: 0.325
+------------------------------------------------------------------------
+ ---breast-cancer (top 20.0%): FL + log(n) hops| res: 0.25
+NMI baseline: 0.672
+NMI_Louvain_twice: 0.663
+# of nodes not included: 4
+NMI after top 20.0% nodes: 0.72
+Max NMI: 0.751
+Purity after top 20.0% nodes: 0.788
+Max Purity: 0.851
+ ---breast-cancer (top 20.0%): FL_ng + log(n) hops| res: 0.25
+NMI baseline: 0.672
+NMI_Louvain_twice: 0.468
+# of nodes not included: 124
+NMI after top 20.0% nodes: 0.417
+Max NMI: 0.44
+Purity after top 20.0% nodes: 0.407
+Max Purity: 0.637
+ ---breast-cancer (top 20.0%): FL_ng_prop + log(n) hops| res: 0.25
+NMI baseline: 0.672
+NMI_Louvain_twice: 0.691
+# of nodes not included: 143
+NMI after top 20.0% nodes: 0.365
+Max NMI: 0.392
+Purity after top 20.0% nodes: 0.389
+Max Purity: 0.585
+ ---breast-cancer (top 20.0%): PageRank| res: 0.25
+NMI baseline: 0.672
+NMI_Louvain_twice: 0.744
+# of nodes not included: 42
+NMI after top 20.0% nodes: 0.695
+Max NMI: 0.705
+Purity after top 20.0% nodes: 0.841
+Max Purity: 0.87
+ ---breast-cancer (top 20.0%): FL + log(n) hops| res: 0.5
+NMI baseline: 0.481
+NMI_Louvain_twice: 0.324
+# of nodes not included: 25
+NMI after top 20.0% nodes: 0.454
+Max NMI: 0.501
+Purity after top 20.0% nodes: 0.496
+Max Purity: 0.706
+ ---breast-cancer (top 20.0%): FL_ng + log(n) hops| res: 0.5
+NMI baseline: 0.481
+NMI_Louvain_twice: 0.495
+# of nodes not included: 163
+NMI after top 20.0% nodes: 0.418
+Max NMI: 0.448
+Purity after top 20.0% nodes: 0.381
+Max Purity: 0.525
+ ---breast-cancer (top 20.0%): FL_ng_prop + log(n) hops| res: 0.5
+NMI baseline: 0.481
+NMI_Louvain_twice: 0.412
+# of nodes not included: 158
+NMI after top 20.0% nodes: 0.366
+Max NMI: 0.395
+Purity after top 20.0% nodes: 0.354
+Max Purity: 0.64
+ ---breast-cancer (top 20.0%): PageRank| res: 0.5
+NMI baseline: 0.481
+NMI_Louvain_twice: 0.449
+# of nodes not included: 71
+NMI after top 20.0% nodes: 0.558
+Max NMI: 0.562
+Purity after top 20.0% nodes: 0.584
+Max Purity: 0.599
+ ---breast-cancer (top 20.0%): FL + log(n) hops| res: 1
+NMI baseline: 0.355
+NMI_Louvain_twice: 0.357
+# of nodes not included: 235
+NMI after top 20.0% nodes: 0.505
+Max NMI: 0.531
+Purity after top 20.0% nodes: 0.442
+Max Purity: 0.56
+ ---breast-cancer (top 20.0%): FL_ng + log(n) hops| res: 1
+NMI baseline: 0.355
+NMI_Louvain_twice: 0.377
+# of nodes not included: 170
+NMI after top 20.0% nodes: 0.396
+Max NMI: 0.432
+Purity after top 20.0% nodes: 0.345
+Max Purity: 0.541
+ ---breast-cancer (top 20.0%): FL_ng_prop + log(n) hops| res: 1
+NMI baseline: 0.355
+NMI_Louvain_twice: 0.368
+# of nodes not included: 285
+NMI after top 20.0% nodes: 0.349
+Max NMI: 0.385
+Purity after top 20.0% nodes: 0.292
+Max Purity: 0.461
+ ---breast-cancer (top 20.0%): PageRank| res: 1
+NMI baseline: 0.355
+NMI_Louvain_twice: 0.372
+# of nodes not included: 115
+NMI after top 20.0% nodes: 0.477
+Max NMI: 0.521
+Purity after top 20.0% nodes: 0.442
+Max Purity: 0.637
+ ---breast-cancer (top 20.0%): FL + log(n) hops| res: 1.5
+NMI baseline: 0.305
+NMI_Louvain_twice: 0.35
+# of nodes not included: 202
+NMI after top 20.0% nodes: 0.459
+Max NMI: 0.523
+Purity after top 20.0% nodes: 0.381
+Max Purity: 0.567
+ ---breast-cancer (top 20.0%): FL_ng + log(n) hops| res: 1.5
+NMI baseline: 0.305
+NMI_Louvain_twice: 0.324
+# of nodes not included: 171
+NMI after top 20.0% nodes: 0.384
+Max NMI: 0.425
+Purity after top 20.0% nodes: 0.31
+Max Purity: 0.543
+ ---breast-cancer (top 20.0%): FL_ng_prop + log(n) hops| res: 1.5
+NMI baseline: 0.305
+NMI_Louvain_twice: 0.341
+# of nodes not included: 289
+NMI after top 20.0% nodes: 0.351
+Max NMI: 0.388
+Purity after top 20.0% nodes: 0.248
+Max Purity: 0.468
+ ---breast-cancer (top 20.0%): PageRank| res: 1.5
+NMI baseline: 0.305
+NMI_Louvain_twice: 0.334
+# of nodes not included: 246
+NMI after top 20.0% nodes: 0.418
+Max NMI: 0.471
+Purity after top 20.0% nodes: 0.381
+Max Purity: 0.489
+ ---breast-cancer (top 20.0%): FL + log(n) hops| res: 2
+NMI baseline: 0.306
+NMI_Louvain_twice: 0.319
+# of nodes not included: 248
+NMI after top 20.0% nodes: 0.435
+Max NMI: 0.488
+Purity after top 20.0% nodes: 0.363
+Max Purity: 0.562
+ ---breast-cancer (top 20.0%): FL_ng + log(n) hops| res: 2
+NMI baseline: 0.306
+NMI_Louvain_twice: 0.332
+# of nodes not included: 316
+NMI after top 20.0% nodes: 0.361
+Max NMI: 0.401
+Purity after top 20.0% nodes: 0.257
+Max Purity: 0.352
+ ---breast-cancer (top 20.0%): FL_ng_prop + log(n) hops| res: 2
+NMI baseline: 0.306
+NMI_Louvain_twice: 0.334
+# of nodes not included: 333
+NMI after top 20.0% nodes: 0.341
+Max NMI: 0.368
+Purity after top 20.0% nodes: 0.204
+Max Purity: 0.356
+ ---breast-cancer (top 20.0%): PageRank| res: 2
+NMI baseline: 0.306
+NMI_Louvain_twice: 0.317
+# of nodes not included: 242
+NMI after top 20.0% nodes: 0.399
+Max NMI: 0.465
+Purity after top 20.0% nodes: 0.31
+Max Purity: 0.514
+ ---breast-cancer (top 20.0%): FL + log(n) hops| res: 5
+NMI baseline: 0.257
+NMI_Louvain_twice: 0.262
+# of nodes not included: 400
+NMI after top 20.0% nodes: 0.352
+Max NMI: 0.358
+Purity after top 20.0% nodes: 0.133
+Max Purity: 0.272
+ ---breast-cancer (top 20.0%): FL_ng + log(n) hops| res: 5
+NMI baseline: 0.257
+NMI_Louvain_twice: 0.255
+# of nodes not included: 407
+NMI after top 20.0% nodes: 0.316
+Max NMI: 0.34
+Purity after top 20.0% nodes: 0.15
+Max Purity: 0.247
+ ---breast-cancer (top 20.0%): FL_ng_prop + log(n) hops| res: 5
+NMI baseline: 0.257
+NMI_Louvain_twice: 0.264
+# of nodes not included: 369
+NMI after top 20.0% nodes: 0.32
+Max NMI: 0.336
+Purity after top 20.0% nodes: 0.15
+Max Purity: 0.325
+ ---breast-cancer (top 20.0%): PageRank| res: 5
+NMI baseline: 0.257
+NMI_Louvain_twice: 0.258
+# of nodes not included: 376
+NMI after top 20.0% nodes: 0.325
+Max NMI: 0.348
+Purity after top 20.0% nodes: 0.15
+Max Purity: 0.326

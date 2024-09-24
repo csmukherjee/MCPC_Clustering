@@ -79,7 +79,9 @@ def louvain_partitions(
     if init_part is not None:
         #print('init_part:', init_part)
         graph = _gen_graph(graph, init_part)
+        partition = init_part
     
+
     m = graph.size(weight="weight")
 
     #inner part = partition of newly merged nodes

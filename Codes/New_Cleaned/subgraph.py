@@ -8,7 +8,7 @@ from llist import dllist
 FUnctions for Top k% induced subgraph
 
 '''             
-def getInducedSubgraph(G, k, top_nodes): #G = original graph, k = pick top k percent, node2FR = node to FR value
+def getInducedSubgraph(G, top_nodes): #G = original graph, k = pick top k percent, node2FR = node to FR value
     #Remove nodes also remove adjacent edges
     H = G.copy()
     for u in G.nodes:
