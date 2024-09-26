@@ -162,7 +162,8 @@ def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node
     while nb_moves > 0:
         nb_moves = 0
         for u in node_list:
-            best_mod = 0
+            #best_mod = 0
+            best_mod = 1e-7
             best_com = node2com[u]
             weights2com = _neighbor_weights(nbrs[u], node2com)
             if is_directed:

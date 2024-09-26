@@ -178,6 +178,8 @@ from collections import Counter, defaultdict
 import random
 def vote(G, H_label, node):
     #check every outgoing edge of node and counter the majority vote
+    if len(G.out_edges(node)) == 0:
+        return -1
     vt = defaultdict(int)
     for i in G.out_edges(node):
         #print('i:',i)
@@ -254,7 +256,7 @@ def merge_by_vote(top_nodes, nodes_rest, H_label, G, label):
             
         
     NMI_List[-1] = NMI(H_label_compressed, True_label_compressed)
-    Purity_List[-1] = get_Purity2(H_label_compressed, True_label_compressed)
+    Purity_List[-1] = met.purity_score(H_label_compressed, True_label_compressed)
     return NMI_List, Purity_List, InEdge_List
 
 
