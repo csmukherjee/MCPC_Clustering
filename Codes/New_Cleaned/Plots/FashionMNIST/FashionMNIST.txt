@@ -561,3 +561,393 @@ NMI after top 20.0% nodes: 0.569
 Max NMI: 0.569
 Purity after top 20.0% nodes: 0.128
 Max Purity: 0.141
+------------------------------------------------------------------------
+ ---FashionMNIST (top 20.0%): FL + log(n) hops| res: 0.01
+NMI baseline: 0.408
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+ ---FashionMNIST (top 20.0%): FL + log(n) hops| res: 0.01
+NMI baseline: 0.413
+NMI_Louvain_twice: 0.414
+# of nodes not included: 5012
+NMI after top 20.0% nodes: 0.694
+Max NMI: 0.698
+Purity after top 20.0% nodes: 0.769
+Max Purity: 0.792
+ ---FashionMNIST (top 20.0%): FL_ng + log(n) hops| res: 0.01
+NMI baseline: 0.413
+NMI_Louvain_twice: 0.414
+# of nodes not included: 4520
+NMI after top 20.0% nodes: 0.627
+Max NMI: 0.64
+Purity after top 20.0% nodes: 0.641
+Max Purity: 0.68
+ ---FashionMNIST (top 20.0%): FL_ng_prop + log(n) hops| res: 0.01
+NMI baseline: 0.413
+NMI_Louvain_twice: 0.412
+# of nodes not included: 6646
+NMI after top 20.0% nodes: 0.573
+Max NMI: 0.588
+Purity after top 20.0% nodes: 0.593
+Max Purity: 0.682
+ ---FashionMNIST (top 20.0%): PageRank| res: 0.01
+NMI baseline: 0.413
+NMI_Louvain_twice: 0.414
+# of nodes not included: 3666
+NMI after top 20.0% nodes: 0.669
+Max NMI: 0.672
+Purity after top 20.0% nodes: 0.847
+Max Purity: 0.858
+ ---FashionMNIST (top 20.0%): FL + log(n) hops| res: 0.03
+NMI baseline: 0.53
+NMI_Louvain_twice: 0.522
+# of nodes not included: 5861
+NMI after top 20.0% nodes: 0.685
+Max NMI: 0.69
+Purity after top 20.0% nodes: 0.702
+Max Purity: 0.735
+ ---FashionMNIST (top 20.0%): FL_ng + log(n) hops| res: 0.03
+NMI baseline: 0.53
+NMI_Louvain_twice: 0.529
+# of nodes not included: 5962
+NMI after top 20.0% nodes: 0.63
+Max NMI: 0.638
+Purity after top 20.0% nodes: 0.512
+Max Purity: 0.543
+ ---FashionMNIST (top 20.0%): FL_ng_prop + log(n) hops| res: 0.03
+NMI baseline: 0.53
+NMI_Louvain_twice: 0.529
+# of nodes not included: 7255
+NMI after top 20.0% nodes: 0.581
+Max NMI: 0.597
+Purity after top 20.0% nodes: 0.499
+Max Purity: 0.577
+ ---FashionMNIST (top 20.0%): PageRank| res: 0.03
+NMI baseline: 0.53
+NMI_Louvain_twice: 0.613
+# of nodes not included: 4116
+NMI after top 20.0% nodes: 0.711
+Max NMI: 0.715
+Purity after top 20.0% nodes: 0.783
+Max Purity: 0.795
+ ---FashionMNIST (top 20.0%): FL + log(n) hops| res: 0.05
+NMI baseline: 0.61
+NMI_Louvain_twice: 0.592
+# of nodes not included: 6879
+NMI after top 20.0% nodes: 0.684
+Max NMI: 0.688
+Purity after top 20.0% nodes: 0.588
+Max Purity: 0.612
+ ---FashionMNIST (top 20.0%): FL_ng + log(n) hops| res: 0.05
+NMI baseline: 0.61
+NMI_Louvain_twice: 0.611
+# of nodes not included: 5995
+NMI after top 20.0% nodes: 0.627
+Max NMI: 0.635
+Purity after top 20.0% nodes: 0.489
+Max Purity: 0.513
+ ---FashionMNIST (top 20.0%): FL_ng_prop + log(n) hops| res: 0.05
+NMI baseline: 0.61
+NMI_Louvain_twice: 0.608
+# of nodes not included: 8316
+NMI after top 20.0% nodes: 0.575
+Max NMI: 0.591
+Purity after top 20.0% nodes: 0.428
+Max Purity: 0.481
+ ---FashionMNIST (top 20.0%): PageRank| res: 0.05
+NMI baseline: 0.61
+NMI_Louvain_twice: 0.616
+# of nodes not included: 5245
+NMI after top 20.0% nodes: 0.68
+Max NMI: 0.685
+Purity after top 20.0% nodes: 0.64
+Max Purity: 0.648
+ ---FashionMNIST (top 20.0%): FL + log(n) hops| res: 0.1
+NMI baseline: 0.65
+NMI_Louvain_twice: 0.61
+# of nodes not included: 7450
+NMI after top 20.0% nodes: 0.696
+Max NMI: 0.698
+Purity after top 20.0% nodes: 0.572
+Max Purity: 0.587
+ ---FashionMNIST (top 20.0%): FL_ng + log(n) hops| res: 0.1
+NMI baseline: 0.65
+NMI_Louvain_twice: 0.645
+# of nodes not included: 6551
+NMI after top 20.0% nodes: 0.62
+Max NMI: 0.628
+Purity after top 20.0% nodes: 0.443
+Max Purity: 0.475
+ ---FashionMNIST (top 20.0%): FL_ng_prop + log(n) hops| res: 0.1
+NMI baseline: 0.65
+NMI_Louvain_twice: 0.627
+# of nodes not included: 9048
+NMI after top 20.0% nodes: 0.567
+Max NMI: 0.579
+Purity after top 20.0% nodes: 0.32
+Max Purity: 0.355
+ ---FashionMNIST (top 20.0%): PageRank| res: 0.1
+NMI baseline: 0.65
+NMI_Louvain_twice: 0.651
+# of nodes not included: 5257
+NMI after top 20.0% nodes: 0.692
+Max NMI: 0.697
+Purity after top 20.0% nodes: 0.618
+Max Purity: 0.627
+ ---FashionMNIST (top 20.0%): FL + log(n) hops| res: 0.15
+NMI baseline: 0.662
+NMI_Louvain_twice: 0.665
+# of nodes not included: 7825
+NMI after top 20.0% nodes: 0.687
+Max NMI: 0.689
+Purity after top 20.0% nodes: 0.528
+Max Purity: 0.542
+ ---FashionMNIST (top 20.0%): FL_ng + log(n) hops| res: 0.15
+NMI baseline: 0.662
+NMI_Louvain_twice: 0.637
+# of nodes not included: 7561
+NMI after top 20.0% nodes: 0.614
+Max NMI: 0.621
+Purity after top 20.0% nodes: 0.378
+Max Purity: 0.417
+ ---FashionMNIST (top 20.0%): FL_ng_prop + log(n) hops| res: 0.15
+NMI baseline: 0.662
+NMI_Louvain_twice: 0.645
+# of nodes not included: 9533
+NMI after top 20.0% nodes: 0.558
+Max NMI: 0.568
+Purity after top 20.0% nodes: 0.266
+Max Purity: 0.299
+ ---FashionMNIST (top 20.0%): PageRank| res: 0.15
+NMI baseline: 0.662
+NMI_Louvain_twice: 0.659
+# of nodes not included: 5862
+NMI after top 20.0% nodes: 0.662
+Max NMI: 0.666
+Purity after top 20.0% nodes: 0.488
+Max Purity: 0.489
+ ---FashionMNIST (top 20.0%): FL + log(n) hops| res: 0.2
+NMI baseline: 0.665
+NMI_Louvain_twice: 0.665
+# of nodes not included: 8332
+NMI after top 20.0% nodes: 0.667
+Max NMI: 0.668
+Purity after top 20.0% nodes: 0.454
+Max Purity: 0.466
+ ---FashionMNIST (top 20.0%): FL_ng + log(n) hops| res: 0.2
+NMI baseline: 0.665
+NMI_Louvain_twice: 0.662
+# of nodes not included: 7769
+NMI after top 20.0% nodes: 0.611
+Max NMI: 0.617
+Purity after top 20.0% nodes: 0.368
+Max Purity: 0.412
+ ---FashionMNIST (top 20.0%): FL_ng_prop + log(n) hops| res: 0.2
+NMI baseline: 0.665
+NMI_Louvain_twice: 0.649
+# of nodes not included: 9588
+NMI after top 20.0% nodes: 0.562
+Max NMI: 0.574
+Purity after top 20.0% nodes: 0.282
+Max Purity: 0.316
+ ---FashionMNIST (top 20.0%): PageRank| res: 0.2
+NMI baseline: 0.665
+NMI_Louvain_twice: 0.66
+# of nodes not included: 6152
+NMI after top 20.0% nodes: 0.647
+Max NMI: 0.651
+Purity after top 20.0% nodes: 0.438
+Max Purity: 0.438
+------------------------------------------------------------------------
+ ---FashionMNIST (top 20.0%): FL + log(n) hops| res: 0.05
+NMI baseline: 0.531
+NMI_Louvain_twice: 0.619
+# of nodes not included: 8078
+NMI after top 20.0% nodes: 0.68
+Max NMI: 0.684
+Purity after top 20.0% nodes: 0.784
+Max Purity: 0.789
+ ---FashionMNIST (top 20.0%): FL_ng + log(n) hops| res: 0.05
+NMI baseline: 0.531
+NMI_Louvain_twice: 0.615
+# of nodes not included: 5451
+NMI after top 20.0% nodes: 0.618
+Max NMI: 0.631
+Purity after top 20.0% nodes: 0.775
+Max Purity: 0.779
+ ---FashionMNIST (top 20.0%): FL_ng_prop + log(n) hops| res: 0.05
+NMI baseline: 0.531
+NMI_Louvain_twice: 0.614
+# of nodes not included: 7782
+NMI after top 20.0% nodes: 0.593
+Max NMI: 0.61
+Purity after top 20.0% nodes: 0.815
+Max Purity: 0.817
+ ---FashionMNIST (top 20.0%): PageRank| res: 0.05
+NMI baseline: 0.531
+NMI_Louvain_twice: 0.617
+# of nodes not included: 5673
+NMI after top 20.0% nodes: 0.679
+Max NMI: 0.681
+Purity after top 20.0% nodes: 0.712
+Max Purity: 0.714
+ ---FashionMNIST (top 20.0%): FL + log(n) hops| res: 0.25
+NMI baseline: 0.656
+NMI_Louvain_twice: 0.659
+# of nodes not included: 9877
+NMI after top 20.0% nodes: 0.629
+Max NMI: 0.631
+Purity after top 20.0% nodes: 0.81
+Max Purity: 0.811
+ ---FashionMNIST (top 20.0%): FL_ng + log(n) hops| res: 0.25
+NMI baseline: 0.656
+NMI_Louvain_twice: 0.669
+# of nodes not included: 8134
+NMI after top 20.0% nodes: 0.585
+Max NMI: 0.594
+Purity after top 20.0% nodes: 0.813
+Max Purity: 0.818
+ ---FashionMNIST (top 20.0%): FL_ng_prop + log(n) hops| res: 0.25
+NMI baseline: 0.656
+NMI_Louvain_twice: 0.678
+# of nodes not included: 10098
+NMI after top 20.0% nodes: 0.562
+Max NMI: 0.574
+Purity after top 20.0% nodes: 0.846
+Max Purity: 0.848
+ ---FashionMNIST (top 20.0%): PageRank| res: 0.25
+NMI baseline: 0.656
+NMI_Louvain_twice: 0.674
+# of nodes not included: 7737
+NMI after top 20.0% nodes: 0.632
+Max NMI: 0.634
+Purity after top 20.0% nodes: 0.79
+Max Purity: 0.793
+ ---FashionMNIST (top 20.0%): FL + log(n) hops| res: 0.5
+NMI baseline: 0.631
+NMI_Louvain_twice: 0.637
+# of nodes not included: 11023
+NMI after top 20.0% nodes: 0.618
+Max NMI: 0.618
+Purity after top 20.0% nodes: 0.852
+Max Purity: 0.853
+ ---FashionMNIST (top 20.0%): FL_ng + log(n) hops| res: 0.5
+NMI baseline: 0.631
+NMI_Louvain_twice: 0.638
+# of nodes not included: 9318
+NMI after top 20.0% nodes: 0.58
+Max NMI: 0.585
+Purity after top 20.0% nodes: 0.845
+Max Purity: 0.848
+ ---FashionMNIST (top 20.0%): FL_ng_prop + log(n) hops| res: 0.5
+NMI baseline: 0.631
+NMI_Louvain_twice: 0.648
+# of nodes not included: 10714
+NMI after top 20.0% nodes: 0.555
+Max NMI: 0.565
+Purity after top 20.0% nodes: 0.856
+Max Purity: 0.858
+ ---FashionMNIST (top 20.0%): PageRank| res: 0.5
+NMI baseline: 0.631
+NMI_Louvain_twice: 0.622
+# of nodes not included: 8738
+NMI after top 20.0% nodes: 0.619
+Max NMI: 0.62
+Purity after top 20.0% nodes: 0.826
+Max Purity: 0.829
+ ---FashionMNIST (top 20.0%): FL + log(n) hops| res: 1
+NMI baseline: 0.605
+NMI_Louvain_twice: 0.591
+# of nodes not included: 11933
+NMI after top 20.0% nodes: 0.602
+Max NMI: 0.602
+Purity after top 20.0% nodes: 0.864
+Max Purity: 0.865
+ ---FashionMNIST (top 20.0%): FL_ng + log(n) hops| res: 1
+NMI baseline: 0.605
+NMI_Louvain_twice: 0.59
+# of nodes not included: 10313
+NMI after top 20.0% nodes: 0.565
+Max NMI: 0.568
+Purity after top 20.0% nodes: 0.859
+Max Purity: 0.861
+ ---FashionMNIST (top 20.0%): FL_ng_prop + log(n) hops| res: 1
+NMI baseline: 0.605
+NMI_Louvain_twice: 0.604
+# of nodes not included: 11608
+NMI after top 20.0% nodes: 0.541
+Max NMI: 0.549
+Purity after top 20.0% nodes: 0.869
+Max Purity: 0.87
+ ---FashionMNIST (top 20.0%): PageRank| res: 1
+NMI baseline: 0.605
+NMI_Louvain_twice: 0.594
+# of nodes not included: 9474
+NMI after top 20.0% nodes: 0.606
+Max NMI: 0.607
+Purity after top 20.0% nodes: 0.842
+Max Purity: 0.843
+ ---FashionMNIST (top 20.0%): FL + log(n) hops| res: 1.5
+NMI baseline: 0.571
+NMI_Louvain_twice: 0.573
+# of nodes not included: 12415
+NMI after top 20.0% nodes: 0.592
+Max NMI: 0.592
+Purity after top 20.0% nodes: 0.872
+Max Purity: 0.872
+ ---FashionMNIST (top 20.0%): FL_ng + log(n) hops| res: 1.5
+NMI baseline: 0.571
+NMI_Louvain_twice: 0.58
+# of nodes not included: 11294
+NMI after top 20.0% nodes: 0.559
+Max NMI: 0.562
+Purity after top 20.0% nodes: 0.863
+Max Purity: 0.865
+ ---FashionMNIST (top 20.0%): FL_ng_prop + log(n) hops| res: 1.5
+NMI baseline: 0.571
+NMI_Louvain_twice: 0.585
+# of nodes not included: 12246
+NMI after top 20.0% nodes: 0.533
+Max NMI: 0.54
+Purity after top 20.0% nodes: 0.873
+Max Purity: 0.875
+ ---FashionMNIST (top 20.0%): PageRank| res: 1.5
+NMI baseline: 0.571
+NMI_Louvain_twice: 0.566
+# of nodes not included: 10190
+NMI after top 20.0% nodes: 0.595
+Max NMI: 0.596
+Purity after top 20.0% nodes: 0.86
+Max Purity: 0.862
+ ---FashionMNIST (top 20.0%): FL + log(n) hops| res: 5
+NMI baseline: 0.505
+NMI_Louvain_twice: 0.511
+# of nodes not included: 14210
+NMI after top 20.0% nodes: 0.556
+Max NMI: 0.556
+Purity after top 20.0% nodes: 0.886
+Max Purity: 0.886
+ ---FashionMNIST (top 20.0%): FL_ng + log(n) hops| res: 5
+NMI baseline: 0.505
+NMI_Louvain_twice: 0.507
+# of nodes not included: 13325
+NMI after top 20.0% nodes: 0.533
+Max NMI: 0.535
+Purity after top 20.0% nodes: 0.877
+Max Purity: 0.878
+ ---FashionMNIST (top 20.0%): FL_ng_prop + log(n) hops| res: 5
+NMI baseline: 0.505
+NMI_Louvain_twice: 0.508
+# of nodes not included: 14147
+NMI after top 20.0% nodes: 0.517
+Max NMI: 0.523
+Purity after top 20.0% nodes: 0.888
+Max Purity: 0.889
+ ---FashionMNIST (top 20.0%): PageRank| res: 5
+NMI baseline: 0.505
+NMI_Louvain_twice: 0.505
+# of nodes not included: 12663
+NMI after top 20.0% nodes: 0.559
+Max NMI: 0.559
+Purity after top 20.0% nodes: 0.883
+Max Purity: 0.884

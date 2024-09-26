@@ -208,7 +208,7 @@ def merge_by_vote(top_nodes, nodes_rest, H_label, G, label):
             True_label_compressed.append(label[i])
     
     NMI_List = [NMI(H_label_compressed, True_label_compressed)]
-    Purity_List = [met.purity_score(H_label_compressed, True_label_compressed)]
+    Purity_List = [met.purity_score(True_label_compressed,H_label_compressed)]
     total_inEdge = 0
     for node in top_nodes:
         if H_label[node] != -1:
@@ -244,7 +244,7 @@ def merge_by_vote(top_nodes, nodes_rest, H_label, G, label):
                 #Calculate new NMI every 5% of nodes
                 if cnt > n/20:
                     new_nmi = NMI(H_label_compressed, True_label_compressed)
-                    new_purity = met.purity_score(H_label_compressed, True_label_compressed) 
+                    new_purity = met.purity_score(True_label_compressed,H_label_compressed) 
                     NMI_List.append(new_nmi)
                     Purity_List.append(new_purity) 
                     cnt = 0
@@ -256,7 +256,7 @@ def merge_by_vote(top_nodes, nodes_rest, H_label, G, label):
             
         
     NMI_List[-1] = NMI(H_label_compressed, True_label_compressed)
-    Purity_List[-1] = met.purity_score(H_label_compressed, True_label_compressed)
+    Purity_List[-1] = met.purity_score(True_label_compressed,H_label_compressed)
     return NMI_List, Purity_List, InEdge_List
 
 
