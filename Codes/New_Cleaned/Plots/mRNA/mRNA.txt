@@ -577,3 +577,220 @@ NMI after top 20.0% nodes: 0.873
 Max NMI: 0.874
 Purity after top 20.0% nodes: 0.939
 Max Purity: 0.94
+------------------------------------------------------------------------
+ ---mRNA (top 20.0%): FL + log(n) hops + Survive: 0| res: 0.05
+NMI baseline: 0.768
+# of nodes not included: 679
+NMI_Louvain_twice: 0.786
+NMI after top 20.0% nodes: 0.888
+Max NMI: 0.889
+Purity_Louvain_twice: 0.574
+Purity after top 20.0% nodes: 0.838
+Max Purity: 0.856
+ ---mRNA (top 20.0%): FL_ng + log(n) hops + Survive: 0| res: 0.05
+NMI baseline: 0.768
+# of nodes not included: 525
+NMI_Louvain_twice: 0.788
+NMI after top 20.0% nodes: 0.861
+Max NMI: 0.864
+Purity_Louvain_twice: 0.581
+Purity after top 20.0% nodes: 0.843
+Max Purity: 0.843
+ ---mRNA (top 20.0%): FL_ng_prop + log(n) hops + Survive: 0| res: 0.05
+NMI baseline: 0.768
+# of nodes not included: 404
+NMI_Louvain_twice: 0.777
+NMI after top 20.0% nodes: 0.855
+Max NMI: 0.862
+Purity_Louvain_twice: 0.564
+Purity after top 20.0% nodes: 0.855
+Max Purity: 0.856
+ ---mRNA (top 20.0%): PageRank + Survive: 0| res: 0.05
+NMI baseline: 0.768
+# of nodes not included: 882
+NMI_Louvain_twice: 0.774
+NMI after top 20.0% nodes: 0.924
+Max NMI: 0.925
+Purity_Louvain_twice: 0.554
+Purity after top 20.0% nodes: 0.894
+Max Purity: 0.894
+ ---mRNA (top 20.0%): FL + log(n) hops + Survive: 0| res: 0.25
+NMI baseline: 0.825
+# of nodes not included: 867
+NMI_Louvain_twice: 0.813
+NMI after top 20.0% nodes: 0.887
+Max NMI: 0.89
+Purity_Louvain_twice: 0.654
+Purity after top 20.0% nodes: 0.893
+Max Purity: 0.896
+ ---mRNA (top 20.0%): FL_ng + log(n) hops + Survive: 0| res: 0.25
+NMI baseline: 0.825
+# of nodes not included: 779
+NMI_Louvain_twice: 0.814
+NMI after top 20.0% nodes: 0.853
+Max NMI: 0.858
+Purity_Louvain_twice: 0.653
+Purity after top 20.0% nodes: 0.867
+Max Purity: 0.867
+ ---mRNA (top 20.0%): FL_ng_prop + log(n) hops + Survive: 0| res: 0.25
+NMI baseline: 0.825
+# of nodes not included: 623
+NMI_Louvain_twice: 0.82
+NMI after top 20.0% nodes: 0.854
+Max NMI: 0.862
+Purity_Louvain_twice: 0.668
+Purity after top 20.0% nodes: 0.872
+Max Purity: 0.872
+ ---mRNA (top 20.0%): PageRank + Survive: 0| res: 0.25
+NMI baseline: 0.825
+# of nodes not included: 1003
+NMI_Louvain_twice: 0.816
+NMI after top 20.0% nodes: 0.915
+Max NMI: 0.915
+Purity_Louvain_twice: 0.654
+Purity after top 20.0% nodes: 0.939
+Max Purity: 0.939
+ ---mRNA (top 20.0%): FL + log(n) hops + Survive: 0| res: 0.5
+NMI baseline: 0.858
+# of nodes not included: 867
+NMI_Louvain_twice: 0.851
+NMI after top 20.0% nodes: 0.894
+Max NMI: 0.897
+Purity_Louvain_twice: 0.783
+Purity after top 20.0% nodes: 0.918
+Max Purity: 0.918
+ ---mRNA (top 20.0%): FL_ng + log(n) hops + Survive: 0| res: 0.5
+NMI baseline: 0.858
+# of nodes not included: 842
+NMI_Louvain_twice: 0.834
+NMI after top 20.0% nodes: 0.853
+Max NMI: 0.86
+Purity_Louvain_twice: 0.778
+Purity after top 20.0% nodes: 0.891
+Max Purity: 0.896
+ ---mRNA (top 20.0%): FL_ng_prop + log(n) hops + Survive: 0| res: 0.5
+NMI baseline: 0.858
+# of nodes not included: 681
+NMI_Louvain_twice: 0.85
+NMI after top 20.0% nodes: 0.846
+Max NMI: 0.855
+Purity_Louvain_twice: 0.796
+Purity after top 20.0% nodes: 0.898
+Max Purity: 0.901
+ ---mRNA (top 20.0%): PageRank + Survive: 0| res: 0.5
+NMI baseline: 0.858
+# of nodes not included: 1025
+NMI_Louvain_twice: 0.849
+NMI after top 20.0% nodes: 0.912
+Max NMI: 0.912
+Purity_Louvain_twice: 0.781
+Purity after top 20.0% nodes: 0.939
+Max Purity: 0.939
+ ---mRNA (top 20.0%): FL + log(n) hops + Survive: 0| res: 1
+NMI baseline: 0.862
+# of nodes not included: 910
+NMI_Louvain_twice: 0.858
+NMI after top 20.0% nodes: 0.883
+Max NMI: 0.886
+Purity_Louvain_twice: 0.865
+Purity after top 20.0% nodes: 0.918
+Max Purity: 0.918
+ ---mRNA (top 20.0%): FL_ng + log(n) hops + Survive: 0| res: 1
+NMI baseline: 0.862
+# of nodes not included: 1295
+NMI_Louvain_twice: 0.849
+NMI after top 20.0% nodes: 0.853
+Max NMI: 0.86
+Purity_Louvain_twice: 0.839
+Purity after top 20.0% nodes: 0.913
+Max Purity: 0.915
+ ---mRNA (top 20.0%): FL_ng_prop + log(n) hops + Survive: 0| res: 1
+NMI baseline: 0.862
+# of nodes not included: 924
+NMI_Louvain_twice: 0.855
+NMI after top 20.0% nodes: 0.842
+Max NMI: 0.852
+Purity_Louvain_twice: 0.835
+Purity after top 20.0% nodes: 0.901
+Max Purity: 0.903
+ ---mRNA (top 20.0%): PageRank + Survive: 0| res: 1
+NMI baseline: 0.862
+# of nodes not included: 1147
+NMI_Louvain_twice: 0.865
+NMI after top 20.0% nodes: 0.908
+Max NMI: 0.908
+Purity_Louvain_twice: 0.866
+Purity after top 20.0% nodes: 0.941
+Max Purity: 0.941
+ ---mRNA (top 20.0%): FL + log(n) hops + Survive: 0| res: 1.5
+NMI baseline: 0.857
+# of nodes not included: 904
+NMI_Louvain_twice: 0.852
+NMI after top 20.0% nodes: 0.882
+Max NMI: 0.886
+Purity_Louvain_twice: 0.868
+Purity after top 20.0% nodes: 0.923
+Max Purity: 0.923
+ ---mRNA (top 20.0%): FL_ng + log(n) hops + Survive: 0| res: 1.5
+NMI baseline: 0.857
+# of nodes not included: 1385
+NMI_Louvain_twice: 0.853
+NMI after top 20.0% nodes: 0.847
+Max NMI: 0.853
+Purity_Louvain_twice: 0.864
+Purity after top 20.0% nodes: 0.913
+Max Purity: 0.914
+ ---mRNA (top 20.0%): FL_ng_prop + log(n) hops + Survive: 0| res: 1.5
+NMI baseline: 0.857
+# of nodes not included: 1101
+NMI_Louvain_twice: 0.866
+NMI after top 20.0% nodes: 0.842
+Max NMI: 0.853
+Purity_Louvain_twice: 0.875
+Purity after top 20.0% nodes: 0.921
+Max Purity: 0.925
+ ---mRNA (top 20.0%): PageRank + Survive: 0| res: 1.5
+NMI baseline: 0.857
+# of nodes not included: 1171
+NMI_Louvain_twice: 0.856
+NMI after top 20.0% nodes: 0.903
+Max NMI: 0.904
+Purity_Louvain_twice: 0.876
+Purity after top 20.0% nodes: 0.941
+Max Purity: 0.941
+ ---mRNA (top 20.0%): FL + log(n) hops + Survive: 0| res: 5
+NMI baseline: 0.82
+# of nodes not included: 1248
+NMI_Louvain_twice: 0.82
+NMI after top 20.0% nodes: 0.859
+Max NMI: 0.862
+Purity_Louvain_twice: 0.882
+Purity after top 20.0% nodes: 0.923
+Max Purity: 0.923
+ ---mRNA (top 20.0%): FL_ng + log(n) hops + Survive: 0| res: 5
+NMI baseline: 0.82
+# of nodes not included: 1876
+NMI_Louvain_twice: 0.819
+NMI after top 20.0% nodes: 0.829
+Max NMI: 0.838
+Purity_Louvain_twice: 0.879
+Purity after top 20.0% nodes: 0.919
+Max Purity: 0.921
+ ---mRNA (top 20.0%): FL_ng_prop + log(n) hops + Survive: 0| res: 5
+NMI baseline: 0.82
+# of nodes not included: 2200
+NMI_Louvain_twice: 0.818
+NMI after top 20.0% nodes: 0.806
+Max NMI: 0.82
+Purity_Louvain_twice: 0.887
+Purity after top 20.0% nodes: 0.93
+Max Purity: 0.931
+ ---mRNA (top 20.0%): PageRank + Survive: 0| res: 5
+NMI baseline: 0.82
+# of nodes not included: 1887
+NMI_Louvain_twice: 0.819
+NMI after top 20.0% nodes: 0.875
+Max NMI: 0.876
+Purity_Louvain_twice: 0.88
+Purity after top 20.0% nodes: 0.941
+Max Purity: 0.941

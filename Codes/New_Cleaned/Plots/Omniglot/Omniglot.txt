@@ -577,3 +577,220 @@ NMI after top 20.0% nodes: 0.664
 Max NMI: 0.664
 Purity after top 20.0% nodes: 0.191
 Max Purity: 0.191
+------------------------------------------------------------------------
+ ---Omniglot (top 20.0%): FL + log(n) hops| res: 0.05
+NMI baseline: 0.0
+# of nodes not included: 355
+NMI_Louvain_twice: 0.0
+NMI after top 20.0% nodes: 0.012
+Max NMI: 0.012
+Purity_Louvain_twice: 0.002
+Purity after top 20.0% nodes: 0.013
+Max Purity: 0.013
+ ---Omniglot (top 20.0%): FL_ng + log(n) hops| res: 0.05
+NMI baseline: 0.0
+# of nodes not included: 2029
+NMI_Louvain_twice: 0.0
+NMI after top 20.0% nodes: 0.375
+Max NMI: 0.375
+Purity_Louvain_twice: 0.002
+Purity after top 20.0% nodes: 0.076
+Max Purity: 0.076
+ ---Omniglot (top 20.0%): FL_ng_prop + log(n) hops| res: 0.05
+NMI baseline: 0.0
+# of nodes not included: 4201
+NMI_Louvain_twice: 0.0
+NMI after top 20.0% nodes: 0.51
+Max NMI: 0.51
+Purity_Louvain_twice: 0.002
+Purity after top 20.0% nodes: 0.158
+Max Purity: 0.158
+ ---Omniglot (top 20.0%): PageRank| res: 0.05
+NMI baseline: 0.0
+# of nodes not included: 283
+NMI_Louvain_twice: 0.0
+NMI after top 20.0% nodes: 0.004
+Max NMI: 0.004
+Purity_Louvain_twice: 0.002
+Purity after top 20.0% nodes: 0.01
+Max Purity: 0.01
+ ---Omniglot (top 20.0%): FL + log(n) hops| res: 0.25
+NMI baseline: 0.086
+# of nodes not included: 4945
+NMI_Louvain_twice: 0.078
+NMI after top 20.0% nodes: 0.415
+Max NMI: 0.415
+Purity_Louvain_twice: 0.004
+Purity after top 20.0% nodes: 0.055
+Max Purity: 0.055
+ ---Omniglot (top 20.0%): FL_ng + log(n) hops| res: 0.25
+NMI baseline: 0.086
+# of nodes not included: 5137
+NMI_Louvain_twice: 0.086
+NMI after top 20.0% nodes: 0.57
+Max NMI: 0.57
+Purity_Louvain_twice: 0.005
+Purity after top 20.0% nodes: 0.124
+Max Purity: 0.124
+ ---Omniglot (top 20.0%): FL_ng_prop + log(n) hops| res: 0.25
+NMI baseline: 0.086
+# of nodes not included: 5281
+NMI_Louvain_twice: 0.076
+NMI after top 20.0% nodes: 0.636
+Max NMI: 0.636
+Purity_Louvain_twice: 0.006
+Purity after top 20.0% nodes: 0.199
+Max Purity: 0.199
+ ---Omniglot (top 20.0%): PageRank| res: 0.25
+NMI baseline: 0.086
+# of nodes not included: 4860
+NMI_Louvain_twice: 0.1
+NMI after top 20.0% nodes: 0.428
+Max NMI: 0.428
+Purity_Louvain_twice: 0.006
+Purity after top 20.0% nodes: 0.054
+Max Purity: 0.054
+ ---Omniglot (top 20.0%): FL + log(n) hops| res: 0.5
+NMI baseline: 0.279
+# of nodes not included: 5254
+NMI_Louvain_twice: 0.264
+NMI after top 20.0% nodes: 0.494
+Max NMI: 0.494
+Purity_Louvain_twice: 0.014
+Purity after top 20.0% nodes: 0.08
+Max Purity: 0.08
+ ---Omniglot (top 20.0%): FL_ng + log(n) hops| res: 0.5
+NMI baseline: 0.279
+# of nodes not included: 5410
+NMI_Louvain_twice: 0.286
+NMI after top 20.0% nodes: 0.611
+Max NMI: 0.611
+Purity_Louvain_twice: 0.015
+Purity after top 20.0% nodes: 0.144
+Max Purity: 0.144
+ ---Omniglot (top 20.0%): FL_ng_prop + log(n) hops| res: 0.5
+NMI baseline: 0.279
+# of nodes not included: 5499
+NMI_Louvain_twice: 0.245
+NMI after top 20.0% nodes: 0.669
+Max NMI: 0.669
+Purity_Louvain_twice: 0.012
+Purity after top 20.0% nodes: 0.214
+Max Purity: 0.214
+ ---Omniglot (top 20.0%): PageRank| res: 0.5
+NMI baseline: 0.279
+# of nodes not included: 5185
+NMI_Louvain_twice: 0.261
+NMI after top 20.0% nodes: 0.479
+Max NMI: 0.479
+Purity_Louvain_twice: 0.013
+Purity after top 20.0% nodes: 0.066
+Max Purity: 0.066
+ ---Omniglot (top 20.0%): FL + log(n) hops| res: 1
+NMI baseline: 0.35
+# of nodes not included: 5730
+NMI_Louvain_twice: 0.351
+NMI after top 20.0% nodes: 0.579
+Max NMI: 0.579
+Purity_Louvain_twice: 0.023
+Purity after top 20.0% nodes: 0.116
+Max Purity: 0.116
+ ---Omniglot (top 20.0%): FL_ng + log(n) hops| res: 1
+NMI baseline: 0.35
+# of nodes not included: 5716
+NMI_Louvain_twice: 0.343
+NMI after top 20.0% nodes: 0.654
+Max NMI: 0.654
+Purity_Louvain_twice: 0.022
+Purity after top 20.0% nodes: 0.174
+Max Purity: 0.174
+ ---Omniglot (top 20.0%): FL_ng_prop + log(n) hops| res: 1
+NMI baseline: 0.35
+# of nodes not included: 5852
+NMI_Louvain_twice: 0.351
+NMI after top 20.0% nodes: 0.703
+Max NMI: 0.703
+Purity_Louvain_twice: 0.023
+Purity after top 20.0% nodes: 0.242
+Max Purity: 0.242
+ ---Omniglot (top 20.0%): PageRank| res: 1
+NMI baseline: 0.35
+# of nodes not included: 5702
+NMI_Louvain_twice: 0.34
+NMI after top 20.0% nodes: 0.553
+Max NMI: 0.553
+Purity_Louvain_twice: 0.022
+Purity after top 20.0% nodes: 0.104
+Max Purity: 0.104
+ ---Omniglot (top 20.0%): FL + log(n) hops| res: 1.5
+NMI baseline: 0.403
+# of nodes not included: 5955
+NMI_Louvain_twice: 0.397
+NMI after top 20.0% nodes: 0.599
+Max NMI: 0.599
+Purity_Louvain_twice: 0.029
+Purity after top 20.0% nodes: 0.132
+Max Purity: 0.132
+ ---Omniglot (top 20.0%): FL_ng + log(n) hops| res: 1.5
+NMI baseline: 0.403
+# of nodes not included: 5986
+NMI_Louvain_twice: 0.402
+NMI after top 20.0% nodes: 0.678
+Max NMI: 0.678
+Purity_Louvain_twice: 0.032
+Purity after top 20.0% nodes: 0.197
+Max Purity: 0.197
+ ---Omniglot (top 20.0%): FL_ng_prop + log(n) hops| res: 1.5
+NMI baseline: 0.403
+# of nodes not included: 6004
+NMI_Louvain_twice: 0.401
+NMI after top 20.0% nodes: 0.723
+Max NMI: 0.723
+Purity_Louvain_twice: 0.03
+Purity after top 20.0% nodes: 0.264
+Max Purity: 0.264
+ ---Omniglot (top 20.0%): PageRank| res: 1.5
+NMI baseline: 0.403
+# of nodes not included: 5836
+NMI_Louvain_twice: 0.386
+NMI after top 20.0% nodes: 0.591
+Max NMI: 0.591
+Purity_Louvain_twice: 0.028
+Purity after top 20.0% nodes: 0.125
+Max Purity: 0.125
+ ---Omniglot (top 20.0%): FL + log(n) hops| res: 5
+NMI baseline: 0.537
+# of nodes not included: 6538
+NMI_Louvain_twice: 0.52
+NMI after top 20.0% nodes: 0.674
+Max NMI: 0.674
+Purity_Louvain_twice: 0.07
+Purity after top 20.0% nodes: 0.208
+Max Purity: 0.208
+ ---Omniglot (top 20.0%): FL_ng + log(n) hops| res: 5
+NMI baseline: 0.537
+# of nodes not included: 6376
+NMI_Louvain_twice: 0.529
+NMI after top 20.0% nodes: 0.733
+Max NMI: 0.733
+Purity_Louvain_twice: 0.072
+Purity after top 20.0% nodes: 0.269
+Max Purity: 0.269
+ ---Omniglot (top 20.0%): FL_ng_prop + log(n) hops| res: 5
+NMI baseline: 0.537
+# of nodes not included: 6410
+NMI_Louvain_twice: 0.528
+NMI after top 20.0% nodes: 0.763
+Max NMI: 0.763
+Purity_Louvain_twice: 0.073
+Purity after top 20.0% nodes: 0.322
+Max Purity: 0.322
+ ---Omniglot (top 20.0%): PageRank| res: 5
+NMI baseline: 0.537
+# of nodes not included: 6430
+NMI_Louvain_twice: 0.522
+NMI after top 20.0% nodes: 0.664
+Max NMI: 0.664
+Purity_Louvain_twice: 0.068
+Purity after top 20.0% nodes: 0.2
+Max Purity: 0.2

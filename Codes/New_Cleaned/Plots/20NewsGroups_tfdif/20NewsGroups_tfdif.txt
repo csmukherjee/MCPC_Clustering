@@ -385,3 +385,220 @@ NMI after top 20.0% nodes: 0.497
 Max NMI: 0.497
 Purity after top 20.0% nodes: 0.618
 Max Purity: 0.618
+------------------------------------------------------------------------
+ ---20NewsGroups_tfdif (top 20.0%): FL + log(n) hops| res: 0.05
+NMI baseline: 0.275
+# of nodes not included: 5427
+NMI_Louvain_twice: 0.275
+NMI after top 20.0% nodes: 0.582
+Max NMI: 0.582
+Purity_Louvain_twice: 0.313
+Purity after top 20.0% nodes: 0.8
+Max Purity: 0.8
+ ---20NewsGroups_tfdif (top 20.0%): FL_ng + log(n) hops| res: 0.05
+NMI baseline: 0.275
+# of nodes not included: 5731
+NMI_Louvain_twice: 0.273
+NMI after top 20.0% nodes: 0.594
+Max NMI: 0.594
+Purity_Louvain_twice: 0.303
+Purity after top 20.0% nodes: 0.824
+Max Purity: 0.824
+ ---20NewsGroups_tfdif (top 20.0%): FL_ng_prop + log(n) hops| res: 0.05
+NMI baseline: 0.275
+# of nodes not included: 6355
+NMI_Louvain_twice: 0.274
+NMI after top 20.0% nodes: 0.594
+Max NMI: 0.594
+Purity_Louvain_twice: 0.311
+Purity after top 20.0% nodes: 0.839
+Max Purity: 0.839
+ ---20NewsGroups_tfdif (top 20.0%): PageRank| res: 0.05
+NMI baseline: 0.275
+# of nodes not included: 5199
+NMI_Louvain_twice: 0.279
+NMI after top 20.0% nodes: 0.482
+Max NMI: 0.483
+Purity_Louvain_twice: 0.311
+Purity after top 20.0% nodes: 0.577
+Max Purity: 0.579
+ ---20NewsGroups_tfdif (top 20.0%): FL + log(n) hops| res: 0.25
+NMI baseline: 0.301
+# of nodes not included: 5427
+NMI_Louvain_twice: 0.299
+NMI after top 20.0% nodes: 0.582
+Max NMI: 0.582
+Purity_Louvain_twice: 0.371
+Purity after top 20.0% nodes: 0.8
+Max Purity: 0.8
+ ---20NewsGroups_tfdif (top 20.0%): FL_ng + log(n) hops| res: 0.25
+NMI baseline: 0.301
+# of nodes not included: 5731
+NMI_Louvain_twice: 0.298
+NMI after top 20.0% nodes: 0.594
+Max NMI: 0.594
+Purity_Louvain_twice: 0.371
+Purity after top 20.0% nodes: 0.824
+Max Purity: 0.824
+ ---20NewsGroups_tfdif (top 20.0%): FL_ng_prop + log(n) hops| res: 0.25
+NMI baseline: 0.301
+# of nodes not included: 6355
+NMI_Louvain_twice: 0.302
+NMI after top 20.0% nodes: 0.594
+Max NMI: 0.594
+Purity_Louvain_twice: 0.379
+Purity after top 20.0% nodes: 0.839
+Max Purity: 0.839
+ ---20NewsGroups_tfdif (top 20.0%): PageRank| res: 0.25
+NMI baseline: 0.301
+# of nodes not included: 5204
+NMI_Louvain_twice: 0.304
+NMI after top 20.0% nodes: 0.482
+Max NMI: 0.483
+Purity_Louvain_twice: 0.378
+Purity after top 20.0% nodes: 0.582
+Max Purity: 0.582
+ ---20NewsGroups_tfdif (top 20.0%): FL + log(n) hops| res: 0.5
+NMI baseline: 0.306
+# of nodes not included: 5427
+NMI_Louvain_twice: 0.305
+NMI after top 20.0% nodes: 0.582
+Max NMI: 0.582
+Purity_Louvain_twice: 0.392
+Purity after top 20.0% nodes: 0.8
+Max Purity: 0.8
+ ---20NewsGroups_tfdif (top 20.0%): FL_ng + log(n) hops| res: 0.5
+NMI baseline: 0.306
+# of nodes not included: 5741
+NMI_Louvain_twice: 0.302
+NMI after top 20.0% nodes: 0.595
+Max NMI: 0.595
+Purity_Louvain_twice: 0.394
+Purity after top 20.0% nodes: 0.825
+Max Purity: 0.825
+ ---20NewsGroups_tfdif (top 20.0%): FL_ng_prop + log(n) hops| res: 0.5
+NMI baseline: 0.306
+# of nodes not included: 6355
+NMI_Louvain_twice: 0.305
+NMI after top 20.0% nodes: 0.594
+Max NMI: 0.594
+Purity_Louvain_twice: 0.393
+Purity after top 20.0% nodes: 0.839
+Max Purity: 0.839
+ ---20NewsGroups_tfdif (top 20.0%): PageRank| res: 0.5
+NMI baseline: 0.306
+# of nodes not included: 5276
+NMI_Louvain_twice: 0.309
+NMI after top 20.0% nodes: 0.484
+Max NMI: 0.484
+Purity_Louvain_twice: 0.398
+Purity after top 20.0% nodes: 0.594
+Max Purity: 0.594
+ ---20NewsGroups_tfdif (top 20.0%): FL + log(n) hops| res: 1
+NMI baseline: 0.324
+# of nodes not included: 5427
+NMI_Louvain_twice: 0.322
+NMI after top 20.0% nodes: 0.582
+Max NMI: 0.582
+Purity_Louvain_twice: 0.421
+Purity after top 20.0% nodes: 0.8
+Max Purity: 0.8
+ ---20NewsGroups_tfdif (top 20.0%): FL_ng + log(n) hops| res: 1
+NMI baseline: 0.324
+# of nodes not included: 5741
+NMI_Louvain_twice: 0.319
+NMI after top 20.0% nodes: 0.595
+Max NMI: 0.595
+Purity_Louvain_twice: 0.425
+Purity after top 20.0% nodes: 0.825
+Max Purity: 0.825
+ ---20NewsGroups_tfdif (top 20.0%): FL_ng_prop + log(n) hops| res: 1
+NMI baseline: 0.324
+# of nodes not included: 6368
+NMI_Louvain_twice: 0.322
+NMI after top 20.0% nodes: 0.594
+Max NMI: 0.594
+Purity_Louvain_twice: 0.428
+Purity after top 20.0% nodes: 0.84
+Max Purity: 0.84
+ ---20NewsGroups_tfdif (top 20.0%): PageRank| res: 1
+NMI baseline: 0.324
+# of nodes not included: 5295
+NMI_Louvain_twice: 0.32
+NMI after top 20.0% nodes: 0.485
+Max NMI: 0.486
+Purity_Louvain_twice: 0.42
+Purity after top 20.0% nodes: 0.598
+Max Purity: 0.601
+ ---20NewsGroups_tfdif (top 20.0%): FL + log(n) hops| res: 1.5
+NMI baseline: 0.333
+# of nodes not included: 5427
+NMI_Louvain_twice: 0.332
+NMI after top 20.0% nodes: 0.582
+Max NMI: 0.582
+Purity_Louvain_twice: 0.439
+Purity after top 20.0% nodes: 0.8
+Max Purity: 0.8
+ ---20NewsGroups_tfdif (top 20.0%): FL_ng + log(n) hops| res: 1.5
+NMI baseline: 0.333
+# of nodes not included: 5741
+NMI_Louvain_twice: 0.33
+NMI after top 20.0% nodes: 0.595
+Max NMI: 0.595
+Purity_Louvain_twice: 0.44
+Purity after top 20.0% nodes: 0.825
+Max Purity: 0.825
+ ---20NewsGroups_tfdif (top 20.0%): FL_ng_prop + log(n) hops| res: 1.5
+NMI baseline: 0.333
+# of nodes not included: 6368
+NMI_Louvain_twice: 0.328
+NMI after top 20.0% nodes: 0.594
+Max NMI: 0.594
+Purity_Louvain_twice: 0.436
+Purity after top 20.0% nodes: 0.84
+Max Purity: 0.84
+ ---20NewsGroups_tfdif (top 20.0%): PageRank| res: 1.5
+NMI baseline: 0.333
+# of nodes not included: 5339
+NMI_Louvain_twice: 0.333
+NMI after top 20.0% nodes: 0.489
+Max NMI: 0.491
+Purity_Louvain_twice: 0.443
+Purity after top 20.0% nodes: 0.604
+Max Purity: 0.604
+ ---20NewsGroups_tfdif (top 20.0%): FL + log(n) hops| res: 5
+NMI baseline: 0.356
+# of nodes not included: 5437
+NMI_Louvain_twice: 0.359
+NMI after top 20.0% nodes: 0.582
+Max NMI: 0.582
+Purity_Louvain_twice: 0.488
+Purity after top 20.0% nodes: 0.801
+Max Purity: 0.801
+ ---20NewsGroups_tfdif (top 20.0%): FL_ng + log(n) hops| res: 5
+NMI baseline: 0.356
+# of nodes not included: 5741
+NMI_Louvain_twice: 0.358
+NMI after top 20.0% nodes: 0.595
+Max NMI: 0.595
+Purity_Louvain_twice: 0.485
+Purity after top 20.0% nodes: 0.825
+Max Purity: 0.825
+ ---20NewsGroups_tfdif (top 20.0%): FL_ng_prop + log(n) hops| res: 5
+NMI baseline: 0.356
+# of nodes not included: 6368
+NMI_Louvain_twice: 0.356
+NMI after top 20.0% nodes: 0.594
+Max NMI: 0.594
+Purity_Louvain_twice: 0.482
+Purity after top 20.0% nodes: 0.84
+Max Purity: 0.84
+ ---20NewsGroups_tfdif (top 20.0%): PageRank| res: 5
+NMI baseline: 0.356
+# of nodes not included: 5539
+NMI_Louvain_twice: 0.357
+NMI after top 20.0% nodes: 0.495
+Max NMI: 0.495
+Purity_Louvain_twice: 0.484
+Purity after top 20.0% nodes: 0.623
+Max Purity: 0.623
