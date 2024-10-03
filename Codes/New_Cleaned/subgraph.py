@@ -1,5 +1,7 @@
 import FlowRank_General as FR
 from sklearn.metrics.cluster import normalized_mutual_info_score as NMI
+from sknetwork.ranking import PageRank
+from scipy import sparse
 import networkx as nx
 import numpy as np
 import metric as met
@@ -24,11 +26,39 @@ def FlowRank_Func(edge_list,vlist,walk_len_c1,c_const=0,type=0):
     elif type==2:
         return FR.FLOW_ng_prop(edge_list,vlist,walk_len_c1,c_const)
 
+def networkX_to_adjMatrix(G):
+    # Get a list of nodes and create a mapping to indices
+    nodes = list(G.nodes())
+    node_indices = {node: idx for idx, node in enumerate(nodes)}
+
+    # Build the adjacency matrix
+    row_indices = []
+    col_indices = []
+    data = []
+
+    for source, target in G.edges():
+        row_indices.append(node_indices[source])
+        col_indices.append(node_indices[target])
+        data.append(1)
+
+    num_nodes = len(nodes)
+    adjacency_matrix = sparse.csr_matrix(
+        (data, (row_indices, col_indices)), shape=(num_nodes, num_nodes)
+    )
+
+    return node_indices, adjacency_matrix
+
 def calc_FlowRank(graph, FR_type, walk_len_c1):
     node2FR = dict()
     if FR_type==3:
-        pg_rank = nx.pagerank(graph,alpha=0.85) #alpha = 0.85 is the default
-        node2FR = {k: pg_rank[k]*graph.number_of_nodes() for k in pg_rank}
+        # pg_rank = nx.pagerank(graph,alpha=0.85) #alpha = 0.85 is the default
+        # node2FR = {k: pg_rank[k]*graph.number_of_nodes() for k in pg_rank}
+
+        pagerank = PageRank(damping_factor=0.85)
+        node_indices, adj_matrix = networkX_to_adjMatrix(graph)
+        pagerank.fit(adj_matrix)
+        scores = pagerank.scores_
+        node2FR = {node: scores[idx] for node, idx in node_indices.items()}
     else:
         for i in FlowRank_Func(graph.edges(),graph.nodes(),walk_len_c1,0,FR_type):
             node_num = int(i[1])
@@ -193,8 +223,31 @@ def vote(G, H_label, node):
     else:
         return most_common_label
     
+def calc_balancedness(selected_labels_dict, cluster_sizes):
+    #loop through the selected labels and calculate the balancedness
+    min_cluster = 2
+    max_cluster = -1
+    for cluster, cluster_size in cluster_sizes.items(): #key = cluster #, value = count of nodes
+        cnt = selected_labels_dict[cluster]
+        ratio = cnt/cluster_size
+        if ratio < min_cluster:
+            min_cluster = ratio
+        if ratio > max_cluster:
+            max_cluster = ratio
+    #print('min_cluster:',min_cluster, 'max_cluster:',max_cluster)
+    return min_cluster/max_cluster
 
-def merge_by_vote(top_nodes, nodes_rest, H_label, G, label):
+def calc_preservation(selected_labels_dict, cluster_sizes, num_total):
+    num_selected = sum(selected_labels_dict.values())
+
+    ratio = 0
+    for cluster, cluster_size in cluster_sizes.items(): #key = cluster #, value = count of nodes
+        cnt = selected_labels_dict[cluster]
+        ratio += min(cnt/cluster_size, num_selected/num_total)
+    ratio = (ratio/num_selected)*(num_total/len(cluster_sizes))
+    return ratio
+
+def merge_by_vote(top_nodes, nodes_rest, H_label, G, label, selected_labels_dict, cluster_sizes):
     
     flag = 1
     cnt = 0
@@ -209,16 +262,16 @@ def merge_by_vote(top_nodes, nodes_rest, H_label, G, label):
     
     NMI_List = [NMI(H_label_compressed, True_label_compressed)]
     Purity_List = [met.purity_score(True_label_compressed,H_label_compressed)]
+    Balance_List = [calc_balancedness(selected_labels_dict, cluster_sizes)]
+    Preserv_List = [calc_preservation(selected_labels_dict, cluster_sizes, G.number_of_nodes())]
+
     total_inEdge = 0
     for node in top_nodes:
         if H_label[node] != -1:
             total_inEdge += len(G.in_edges(node))
     InEdge_List = [total_inEdge]
  
-
-    
     node_linked_list = dllist(nodes_rest)
-    
     while(flag):
         flag = 0
         #Reset Traversal (If found a node to merge, start the loop over)    
@@ -239,6 +292,7 @@ def merge_by_vote(top_nodes, nodes_rest, H_label, G, label):
                 H_label_compressed.append(new_comm)
                 True_label_compressed.append(label[node])
                 InEdge_List.append(InEdge_List[-1] + len(G.in_edges(node)))
+                selected_labels_dict[label[node]] += 1
                 flag=1
                 cnt +=1
                 #Calculate new NMI every 5% of nodes
@@ -247,17 +301,22 @@ def merge_by_vote(top_nodes, nodes_rest, H_label, G, label):
                     new_purity = met.purity_score(True_label_compressed,H_label_compressed) 
                     NMI_List.append(new_nmi)
                     Purity_List.append(new_purity) 
+                    Balance_List.append(calc_balancedness(selected_labels_dict, cluster_sizes))
+                    Preserv_List.append(calc_preservation(selected_labels_dict, cluster_sizes, G.number_of_nodes()))
                     cnt = 0
                 else:
                     NMI_List.append(NMI_List[-1])
                     Purity_List.append(Purity_List[-1])
-                
+                    Balance_List.append(Balance_List[-1])
+                    Preserv_List.append(Preserv_List[-1])
             nd = nd_next
             
         
     NMI_List[-1] = NMI(H_label_compressed, True_label_compressed)
     Purity_List[-1] = met.purity_score(True_label_compressed,H_label_compressed)
-    return NMI_List, Purity_List, InEdge_List
+    Balance_List[-1] = calc_balancedness(selected_labels_dict, cluster_sizes)
+    Preserv_List[-1] = calc_preservation(selected_labels_dict, cluster_sizes, G.number_of_nodes())
+    return NMI_List, Purity_List, Balance_List, Preserv_List, InEdge_List
 
 
 def get_labels(partition,n_s):
@@ -274,6 +333,8 @@ def get_labels(partition,n_s):
         c=c+1
 
     return label_1
+
+
 
 # def relabel_graph(H): #compress the node numberings 
 #     mapping = dict(zip(H.nodes(), range(H.number_of_nodes())))
