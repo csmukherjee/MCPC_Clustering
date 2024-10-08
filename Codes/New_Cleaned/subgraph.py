@@ -6,6 +6,7 @@ import networkx as nx
 import numpy as np
 import metric as met
 from llist import dllist
+import matplotlib.pyplot as plt
 '''
 FUnctions for Top k% induced subgraph
 
@@ -50,7 +51,7 @@ def networkX_to_adjMatrix(G):
 
 def calc_FlowRank(graph, FR_type, walk_len_c1):
     node2FR = dict()
-    if FR_type==3:
+    if FR_type==4:
         # pg_rank = nx.pagerank(graph,alpha=0.85) #alpha = 0.85 is the default
         # node2FR = {k: pg_rank[k]*graph.number_of_nodes() for k in pg_rank}
 
@@ -59,10 +60,14 @@ def calc_FlowRank(graph, FR_type, walk_len_c1):
         pagerank.fit(adj_matrix)
         scores = pagerank.scores_
         node2FR = {node: scores[idx] for node, idx in node_indices.items()}
+    elif FR_type==3:
+        pg_rank = nx.pagerank(graph,alpha=0.85) #alpha = 0.85 is the default
+        node2FR = {k: pg_rank[k] for k in pg_rank}
     else:
         for i in FlowRank_Func(graph.edges(),graph.nodes(),walk_len_c1,0,FR_type):
             node_num = int(i[1])
             node2FR[node_num] = i[0]
+    
     return node2FR
 
 def part_to_compressed_label(partition,H,original_n): #partition to labels (Returns compressed labels)
@@ -218,7 +223,7 @@ def vote(G, H_label, node):
     most_common_label, most_common_count = Counter(vt).most_common(1)[0]
     
     #Strong Majority Vote
-    if most_common_count < len(G.out_edges(node))/2:
+    if most_common_count <= len(G.out_edges(node))/2:
         return -1
     else:
         return most_common_label
@@ -230,11 +235,12 @@ def calc_balancedness(selected_labels_dict, cluster_sizes):
     for cluster, cluster_size in cluster_sizes.items(): #key = cluster #, value = count of nodes
         cnt = selected_labels_dict[cluster]
         ratio = cnt/cluster_size
+        #print('cluster:',cluster, 'ratio:',round(ratio,3), end=' /')
         if ratio < min_cluster:
             min_cluster = ratio
         if ratio > max_cluster:
             max_cluster = ratio
-    #print('min_cluster:',min_cluster, 'max_cluster:',max_cluster)
+    #print('min_cluster:',round(min_cluster,4), 'max_cluster:', round(max_cluster,4))
     return min_cluster/max_cluster
 
 def calc_preservation(selected_labels_dict, cluster_sizes, num_total):
@@ -245,6 +251,7 @@ def calc_preservation(selected_labels_dict, cluster_sizes, num_total):
         cnt = selected_labels_dict[cluster]
         ratio += min(cnt/cluster_size, num_selected/num_total)
     ratio = (ratio/num_selected)*(num_total/len(cluster_sizes))
+
     return ratio
 
 def merge_by_vote(top_nodes, nodes_rest, H_label, G, label, selected_labels_dict, cluster_sizes):
@@ -272,6 +279,8 @@ def merge_by_vote(top_nodes, nodes_rest, H_label, G, label, selected_labels_dict
     InEdge_List = [total_inEdge]
  
     node_linked_list = dllist(nodes_rest)
+
+    
     while(flag):
         flag = 0
         #Reset Traversal (If found a node to merge, start the loop over)    
@@ -303,6 +312,8 @@ def merge_by_vote(top_nodes, nodes_rest, H_label, G, label, selected_labels_dict
                     Purity_List.append(new_purity) 
                     Balance_List.append(calc_balancedness(selected_labels_dict, cluster_sizes))
                     Preserv_List.append(calc_preservation(selected_labels_dict, cluster_sizes, G.number_of_nodes()))
+                    #print each entry of selected_labels_dict and cluster_sizes & compare
+                    
                     cnt = 0
                 else:
                     NMI_List.append(NMI_List[-1])
