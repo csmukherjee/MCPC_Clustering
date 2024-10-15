@@ -1,217 +1,169 @@
 ------------------------------------------------------------------------
  ---Eu core (top 20.0%): FL + log(n) hops| res: 0.05
 NMI baseline: 0.033
-# of nodes not included: 794
-NMI_Louvain_twice: 0.033
-NMI after top 20.0% nodes: 0.621
-Max NMI: 0.621
-Purity_Louvain_twice: 0.125
-Purity after top 20.0% nodes: 0.721
-Max Purity: 0.721
+# of nodes not included: 795
+NMI after top 20.0% nodes: 0.619
+Max NMI: 0.619
+Purity after top 20.0% nodes: 0.711
+Max Purity: 0.711
  ---Eu core (top 20.0%): FL_ng + log(n) hops| res: 0.05
 NMI baseline: 0.033
 # of nodes not included: 796
-NMI_Louvain_twice: 0.033
 NMI after top 20.0% nodes: 0.628
 Max NMI: 0.628
-Purity_Louvain_twice: 0.125
 Purity after top 20.0% nodes: 0.721
 Max Purity: 0.721
  ---Eu core (top 20.0%): FL_ng_prop + log(n) hops| res: 0.05
 NMI baseline: 0.033
 # of nodes not included: 800
-NMI_Louvain_twice: 0.033
 NMI after top 20.0% nodes: 0.666
 Max NMI: 0.666
-Purity_Louvain_twice: 0.125
 Purity after top 20.0% nodes: 0.826
 Max Purity: 0.826
  ---Eu core (top 20.0%): PageRank| res: 0.05
 NMI baseline: 0.033
 # of nodes not included: 140
-NMI_Louvain_twice: 0.033
 NMI after top 20.0% nodes: 0.041
 Max NMI: 0.041
-Purity_Louvain_twice: 0.125
 Purity after top 20.0% nodes: 0.114
 Max Purity: 0.129
  ---Eu core (top 20.0%): FL + log(n) hops| res: 0.25
 NMI baseline: 0.033
-# of nodes not included: 794
-NMI_Louvain_twice: 0.033
-NMI after top 20.0% nodes: 0.621
-Max NMI: 0.621
-Purity_Louvain_twice: 0.125
-Purity after top 20.0% nodes: 0.721
-Max Purity: 0.721
+# of nodes not included: 795
+NMI after top 20.0% nodes: 0.619
+Max NMI: 0.619
+Purity after top 20.0% nodes: 0.711
+Max Purity: 0.711
  ---Eu core (top 20.0%): FL_ng + log(n) hops| res: 0.25
 NMI baseline: 0.033
 # of nodes not included: 796
-NMI_Louvain_twice: 0.033
 NMI after top 20.0% nodes: 0.628
 Max NMI: 0.628
-Purity_Louvain_twice: 0.125
 Purity after top 20.0% nodes: 0.721
 Max Purity: 0.721
  ---Eu core (top 20.0%): FL_ng_prop + log(n) hops| res: 0.25
 NMI baseline: 0.033
 # of nodes not included: 800
-NMI_Louvain_twice: 0.033
 NMI after top 20.0% nodes: 0.666
 Max NMI: 0.666
-Purity_Louvain_twice: 0.125
 Purity after top 20.0% nodes: 0.826
 Max Purity: 0.826
  ---Eu core (top 20.0%): PageRank| res: 0.25
 NMI baseline: 0.033
 # of nodes not included: 140
-NMI_Louvain_twice: 0.033
 NMI after top 20.0% nodes: 0.041
 Max NMI: 0.041
-Purity_Louvain_twice: 0.125
 Purity after top 20.0% nodes: 0.114
 Max Purity: 0.129
  ---Eu core (top 20.0%): FL + log(n) hops| res: 0.5
 NMI baseline: 0.416
-# of nodes not included: 794
-NMI_Louvain_twice: 0.282
-NMI after top 20.0% nodes: 0.621
-Max NMI: 0.621
-Purity_Louvain_twice: 0.235
+# of nodes not included: 795
+NMI after top 20.0% nodes: 0.627
+Max NMI: 0.627
 Purity after top 20.0% nodes: 0.721
 Max Purity: 0.721
  ---Eu core (top 20.0%): FL_ng + log(n) hops| res: 0.5
 NMI baseline: 0.416
 # of nodes not included: 796
-NMI_Louvain_twice: 0.333
 NMI after top 20.0% nodes: 0.644
 Max NMI: 0.644
-Purity_Louvain_twice: 0.28
 Purity after top 20.0% nodes: 0.751
 Max Purity: 0.751
  ---Eu core (top 20.0%): FL_ng_prop + log(n) hops| res: 0.5
 NMI baseline: 0.416
 # of nodes not included: 802
-NMI_Louvain_twice: 0.412
 NMI after top 20.0% nodes: 0.672
 Max NMI: 0.672
-Purity_Louvain_twice: 0.319
 Purity after top 20.0% nodes: 0.831
 Max Purity: 0.831
  ---Eu core (top 20.0%): PageRank| res: 0.5
 NMI baseline: 0.416
 # of nodes not included: 140
-NMI_Louvain_twice: 0.206
 NMI after top 20.0% nodes: 0.078
 Max NMI: 0.078
-Purity_Louvain_twice: 0.237
 Purity after top 20.0% nodes: 0.134
 Max Purity: 0.134
  ---Eu core (top 20.0%): FL + log(n) hops| res: 1
 NMI baseline: 0.582
-# of nodes not included: 799
-NMI_Louvain_twice: 0.502
-NMI after top 20.0% nodes: 0.653
-Max NMI: 0.653
-Purity_Louvain_twice: 0.368
-Purity after top 20.0% nodes: 0.756
-Max Purity: 0.756
+# of nodes not included: 800
+NMI after top 20.0% nodes: 0.656
+Max NMI: 0.656
+Purity after top 20.0% nodes: 0.746
+Max Purity: 0.746
  ---Eu core (top 20.0%): FL_ng + log(n) hops| res: 1
 NMI baseline: 0.582
 # of nodes not included: 800
-NMI_Louvain_twice: 0.561
 NMI after top 20.0% nodes: 0.666
 Max NMI: 0.666
-Purity_Louvain_twice: 0.462
 Purity after top 20.0% nodes: 0.776
 Max Purity: 0.776
  ---Eu core (top 20.0%): FL_ng_prop + log(n) hops| res: 1
 NMI baseline: 0.582
 # of nodes not included: 802
-NMI_Louvain_twice: 0.54
 NMI after top 20.0% nodes: 0.684
 Max NMI: 0.684
-Purity_Louvain_twice: 0.41
 Purity after top 20.0% nodes: 0.841
 Max Purity: 0.841
  ---Eu core (top 20.0%): PageRank| res: 1
 NMI baseline: 0.582
 # of nodes not included: 744
-NMI_Louvain_twice: 0.491
 NMI after top 20.0% nodes: 0.495
 Max NMI: 0.495
-Purity_Louvain_twice: 0.372
 Purity after top 20.0% nodes: 0.353
 Max Purity: 0.353
  ---Eu core (top 20.0%): FL + log(n) hops| res: 1.5
 NMI baseline: 0.655
-# of nodes not included: 799
-NMI_Louvain_twice: 0.621
-NMI after top 20.0% nodes: 0.68
-Max NMI: 0.68
-Purity_Louvain_twice: 0.538
-Purity after top 20.0% nodes: 0.781
-Max Purity: 0.781
+# of nodes not included: 800
+NMI after top 20.0% nodes: 0.668
+Max NMI: 0.668
+Purity after top 20.0% nodes: 0.761
+Max Purity: 0.761
  ---Eu core (top 20.0%): FL_ng + log(n) hops| res: 1.5
 NMI baseline: 0.655
 # of nodes not included: 801
-NMI_Louvain_twice: 0.639
 NMI after top 20.0% nodes: 0.675
 Max NMI: 0.675
-Purity_Louvain_twice: 0.541
 Purity after top 20.0% nodes: 0.786
 Max Purity: 0.786
  ---Eu core (top 20.0%): FL_ng_prop + log(n) hops| res: 1.5
 NMI baseline: 0.655
 # of nodes not included: 802
-NMI_Louvain_twice: 0.654
 NMI after top 20.0% nodes: 0.692
 Max NMI: 0.692
-Purity_Louvain_twice: 0.549
 Purity after top 20.0% nodes: 0.851
 Max Purity: 0.851
  ---Eu core (top 20.0%): PageRank| res: 1.5
 NMI baseline: 0.655
 # of nodes not included: 763
-NMI_Louvain_twice: 0.611
 NMI after top 20.0% nodes: 0.658
 Max NMI: 0.658
-Purity_Louvain_twice: 0.51
 Purity after top 20.0% nodes: 0.517
 Max Purity: 0.517
  ---Eu core (top 20.0%): FL + log(n) hops| res: 5
 NMI baseline: 0.749
-# of nodes not included: 799
-NMI_Louvain_twice: 0.738
-NMI after top 20.0% nodes: 0.705
-Max NMI: 0.705
-Purity_Louvain_twice: 0.748
-Purity after top 20.0% nodes: 0.836
-Max Purity: 0.836
+# of nodes not included: 800
+NMI after top 20.0% nodes: 0.7
+Max NMI: 0.7
+Purity after top 20.0% nodes: 0.821
+Max Purity: 0.821
  ---Eu core (top 20.0%): FL_ng + log(n) hops| res: 5
 NMI baseline: 0.749
 # of nodes not included: 801
-NMI_Louvain_twice: 0.733
 NMI after top 20.0% nodes: 0.704
 Max NMI: 0.704
-Purity_Louvain_twice: 0.748
 Purity after top 20.0% nodes: 0.846
 Max Purity: 0.846
  ---Eu core (top 20.0%): FL_ng_prop + log(n) hops| res: 5
 NMI baseline: 0.749
 # of nodes not included: 802
-NMI_Louvain_twice: 0.732
 NMI after top 20.0% nodes: 0.719
 Max NMI: 0.719
-Purity_Louvain_twice: 0.743
 Purity after top 20.0% nodes: 0.91
 Max Purity: 0.91
  ---Eu core (top 20.0%): PageRank| res: 5
 NMI baseline: 0.749
 # of nodes not included: 777
-NMI_Louvain_twice: 0.729
 NMI after top 20.0% nodes: 0.749
 Max NMI: 0.749
-Purity_Louvain_twice: 0.74
 Purity after top 20.0% nodes: 0.756
 Max Purity: 0.756

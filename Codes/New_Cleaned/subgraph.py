@@ -7,6 +7,7 @@ import numpy as np
 import metric as met
 from llist import dllist
 import matplotlib.pyplot as plt
+import igraph as ig
 '''
 FUnctions for Top k% induced subgraph
 
@@ -91,19 +92,35 @@ def part_to_compressed_label(partition,H,original_n): #partition to labels (Retu
     #print(label_compressed)
     return label_compressed
 
-def part_to_full_label(partition, original_n): #partition to labels (Returns full labels)
-    #Mapping node numbers to index
-        
+def part_to_full_label(partition, original_n, mapping = None): #partition to labels (Returns full labels)
     label_1=[-1]*(original_n)
-    c=0
-    for sets in partition:
-        for ell in sets:
-            label_1[ell]=c
-        
-        c=c+1
+    '''
+    iGraph has different node numbering than networkx (With mapping)
+    '''
+    if mapping is not None:
+        for i, community in enumerate(partition):
+            for node in community:
+                label_1[mapping[node]] = i   
+    else:    
+        c=0
+        for sets in partition:
+            for ell in sets:
+                label_1[ell]=c
+            
+            c=c+1
     #print(label_compressed)
+
     return label_1
 
+def networkx_to_igraph(G):
+    I = ig.Graph(directed=True)
+    I.add_vertices(G.number_of_nodes())
+    name_mapping = list(G.nodes)
+    reverse_mapping = {name_mapping[i]: i for i in range(len(name_mapping))}
+    I.vs['name'] = name_mapping
+    edges = [(reverse_mapping[u], reverse_mapping[v]) for u, v in G.edges]
+    I.add_edges(edges)
+    return I, name_mapping
 
 def get_NMI2(H_label, label):
     n = len(label)
@@ -205,6 +222,15 @@ def write_out(data, name, max_nmi, max_purity):
     with open('./Results/'+data+'.txt', 'a') as f:
         f.write('] ' + '# of comm: ' + str(len(max_purity[4]))+ '\n')
 
+def label_to_partition(H_label):
+    new_partition = defaultdict(set)
+    for i, node_label_ in enumerate(H_label):
+        new_partition[node_label_].add(i)
+    del new_partition[-1]
+    for i, node_label_ in enumerate(H_label):
+        if node_label_ == -1:
+            new_partition[len(new_partition)+1].add(i)
+    return list(new_partition.values())
 '''
 Functions for strong majority voting
 
@@ -254,8 +280,10 @@ def calc_preservation(selected_labels_dict, cluster_sizes, num_total):
 
     return ratio
 
-def merge_by_vote(top_nodes, nodes_rest, H_label, G, label, selected_labels_dict, cluster_sizes):
-    
+def merge_by_vote(top_nodes, nodes_rest, H_label, G, label, selected_labels_dict, cluster_sizes, k):
+    initial_num_of_nodes = int(len(top_nodes) - k*G.number_of_nodes())
+    #print('Initial number of nodes:', initial_num_of_nodes)
+    #print('type of initial_num_of_nodes:', type(initial_num_of_nodes))
     flag = 1
     cnt = 0
     n = len(top_nodes)
@@ -267,10 +295,10 @@ def merge_by_vote(top_nodes, nodes_rest, H_label, G, label, selected_labels_dict
             H_label_compressed.append(H_label[i])
             True_label_compressed.append(label[i])
     
-    NMI_List = [NMI(H_label_compressed, True_label_compressed)]
-    Purity_List = [met.purity_score(True_label_compressed,H_label_compressed)]
-    Balance_List = [calc_balancedness(selected_labels_dict, cluster_sizes)]
-    Preserv_List = [calc_preservation(selected_labels_dict, cluster_sizes, G.number_of_nodes())]
+    NMI_List = [NMI(H_label_compressed, True_label_compressed)]*(initial_num_of_nodes+1)
+    Purity_List = [met.purity_score(True_label_compressed,H_label_compressed)]*(initial_num_of_nodes+1)
+    Balance_List = [calc_balancedness(selected_labels_dict, cluster_sizes)]*(initial_num_of_nodes+1)
+    Preserv_List = [calc_preservation(selected_labels_dict, cluster_sizes, G.number_of_nodes())]*(initial_num_of_nodes+1)
 
     total_inEdge = 0
     for node in top_nodes:
