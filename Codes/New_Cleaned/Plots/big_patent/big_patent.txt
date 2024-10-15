@@ -1,169 +1,169 @@
 ------------------------------------------------------------------------
  ---big_patent (top 20.0%): FL + log(n) hops| res: 0.05
 NMI baseline: 0.0
-# of nodes not included: 4401
-NMI after top 20.0% nodes: 0.336
-Max NMI: 0.344
-Purity after top 20.0% nodes: 0.393
-Max Purity: 0.402
+# of nodes not included: 4647
+NMI after top 20.0% nodes: 0.306
+Max NMI: 0.316
+Purity after top 20.0% nodes: 0.392
+Max Purity: 0.401
  ---big_patent (top 20.0%): FL_ng + log(n) hops| res: 0.05
 NMI baseline: 0.0
-# of nodes not included: 2177
-NMI after top 20.0% nodes: 0.248
-Max NMI: 0.279
-Purity after top 20.0% nodes: 0.357
-Max Purity: 0.379
+# of nodes not included: 2626
+NMI after top 20.0% nodes: 0.256
+Max NMI: 0.292
+Purity after top 20.0% nodes: 0.377
+Max Purity: 0.393
  ---big_patent (top 20.0%): FL_ng_prop + log(n) hops| res: 0.05
 NMI baseline: 0.0
-# of nodes not included: 1903
-NMI after top 20.0% nodes: 0.24
-Max NMI: 0.266
-Purity after top 20.0% nodes: 0.358
-Max Purity: 0.373
+# of nodes not included: 3553
+NMI after top 20.0% nodes: 0.21
+Max NMI: 0.237
+Purity after top 20.0% nodes: 0.354
+Max Purity: 0.366
  ---big_patent (top 20.0%): PageRank| res: 0.05
 NMI baseline: 0.0
-# of nodes not included: 1744
-NMI after top 20.0% nodes: 0.274
-Max NMI: 0.281
-Purity after top 20.0% nodes: 0.334
-Max Purity: 0.338
- ---big_patent (top 20.0%): FL + log(n) hops| res: 0.25
-NMI baseline: 0.188
-# of nodes not included: 7357
-NMI after top 20.0% nodes: 0.333
-Max NMI: 0.337
-Purity after top 20.0% nodes: 0.528
-Max Purity: 0.532
- ---big_patent (top 20.0%): FL_ng + log(n) hops| res: 0.25
-NMI baseline: 0.188
-# of nodes not included: 8374
-NMI after top 20.0% nodes: 0.266
-Max NMI: 0.277
-Purity after top 20.0% nodes: 0.466
-Max Purity: 0.485
- ---big_patent (top 20.0%): FL_ng_prop + log(n) hops| res: 0.25
-NMI baseline: 0.188
-# of nodes not included: 9263
-NMI after top 20.0% nodes: 0.254
-Max NMI: 0.285
-Purity after top 20.0% nodes: 0.47
-Max Purity: 0.515
- ---big_patent (top 20.0%): PageRank| res: 0.25
-NMI baseline: 0.188
-# of nodes not included: 5791
-NMI after top 20.0% nodes: 0.338
-Max NMI: 0.347
-Purity after top 20.0% nodes: 0.498
-Max Purity: 0.508
- ---big_patent (top 20.0%): FL + log(n) hops| res: 0.5
-NMI baseline: 0.222
-# of nodes not included: 8580
-NMI after top 20.0% nodes: 0.313
-Max NMI: 0.316
-Purity after top 20.0% nodes: 0.53
-Max Purity: 0.535
- ---big_patent (top 20.0%): FL_ng + log(n) hops| res: 0.5
-NMI baseline: 0.222
-# of nodes not included: 9809
-NMI after top 20.0% nodes: 0.272
-Max NMI: 0.286
-Purity after top 20.0% nodes: 0.489
-Max Purity: 0.532
- ---big_patent (top 20.0%): FL_ng_prop + log(n) hops| res: 0.5
-NMI baseline: 0.222
-# of nodes not included: 10372
-NMI after top 20.0% nodes: 0.251
-Max NMI: 0.265
-Purity after top 20.0% nodes: 0.49
-Max Purity: 0.53
- ---big_patent (top 20.0%): PageRank| res: 0.5
-NMI baseline: 0.222
-# of nodes not included: 8031
-NMI after top 20.0% nodes: 0.332
-Max NMI: 0.338
-Purity after top 20.0% nodes: 0.529
-Max Purity: 0.539
- ---big_patent (top 20.0%): FL + log(n) hops| res: 1
-NMI baseline: 0.236
-# of nodes not included: 10603
-NMI after top 20.0% nodes: 0.334
-Max NMI: 0.334
-Purity after top 20.0% nodes: 0.584
-Max Purity: 0.6
- ---big_patent (top 20.0%): FL_ng + log(n) hops| res: 1
-NMI baseline: 0.236
-# of nodes not included: 10791
-NMI after top 20.0% nodes: 0.289
-Max NMI: 0.302
-Purity after top 20.0% nodes: 0.542
-Max Purity: 0.578
- ---big_patent (top 20.0%): FL_ng_prop + log(n) hops| res: 1
-NMI baseline: 0.236
-# of nodes not included: 11135
-NMI after top 20.0% nodes: 0.274
-Max NMI: 0.288
-Purity after top 20.0% nodes: 0.538
-Max Purity: 0.573
- ---big_patent (top 20.0%): PageRank| res: 1
-NMI baseline: 0.236
-# of nodes not included: 9725
-NMI after top 20.0% nodes: 0.337
-Max NMI: 0.342
-Purity after top 20.0% nodes: 0.57
-Max Purity: 0.576
- ---big_patent (top 20.0%): FL + log(n) hops| res: 1.5
-NMI baseline: 0.239
-# of nodes not included: 11057
-NMI after top 20.0% nodes: 0.331
-Max NMI: 0.331
-Purity after top 20.0% nodes: 0.619
-Max Purity: 0.624
- ---big_patent (top 20.0%): FL_ng + log(n) hops| res: 1.5
-NMI baseline: 0.239
-# of nodes not included: 11185
-NMI after top 20.0% nodes: 0.294
-Max NMI: 0.304
-Purity after top 20.0% nodes: 0.57
-Max Purity: 0.596
- ---big_patent (top 20.0%): FL_ng_prop + log(n) hops| res: 1.5
-NMI baseline: 0.239
-# of nodes not included: 11521
-NMI after top 20.0% nodes: 0.281
-Max NMI: 0.292
-Purity after top 20.0% nodes: 0.559
-Max Purity: 0.587
- ---big_patent (top 20.0%): PageRank| res: 1.5
-NMI baseline: 0.239
-# of nodes not included: 10085
-NMI after top 20.0% nodes: 0.337
-Max NMI: 0.341
-Purity after top 20.0% nodes: 0.594
-Max Purity: 0.608
- ---big_patent (top 20.0%): FL + log(n) hops| res: 5
-NMI baseline: 0.231
-# of nodes not included: 11930
-NMI after top 20.0% nodes: 0.332
-Max NMI: 0.333
-Purity after top 20.0% nodes: 0.659
-Max Purity: 0.662
- ---big_patent (top 20.0%): FL_ng + log(n) hops| res: 5
-NMI baseline: 0.231
-# of nodes not included: 12017
-NMI after top 20.0% nodes: 0.308
-Max NMI: 0.312
-Purity after top 20.0% nodes: 0.627
-Max Purity: 0.635
- ---big_patent (top 20.0%): FL_ng_prop + log(n) hops| res: 5
-NMI baseline: 0.231
-# of nodes not included: 12109
-NMI after top 20.0% nodes: 0.295
+# of nodes not included: 1852
+NMI after top 20.0% nodes: 0.287
 Max NMI: 0.303
+Purity after top 20.0% nodes: 0.334
+Max Purity: 0.341
+ ---big_patent (top 20.0%): FL + log(n) hops| res: 0.25
+NMI baseline: 0.208
+# of nodes not included: 7960
+NMI after top 20.0% nodes: 0.315
+Max NMI: 0.318
+Purity after top 20.0% nodes: 0.505
+Max Purity: 0.517
+ ---big_patent (top 20.0%): FL_ng + log(n) hops| res: 0.25
+NMI baseline: 0.208
+# of nodes not included: 7204
+NMI after top 20.0% nodes: 0.29
+Max NMI: 0.308
+Purity after top 20.0% nodes: 0.505
+Max Purity: 0.52
+ ---big_patent (top 20.0%): FL_ng_prop + log(n) hops| res: 0.25
+NMI baseline: 0.208
+# of nodes not included: 9244
+NMI after top 20.0% nodes: 0.245
+Max NMI: 0.264
+Purity after top 20.0% nodes: 0.458
+Max Purity: 0.485
+ ---big_patent (top 20.0%): PageRank| res: 0.25
+NMI baseline: 0.208
+# of nodes not included: 5718
+NMI after top 20.0% nodes: 0.329
+Max NMI: 0.34
+Purity after top 20.0% nodes: 0.489
+Max Purity: 0.497
+ ---big_patent (top 20.0%): FL + log(n) hops| res: 0.5
+NMI baseline: 0.225
+# of nodes not included: 9220
+NMI after top 20.0% nodes: 0.312
+Max NMI: 0.314
+Purity after top 20.0% nodes: 0.517
+Max Purity: 0.526
+ ---big_patent (top 20.0%): FL_ng + log(n) hops| res: 0.5
+NMI baseline: 0.225
+# of nodes not included: 8502
+NMI after top 20.0% nodes: 0.277
+Max NMI: 0.301
+Purity after top 20.0% nodes: 0.494
+Max Purity: 0.523
+ ---big_patent (top 20.0%): FL_ng_prop + log(n) hops| res: 0.5
+NMI baseline: 0.225
+# of nodes not included: 10023
+NMI after top 20.0% nodes: 0.266
+Max NMI: 0.289
+Purity after top 20.0% nodes: 0.508
+Max Purity: 0.547
+ ---big_patent (top 20.0%): PageRank| res: 0.5
+NMI baseline: 0.225
+# of nodes not included: 8506
+NMI after top 20.0% nodes: 0.334
+Max NMI: 0.34
+Purity after top 20.0% nodes: 0.508
+Max Purity: 0.519
+ ---big_patent (top 20.0%): FL + log(n) hops| res: 1
+NMI baseline: 0.225
+# of nodes not included: 10190
+NMI after top 20.0% nodes: 0.319
+Max NMI: 0.32
+Purity after top 20.0% nodes: 0.574
+Max Purity: 0.577
+ ---big_patent (top 20.0%): FL_ng + log(n) hops| res: 1
+NMI baseline: 0.225
+# of nodes not included: 10066
+NMI after top 20.0% nodes: 0.29
+Max NMI: 0.303
+Purity after top 20.0% nodes: 0.553
+Max Purity: 0.588
+ ---big_patent (top 20.0%): FL_ng_prop + log(n) hops| res: 1
+NMI baseline: 0.225
+# of nodes not included: 11063
+NMI after top 20.0% nodes: 0.265
+Max NMI: 0.286
+Purity after top 20.0% nodes: 0.533
+Max Purity: 0.579
+ ---big_patent (top 20.0%): PageRank| res: 1
+NMI baseline: 0.225
+# of nodes not included: 9389
+NMI after top 20.0% nodes: 0.338
+Max NMI: 0.342
+Purity after top 20.0% nodes: 0.564
+Max Purity: 0.569
+ ---big_patent (top 20.0%): FL + log(n) hops| res: 1.5
+NMI baseline: 0.227
+# of nodes not included: 11048
+NMI after top 20.0% nodes: 0.324
+Max NMI: 0.324
 Purity after top 20.0% nodes: 0.612
-Max Purity: 0.633
+Max Purity: 0.615
+ ---big_patent (top 20.0%): FL_ng + log(n) hops| res: 1.5
+NMI baseline: 0.227
+# of nodes not included: 11237
+NMI after top 20.0% nodes: 0.286
+Max NMI: 0.291
+Purity after top 20.0% nodes: 0.564
+Max Purity: 0.582
+ ---big_patent (top 20.0%): FL_ng_prop + log(n) hops| res: 1.5
+NMI baseline: 0.227
+# of nodes not included: 11246
+NMI after top 20.0% nodes: 0.277
+Max NMI: 0.297
+Purity after top 20.0% nodes: 0.557
+Max Purity: 0.594
+ ---big_patent (top 20.0%): PageRank| res: 1.5
+NMI baseline: 0.227
+# of nodes not included: 10305
+NMI after top 20.0% nodes: 0.335
+Max NMI: 0.343
+Purity after top 20.0% nodes: 0.605
+Max Purity: 0.614
+ ---big_patent (top 20.0%): FL + log(n) hops| res: 5
+NMI baseline: 0.23
+# of nodes not included: 11826
+NMI after top 20.0% nodes: 0.325
+Max NMI: 0.326
+Purity after top 20.0% nodes: 0.646
+Max Purity: 0.648
+ ---big_patent (top 20.0%): FL_ng + log(n) hops| res: 5
+NMI baseline: 0.23
+# of nodes not included: 12008
+NMI after top 20.0% nodes: 0.305
+Max NMI: 0.308
+Purity after top 20.0% nodes: 0.617
+Max Purity: 0.632
+ ---big_patent (top 20.0%): FL_ng_prop + log(n) hops| res: 5
+NMI baseline: 0.23
+# of nodes not included: 12216
+NMI after top 20.0% nodes: 0.291
+Max NMI: 0.296
+Purity after top 20.0% nodes: 0.606
+Max Purity: 0.619
  ---big_patent (top 20.0%): PageRank| res: 5
-NMI baseline: 0.231
-# of nodes not included: 11851
+NMI baseline: 0.23
+# of nodes not included: 11567
 NMI after top 20.0% nodes: 0.331
-Max NMI: 0.334
-Purity after top 20.0% nodes: 0.631
-Max Purity: 0.641
+Max NMI: 0.333
+Purity after top 20.0% nodes: 0.627
+Max Purity: 0.636

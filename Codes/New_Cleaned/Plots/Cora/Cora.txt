@@ -1,11 +1,11 @@
 ------------------------------------------------------------------------
  ---Cora (top 20.0%): FL + log(n) hops| res: 0.05
 NMI baseline: 0.136
-# of nodes not included: 1505
-NMI after top 20.0% nodes: 0.392
-Max NMI: 0.393
-Purity after top 20.0% nodes: 0.68
-Max Purity: 0.682
+# of nodes not included: 1537
+NMI after top 20.0% nodes: 0.348
+Max NMI: 0.348
+Purity after top 20.0% nodes: 0.666
+Max Purity: 0.666
  ---Cora (top 20.0%): FL_ng + log(n) hops| res: 0.05
 NMI baseline: 0.136
 # of nodes not included: 1597
@@ -29,11 +29,11 @@ Purity after top 20.0% nodes: 0.318
 Max Purity: 0.32
  ---Cora (top 20.0%): FL + log(n) hops| res: 0.25
 NMI baseline: 0.486
-# of nodes not included: 1542
-NMI after top 20.0% nodes: 0.428
-Max NMI: 0.433
-Purity after top 20.0% nodes: 0.773
-Max Purity: 0.793
+# of nodes not included: 1569
+NMI after top 20.0% nodes: 0.407
+Max NMI: 0.407
+Purity after top 20.0% nodes: 0.757
+Max Purity: 0.759
  ---Cora (top 20.0%): FL_ng + log(n) hops| res: 0.25
 NMI baseline: 0.486
 # of nodes not included: 1649
@@ -57,11 +57,11 @@ Purity after top 20.0% nodes: 0.624
 Max Purity: 0.666
  ---Cora (top 20.0%): FL + log(n) hops| res: 0.5
 NMI baseline: 0.499
-# of nodes not included: 1562
-NMI after top 20.0% nodes: 0.418
-Max NMI: 0.424
-Purity after top 20.0% nodes: 0.769
-Max Purity: 0.79
+# of nodes not included: 1577
+NMI after top 20.0% nodes: 0.426
+Max NMI: 0.426
+Purity after top 20.0% nodes: 0.771
+Max Purity: 0.772
  ---Cora (top 20.0%): FL_ng + log(n) hops| res: 0.5
 NMI baseline: 0.499
 # of nodes not included: 1654
@@ -86,10 +86,10 @@ Max Purity: 0.781
  ---Cora (top 20.0%): FL + log(n) hops| res: 1
 NMI baseline: 0.461
 # of nodes not included: 1580
-NMI after top 20.0% nodes: 0.436
-Max NMI: 0.439
-Purity after top 20.0% nodes: 0.781
-Max Purity: 0.798
+NMI after top 20.0% nodes: 0.431
+Max NMI: 0.431
+Purity after top 20.0% nodes: 0.791
+Max Purity: 0.792
  ---Cora (top 20.0%): FL_ng + log(n) hops| res: 1
 NMI baseline: 0.461
 # of nodes not included: 1687
@@ -113,11 +113,11 @@ Purity after top 20.0% nodes: 0.755
 Max Purity: 0.801
  ---Cora (top 20.0%): FL + log(n) hops| res: 1.5
 NMI baseline: 0.438
-# of nodes not included: 1581
-NMI after top 20.0% nodes: 0.443
-Max NMI: 0.446
-Purity after top 20.0% nodes: 0.803
-Max Purity: 0.819
+# of nodes not included: 1592
+NMI after top 20.0% nodes: 0.447
+Max NMI: 0.45
+Purity after top 20.0% nodes: 0.815
+Max Purity: 0.824
  ---Cora (top 20.0%): FL_ng + log(n) hops| res: 1.5
 NMI baseline: 0.438
 # of nodes not included: 1688
@@ -141,11 +141,11 @@ Purity after top 20.0% nodes: 0.765
 Max Purity: 0.826
  ---Cora (top 20.0%): FL + log(n) hops| res: 5
 NMI baseline: 0.422
-# of nodes not included: 1608
-NMI after top 20.0% nodes: 0.447
-Max NMI: 0.45
-Purity after top 20.0% nodes: 0.843
-Max Purity: 0.852
+# of nodes not included: 1614
+NMI after top 20.0% nodes: 0.446
+Max NMI: 0.449
+Purity after top 20.0% nodes: 0.845
+Max Purity: 0.853
  ---Cora (top 20.0%): FL_ng + log(n) hops| res: 5
 NMI baseline: 0.422
 # of nodes not included: 1745

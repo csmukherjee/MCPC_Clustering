@@ -1,169 +1,169 @@
 ------------------------------------------------------------------------
  ---bbc_news (top 20.0%): FL + log(n) hops| res: 0.05
-NMI baseline: 0.474
-# of nodes not included: 675
-NMI after top 20.0% nodes: 0.791
-Max NMI: 0.807
-Purity after top 20.0% nodes: 0.876
-Max Purity: 0.89
+NMI baseline: 0.48
+# of nodes not included: 689
+NMI after top 20.0% nodes: 0.778
+Max NMI: 0.792
+Purity after top 20.0% nodes: 0.946
+Max Purity: 0.956
  ---bbc_news (top 20.0%): FL_ng + log(n) hops| res: 0.05
-NMI baseline: 0.474
-# of nodes not included: 775
-NMI after top 20.0% nodes: 0.776
-Max NMI: 0.785
-Purity after top 20.0% nodes: 1.0
-Max Purity: 1.0
+NMI baseline: 0.48
+# of nodes not included: 889
+NMI after top 20.0% nodes: 0.674
+Max NMI: 0.713
+Purity after top 20.0% nodes: 0.926
+Max Purity: 0.937
  ---bbc_news (top 20.0%): FL_ng_prop + log(n) hops| res: 0.05
-NMI baseline: 0.474
-# of nodes not included: 815
-NMI after top 20.0% nodes: 0.67
-Max NMI: 0.723
-Purity after top 20.0% nodes: 0.987
-Max Purity: 0.987
- ---bbc_news (top 20.0%): PageRank| res: 0.05
-NMI baseline: 0.474
-# of nodes not included: 660
-NMI after top 20.0% nodes: 0.798
-Max NMI: 0.803
-Purity after top 20.0% nodes: 0.869
-Max Purity: 0.885
- ---bbc_news (top 20.0%): FL + log(n) hops| res: 0.25
-NMI baseline: 0.771
-# of nodes not included: 734
-NMI after top 20.0% nodes: 0.741
-Max NMI: 0.755
+NMI baseline: 0.48
+# of nodes not included: 869
+NMI after top 20.0% nodes: 0.643
+Max NMI: 0.683
 Purity after top 20.0% nodes: 0.943
-Max Purity: 0.963
+Max Purity: 0.95
+ ---bbc_news (top 20.0%): PageRank| res: 0.05
+NMI baseline: 0.48
+# of nodes not included: 630
+NMI after top 20.0% nodes: 0.787
+Max NMI: 0.791
+Purity after top 20.0% nodes: 0.859
+Max Purity: 0.866
+ ---bbc_news (top 20.0%): FL + log(n) hops| res: 0.25
+NMI baseline: 0.788
+# of nodes not included: 759
+NMI after top 20.0% nodes: 0.761
+Max NMI: 0.763
+Purity after top 20.0% nodes: 0.997
+Max Purity: 0.997
  ---bbc_news (top 20.0%): FL_ng + log(n) hops| res: 0.25
-NMI baseline: 0.771
-# of nodes not included: 797
-NMI after top 20.0% nodes: 0.732
-Max NMI: 0.74
-Purity after top 20.0% nodes: 1.0
-Max Purity: 1.0
+NMI baseline: 0.788
+# of nodes not included: 890
+NMI after top 20.0% nodes: 0.679
+Max NMI: 0.713
+Purity after top 20.0% nodes: 0.966
+Max Purity: 0.97
  ---bbc_news (top 20.0%): FL_ng_prop + log(n) hops| res: 0.25
-NMI baseline: 0.771
-# of nodes not included: 815
-NMI after top 20.0% nodes: 0.67
-Max NMI: 0.723
-Purity after top 20.0% nodes: 0.987
-Max Purity: 0.987
+NMI baseline: 0.788
+# of nodes not included: 992
+NMI after top 20.0% nodes: 0.62
+Max NMI: 0.63
+Purity after top 20.0% nodes: 0.963
+Max Purity: 0.965
  ---bbc_news (top 20.0%): PageRank| res: 0.25
-NMI baseline: 0.771
-# of nodes not included: 728
-NMI after top 20.0% nodes: 0.794
-Max NMI: 0.794
-Purity after top 20.0% nodes: 0.99
-Max Purity: 0.99
+NMI baseline: 0.788
+# of nodes not included: 737
+NMI after top 20.0% nodes: 0.775
+Max NMI: 0.784
+Purity after top 20.0% nodes: 0.926
+Max Purity: 0.951
  ---bbc_news (top 20.0%): FL + log(n) hops| res: 0.5
-NMI baseline: 0.764
-# of nodes not included: 866
-NMI after top 20.0% nodes: 0.725
-Max NMI: 0.729
+NMI baseline: 0.801
+# of nodes not included: 901
+NMI after top 20.0% nodes: 0.719
+Max NMI: 0.72
 Purity after top 20.0% nodes: 0.997
 Max Purity: 0.997
  ---bbc_news (top 20.0%): FL_ng + log(n) hops| res: 0.5
-NMI baseline: 0.764
-# of nodes not included: 900
-NMI after top 20.0% nodes: 0.694
-Max NMI: 0.699
-Purity after top 20.0% nodes: 1.0
-Max Purity: 1.0
+NMI baseline: 0.801
+# of nodes not included: 939
+NMI after top 20.0% nodes: 0.641
+Max NMI: 0.66
+Purity after top 20.0% nodes: 0.966
+Max Purity: 0.97
  ---bbc_news (top 20.0%): FL_ng_prop + log(n) hops| res: 0.5
-NMI baseline: 0.764
-# of nodes not included: 1007
-NMI after top 20.0% nodes: 0.627
-Max NMI: 0.641
-Purity after top 20.0% nodes: 0.987
-Max Purity: 0.987
+NMI baseline: 0.801
+# of nodes not included: 992
+NMI after top 20.0% nodes: 0.62
+Max NMI: 0.63
+Purity after top 20.0% nodes: 0.963
+Max Purity: 0.965
  ---bbc_news (top 20.0%): PageRank| res: 0.5
-NMI baseline: 0.764
-# of nodes not included: 813
-NMI after top 20.0% nodes: 0.742
-Max NMI: 0.742
+NMI baseline: 0.801
+# of nodes not included: 851
+NMI after top 20.0% nodes: 0.754
+Max NMI: 0.757
 Purity after top 20.0% nodes: 0.99
-Max Purity: 0.99
+Max Purity: 0.991
  ---bbc_news (top 20.0%): FL + log(n) hops| res: 1
-NMI baseline: 0.686
-# of nodes not included: 898
+NMI baseline: 0.699
+# of nodes not included: 905
 NMI after top 20.0% nodes: 0.709
-Max NMI: 0.714
+Max NMI: 0.711
 Purity after top 20.0% nodes: 0.997
 Max Purity: 0.997
  ---bbc_news (top 20.0%): FL_ng + log(n) hops| res: 1
-NMI baseline: 0.686
-# of nodes not included: 889
-NMI after top 20.0% nodes: 0.68
-Max NMI: 0.68
-Purity after top 20.0% nodes: 1.0
-Max Purity: 1.0
+NMI baseline: 0.699
+# of nodes not included: 1007
+NMI after top 20.0% nodes: 0.636
+Max NMI: 0.644
+Purity after top 20.0% nodes: 0.973
+Max Purity: 0.976
  ---bbc_news (top 20.0%): FL_ng_prop + log(n) hops| res: 1
-NMI baseline: 0.686
-# of nodes not included: 1006
-NMI after top 20.0% nodes: 0.625
-Max NMI: 0.64
-Purity after top 20.0% nodes: 0.987
-Max Purity: 0.987
+NMI baseline: 0.699
+# of nodes not included: 1025
+NMI after top 20.0% nodes: 0.6
+Max NMI: 0.606
+Purity after top 20.0% nodes: 0.963
+Max Purity: 0.965
  ---bbc_news (top 20.0%): PageRank| res: 1
-NMI baseline: 0.686
-# of nodes not included: 845
-NMI after top 20.0% nodes: 0.73
-Max NMI: 0.73
+NMI baseline: 0.699
+# of nodes not included: 872
+NMI after top 20.0% nodes: 0.713
+Max NMI: 0.716
 Purity after top 20.0% nodes: 0.99
-Max Purity: 0.99
+Max Purity: 0.991
  ---bbc_news (top 20.0%): FL + log(n) hops| res: 1.5
-NMI baseline: 0.615
+NMI baseline: 0.642
 # of nodes not included: 919
-NMI after top 20.0% nodes: 0.688
-Max NMI: 0.691
+NMI after top 20.0% nodes: 0.701
+Max NMI: 0.704
 Purity after top 20.0% nodes: 0.997
 Max Purity: 0.997
  ---bbc_news (top 20.0%): FL_ng + log(n) hops| res: 1.5
-NMI baseline: 0.615
-# of nodes not included: 966
-NMI after top 20.0% nodes: 0.667
-Max NMI: 0.676
-Purity after top 20.0% nodes: 1.0
-Max Purity: 1.0
+NMI baseline: 0.642
+# of nodes not included: 1007
+NMI after top 20.0% nodes: 0.636
+Max NMI: 0.644
+Purity after top 20.0% nodes: 0.973
+Max Purity: 0.976
  ---bbc_news (top 20.0%): FL_ng_prop + log(n) hops| res: 1.5
-NMI baseline: 0.615
-# of nodes not included: 1008
-NMI after top 20.0% nodes: 0.62
-Max NMI: 0.636
-Purity after top 20.0% nodes: 0.987
-Max Purity: 0.987
+NMI baseline: 0.642
+# of nodes not included: 1032
+NMI after top 20.0% nodes: 0.605
+Max NMI: 0.608
+Purity after top 20.0% nodes: 0.98
+Max Purity: 0.98
  ---bbc_news (top 20.0%): PageRank| res: 1.5
-NMI baseline: 0.615
-# of nodes not included: 905
-NMI after top 20.0% nodes: 0.706
-Max NMI: 0.709
+NMI baseline: 0.642
+# of nodes not included: 913
+NMI after top 20.0% nodes: 0.685
+Max NMI: 0.691
 Purity after top 20.0% nodes: 0.99
-Max Purity: 0.99
+Max Purity: 0.991
  ---bbc_news (top 20.0%): FL + log(n) hops| res: 5
-NMI baseline: 0.528
-# of nodes not included: 979
+NMI baseline: 0.527
+# of nodes not included: 993
 NMI after top 20.0% nodes: 0.654
-Max NMI: 0.658
+Max NMI: 0.655
 Purity after top 20.0% nodes: 0.997
 Max Purity: 0.997
  ---bbc_news (top 20.0%): FL_ng + log(n) hops| res: 5
-NMI baseline: 0.528
-# of nodes not included: 1023
-NMI after top 20.0% nodes: 0.63
-Max NMI: 0.633
-Purity after top 20.0% nodes: 1.0
-Max Purity: 1.0
+NMI baseline: 0.527
+# of nodes not included: 1061
+NMI after top 20.0% nodes: 0.608
+Max NMI: 0.612
+Purity after top 20.0% nodes: 0.973
+Max Purity: 0.976
  ---bbc_news (top 20.0%): FL_ng_prop + log(n) hops| res: 5
-NMI baseline: 0.528
-# of nodes not included: 1122
-NMI after top 20.0% nodes: 0.581
-Max NMI: 0.581
-Purity after top 20.0% nodes: 0.987
-Max Purity: 0.987
+NMI baseline: 0.527
+# of nodes not included: 1079
+NMI after top 20.0% nodes: 0.586
+Max NMI: 0.589
+Purity after top 20.0% nodes: 0.98
+Max Purity: 0.98
  ---bbc_news (top 20.0%): PageRank| res: 5
-NMI baseline: 0.528
-# of nodes not included: 1015
-NMI after top 20.0% nodes: 0.641
-Max NMI: 0.646
+NMI baseline: 0.527
+# of nodes not included: 1047
+NMI after top 20.0% nodes: 0.627
+Max NMI: 0.634
 Purity after top 20.0% nodes: 0.99
-Max Purity: 0.99
+Max Purity: 0.991
