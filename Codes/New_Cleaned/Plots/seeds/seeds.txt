@@ -1,9 +1,9 @@
 ------------------------------------------------------------------------
  ---seeds (top 20.0%): FL + log(n) hops| res: 0.05
 NMI baseline: 0.393
-# of nodes not included: 132
-NMI after top 20.0% nodes: 0.876
-Max NMI: 0.901
+# of nodes not included: 128
+NMI after top 20.0% nodes: 0.794
+Max NMI: 0.85
 Purity after top 20.0% nodes: 1.0
 Max Purity: 1.0
  ---seeds (top 20.0%): FL_ng + log(n) hops| res: 0.05
@@ -29,9 +29,9 @@ Purity after top 20.0% nodes: 1.0
 Max Purity: 1.0
  ---seeds (top 20.0%): FL + log(n) hops| res: 0.25
 NMI baseline: 0.691
-# of nodes not included: 132
-NMI after top 20.0% nodes: 0.876
-Max NMI: 0.901
+# of nodes not included: 128
+NMI after top 20.0% nodes: 0.794
+Max NMI: 0.85
 Purity after top 20.0% nodes: 1.0
 Max Purity: 1.0
  ---seeds (top 20.0%): FL_ng + log(n) hops| res: 0.25
@@ -57,9 +57,9 @@ Purity after top 20.0% nodes: 1.0
 Max Purity: 1.0
  ---seeds (top 20.0%): FL + log(n) hops| res: 0.5
 NMI baseline: 0.61
-# of nodes not included: 136
-NMI after top 20.0% nodes: 0.782
-Max NMI: 0.798
+# of nodes not included: 128
+NMI after top 20.0% nodes: 0.794
+Max NMI: 0.85
 Purity after top 20.0% nodes: 1.0
 Max Purity: 1.0
  ---seeds (top 20.0%): FL_ng + log(n) hops| res: 0.5
@@ -85,9 +85,9 @@ Purity after top 20.0% nodes: 1.0
 Max Purity: 1.0
  ---seeds (top 20.0%): FL + log(n) hops| res: 1
 NMI baseline: 0.518
-# of nodes not included: 136
-NMI after top 20.0% nodes: 0.734
-Max NMI: 0.756
+# of nodes not included: 128
+NMI after top 20.0% nodes: 0.794
+Max NMI: 0.85
 Purity after top 20.0% nodes: 1.0
 Max Purity: 1.0
  ---seeds (top 20.0%): FL_ng + log(n) hops| res: 1
@@ -113,9 +113,9 @@ Purity after top 20.0% nodes: 1.0
 Max Purity: 1.0
  ---seeds (top 20.0%): FL + log(n) hops| res: 1.5
 NMI baseline: 0.506
-# of nodes not included: 136
-NMI after top 20.0% nodes: 0.734
-Max NMI: 0.756
+# of nodes not included: 148
+NMI after top 20.0% nodes: 0.748
+Max NMI: 0.779
 Purity after top 20.0% nodes: 1.0
 Max Purity: 1.0
  ---seeds (top 20.0%): FL_ng + log(n) hops| res: 1.5
@@ -141,9 +141,9 @@ Purity after top 20.0% nodes: 1.0
 Max Purity: 1.0
  ---seeds (top 20.0%): FL + log(n) hops| res: 5
 NMI baseline: 0.446
-# of nodes not included: 164
-NMI after top 20.0% nodes: 0.635
-Max NMI: 0.637
+# of nodes not included: 168
+NMI after top 20.0% nodes: 0.571
+Max NMI: 0.571
 Purity after top 20.0% nodes: 1.0
 Max Purity: 1.0
  ---seeds (top 20.0%): FL_ng + log(n) hops| res: 5

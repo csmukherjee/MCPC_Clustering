@@ -1,9 +1,9 @@
 ------------------------------------------------------------------------
  ---Citeseer (top 20.0%): FL + log(n) hops| res: 0.05
 NMI baseline: 0.382
-# of nodes not included: 1011
-NMI after top 20.0% nodes: 0.458
-Max NMI: 0.458
+# of nodes not included: 1048
+NMI after top 20.0% nodes: 0.46
+Max NMI: 0.46
 Purity after top 20.0% nodes: 1.0
 Max Purity: 1.0
  ---Citeseer (top 20.0%): FL_ng + log(n) hops| res: 0.05
@@ -29,9 +29,9 @@ Purity after top 20.0% nodes: 0.986
 Max Purity: 0.986
  ---Citeseer (top 20.0%): FL + log(n) hops| res: 0.25
 NMI baseline: 0.373
-# of nodes not included: 1011
-NMI after top 20.0% nodes: 0.458
-Max NMI: 0.458
+# of nodes not included: 1048
+NMI after top 20.0% nodes: 0.46
+Max NMI: 0.46
 Purity after top 20.0% nodes: 1.0
 Max Purity: 1.0
  ---Citeseer (top 20.0%): FL_ng + log(n) hops| res: 0.25
@@ -57,9 +57,9 @@ Purity after top 20.0% nodes: 0.986
 Max Purity: 0.986
  ---Citeseer (top 20.0%): FL + log(n) hops| res: 0.5
 NMI baseline: 0.348
-# of nodes not included: 1011
-NMI after top 20.0% nodes: 0.458
-Max NMI: 0.458
+# of nodes not included: 1048
+NMI after top 20.0% nodes: 0.46
+Max NMI: 0.46
 Purity after top 20.0% nodes: 1.0
 Max Purity: 1.0
  ---Citeseer (top 20.0%): FL_ng + log(n) hops| res: 0.5
@@ -85,9 +85,9 @@ Purity after top 20.0% nodes: 0.986
 Max Purity: 0.986
  ---Citeseer (top 20.0%): FL + log(n) hops| res: 1
 NMI baseline: 0.328
-# of nodes not included: 1011
-NMI after top 20.0% nodes: 0.458
-Max NMI: 0.458
+# of nodes not included: 1048
+NMI after top 20.0% nodes: 0.46
+Max NMI: 0.46
 Purity after top 20.0% nodes: 1.0
 Max Purity: 1.0
  ---Citeseer (top 20.0%): FL_ng + log(n) hops| res: 1
@@ -113,9 +113,9 @@ Purity after top 20.0% nodes: 0.986
 Max Purity: 0.986
  ---Citeseer (top 20.0%): FL + log(n) hops| res: 1.5
 NMI baseline: 0.327
-# of nodes not included: 1011
-NMI after top 20.0% nodes: 0.458
-Max NMI: 0.458
+# of nodes not included: 1048
+NMI after top 20.0% nodes: 0.46
+Max NMI: 0.46
 Purity after top 20.0% nodes: 1.0
 Max Purity: 1.0
  ---Citeseer (top 20.0%): FL_ng + log(n) hops| res: 1.5
@@ -141,9 +141,9 @@ Purity after top 20.0% nodes: 0.986
 Max Purity: 0.986
  ---Citeseer (top 20.0%): FL + log(n) hops| res: 5
 NMI baseline: 0.328
-# of nodes not included: 1011
-NMI after top 20.0% nodes: 0.458
-Max NMI: 0.458
+# of nodes not included: 1048
+NMI after top 20.0% nodes: 0.46
+Max NMI: 0.46
 Purity after top 20.0% nodes: 1.0
 Max Purity: 1.0
  ---Citeseer (top 20.0%): FL_ng + log(n) hops| res: 5

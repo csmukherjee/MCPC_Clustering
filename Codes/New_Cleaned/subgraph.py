@@ -281,7 +281,8 @@ def calc_preservation(selected_labels_dict, cluster_sizes, num_total):
     return ratio
 
 def merge_by_vote(top_nodes, nodes_rest, H_label, G, label, selected_labels_dict, cluster_sizes, k):
-    initial_num_of_nodes = int(len(top_nodes) - k*G.number_of_nodes())
+    #initial_num_of_nodes = len(top_nodes) - int(k*G.number_of_nodes())
+    initial_num_of_nodes = 0
     #print('Initial number of nodes:', initial_num_of_nodes)
     #print('type of initial_num_of_nodes:', type(initial_num_of_nodes))
     flag = 1
