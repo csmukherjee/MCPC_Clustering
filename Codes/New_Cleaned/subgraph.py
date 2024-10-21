@@ -8,6 +8,11 @@ import metric as met
 from llist import dllist
 import matplotlib.pyplot as plt
 import igraph as ig
+import debug
+#import deque
+from collections import deque
+
+
 '''
 FUnctions for Top k% induced subgraph
 
@@ -63,7 +68,7 @@ def calc_FlowRank(graph, FR_type, walk_len_c1):
         node2FR = {node: scores[idx] for node, idx in node_indices.items()}
     elif FR_type==3:
         pg_rank = nx.pagerank(graph,alpha=0.85) #alpha = 0.85 is the default
-        node2FR = {k: pg_rank[k] for k in pg_rank}
+        node2FR = {k: pg_rank[k]*len(graph.nodes()) for k in pg_rank}
     else:
         for i in FlowRank_Func(graph.edges(),graph.nodes(),walk_len_c1,0,FR_type):
             node_num = int(i[1])
@@ -227,9 +232,6 @@ def label_to_partition(H_label):
     for i, node_label_ in enumerate(H_label):
         new_partition[node_label_].add(i)
     del new_partition[-1]
-    for i, node_label_ in enumerate(H_label):
-        if node_label_ == -1:
-            new_partition[len(new_partition)+1].add(i)
     return list(new_partition.values())
 '''
 Functions for strong majority voting
@@ -280,21 +282,25 @@ def calc_preservation(selected_labels_dict, cluster_sizes, num_total):
 
     return ratio
 
-def merge_by_vote(top_nodes, nodes_rest, H_label, G, label, selected_labels_dict, cluster_sizes, k):
+def get_compressed_labels(label, H_label, node_list):
+    label_compressed = []
+    H_label_compressed = []
+    for i in node_list:
+        if H_label[i] != -1:
+            H_label_compressed.append(H_label[i])
+            label_compressed.append(label[i])
+    return label_compressed, H_label_compressed
+    
+def merge_by_vote(top_nodes, nodes_rest, H_label, G, label, selected_labels_dict, cluster_sizes):
     #initial_num_of_nodes = len(top_nodes) - int(k*G.number_of_nodes())
     initial_num_of_nodes = 0
     #print('Initial number of nodes:', initial_num_of_nodes)
     #print('type of initial_num_of_nodes:', type(initial_num_of_nodes))
     flag = 1
     cnt = 0
-    n = len(top_nodes)
+    n = G.number_of_nodes()
     
-    H_label_compressed = []
-    True_label_compressed = []
-    for i in top_nodes:
-        if H_label[i] != -1:
-            H_label_compressed.append(H_label[i])
-            True_label_compressed.append(label[i])
+    True_label_compressed, H_label_compressed = get_compressed_labels(label, H_label, top_nodes)
     
     NMI_List = [NMI(H_label_compressed, True_label_compressed)]*(initial_num_of_nodes+1)
     Purity_List = [met.purity_score(True_label_compressed,H_label_compressed)]*(initial_num_of_nodes+1)
@@ -374,6 +380,36 @@ def get_labels(partition,n_s):
 
     return label_1
 
+
+
+def effective_cluster_accuracy(G, label, selected_labels_dict, res):
+    #For each cluster, randomly select nodes for selected_labels_dict[cluster] amount of nodes
+    nodes_selected = []
+    nodes_in_each_cluster = defaultdict(list)
+    for i, node_label in enumerate(label):
+        nodes_in_each_cluster[node_label].append(i)
+    for cluster, count in selected_labels_dict.items():
+        #if cluster == -1, print
+        if cluster == -1:
+            print('Error: Cluster -1 found in selected_labels_dict')
+        nodes_selected.extend(random.sample(nodes_in_each_cluster[cluster], count))
+    #print the number of nodes selected from each cluster
+    # for cluster, count in selected_labels_dict.items():
+    #     print('Cluster:',cluster, 'Count:',count)
+    # print('total # of nodes: ',  len(nodes_selected))
+    
+    # #count the counts of each cluster of nodes_selected 
+    # debug_testing = Counter([label[i] for i in nodes_selected])
+    # print('debug_testing:',debug_testing)
+    # #print('nodes_selected:',nodes_selected)
+    H = getInducedSubgraph(G, nodes_selected)
+    partition = debug.louvain_partitions(H, seed=0,resolution=res)
+    partition_ = deque(partition, maxlen=1).pop()
+    H_label = part_to_full_label(partition_,G.number_of_nodes())
+    label_compressed, H_label_compressed = get_compressed_labels(label, H_label, nodes_selected)
+    NMI_ = NMI(H_label_compressed, label_compressed)
+    Purity_ = met.purity_score(label_compressed, H_label_compressed)
+    return NMI_, Purity_
 
 
 # def relabel_graph(H): #compress the node numberings 
