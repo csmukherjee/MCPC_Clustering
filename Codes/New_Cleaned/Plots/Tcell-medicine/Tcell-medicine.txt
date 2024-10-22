@@ -1,673 +1,169 @@
 ------------------------------------------------------------------------
  ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 0.05
 NMI baseline: 0.0
-# of nodes not included: 264
-NMI after top 20.0% nodes: 0.745
-Max NMI: 0.745
-Purity after top 20.0% nodes: 0.765
-Max Purity: 0.765
+# of nodes not included: 290
+NMI after top 20.0% nodes: 0.73
+Max NMI: 0.731
+Purity after top 20.0% nodes: 0.716
+Max Purity: 0.716
  ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 0.05
 NMI baseline: 0.0
-# of nodes not included: 77
-NMI after top 20.0% nodes: 0.623
-Max NMI: 0.623
-Purity after top 20.0% nodes: 0.657
-Max Purity: 0.657
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 0.05
-NMI baseline: 0.0
-# of nodes not included: 109
-NMI after top 20.0% nodes: 0.391
-Max NMI: 0.394
-Purity after top 20.0% nodes: 0.469
-Max Purity: 0.482
- ---Tcell-medicine (top 20.0%): PageRank| res: 0.05
-NMI baseline: 0.0
-# of nodes not included: 353
-NMI after top 20.0% nodes: 0.667
-Max NMI: 0.667
-Purity after top 20.0% nodes: 0.674
-Max Purity: 0.675
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 0.25
-NMI baseline: 0.501
-# of nodes not included: 285
-NMI after top 20.0% nodes: 0.713
-Max NMI: 0.713
-Purity after top 20.0% nodes: 0.765
-Max Purity: 0.765
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 0.25
-NMI baseline: 0.501
-# of nodes not included: 289
-NMI after top 20.0% nodes: 0.673
-Max NMI: 0.673
-Purity after top 20.0% nodes: 0.758
-Max Purity: 0.761
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 0.25
-NMI baseline: 0.501
-# of nodes not included: 361
-NMI after top 20.0% nodes: 0.614
-Max NMI: 0.624
-Purity after top 20.0% nodes: 0.714
-Max Purity: 0.717
- ---Tcell-medicine (top 20.0%): PageRank| res: 0.25
-NMI baseline: 0.501
-# of nodes not included: 424
-NMI after top 20.0% nodes: 0.67
-Max NMI: 0.67
-Purity after top 20.0% nodes: 0.72
-Max Purity: 0.724
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 0.5
-NMI baseline: 0.493
-# of nodes not included: 676
-NMI after top 20.0% nodes: 0.71
-Max NMI: 0.71
-Purity after top 20.0% nodes: 0.859
-Max Purity: 0.861
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 0.5
-NMI baseline: 0.493
-# of nodes not included: 491
-NMI after top 20.0% nodes: 0.65
-Max NMI: 0.65
-Purity after top 20.0% nodes: 0.808
-Max Purity: 0.808
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 0.5
-NMI baseline: 0.493
-# of nodes not included: 652
-NMI after top 20.0% nodes: 0.608
-Max NMI: 0.618
-Purity after top 20.0% nodes: 0.765
-Max Purity: 0.769
- ---Tcell-medicine (top 20.0%): PageRank| res: 0.5
-NMI baseline: 0.493
-# of nodes not included: 763
-NMI after top 20.0% nodes: 0.654
-Max NMI: 0.655
-Purity after top 20.0% nodes: 0.851
-Max Purity: 0.851
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 1
-NMI baseline: 0.5
-# of nodes not included: 1127
-NMI after top 20.0% nodes: 0.65
-Max NMI: 0.653
-Purity after top 20.0% nodes: 0.859
-Max Purity: 0.866
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 1
-NMI baseline: 0.5
-# of nodes not included: 903
-NMI after top 20.0% nodes: 0.654
-Max NMI: 0.655
-Purity after top 20.0% nodes: 0.849
-Max Purity: 0.854
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 1
-NMI baseline: 0.5
-# of nodes not included: 1143
-NMI after top 20.0% nodes: 0.592
-Max NMI: 0.623
-Purity after top 20.0% nodes: 0.8
-Max Purity: 0.838
- ---Tcell-medicine (top 20.0%): PageRank| res: 1
-NMI baseline: 0.5
-# of nodes not included: 964
-NMI after top 20.0% nodes: 0.631
-Max NMI: 0.634
-Purity after top 20.0% nodes: 0.848
-Max Purity: 0.851
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 1.5
-NMI baseline: 0.49
-# of nodes not included: 1416
-NMI after top 20.0% nodes: 0.636
-Max NMI: 0.64
-Purity after top 20.0% nodes: 0.863
-Max Purity: 0.867
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 1.5
-NMI baseline: 0.49
-# of nodes not included: 1455
-NMI after top 20.0% nodes: 0.633
-Max NMI: 0.633
-Purity after top 20.0% nodes: 0.845
-Max Purity: 0.86
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 1.5
-NMI baseline: 0.49
-# of nodes not included: 1645
-NMI after top 20.0% nodes: 0.576
-Max NMI: 0.611
-Purity after top 20.0% nodes: 0.793
-Max Purity: 0.835
- ---Tcell-medicine (top 20.0%): PageRank| res: 1.5
-NMI baseline: 0.49
-# of nodes not included: 1325
-NMI after top 20.0% nodes: 0.588
-Max NMI: 0.595
-Purity after top 20.0% nodes: 0.838
-Max Purity: 0.844
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 5
-NMI baseline: 0.436
-# of nodes not included: 2801
-NMI after top 20.0% nodes: 0.573
-Max NMI: 0.592
-Purity after top 20.0% nodes: 0.877
-Max Purity: 0.89
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 5
-NMI baseline: 0.436
-# of nodes not included: 2915
-NMI after top 20.0% nodes: 0.564
-Max NMI: 0.583
-Purity after top 20.0% nodes: 0.853
-Max Purity: 0.87
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 5
-NMI baseline: 0.436
-# of nodes not included: 2746
-NMI after top 20.0% nodes: 0.553
-Max NMI: 0.573
-Purity after top 20.0% nodes: 0.859
-Max Purity: 0.873
- ---Tcell-medicine (top 20.0%): PageRank| res: 5
-NMI baseline: 0.436
-# of nodes not included: 2845
-NMI after top 20.0% nodes: 0.516
-Max NMI: 0.553
-Purity after top 20.0% nodes: 0.866
-Max Purity: 0.879
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 0.05
-NMI baseline: 0.0
-# of nodes not included: 410
-NMI after top 20.0% nodes: 0.758
-Max NMI: 0.758
-Purity after top 20.0% nodes: 0.772
-Max Purity: 0.772
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 0.05
-NMI baseline: 0.0
-# of nodes not included: 20
-NMI after top 20.0% nodes: 0.52
-Max NMI: 0.52
-Purity after top 20.0% nodes: 0.586
-Max Purity: 0.588
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 0.05
-NMI baseline: 0.0
-# of nodes not included: 0
-NMI after top 20.0% nodes: 0.323
-Max NMI: 0.323
-Purity after top 20.0% nodes: 0.467
-Max Purity: 0.467
- ---Tcell-medicine (top 20.0%): PageRank| res: 0.05
-NMI baseline: 0.0
-# of nodes not included: 0
-NMI after top 20.0% nodes: 0.0
-Max NMI: 0.0
-Purity after top 20.0% nodes: 0.254
-Max Purity: 0.254
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 0.25
-NMI baseline: 0.501
-# of nodes not included: 427
-NMI after top 20.0% nodes: 0.725
-Max NMI: 0.725
-Purity after top 20.0% nodes: 0.772
-Max Purity: 0.772
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 0.25
-NMI baseline: 0.501
-# of nodes not included: 68
-NMI after top 20.0% nodes: 0.538
+# of nodes not included: 149
+NMI after top 20.0% nodes: 0.532
 Max NMI: 0.538
-Purity after top 20.0% nodes: 0.622
-Max Purity: 0.626
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 0.25
-NMI baseline: 0.501
-# of nodes not included: 30
-NMI after top 20.0% nodes: 0.561
-Max NMI: 0.561
-Purity after top 20.0% nodes: 0.631
-Max Purity: 0.631
- ---Tcell-medicine (top 20.0%): PageRank| res: 0.25
-NMI baseline: 0.501
-# of nodes not included: 8
-NMI after top 20.0% nodes: 0.513
-Max NMI: 0.513
-Purity after top 20.0% nodes: 0.61
-Max Purity: 0.61
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 0.5
-NMI baseline: 0.493
-# of nodes not included: 508
-NMI after top 20.0% nodes: 0.687
-Max NMI: 0.687
-Purity after top 20.0% nodes: 0.772
-Max Purity: 0.772
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 0.5
-NMI baseline: 0.493
-# of nodes not included: 175
-NMI after top 20.0% nodes: 0.548
-Max NMI: 0.548
-Purity after top 20.0% nodes: 0.705
-Max Purity: 0.705
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 0.5
-NMI baseline: 0.493
-# of nodes not included: 59
-NMI after top 20.0% nodes: 0.568
-Max NMI: 0.568
-Purity after top 20.0% nodes: 0.719
-Max Purity: 0.72
- ---Tcell-medicine (top 20.0%): PageRank| res: 0.5
-NMI baseline: 0.493
-# of nodes not included: 18
-NMI after top 20.0% nodes: 0.534
-Max NMI: 0.534
-Purity after top 20.0% nodes: 0.722
-Max Purity: 0.722
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 1
-NMI baseline: 0.5
-# of nodes not included: 1145
-NMI after top 20.0% nodes: 0.666
-Max NMI: 0.666
-Purity after top 20.0% nodes: 0.833
-Max Purity: 0.837
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 1
-NMI baseline: 0.5
-# of nodes not included: 403
-NMI after top 20.0% nodes: 0.575
-Max NMI: 0.575
-Purity after top 20.0% nodes: 0.801
-Max Purity: 0.801
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 1
-NMI baseline: 0.5
-# of nodes not included: 145
-NMI after top 20.0% nodes: 0.559
-Max NMI: 0.559
-Purity after top 20.0% nodes: 0.789
-Max Purity: 0.791
- ---Tcell-medicine (top 20.0%): PageRank| res: 1
-NMI baseline: 0.5
-# of nodes not included: 49
-NMI after top 20.0% nodes: 0.516
-Max NMI: 0.516
-Purity after top 20.0% nodes: 0.76
-Max Purity: 0.76
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 1.5
-NMI baseline: 0.49
-# of nodes not included: 1835
-NMI after top 20.0% nodes: 0.628
-Max NMI: 0.63
-Purity after top 20.0% nodes: 0.853
-Max Purity: 0.855
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 1.5
-NMI baseline: 0.49
-# of nodes not included: 551
-NMI after top 20.0% nodes: 0.546
-Max NMI: 0.546
-Purity after top 20.0% nodes: 0.799
-Max Purity: 0.799
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 1.5
-NMI baseline: 0.49
-# of nodes not included: 218
-NMI after top 20.0% nodes: 0.542
-Max NMI: 0.542
-Purity after top 20.0% nodes: 0.785
-Max Purity: 0.787
- ---Tcell-medicine (top 20.0%): PageRank| res: 1.5
-NMI baseline: 0.49
-# of nodes not included: 69
-NMI after top 20.0% nodes: 0.502
-Max NMI: 0.502
-Purity after top 20.0% nodes: 0.767
-Max Purity: 0.767
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 5
-NMI baseline: 0.436
-# of nodes not included: 3087
-NMI after top 20.0% nodes: 0.576
-Max NMI: 0.593
-Purity after top 20.0% nodes: 0.882
-Max Purity: 0.897
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 5
-NMI baseline: 0.436
-# of nodes not included: 1427
-NMI after top 20.0% nodes: 0.499
-Max NMI: 0.503
-Purity after top 20.0% nodes: 0.83
-Max Purity: 0.834
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 5
-NMI baseline: 0.436
-# of nodes not included: 633
-NMI after top 20.0% nodes: 0.479
-Max NMI: 0.48
-Purity after top 20.0% nodes: 0.819
-Max Purity: 0.822
- ---Tcell-medicine (top 20.0%): PageRank| res: 5
-NMI baseline: 0.436
-# of nodes not included: 183
-NMI after top 20.0% nodes: 0.45
-Max NMI: 0.45
-Purity after top 20.0% nodes: 0.804
-Max Purity: 0.804
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 0.05
-NMI baseline: 0.0
-# of nodes not included: 1512
-NMI after top 20.0% nodes: 0.774
-Max NMI: 0.774
-Purity after top 20.0% nodes: 0.837
-Max Purity: 0.837
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 0.05
-NMI baseline: 0.0
-# of nodes not included: 172
-NMI after top 20.0% nodes: 0.66
-Max NMI: 0.665
-Purity after top 20.0% nodes: 0.691
-Max Purity: 0.708
+Purity after top 20.0% nodes: 0.589
+Max Purity: 0.603
  ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 0.05
 NMI baseline: 0.0
-# of nodes not included: 32
-NMI after top 20.0% nodes: 0.522
-Max NMI: 0.525
-Purity after top 20.0% nodes: 0.591
-Max Purity: 0.594
+# of nodes not included: 119
+NMI after top 20.0% nodes: 0.401
+Max NMI: 0.408
+Purity after top 20.0% nodes: 0.484
+Max Purity: 0.496
  ---Tcell-medicine (top 20.0%): PageRank| res: 0.05
 NMI baseline: 0.0
-# of nodes not included: 9
-NMI after top 20.0% nodes: 0.356
-Max NMI: 0.356
-Purity after top 20.0% nodes: 0.494
-Max Purity: 0.494
+# of nodes not included: 422
+NMI after top 20.0% nodes: 0.705
+Max NMI: 0.705
+Purity after top 20.0% nodes: 0.734
+Max Purity: 0.734
  ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 0.25
-NMI baseline: 0.501
-# of nodes not included: 1512
-NMI after top 20.0% nodes: 0.774
-Max NMI: 0.774
-Purity after top 20.0% nodes: 0.837
-Max Purity: 0.837
+NMI baseline: 0.536
+# of nodes not included: 344
+NMI after top 20.0% nodes: 0.723
+Max NMI: 0.723
+Purity after top 20.0% nodes: 0.773
+Max Purity: 0.773
  ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 0.25
-NMI baseline: 0.501
-# of nodes not included: 480
-NMI after top 20.0% nodes: 0.667
-Max NMI: 0.667
-Purity after top 20.0% nodes: 0.738
-Max Purity: 0.741
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 0.25
-NMI baseline: 0.501
-# of nodes not included: 69
-NMI after top 20.0% nodes: 0.576
-Max NMI: 0.576
-Purity after top 20.0% nodes: 0.665
-Max Purity: 0.668
- ---Tcell-medicine (top 20.0%): PageRank| res: 0.25
-NMI baseline: 0.501
-# of nodes not included: 72
+NMI baseline: 0.536
+# of nodes not included: 273
 NMI after top 20.0% nodes: 0.622
-Max NMI: 0.622
-Purity after top 20.0% nodes: 0.694
-Max Purity: 0.694
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 0.5
-NMI baseline: 0.493
-# of nodes not included: 1513
-NMI after top 20.0% nodes: 0.757
-Max NMI: 0.757
-Purity after top 20.0% nodes: 0.837
-Max Purity: 0.837
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 0.5
-NMI baseline: 0.493
-# of nodes not included: 1045
-NMI after top 20.0% nodes: 0.665
-Max NMI: 0.666
-Purity after top 20.0% nodes: 0.851
-Max Purity: 0.868
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 0.5
-NMI baseline: 0.493
-# of nodes not included: 225
-NMI after top 20.0% nodes: 0.567
-Max NMI: 0.568
-Purity after top 20.0% nodes: 0.757
-Max Purity: 0.761
- ---Tcell-medicine (top 20.0%): PageRank| res: 0.5
-NMI baseline: 0.493
-# of nodes not included: 144
-NMI after top 20.0% nodes: 0.596
-Max NMI: 0.596
-Purity after top 20.0% nodes: 0.721
-Max Purity: 0.722
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 1
-NMI baseline: 0.5
-# of nodes not included: 4037
-NMI after top 20.0% nodes: 0.711
-Max NMI: 0.711
-Purity after top 20.0% nodes: 0.88
-Max Purity: 0.88
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 1
-NMI baseline: 0.5
-# of nodes not included: 1526
-NMI after top 20.0% nodes: 0.651
-Max NMI: 0.655
-Purity after top 20.0% nodes: 0.854
-Max Purity: 0.871
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 1
-NMI baseline: 0.5
-# of nodes not included: 502
-NMI after top 20.0% nodes: 0.565
-Max NMI: 0.569
-Purity after top 20.0% nodes: 0.809
-Max Purity: 0.812
- ---Tcell-medicine (top 20.0%): PageRank| res: 1
-NMI baseline: 0.5
-# of nodes not included: 340
-NMI after top 20.0% nodes: 0.59
-Max NMI: 0.594
-Purity after top 20.0% nodes: 0.813
-Max Purity: 0.814
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 1.5
-NMI baseline: 0.49
-# of nodes not included: 4037
-NMI after top 20.0% nodes: 0.711
-Max NMI: 0.711
-Purity after top 20.0% nodes: 0.88
-Max Purity: 0.88
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 1.5
-NMI baseline: 0.49
-# of nodes not included: 1851
-NMI after top 20.0% nodes: 0.645
-Max NMI: 0.647
-Purity after top 20.0% nodes: 0.854
-Max Purity: 0.872
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 1.5
-NMI baseline: 0.49
-# of nodes not included: 554
-NMI after top 20.0% nodes: 0.563
-Max NMI: 0.565
-Purity after top 20.0% nodes: 0.814
-Max Purity: 0.815
- ---Tcell-medicine (top 20.0%): PageRank| res: 1.5
-NMI baseline: 0.49
-# of nodes not included: 393
-NMI after top 20.0% nodes: 0.575
-Max NMI: 0.578
-Purity after top 20.0% nodes: 0.82
-Max Purity: 0.821
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 5
-NMI baseline: 0.436
-# of nodes not included: 5365
-NMI after top 20.0% nodes: 0.652
-Max NMI: 0.652
-Purity after top 20.0% nodes: 0.89
-Max Purity: 0.89
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 5
-NMI baseline: 0.436
-# of nodes not included: 3553
-NMI after top 20.0% nodes: 0.584
-Max NMI: 0.622
-Purity after top 20.0% nodes: 0.886
-Max Purity: 0.899
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 5
-NMI baseline: 0.436
-# of nodes not included: 1641
-NMI after top 20.0% nodes: 0.508
-Max NMI: 0.511
-Purity after top 20.0% nodes: 0.838
-Max Purity: 0.838
- ---Tcell-medicine (top 20.0%): PageRank| res: 5
-NMI baseline: 0.436
-# of nodes not included: 1088
-NMI after top 20.0% nodes: 0.499
-Max NMI: 0.507
-Purity after top 20.0% nodes: 0.841
-Max Purity: 0.844
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 0.05
-NMI baseline: 0.0
-# of nodes not included: 5655
-NMI after top 20.0% nodes: 0.73
-Max NMI: 0.766
-Purity after top 20.0% nodes: 0.893
-Max Purity: 0.913
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 0.05
-NMI baseline: 0.0
-# of nodes not included: 5393
-NMI after top 20.0% nodes: 0.762
-Max NMI: 0.762
-Purity after top 20.0% nodes: 0.864
-Max Purity: 0.864
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 0.05
-NMI baseline: 0.0
-# of nodes not included: 401
-NMI after top 20.0% nodes: 0.634
-Max NMI: 0.644
-Purity after top 20.0% nodes: 0.723
-Max Purity: 0.774
- ---Tcell-medicine (top 20.0%): PageRank| res: 0.05
-NMI baseline: 0.0
-# of nodes not included: 71
-NMI after top 20.0% nodes: 0.485
-Max NMI: 0.486
-Purity after top 20.0% nodes: 0.574
-Max Purity: 0.574
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 0.25
-NMI baseline: 0.501
-# of nodes not included: 5655
-NMI after top 20.0% nodes: 0.73
-Max NMI: 0.766
-Purity after top 20.0% nodes: 0.893
-Max Purity: 0.913
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 0.25
-NMI baseline: 0.501
-# of nodes not included: 5393
-NMI after top 20.0% nodes: 0.762
-Max NMI: 0.762
-Purity after top 20.0% nodes: 0.864
-Max Purity: 0.864
+Max NMI: 0.641
+Purity after top 20.0% nodes: 0.679
+Max Purity: 0.708
  ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 0.25
-NMI baseline: 0.501
-# of nodes not included: 589
-NMI after top 20.0% nodes: 0.645
-Max NMI: 0.652
-Purity after top 20.0% nodes: 0.775
-Max Purity: 0.81
+NMI baseline: 0.536
+# of nodes not included: 341
+NMI after top 20.0% nodes: 0.57
+Max NMI: 0.595
+Purity after top 20.0% nodes: 0.661
+Max Purity: 0.689
  ---Tcell-medicine (top 20.0%): PageRank| res: 0.25
-NMI baseline: 0.501
-# of nodes not included: 103
-NMI after top 20.0% nodes: 0.643
-Max NMI: 0.643
-Purity after top 20.0% nodes: 0.709
-Max Purity: 0.71
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 0.5
-NMI baseline: 0.493
-# of nodes not included: 5655
-NMI after top 20.0% nodes: 0.73
-Max NMI: 0.766
-Purity after top 20.0% nodes: 0.893
-Max Purity: 0.913
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 0.5
-NMI baseline: 0.493
-# of nodes not included: 5393
-NMI after top 20.0% nodes: 0.762
-Max NMI: 0.762
-Purity after top 20.0% nodes: 0.864
-Max Purity: 0.864
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 0.5
-NMI baseline: 0.493
-# of nodes not included: 786
-NMI after top 20.0% nodes: 0.615
-Max NMI: 0.625
-Purity after top 20.0% nodes: 0.775
-Max Purity: 0.812
- ---Tcell-medicine (top 20.0%): PageRank| res: 0.5
-NMI baseline: 0.493
-# of nodes not included: 188
-NMI after top 20.0% nodes: 0.618
-Max NMI: 0.619
-Purity after top 20.0% nodes: 0.746
-Max Purity: 0.746
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 1
-NMI baseline: 0.5
-# of nodes not included: 5655
-NMI after top 20.0% nodes: 0.713
-Max NMI: 0.75
-Purity after top 20.0% nodes: 0.905
-Max Purity: 0.923
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 1
-NMI baseline: 0.5
-# of nodes not included: 5537
-NMI after top 20.0% nodes: 0.729
-Max NMI: 0.729
-Purity after top 20.0% nodes: 0.864
-Max Purity: 0.864
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 1
-NMI baseline: 0.5
-# of nodes not included: 1578
-NMI after top 20.0% nodes: 0.603
-Max NMI: 0.613
-Purity after top 20.0% nodes: 0.781
-Max Purity: 0.812
- ---Tcell-medicine (top 20.0%): PageRank| res: 1
-NMI baseline: 0.5
-# of nodes not included: 483
-NMI after top 20.0% nodes: 0.576
-Max NMI: 0.579
-Purity after top 20.0% nodes: 0.811
-Max Purity: 0.812
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 1.5
-NMI baseline: 0.49
-# of nodes not included: 5655
-NMI after top 20.0% nodes: 0.713
-Max NMI: 0.75
-Purity after top 20.0% nodes: 0.905
-Max Purity: 0.923
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 1.5
-NMI baseline: 0.49
-# of nodes not included: 5544
-NMI after top 20.0% nodes: 0.71
-Max NMI: 0.71
-Purity after top 20.0% nodes: 0.864
-Max Purity: 0.864
- ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 1.5
-NMI baseline: 0.49
-# of nodes not included: 3023
-NMI after top 20.0% nodes: 0.61
-Max NMI: 0.613
-Purity after top 20.0% nodes: 0.837
-Max Purity: 0.854
- ---Tcell-medicine (top 20.0%): PageRank| res: 1.5
-NMI baseline: 0.49
-# of nodes not included: 745
-NMI after top 20.0% nodes: 0.569
-Max NMI: 0.58
-Purity after top 20.0% nodes: 0.821
-Max Purity: 0.826
- ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 5
-NMI baseline: 0.436
-# of nodes not included: 5675
-NMI after top 20.0% nodes: 0.67
-Max NMI: 0.67
-Purity after top 20.0% nodes: 0.917
-Max Purity: 0.917
- ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 5
-NMI baseline: 0.436
-# of nodes not included: 5582
+NMI baseline: 0.536
+# of nodes not included: 447
 NMI after top 20.0% nodes: 0.679
 Max NMI: 0.679
-Purity after top 20.0% nodes: 0.878
-Max Purity: 0.878
+Purity after top 20.0% nodes: 0.734
+Max Purity: 0.734
+ ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 0.5
+NMI baseline: 0.503
+# of nodes not included: 533
+NMI after top 20.0% nodes: 0.687
+Max NMI: 0.689
+Purity after top 20.0% nodes: 0.791
+Max Purity: 0.794
+ ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 0.5
+NMI baseline: 0.503
+# of nodes not included: 771
+NMI after top 20.0% nodes: 0.65
+Max NMI: 0.663
+Purity after top 20.0% nodes: 0.838
+Max Purity: 0.857
+ ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 0.5
+NMI baseline: 0.503
+# of nodes not included: 568
+NMI after top 20.0% nodes: 0.566
+Max NMI: 0.58
+Purity after top 20.0% nodes: 0.726
+Max Purity: 0.741
+ ---Tcell-medicine (top 20.0%): PageRank| res: 0.5
+NMI baseline: 0.503
+# of nodes not included: 741
+NMI after top 20.0% nodes: 0.665
+Max NMI: 0.669
+Purity after top 20.0% nodes: 0.864
+Max Purity: 0.864
+ ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 1
+NMI baseline: 0.511
+# of nodes not included: 1170
+NMI after top 20.0% nodes: 0.679
+Max NMI: 0.686
+Purity after top 20.0% nodes: 0.861
+Max Purity: 0.871
+ ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 1
+NMI baseline: 0.511
+# of nodes not included: 1241
+NMI after top 20.0% nodes: 0.626
+Max NMI: 0.644
+Purity after top 20.0% nodes: 0.831
+Max Purity: 0.853
+ ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 1
+NMI baseline: 0.511
+# of nodes not included: 1119
+NMI after top 20.0% nodes: 0.572
+Max NMI: 0.594
+Purity after top 20.0% nodes: 0.804
+Max Purity: 0.829
+ ---Tcell-medicine (top 20.0%): PageRank| res: 1
+NMI baseline: 0.511
+# of nodes not included: 1071
+NMI after top 20.0% nodes: 0.629
+Max NMI: 0.629
+Purity after top 20.0% nodes: 0.867
+Max Purity: 0.867
+ ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 1.5
+NMI baseline: 0.488
+# of nodes not included: 1379
+NMI after top 20.0% nodes: 0.668
+Max NMI: 0.671
+Purity after top 20.0% nodes: 0.869
+Max Purity: 0.875
+ ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 1.5
+NMI baseline: 0.488
+# of nodes not included: 1535
+NMI after top 20.0% nodes: 0.612
+Max NMI: 0.63
+Purity after top 20.0% nodes: 0.837
+Max Purity: 0.86
+ ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 1.5
+NMI baseline: 0.488
+# of nodes not included: 1508
+NMI after top 20.0% nodes: 0.561
+Max NMI: 0.586
+Purity after top 20.0% nodes: 0.802
+Max Purity: 0.824
+ ---Tcell-medicine (top 20.0%): PageRank| res: 1.5
+NMI baseline: 0.488
+# of nodes not included: 1563
+NMI after top 20.0% nodes: 0.592
+Max NMI: 0.595
+Purity after top 20.0% nodes: 0.867
+Max Purity: 0.867
+ ---Tcell-medicine (top 20.0%): FL + log(n) hops| res: 5
+NMI baseline: 0.436
+# of nodes not included: 2929
+NMI after top 20.0% nodes: 0.578
+Max NMI: 0.586
+Purity after top 20.0% nodes: 0.868
+Max Purity: 0.884
+ ---Tcell-medicine (top 20.0%): FL_ng + log(n) hops| res: 5
+NMI baseline: 0.436
+# of nodes not included: 2975
+NMI after top 20.0% nodes: 0.554
+Max NMI: 0.584
+Purity after top 20.0% nodes: 0.851
+Max Purity: 0.873
  ---Tcell-medicine (top 20.0%): FL_ng_prop + log(n) hops| res: 5
 NMI baseline: 0.436
-# of nodes not included: 3769
-NMI after top 20.0% nodes: 0.587
-Max NMI: 0.591
-Purity after top 20.0% nodes: 0.875
-Max Purity: 0.88
+# of nodes not included: 2937
+NMI after top 20.0% nodes: 0.539
+Max NMI: 0.568
+Purity after top 20.0% nodes: 0.844
+Max Purity: 0.867
  ---Tcell-medicine (top 20.0%): PageRank| res: 5
 NMI baseline: 0.436
-# of nodes not included: 1739
-NMI after top 20.0% nodes: 0.504
-Max NMI: 0.517
-Purity after top 20.0% nodes: 0.831
-Max Purity: 0.843
+# of nodes not included: 2943
+NMI after top 20.0% nodes: 0.51
+Max NMI: 0.546
+Purity after top 20.0% nodes: 0.863
+Max Purity: 0.877
