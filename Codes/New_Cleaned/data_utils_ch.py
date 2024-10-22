@@ -142,7 +142,8 @@ def load_data(dataset_name,kchoice=15,pca_dim=50):
         print("Name of dataset entered is incorrect")
 
     # else:
-    #     scRNA_datapath = '../data/pca-benchmarks/'
+    #     # scRNA_datapath = '../data/pca-benchmarks/'
+    #     scRNA_datapath = datapath_main+'scRNA_benchmark/'
     #     X = scipy.sparse.load_npz(scRNA_datapath+dataset_name + '/data.npz')
     #     label = np.load(scRNA_datapath+dataset_name+'/labels.npy')
     #     X.data = np.log1p(X.data)

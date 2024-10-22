@@ -171,7 +171,7 @@ import data_utils_ch as data_util
 
 def data_to_graph(name, survive=0):
     #scRNA datasets
-    if name in ['Zhengmix8eq']:
+    if name in ['Zhengmix8eq','ALM', 'AMB', 'Baron_Human', 'Baron_Mouse', 'Muraro', 'Segerstolpe', 'Tcell-medicine', 'TM', 'VISP', 'Xin', 'Zheng']:
         edge_list,vlist,n,label=data_util.local_SCRNA(name)
         #print("Dataset names is ",name," |V|, |E| #clusters= ",n,len(edge_list),len(set(label)))
 
