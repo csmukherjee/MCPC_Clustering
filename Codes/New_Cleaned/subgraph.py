@@ -227,12 +227,7 @@ def write_out(data, name, max_nmi, max_purity):
     with open('./Results/'+data+'.txt', 'a') as f:
         f.write('] ' + '# of comm: ' + str(len(max_purity[4]))+ '\n')
 
-def label_to_partition(H_label):
-    new_partition = defaultdict(set)
-    for i, node_label_ in enumerate(H_label):
-        new_partition[node_label_].add(i)
-    del new_partition[-1]
-    return list(new_partition.values())
+
 '''
 Functions for strong majority voting
 
@@ -431,3 +426,24 @@ def effective_cluster_accuracy(G, label, selected_labels_dict, res):
 # def make_graph(edge_list):
 #     G = nx.Graph(edge_list)
 #     return G
+
+'''
+label is in the form of [-1,0,1,4,2,3,1,1,1,...] / -1 meaning not assigned with cluster (Ignore)
+partition is in the form of [{1,2,3}, {4},...] / list of sets
+'''
+def label_to_partition(label, only_labeled_nodes = 1):
+    partition = defaultdict(set)
+    singleton_idx = len(label)+1
+    if only_labeled_nodes == 1: #Case where -1 is ignored
+        for i, node_label in enumerate(label):
+            if node_label != -1:
+                partition[node_label].add(i)
+    elif only_labeled_nodes == 0: #Case where -1 is partitioned as singleton 
+        for i, node_label in enumerate(label):
+            if node_label == -1:
+                partition[singleton_idx].add(i)
+                singleton_idx += 1
+            else:
+                partition[node_label].add(i)
+
+    return list(partition.values())

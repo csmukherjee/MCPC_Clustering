@@ -84,12 +84,13 @@ def louvain_partitions(
 
     m = graph.size(weight="weight")
 
+    print("# of Partition: ", len(partition))
     #inner part = partition of newly merged nodes
     #partition = partition of original graph nodes
     partition, inner_partition, improvement, total_improvement = _one_level(
         graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, Mod_type, exp_base
     )
-      
+    print("# of Partition: ", len(partition))  
     # improvement = True
     total_improvement=threshold+1
     while total_improvement > threshold:
@@ -103,12 +104,13 @@ def louvain_partitions(
         #     #node2FR = calc_FlowRank(graph, FR_type)
         # else: #If we just average FR every iteration
         #     graph, node2FR = _gen_graph_2(graph, inner_partition,node2FR)
-
+        
         graph = _gen_graph(graph, inner_partition)
         
         partition, inner_partition, improvement, total_improvement = _one_level(
             graph, m, partition, resolution, is_directed, seed, node2FR, FR_order, Mod_type, exp_base
         )
+        print("# of Partition: ", len(partition))
 
 def _one_level(G, m, partition, resolution=1, is_directed=False, seed=None, node2FR={}, FR_order=False, Mod_type=0,exp_base=6):
     node2com = {u: i for i, u in enumerate(G.nodes())}
