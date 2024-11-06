@@ -28,26 +28,6 @@ def getInducedSubgraph(G, top_nodes): #G = original graph, k = pick top k percen
             H.remove_node(u)
     return H
 
-def part_to_full_label(partition, original_n, mapping = None): #partition to labels (Returns full labels)
-    label_1=[-1]*(original_n)
-    '''
-    iGraph has different node numbering than networkx (With mapping)
-    '''
-    if mapping is not None:
-        for i, community in enumerate(partition):
-            for node in community:
-                label_1[mapping[node]] = i   
-    else:    
-        c=0
-        for sets in partition:
-            for ell in sets:
-                label_1[ell]=c
-            
-            c=c+1
-    #print(label_compressed)
-
-    return label_1
-
 def FlowRank_Func(edge_list,vlist,walk_len_c1,c_const=0,type=0):
     if type==0:
         return FR.FLOW(edge_list,vlist,walk_len_c1,c_const)
@@ -99,6 +79,47 @@ def calc_FlowRank(graph, FR_type, walk_len_c1):
     
     return node2FR
 
+def part_to_compressed_label(partition,H,original_n): #partition to labels (Returns compressed labels)
+    #Mapping node numbers to index
+        
+    label_1=[-1]*(original_n)
+    c=0
+    for sets in partition:
+        for ell in sets:
+            label_1[ell]=c
+        
+        c=c+1
+    
+    label_compressed = []
+    #for i in sorted(H.nodes()):
+    for i in H.nodes():
+        if label_1[i] == -1: 
+            print('Error: Node not found in partition')
+            return None
+        label_compressed.append(label_1[i])
+    #print(label_compressed)
+    return label_compressed
+
+def part_to_full_label(partition, original_n, mapping = None): #partition to labels (Returns full labels)
+    label_1=[-1]*(original_n)
+    '''
+    iGraph has different node numbering than networkx (With mapping)
+    '''
+    if mapping is not None:
+        for i, community in enumerate(partition):
+            for node in community:
+                label_1[mapping[node]] = i   
+    else:    
+        c=0
+        for sets in partition:
+            for ell in sets:
+                label_1[ell]=c
+            
+            c=c+1
+    #print(label_compressed)
+
+    return label_1
+
 def networkx_to_igraph(G):
     I = ig.Graph(directed=True)
     I.add_vertices(G.number_of_nodes())
@@ -108,6 +129,41 @@ def networkx_to_igraph(G):
     edges = [(reverse_mapping[u], reverse_mapping[v]) for u, v in G.edges]
     I.add_edges(edges)
     return I, name_mapping
+
+def get_NMI2(H_label, label):
+    n = len(label)
+    label_compressed = []
+    for i in range(n):
+        if H_label[i] != -1:
+            label_compressed.append(label[i])
+    
+    H_label_compressed = []
+    for i in range(n):
+        if H_label[i] != -1:
+            H_label_compressed.append(H_label[i])
+
+    nmi_ = NMI(H_label_compressed, label_compressed)   
+    #nmi_ = NMI(H_label_compressed, label_compressed)
+    #print('nmi: ',nmi_, 'node #: ',len(H_label_compressed))
+    return nmi_
+        
+
+def get_Purity2(H_label, label):
+    n = len(label)
+    label_compressed = []
+    for i in range(n):
+        if H_label[i] != -1:
+            label_compressed.append(label[i])
+    
+    H_label_compressed = []
+    for i in range(n):
+        if H_label[i] != -1:
+            H_label_compressed.append(H_label[i])
+
+    purity_ = met.purity_score(H_label_compressed, label_compressed)   
+    #purity_ = met.purity_score(H_label_compressed, label_compressed)
+    #print('purity: ',purity_, 'node #: ',len(H_label_compressed))
+    return purity_
 
 
 '''
@@ -306,6 +362,24 @@ def merge_by_vote(top_nodes, nodes_rest, H_label, G, label, selected_labels_dict
     Preserv_List[-1] = calc_preservation(selected_labels_dict, cluster_sizes, G.number_of_nodes())
     return NMI_List, Purity_List, Balance_List, Preserv_List, InEdge_List
 
+
+def get_labels(partition,n_s):
+    #final_partition_1 = deque(partition, maxlen=1).pop()
+    #print(final_partition_1)
+
+
+    label_1=np.zeros((n_s))
+    c=0
+    for sets in partition:
+        for ell in sets:
+            label_1[ell]=c
+        
+        c=c+1
+
+    return label_1
+
+
+
 def effective_cluster_accuracy(G, label, selected_labels_dict, res):
     #For each cluster, randomly select nodes for selected_labels_dict[cluster] amount of nodes
     nodes_selected = []
@@ -317,7 +391,15 @@ def effective_cluster_accuracy(G, label, selected_labels_dict, res):
         if cluster == -1:
             print('Error: Cluster -1 found in selected_labels_dict')
         nodes_selected.extend(random.sample(nodes_in_each_cluster[cluster], count))
-
+    #print the number of nodes selected from each cluster
+    # for cluster, count in selected_labels_dict.items():
+    #     print('Cluster:',cluster, 'Count:',count)
+    # print('total # of nodes: ',  len(nodes_selected))
+    
+    # #count the counts of each cluster of nodes_selected 
+    # debug_testing = Counter([label[i] for i in nodes_selected])
+    # print('debug_testing:',debug_testing)
+    # #print('nodes_selected:',nodes_selected)
     H = getInducedSubgraph(G, nodes_selected)
     partition = debug.louvain_partitions(H, seed=0,resolution=res)
     partition_ = deque(partition, maxlen=1).pop()
@@ -327,6 +409,26 @@ def effective_cluster_accuracy(G, label, selected_labels_dict, res):
     Purity_ = met.purity_score(label_compressed, H_label_compressed)
     return NMI_, Purity_
 
+
+# def relabel_graph(H): #compress the node numberings 
+#     mapping = dict(zip(H.nodes(), range(H.number_of_nodes())))
+#     H = nx.relabel_nodes(H, mapping)
+#     return H
+
+# def check_if_has_edge(H, partition_):
+#     for i in H.nodes():
+#         for j in H.nodes():
+#             if i!=j and H.has_edge(i,j):
+#                 #find i in partition_
+#                 for k in range(len(partition_)):
+#                     if i in partition_[k]:
+#                         if j not in partition_[k]:
+#                             print('Edge between nodes:',i,j) #Edge between two different communities
+#     return
+
+# def make_graph(edge_list):
+#     G = nx.Graph(edge_list)
+#     return G
 
 '''
 label is in the form of [-1,0,1,4,2,3,1,1,1,...] / -1 meaning not assigned with cluster (Ignore)
