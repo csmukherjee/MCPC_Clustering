@@ -1,169 +1,49 @@
 ------------------------------------------------------------------------
  ---Baron_Mouse (top 20.0%): FL + log(n) hops| res: 0.05
-NMI baseline: 0.644
-# of nodes not included: 186
-NMI after top 20.0% nodes: 0.783
-Max NMI: 0.79
-Purity after top 20.0% nodes: 0.944
-Max Purity: 0.959
+NMI baseline: 0.481
  ---Baron_Mouse (top 20.0%): FL_ng + log(n) hops| res: 0.05
-NMI baseline: 0.644
-# of nodes not included: 94
-NMI after top 20.0% nodes: 0.738
-Max NMI: 0.747
-Purity after top 20.0% nodes: 0.915
-Max Purity: 0.948
+NMI baseline: 0.481
  ---Baron_Mouse (top 20.0%): FL_ng_pr + log(n) hops| res: 0.05
-NMI baseline: 0.644
-# of nodes not included: 123
-NMI after top 20.0% nodes: 0.753
-Max NMI: 0.766
-Purity after top 20.0% nodes: 0.947
-Max Purity: 0.977
+NMI baseline: 0.481
  ---Baron_Mouse (top 20.0%): PageRank| res: 0.05
-NMI baseline: 0.644
-# of nodes not included: 250
-NMI after top 20.0% nodes: 0.753
-Max NMI: 0.761
-Purity after top 20.0% nodes: 1.0
-Max Purity: 1.0
+NMI baseline: 0.481
  ---Baron_Mouse (top 20.0%): FL + log(n) hops| res: 0.25
 NMI baseline: 0.724
-# of nodes not included: 186
-NMI after top 20.0% nodes: 0.804
-Max NMI: 0.808
-Purity after top 20.0% nodes: 0.989
-Max Purity: 0.992
  ---Baron_Mouse (top 20.0%): FL_ng + log(n) hops| res: 0.25
 NMI baseline: 0.724
-# of nodes not included: 94
-NMI after top 20.0% nodes: 0.783
-Max NMI: 0.788
-Purity after top 20.0% nodes: 0.973
-Max Purity: 0.984
  ---Baron_Mouse (top 20.0%): FL_ng_pr + log(n) hops| res: 0.25
 NMI baseline: 0.724
-# of nodes not included: 129
-NMI after top 20.0% nodes: 0.757
-Max NMI: 0.759
-Purity after top 20.0% nodes: 0.966
-Max Purity: 0.983
  ---Baron_Mouse (top 20.0%): PageRank| res: 0.25
 NMI baseline: 0.724
-# of nodes not included: 250
-NMI after top 20.0% nodes: 0.753
-Max NMI: 0.761
-Purity after top 20.0% nodes: 1.0
-Max Purity: 1.0
  ---Baron_Mouse (top 20.0%): FL + log(n) hops| res: 0.5
-NMI baseline: 0.7
-# of nodes not included: 196
-NMI after top 20.0% nodes: 0.787
-Max NMI: 0.79
-Purity after top 20.0% nodes: 0.989
-Max Purity: 0.992
+NMI baseline: 0.708
  ---Baron_Mouse (top 20.0%): FL_ng + log(n) hops| res: 0.5
-NMI baseline: 0.7
-# of nodes not included: 107
-NMI after top 20.0% nodes: 0.77
-Max NMI: 0.774
-Purity after top 20.0% nodes: 0.973
-Max Purity: 0.984
+NMI baseline: 0.708
  ---Baron_Mouse (top 20.0%): FL_ng_pr + log(n) hops| res: 0.5
-NMI baseline: 0.7
-# of nodes not included: 140
-NMI after top 20.0% nodes: 0.747
-Max NMI: 0.748
-Purity after top 20.0% nodes: 0.966
-Max Purity: 0.983
+NMI baseline: 0.708
  ---Baron_Mouse (top 20.0%): PageRank| res: 0.5
-NMI baseline: 0.7
-# of nodes not included: 263
-NMI after top 20.0% nodes: 0.74
-Max NMI: 0.746
-Purity after top 20.0% nodes: 1.0
-Max Purity: 1.0
+NMI baseline: 0.708
  ---Baron_Mouse (top 20.0%): FL + log(n) hops| res: 1
-NMI baseline: 0.694
-# of nodes not included: 196
-NMI after top 20.0% nodes: 0.787
-Max NMI: 0.79
-Purity after top 20.0% nodes: 0.989
-Max Purity: 0.992
+NMI baseline: 0.696
  ---Baron_Mouse (top 20.0%): FL_ng + log(n) hops| res: 1
-NMI baseline: 0.694
-# of nodes not included: 107
-NMI after top 20.0% nodes: 0.77
-Max NMI: 0.774
-Purity after top 20.0% nodes: 0.973
-Max Purity: 0.984
+NMI baseline: 0.696
  ---Baron_Mouse (top 20.0%): FL_ng_pr + log(n) hops| res: 1
-NMI baseline: 0.694
-# of nodes not included: 146
-NMI after top 20.0% nodes: 0.741
-Max NMI: 0.742
-Purity after top 20.0% nodes: 0.966
-Max Purity: 0.983
+NMI baseline: 0.696
  ---Baron_Mouse (top 20.0%): PageRank| res: 1
-NMI baseline: 0.694
-# of nodes not included: 263
-NMI after top 20.0% nodes: 0.74
-Max NMI: 0.746
-Purity after top 20.0% nodes: 1.0
-Max Purity: 1.0
+NMI baseline: 0.696
  ---Baron_Mouse (top 20.0%): FL + log(n) hops| res: 1.5
-NMI baseline: 0.661
-# of nodes not included: 203
-NMI after top 20.0% nodes: 0.795
-Max NMI: 0.796
-Purity after top 20.0% nodes: 0.997
-Max Purity: 0.998
+NMI baseline: 0.66
  ---Baron_Mouse (top 20.0%): FL_ng + log(n) hops| res: 1.5
-NMI baseline: 0.661
-# of nodes not included: 107
-NMI after top 20.0% nodes: 0.77
-Max NMI: 0.774
-Purity after top 20.0% nodes: 0.973
-Max Purity: 0.984
+NMI baseline: 0.66
  ---Baron_Mouse (top 20.0%): FL_ng_pr + log(n) hops| res: 1.5
-NMI baseline: 0.661
-# of nodes not included: 171
-NMI after top 20.0% nodes: 0.716
-Max NMI: 0.723
-Purity after top 20.0% nodes: 0.966
-Max Purity: 0.983
+NMI baseline: 0.66
  ---Baron_Mouse (top 20.0%): PageRank| res: 1.5
-NMI baseline: 0.661
-# of nodes not included: 263
-NMI after top 20.0% nodes: 0.74
-Max NMI: 0.746
-Purity after top 20.0% nodes: 1.0
-Max Purity: 1.0
+NMI baseline: 0.66
  ---Baron_Mouse (top 20.0%): FL + log(n) hops| res: 5
-NMI baseline: 0.606
-# of nodes not included: 357
-NMI after top 20.0% nodes: 0.77
-Max NMI: 0.773
-Purity after top 20.0% nodes: 0.997
-Max Purity: 0.998
+NMI baseline: 0.599
  ---Baron_Mouse (top 20.0%): FL_ng + log(n) hops| res: 5
-NMI baseline: 0.606
-# of nodes not included: 133
-NMI after top 20.0% nodes: 0.752
-Max NMI: 0.756
-Purity after top 20.0% nodes: 0.979
-Max Purity: 0.987
+NMI baseline: 0.599
  ---Baron_Mouse (top 20.0%): FL_ng_pr + log(n) hops| res: 5
-NMI baseline: 0.606
-# of nodes not included: 445
-NMI after top 20.0% nodes: 0.694
-Max NMI: 0.719
-Purity after top 20.0% nodes: 0.979
-Max Purity: 0.988
+NMI baseline: 0.599
  ---Baron_Mouse (top 20.0%): PageRank| res: 5
-NMI baseline: 0.606
-# of nodes not included: 617
-NMI after top 20.0% nodes: 0.65
-Max NMI: 0.696
-Purity after top 20.0% nodes: 1.0
-Max Purity: 1.0
+NMI baseline: 0.599

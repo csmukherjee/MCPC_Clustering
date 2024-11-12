@@ -102,12 +102,12 @@ def calc_FlowRank(graph, FR_type, walk_len_c1):
 def networkx_to_igraph(G):
     I = ig.Graph(directed=True)
     I.add_vertices(G.number_of_nodes())
-    name_mapping = list(G.nodes)
-    reverse_mapping = {name_mapping[i]: i for i in range(len(name_mapping))}
-    I.vs['name'] = name_mapping
-    edges = [(reverse_mapping[u], reverse_mapping[v]) for u, v in G.edges]
+    ig_to_nx_idx = list(G.nodes)
+    nx_to_ig_idx = {ig_to_nx_idx[i]: i for i in range(len(ig_to_nx_idx))}
+    I.vs['name'] = ig_to_nx_idx
+    edges = [(nx_to_ig_idx[u], nx_to_ig_idx[v]) for u, v in G.edges]
     I.add_edges(edges)
-    return I, name_mapping
+    return I, ig_to_nx_idx, nx_to_ig_idx
 
 
 '''
@@ -361,12 +361,47 @@ def do_Louvain(Graph_to_part, G, res, seed, label):
     return label_, NMI_, Purity_
 
 def do_Leiden(Graph_to_part, G, res, seed, label):
-    G_ig, mapping = networkx_to_igraph(Graph_to_part) # Mapping = igraph index to networkx index
+    G_ig, mapping, _ = networkx_to_igraph(Graph_to_part) # Mapping = igraph index to networkx index
     partition = la.find_partition(G_ig, la.RBConfigurationVertexPartition, n_iterations=-1, resolution_parameter=res, seed=seed)
     label_ = part_to_full_label(partition, G.number_of_nodes(), mapping)
     NMI_ = NMI(label_, label)
     Purity_ = met.purity_score(label, label_)
     return label_, NMI_, Purity_
+
+def do_random_walks(G,unselected_nodes, label, H_label, node_to_FR, walk_len = 5, walk_rep = 20):
+    #precalculate the list of neighbor nodes with higher FR values
+    neighbor_nodes_dict = defaultdict(list)
+    for node in G.nodes():
+        neighbor_nodes = [i for i in G.neighbors(node) if node_to_FR[i] > node_to_FR[node]]
+        neighbor_nodes_dict[node] = neighbor_nodes
+
+    #Only refer to labelings of H before the random walk    
+    new_label = H_label.copy()
+
+    for node in unselected_nodes:
+        visited_label_cntr = defaultdict(int)
+        for _ in range(walk_rep):
+            next_node = node
+            for _ in range(walk_len):
+                '''
+                Do we do random walk on original G with possibility of ending up on unlabeled nodes?
+                Only count the final node visited or some weighted sum of all nodes visited?
+                '''
+                #randomly pick a neighbor node
+                if len(neighbor_nodes_dict[next_node]) == 0:
+                    break
+                next_node = random.choice(neighbor_nodes_dict[next_node])
+            visited_label_cntr[H_label[next_node]] += 1
+            # print('node:' , node, 'visited node:' , next_node, 'visited label:' , H_label[next_node])
+        #Assign the node to the most visited label
+        new_label[node] = max(visited_label_cntr, key=visited_label_cntr.get)
+    
+    NMI_ = NMI(label, H_label)
+    Purity_ = met.purity_score(label, H_label)
+    return new_label, NMI_, Purity_
+            
+                
+
 
 def plot_to_pdf(resolution_list, data_for_plot, k, True_num_of_clusters, pdf_name, data_name):
     plt.figure(figsize=(15,15)) # figure for NMI vs purity
@@ -392,12 +427,17 @@ def plot_to_pdf(resolution_list, data_for_plot, k, True_num_of_clusters, pdf_nam
             plt.figure(NMI_vs_Purity)
             plt.subplot(3,2,idx+1)
             plt.scatter(data['Purity_after_vote'], data['NMI_after_vote'], color = colors[FR_type], s = data['percent_nodes']/100*max_dot_size,label = str(FR_tp[FR_type])+ '|'+str(round(data['percent_nodes'],2))+ '%' + '|#Com:'+str(data['Num_Cluster_Louv_on_H']))
+            #if data_for_plot has key 'extra_name' then plot
+            if data.get('extra_name') is not None:
+                plt.scatter(data['extra_purity'], data['extra_nmi'], edgecolors = colors[FR_type], facecolors = 'none', s = data['extra_percent_nodes']/100*max_dot_size,label = data['extra_name']+ '|'+str(FR_tp[FR_type])+ '|'+str(round(data['extra_percent_nodes'],2))+ '%' + '|#Com:'+str(data['Num_Cluster_Louv_on_H']))
             if FR_type==0:
                 plt.scatter(data['Louvain_Purity'], data['Louvain_NMI'], color = 'k', s = max_dot_size,label = 'Louv_baseline'+ '|#Com:'+str(data['Num_Cluster_Louv_on_G']))
                 plt.scatter(data['Leiden_Purity'], data['Leiden_NMI'], color = 'm', s = max_dot_size,label = 'Leiden_baseline'+ '|#Com:'+str(data['Num_Cluster_Leiden_on_G']))
 
             plt.figure(NMI_vs_Purity_whole)
             plt.scatter(data['Purity_after_vote'], data['NMI_after_vote'], color = colors[FR_type], marker = markers[idx] , s = data['percent_nodes']/100*max_dot_size,label = str(FR_tp[FR_type])+ '|'+str(round(data['percent_nodes'],2))+ '%' + '|#Com:'+str(data['Num_Cluster_Louv_on_H']))
+            if data.get('extra_name') is not None:
+                plt.scatter(data['extra_purity'], data['extra_nmi'], edgecolors = colors[FR_type], facecolors = 'none', s = data['extra_percent_nodes']/100*max_dot_size,label = data['extra_name']+ '|'+str(FR_tp[FR_type])+ '|'+str(round(data['extra_percent_nodes'],2))+ '%' + '|#Com:'+str(data['Num_Cluster_Louv_on_H']))
             if FR_type==0:
                 plt.scatter(data['Louvain_Purity'], data['Louvain_NMI'], color = 'k', s = max_dot_size, marker = markers[idx], label = 'Louv_baseline|'+str(res))
                 plt.scatter(data['Leiden_Purity'], data['Leiden_NMI'], color = 'm', s = max_dot_size, marker = markers[idx], label = 'Leiden_baseline|'+str(res))
@@ -425,3 +465,87 @@ def plot_to_pdf(resolution_list, data_for_plot, k, True_num_of_clusters, pdf_nam
         fig.savefig(p, format='pdf') 
     p.close() 
     plt.close('all')
+
+def write_to_excel (data, excel_name, sheet_name):
+    import openpyxl
+    from openpyxl import load_workbook
+    from openpyxl.styles import Alignment
+    from openpyxl.styles import Font
+
+    row = data['data_idx']*17+2
+    col = data['method_idx']*6+3
+
+    wb = load_workbook(excel_name)
+    ws = wb[sheet_name]
+
+    
+    '''
+    write down method name
+    '''
+    ws.merge_cells(start_row = 1, start_column = col, end_row = 1, end_column = col+5)
+    ws.cell(row=1, column=col, value=data['method_name']).font = Font(bold=True)
+    
+    ws.cell(row=1, column=col).alignment = Alignment(horizontal='center')
+    ws.cell(row = row, column = 1, value = data['data_name']).font = Font(bold=True)
+    '''
+    headers
+    '''
+    headers = ['NMI', 'Purity', '% nodes', '# of Comm'+ '|'+ str(data['num_comm'])]
+    '''
+    Write the results
+    '''
+    for res_idx, res in enumerate(data['res_list']):
+        ws.cell(row = row, column = col+res_idx, value = res).font = Font(bold=True)
+        ws.cell(row= row, column = 2, value = 'Resolution').font = Font(bold=True)
+        for fr_idx, fr in enumerate(data['fr_tp']):
+            #nmi, purity, percent_nodes, num_comm = data[res][fr]
+            lis = data[res][fr]
+            for i in range(4):
+                ws.cell(row = row+1+i+4*fr_idx, column = col+res_idx, value = lis[i])
+                #Write the headers
+                ws.cell(row = row+1+i+4*fr_idx, column = 2, value = headers[i]).font = Font(bold=True)
+                if i == 0:
+                    ws.cell(row = row+1+i+4*fr_idx, column = 1, value = fr).font = Font(bold=True)
+    '''
+    onto seprate sheet
+    '''
+    if data['data_name'] in wb.sheetnames:
+        ws = wb[data['data_name']]
+    else:
+        ws = wb.create_sheet(title=data['data_name'])
+    
+    row = 2
+    '''
+    write down method name
+    '''
+    ws.merge_cells(start_row = 1, start_column = col, end_row = 1, end_column = col+5)
+    ws.cell(row=1, column=col, value=data['method_name']+ '|#Comm:' + str(data['num_comm'])).font = Font(bold=True)
+    ws.cell(row=1, column=col).alignment = Alignment(horizontal='center')
+    ws.cell(row = row, column = 1, value = data['data_name']).font = Font(bold=True)
+
+    '''
+    Write the results
+    '''
+    for res_idx, res in enumerate(data['res_list']):
+        ws.cell(row = row, column = col+res_idx, value = res).font = Font(bold=True)
+        ws.cell(row= row, column = 2, value = 'Resolution').font = Font(bold=True)
+        for fr_idx, fr in enumerate(data['fr_tp']):
+            #nmi, purity, percent_nodes, num_comm = data[res][fr]
+            lis = data[res][fr]
+            for i in range(4):
+                ws.cell(row = row+1+i+4*fr_idx, column = col+res_idx, value = lis[i])
+                #Write the headers
+                ws.cell(row = row+1+i+4*fr_idx, column = 2, value = headers[i]).font = Font(bold=True)
+                if i == 0:
+                    ws.cell(row = row+1+i+4*fr_idx, column = 1, value = fr).font = Font(bold=True)
+    wb.save(excel_name)
+
+def freeze_panes(excel_name):
+    import openpyxl
+    from openpyxl import load_workbook
+
+    wb = load_workbook(excel_name)
+    for sheet in wb.worksheets:
+        #freeze first two columns
+        sheet.freeze_panes = 'C3'
+    wb.save(excel_name)

@@ -1,169 +1,49 @@
 ------------------------------------------------------------------------
  ---Zheng (top 20.0%): FL + log(n) hops| res: 0.05
 NMI baseline: 0.465
-# of nodes not included: 264
-NMI after top 20.0% nodes: 0.557
-Max NMI: 0.557
-Purity after top 20.0% nodes: 0.581
-Max Purity: 0.582
  ---Zheng (top 20.0%): FL_ng + log(n) hops| res: 0.05
 NMI baseline: 0.465
-# of nodes not included: 127
-NMI after top 20.0% nodes: 0.555
-Max NMI: 0.555
-Purity after top 20.0% nodes: 0.536
-Max Purity: 0.536
  ---Zheng (top 20.0%): FL_ng_pr + log(n) hops| res: 0.05
 NMI baseline: 0.465
-# of nodes not included: 57
-NMI after top 20.0% nodes: 0.539
-Max NMI: 0.539
-Purity after top 20.0% nodes: 0.523
-Max Purity: 0.526
  ---Zheng (top 20.0%): PageRank| res: 0.05
 NMI baseline: 0.465
-# of nodes not included: 307
-NMI after top 20.0% nodes: 0.508
-Max NMI: 0.514
-Purity after top 20.0% nodes: 0.506
-Max Purity: 0.506
  ---Zheng (top 20.0%): FL + log(n) hops| res: 0.25
-NMI baseline: 0.46
-# of nodes not included: 2107
-NMI after top 20.0% nodes: 0.571
-Max NMI: 0.571
-Purity after top 20.0% nodes: 0.684
-Max Purity: 0.684
+NMI baseline: 0.473
  ---Zheng (top 20.0%): FL_ng + log(n) hops| res: 0.25
-NMI baseline: 0.46
-# of nodes not included: 774
-NMI after top 20.0% nodes: 0.534
-Max NMI: 0.534
-Purity after top 20.0% nodes: 0.677
-Max Purity: 0.677
+NMI baseline: 0.473
  ---Zheng (top 20.0%): FL_ng_pr + log(n) hops| res: 0.25
-NMI baseline: 0.46
-# of nodes not included: 1123
-NMI after top 20.0% nodes: 0.526
-Max NMI: 0.531
-Purity after top 20.0% nodes: 0.665
-Max Purity: 0.672
+NMI baseline: 0.473
  ---Zheng (top 20.0%): PageRank| res: 0.25
-NMI baseline: 0.46
-# of nodes not included: 1324
-NMI after top 20.0% nodes: 0.463
-Max NMI: 0.478
-Purity after top 20.0% nodes: 0.635
-Max Purity: 0.643
+NMI baseline: 0.473
  ---Zheng (top 20.0%): FL + log(n) hops| res: 0.5
-NMI baseline: 0.453
-# of nodes not included: 2926
-NMI after top 20.0% nodes: 0.548
-Max NMI: 0.548
-Purity after top 20.0% nodes: 0.695
-Max Purity: 0.696
+NMI baseline: 0.434
  ---Zheng (top 20.0%): FL_ng + log(n) hops| res: 0.5
-NMI baseline: 0.453
-# of nodes not included: 3009
-NMI after top 20.0% nodes: 0.522
-Max NMI: 0.524
-Purity after top 20.0% nodes: 0.684
-Max Purity: 0.688
+NMI baseline: 0.434
  ---Zheng (top 20.0%): FL_ng_pr + log(n) hops| res: 0.5
-NMI baseline: 0.453
-# of nodes not included: 1824
-NMI after top 20.0% nodes: 0.527
-Max NMI: 0.533
-Purity after top 20.0% nodes: 0.661
-Max Purity: 0.666
+NMI baseline: 0.434
  ---Zheng (top 20.0%): PageRank| res: 0.5
-NMI baseline: 0.453
-# of nodes not included: 2318
-NMI after top 20.0% nodes: 0.483
-Max NMI: 0.499
-Purity after top 20.0% nodes: 0.657
-Max Purity: 0.666
+NMI baseline: 0.434
  ---Zheng (top 20.0%): FL + log(n) hops| res: 1
-NMI baseline: 0.422
-# of nodes not included: 4283
-NMI after top 20.0% nodes: 0.519
-Max NMI: 0.519
-Purity after top 20.0% nodes: 0.688
-Max Purity: 0.689
+NMI baseline: 0.417
  ---Zheng (top 20.0%): FL_ng + log(n) hops| res: 1
-NMI baseline: 0.422
-# of nodes not included: 4613
-NMI after top 20.0% nodes: 0.505
-Max NMI: 0.51
-Purity after top 20.0% nodes: 0.681
-Max Purity: 0.686
+NMI baseline: 0.417
  ---Zheng (top 20.0%): FL_ng_pr + log(n) hops| res: 1
-NMI baseline: 0.422
-# of nodes not included: 3261
-NMI after top 20.0% nodes: 0.499
-Max NMI: 0.507
-Purity after top 20.0% nodes: 0.67
-Max Purity: 0.677
+NMI baseline: 0.417
  ---Zheng (top 20.0%): PageRank| res: 1
-NMI baseline: 0.422
-# of nodes not included: 4226
-NMI after top 20.0% nodes: 0.452
-Max NMI: 0.472
-Purity after top 20.0% nodes: 0.656
-Max Purity: 0.667
+NMI baseline: 0.417
  ---Zheng (top 20.0%): FL + log(n) hops| res: 1.5
-NMI baseline: 0.41
-# of nodes not included: 5840
-NMI after top 20.0% nodes: 0.506
-Max NMI: 0.507
-Purity after top 20.0% nodes: 0.687
-Max Purity: 0.69
+NMI baseline: 0.405
  ---Zheng (top 20.0%): FL_ng + log(n) hops| res: 1.5
-NMI baseline: 0.41
-# of nodes not included: 6741
-NMI after top 20.0% nodes: 0.483
-Max NMI: 0.487
-Purity after top 20.0% nodes: 0.691
-Max Purity: 0.695
+NMI baseline: 0.405
  ---Zheng (top 20.0%): FL_ng_pr + log(n) hops| res: 1.5
-NMI baseline: 0.41
-# of nodes not included: 4354
-NMI after top 20.0% nodes: 0.48
-Max NMI: 0.487
-Purity after top 20.0% nodes: 0.673
-Max Purity: 0.678
+NMI baseline: 0.405
  ---Zheng (top 20.0%): PageRank| res: 1.5
-NMI baseline: 0.41
-# of nodes not included: 6266
-NMI after top 20.0% nodes: 0.432
-Max NMI: 0.458
-Purity after top 20.0% nodes: 0.653
-Max Purity: 0.666
+NMI baseline: 0.405
  ---Zheng (top 20.0%): FL + log(n) hops| res: 5
-NMI baseline: 0.346
-# of nodes not included: 16358
-NMI after top 20.0% nodes: 0.463
-Max NMI: 0.466
-Purity after top 20.0% nodes: 0.707
-Max Purity: 0.715
+NMI baseline: 0.347
  ---Zheng (top 20.0%): FL_ng + log(n) hops| res: 5
-NMI baseline: 0.346
-# of nodes not included: 21361
-NMI after top 20.0% nodes: 0.436
-Max NMI: 0.451
-Purity after top 20.0% nodes: 0.695
-Max Purity: 0.705
+NMI baseline: 0.347
  ---Zheng (top 20.0%): FL_ng_pr + log(n) hops| res: 5
-NMI baseline: 0.346
-# of nodes not included: 22280
-NMI after top 20.0% nodes: 0.419
-Max NMI: 0.446
-Purity after top 20.0% nodes: 0.686
-Max Purity: 0.7
+NMI baseline: 0.347
  ---Zheng (top 20.0%): PageRank| res: 5
-NMI baseline: 0.346
-# of nodes not included: 23762
-NMI after top 20.0% nodes: 0.36
-Max NMI: 0.431
-Purity after top 20.0% nodes: 0.662
-Max Purity: 0.696
+NMI baseline: 0.347

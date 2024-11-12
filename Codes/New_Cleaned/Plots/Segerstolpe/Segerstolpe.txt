@@ -1,169 +1,49 @@
 ------------------------------------------------------------------------
  ---Segerstolpe (top 20.0%): FL + log(n) hops| res: 0.05
-NMI baseline: 0.502
-# of nodes not included: 606
-NMI after top 20.0% nodes: 0.732
-Max NMI: 0.734
-Purity after top 20.0% nodes: 0.958
-Max Purity: 0.961
+NMI baseline: 0.509
  ---Segerstolpe (top 20.0%): FL_ng + log(n) hops| res: 0.05
-NMI baseline: 0.502
-# of nodes not included: 482
-NMI after top 20.0% nodes: 0.726
-Max NMI: 0.733
-Purity after top 20.0% nodes: 0.951
-Max Purity: 0.951
+NMI baseline: 0.509
  ---Segerstolpe (top 20.0%): FL_ng_pr + log(n) hops| res: 0.05
-NMI baseline: 0.502
-# of nodes not included: 500
-NMI after top 20.0% nodes: 0.708
-Max NMI: 0.716
-Purity after top 20.0% nodes: 0.993
-Max Purity: 0.993
+NMI baseline: 0.509
  ---Segerstolpe (top 20.0%): PageRank| res: 0.05
-NMI baseline: 0.502
-# of nodes not included: 679
-NMI after top 20.0% nodes: 0.769
-Max NMI: 0.769
-Purity after top 20.0% nodes: 0.998
-Max Purity: 0.998
+NMI baseline: 0.509
  ---Segerstolpe (top 20.0%): FL + log(n) hops| res: 0.25
-NMI baseline: 0.752
-# of nodes not included: 606
-NMI after top 20.0% nodes: 0.753
-Max NMI: 0.755
-Purity after top 20.0% nodes: 0.993
-Max Purity: 0.994
+NMI baseline: 0.668
  ---Segerstolpe (top 20.0%): FL_ng + log(n) hops| res: 0.25
-NMI baseline: 0.752
-# of nodes not included: 579
-NMI after top 20.0% nodes: 0.701
-Max NMI: 0.713
-Purity after top 20.0% nodes: 0.991
-Max Purity: 0.992
+NMI baseline: 0.668
  ---Segerstolpe (top 20.0%): FL_ng_pr + log(n) hops| res: 0.25
-NMI baseline: 0.752
-# of nodes not included: 500
-NMI after top 20.0% nodes: 0.708
-Max NMI: 0.716
-Purity after top 20.0% nodes: 0.993
-Max Purity: 0.993
+NMI baseline: 0.668
  ---Segerstolpe (top 20.0%): PageRank| res: 0.25
-NMI baseline: 0.752
-# of nodes not included: 710
-NMI after top 20.0% nodes: 0.727
-Max NMI: 0.728
-Purity after top 20.0% nodes: 0.998
-Max Purity: 0.998
+NMI baseline: 0.668
  ---Segerstolpe (top 20.0%): FL + log(n) hops| res: 0.5
-NMI baseline: 0.688
-# of nodes not included: 608
-NMI after top 20.0% nodes: 0.743
-Max NMI: 0.744
-Purity after top 20.0% nodes: 0.993
-Max Purity: 0.994
+NMI baseline: 0.677
  ---Segerstolpe (top 20.0%): FL_ng + log(n) hops| res: 0.5
-NMI baseline: 0.688
-# of nodes not included: 579
-NMI after top 20.0% nodes: 0.701
-Max NMI: 0.713
-Purity after top 20.0% nodes: 0.991
-Max Purity: 0.992
+NMI baseline: 0.677
  ---Segerstolpe (top 20.0%): FL_ng_pr + log(n) hops| res: 0.5
-NMI baseline: 0.688
-# of nodes not included: 538
-NMI after top 20.0% nodes: 0.673
-Max NMI: 0.682
-Purity after top 20.0% nodes: 0.993
-Max Purity: 0.993
+NMI baseline: 0.677
  ---Segerstolpe (top 20.0%): PageRank| res: 0.5
-NMI baseline: 0.688
-# of nodes not included: 710
-NMI after top 20.0% nodes: 0.727
-Max NMI: 0.728
-Purity after top 20.0% nodes: 0.998
-Max Purity: 0.998
+NMI baseline: 0.677
  ---Segerstolpe (top 20.0%): FL + log(n) hops| res: 1
-NMI baseline: 0.693
-# of nodes not included: 656
-NMI after top 20.0% nodes: 0.71
-Max NMI: 0.712
-Purity after top 20.0% nodes: 0.993
-Max Purity: 0.994
+NMI baseline: 0.679
  ---Segerstolpe (top 20.0%): FL_ng + log(n) hops| res: 1
-NMI baseline: 0.693
-# of nodes not included: 623
-NMI after top 20.0% nodes: 0.672
-Max NMI: 0.687
-Purity after top 20.0% nodes: 0.991
-Max Purity: 0.992
+NMI baseline: 0.679
  ---Segerstolpe (top 20.0%): FL_ng_pr + log(n) hops| res: 1
-NMI baseline: 0.693
-# of nodes not included: 538
-NMI after top 20.0% nodes: 0.673
-Max NMI: 0.682
-Purity after top 20.0% nodes: 0.993
-Max Purity: 0.993
+NMI baseline: 0.679
  ---Segerstolpe (top 20.0%): PageRank| res: 1
-NMI baseline: 0.693
-# of nodes not included: 730
-NMI after top 20.0% nodes: 0.706
-Max NMI: 0.712
-Purity after top 20.0% nodes: 0.998
-Max Purity: 0.998
+NMI baseline: 0.679
  ---Segerstolpe (top 20.0%): FL + log(n) hops| res: 1.5
-NMI baseline: 0.656
-# of nodes not included: 659
-NMI after top 20.0% nodes: 0.702
-Max NMI: 0.705
-Purity after top 20.0% nodes: 0.993
-Max Purity: 0.994
+NMI baseline: 0.651
  ---Segerstolpe (top 20.0%): FL_ng + log(n) hops| res: 1.5
-NMI baseline: 0.656
-# of nodes not included: 626
-NMI after top 20.0% nodes: 0.665
-Max NMI: 0.68
-Purity after top 20.0% nodes: 0.991
-Max Purity: 0.992
+NMI baseline: 0.651
  ---Segerstolpe (top 20.0%): FL_ng_pr + log(n) hops| res: 1.5
-NMI baseline: 0.656
-# of nodes not included: 538
-NMI after top 20.0% nodes: 0.673
-Max NMI: 0.682
-Purity after top 20.0% nodes: 0.993
-Max Purity: 0.993
+NMI baseline: 0.651
  ---Segerstolpe (top 20.0%): PageRank| res: 1.5
-NMI baseline: 0.656
-# of nodes not included: 735
-NMI after top 20.0% nodes: 0.688
-Max NMI: 0.696
-Purity after top 20.0% nodes: 0.998
-Max Purity: 0.998
+NMI baseline: 0.651
  ---Segerstolpe (top 20.0%): FL + log(n) hops| res: 5
-NMI baseline: 0.597
-# of nodes not included: 669
-NMI after top 20.0% nodes: 0.69
-Max NMI: 0.694
-Purity after top 20.0% nodes: 0.993
-Max Purity: 0.994
+NMI baseline: 0.58
  ---Segerstolpe (top 20.0%): FL_ng + log(n) hops| res: 5
-NMI baseline: 0.597
-# of nodes not included: 657
-NMI after top 20.0% nodes: 0.652
-Max NMI: 0.668
-Purity after top 20.0% nodes: 0.991
-Max Purity: 0.992
+NMI baseline: 0.58
  ---Segerstolpe (top 20.0%): FL_ng_pr + log(n) hops| res: 5
-NMI baseline: 0.597
-# of nodes not included: 670
-NMI after top 20.0% nodes: 0.636
-Max NMI: 0.65
-Purity after top 20.0% nodes: 0.993
-Max Purity: 0.993
+NMI baseline: 0.58
  ---Segerstolpe (top 20.0%): PageRank| res: 5
-NMI baseline: 0.597
-# of nodes not included: 851
-NMI after top 20.0% nodes: 0.662
-Max NMI: 0.676
-Purity after top 20.0% nodes: 0.998
-Max Purity: 0.998
+NMI baseline: 0.58
