@@ -197,7 +197,8 @@ def vote(G, H_label, node):
         return -1
     else:
         return most_common_label
-    
+
+
 def calc_balancedness(selected_labels_dict, cluster_sizes):
     #loop through the selected labels and calculate the balancedness
     min_cluster = 2
@@ -224,15 +225,28 @@ def calc_preservation(selected_labels_dict, cluster_sizes, num_total):
 
     return ratio
 
-def get_compressed_labels(label, H_label, node_list):
+def get_compressed_labels(label, H_label, node_list=None):
     label_compressed = []
     H_label_compressed = []
-    for i in node_list:
-        if H_label[i] != -1:
-            H_label_compressed.append(H_label[i])
-            label_compressed.append(label[i])
-    return label_compressed, H_label_compressed
     
+    if node_list is None:
+        for idx_, label_ in enumerate(H_label):
+            if label_ != -1:
+                H_label_compressed.append(label_)
+                label_compressed.append(label[idx_])
+    else:
+        for i in node_list:
+            if H_label[i] != -1:
+                H_label_compressed.append(H_label[i])
+                label_compressed.append(label[i])
+    return label_compressed, H_label_compressed
+
+def calc_NMI_Purity(label, H_label):
+    label_compressed, H_label_compressed = get_compressed_labels(label, H_label)
+    NMI_ = NMI(label_compressed, H_label_compressed)
+    Purity_ = met.purity_score(label_compressed, H_label_compressed)
+    return NMI_, Purity_
+
 def merge_by_vote(top_nodes, nodes_rest, H_label, G, label, selected_labels_dict, cluster_sizes):
     #initial_num_of_nodes = len(top_nodes) - int(k*G.number_of_nodes())
     initial_num_of_nodes = 0
@@ -396,8 +410,7 @@ def do_random_walks(G,unselected_nodes, label, H_label, node_to_FR, walk_len = 5
         #Assign the node to the most visited label
         new_label[node] = max(visited_label_cntr, key=visited_label_cntr.get)
     
-    NMI_ = NMI(label, H_label)
-    Purity_ = met.purity_score(label, H_label)
+    NMI_, Purity_ = calc_NMI_Purity(label, new_label)
     return new_label, NMI_, Purity_
             
                 
@@ -539,6 +552,7 @@ def write_to_excel (data, excel_name, sheet_name):
                 if i == 0:
                     ws.cell(row = row+1+i+4*fr_idx, column = 1, value = fr).font = Font(bold=True)
     wb.save(excel_name)
+
 
 def freeze_panes(excel_name):
     import openpyxl
