@@ -247,7 +247,7 @@ def calc_NMI_Purity(label, H_label):
     Purity_ = met.purity_score(label_compressed, H_label_compressed)
     return NMI_, Purity_
 
-def merge_by_vote(top_nodes, nodes_rest, H_label, G, label, selected_labels_dict, cluster_sizes):
+def merge_by_vote(top_nodes, nodes_rest, H_label, G, label, selected_labels_dict, cluster_sizes, one_round = False):
     #initial_num_of_nodes = len(top_nodes) - int(k*G.number_of_nodes())
     initial_num_of_nodes = 0
     #print('Initial number of nodes:', initial_num_of_nodes)
@@ -312,6 +312,8 @@ def merge_by_vote(top_nodes, nodes_rest, H_label, G, label, selected_labels_dict
                     Balance_List.append(Balance_List[-1])
                     Preserv_List.append(Preserv_List[-1])
             nd = nd_next
+        if one_round:
+            break
             
         
     NMI_List[-1] = NMI(H_label_compressed, True_label_compressed)
@@ -319,6 +321,8 @@ def merge_by_vote(top_nodes, nodes_rest, H_label, G, label, selected_labels_dict
     Balance_List[-1] = calc_balancedness(selected_labels_dict, cluster_sizes)
     Preserv_List[-1] = calc_preservation(selected_labels_dict, cluster_sizes, G.number_of_nodes())
     return NMI_List, Purity_List, Balance_List, Preserv_List, InEdge_List
+
+
 
 def effective_cluster_accuracy(G, label, selected_labels_dict, res):
     #For each cluster, randomly select nodes for selected_labels_dict[cluster] amount of nodes
@@ -479,7 +483,7 @@ def plot_to_pdf(resolution_list, data_for_plot, k, True_num_of_clusters, pdf_nam
     p.close() 
     plt.close('all')
 
-def write_to_excel (data, excel_name, sheet_name):
+def write_to_excel2 (data, excel_name, sheet_name):
     import openpyxl
     from openpyxl import load_workbook
     from openpyxl.styles import Alignment
@@ -553,6 +557,115 @@ def write_to_excel (data, excel_name, sheet_name):
                     ws.cell(row = row+1+i+4*fr_idx, column = 1, value = fr).font = Font(bold=True)
     wb.save(excel_name)
 
+def write_to_excel (data, excel_name, sheet_name):
+    import openpyxl
+    from openpyxl import load_workbook
+    from openpyxl.styles import Alignment
+    from openpyxl.styles import Font
+
+    method_idx = data['method_idx']
+    col_list = [res_idx*(method_idx+1)+3+method_idx for res_idx in range(len(data['res_list']))]
+    row = data['data_idx']*17+2
+
+    wb = load_workbook(excel_name)
+    ws = wb[sheet_name]
+
+    method_exist = ws.cell(row = 2, column = method_idx+3).value == data['method_name']
+    '''
+    add columns for the new method
+    '''
+    if not method_exist:
+        prev_col_list= [(res_idx+1)*(method_idx)+3 for res_idx in range(len(data['res_list']))]
+        for col_idx in reversed(prev_col_list):
+            ws.insert_cols(col_idx)
+
+    '''
+    write down resolution & Method name
+    '''
+    if method_idx == 0:
+        for res_idx, res in enumerate(data['res_list']):
+            col = res_idx*(method_idx+1)+3 
+            ws.cell(row=1, column=col, value='Res: ' + str(res)).font = Font(bold=True)
+            ws.cell(row=1, column=col).alignment = Alignment(horizontal='center')
+        
+    for res_idx, res in enumerate(data['res_list']):
+        # write down method name
+        ws.cell(row=2, column=col_list[res_idx], value = data['method_name']).alignment = Alignment(horizontal='center')
+        ws.cell(row=2, column=col_list[res_idx]).font = Font(bold=True)
+    '''
+    write down data name
+    '''
+    ws.cell(row = row, column = 1, value = data['data_name']).font = Font(bold=True)
+    '''
+    headers
+    '''
+    headers = ['NMI', 'Purity', '% nodes', '# of Comm'+ '|'+ str(data['num_comm'])]
+    '''
+    Write the results
+    '''
+    for res_idx, res in enumerate(data['res_list']):
+        for fr_idx, fr in enumerate(data['fr_tp']):
+            #nmi, purity, percent_nodes, num_comm = data[res][fr]
+            lis = data[res][fr]
+            
+            for i in range(4):
+                row_ = row+1+i+4*fr_idx
+                ws.cell(row = row_, column = col_list[res_idx], value = lis[i])
+                #Write the headers
+                ws.cell(row = row_, column = 2, value = headers[i]).font = Font(bold=True)
+                if i == 0:
+                    ws.cell(row = row_, column = 1, value = fr).font = Font(bold=True)
+    '''
+    onto seprate sheet
+    '''
+    if data['data_name'] in wb.sheetnames:
+        ws = wb[data['data_name']]
+    else:
+        ws = wb.create_sheet(title=data['data_name'])
+    
+    row = 2
+    '''
+    add columns for the new method
+    '''
+    method_exist = ws.cell(row = 2, column = method_idx+3).value == data['method_name']
+    if not method_exist:
+        prev_col_list= [(res_idx+1)*(method_idx)+3 for res_idx in range(len(data['res_list']))]
+        for col_idx in reversed(prev_col_list):
+            ws.insert_cols(col_idx)
+    '''
+    write down resolution & Method name
+    '''
+    
+    if method_idx == 0:
+        for res_idx, res in enumerate(data['res_list']):
+            col = res_idx*(method_idx+1)+3 
+            ws.cell(row=1, column=col, value='Res: ' + str(res)).font = Font(bold=True)
+            ws.cell(row=1, column=col).alignment = Alignment(horizontal='center')
+        
+    for res_idx, res in enumerate(data['res_list']):
+        # write down method name
+        ws.cell(row=2, column=col_list[res_idx], value = data['method_name']).alignment = Alignment(horizontal='center')
+        ws.cell(row=2, column=col_list[res_idx]).font = Font(bold=True)
+    '''
+    headers
+    '''
+    headers = ['NMI', 'Purity', '% nodes', '# of Comm'+ '|'+ str(data['num_comm'])]
+    '''
+    Write the results
+    '''
+    for res_idx, res in enumerate(data['res_list']):
+        for fr_idx, fr in enumerate(data['fr_tp']):
+            #nmi, purity, percent_nodes, num_comm = data[res][fr]
+            lis = data[res][fr]
+            
+            for i in range(4):
+                row_ = row+1+i+4*fr_idx
+                ws.cell(row = row_, column = col_list[res_idx], value = lis[i])
+                #Write the headers
+                ws.cell(row = row_, column = 2, value = headers[i]).font = Font(bold=True)
+                if i == 0:
+                    ws.cell(row = row_, column = 1, value = fr).font = Font(bold=True)
+    wb.save(excel_name)
 
 def freeze_panes(excel_name):
     import openpyxl
@@ -563,3 +676,22 @@ def freeze_panes(excel_name):
         #freeze first two columns
         sheet.freeze_panes = 'C3'
     wb.save(excel_name)
+
+def adjust_col_width(excel_name):
+    import openpyxl
+    from openpyxl import load_workbook
+
+    workbook = load_workbook(excel_name)
+    for sheet in workbook.worksheets:
+        for col in sheet.columns:
+            max_length = 0
+            column = col[0].column_letter
+            for cell in col:
+                try: # Necessary to avoid error on empty cells
+                    if len(str(cell.value)) > max_length:
+                        max_length = len(cell.value)
+                except:
+                    pass
+            adjusted_width = (max_length + 2)
+            sheet.column_dimensions[column].width = adjusted_width
+    workbook.save(excel_name)
