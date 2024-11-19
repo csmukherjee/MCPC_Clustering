@@ -564,29 +564,22 @@ def write_to_excel (data, excel_name, sheet_name):
     from openpyxl.styles import Font
 
     method_idx = data['method_idx']
-    col_list = [res_idx*(method_idx+1)+3+method_idx for res_idx in range(len(data['res_list']))]
-    row = data['data_idx']*17+2
+    method_nums = 8
+    col_list = [res_idx*(method_nums)+3+method_idx for res_idx in range(len(data['res_list']))]
+    row = data['data_idx']*21+2
 
     wb = load_workbook(excel_name)
     ws = wb[sheet_name]
 
-    method_exist = ws.cell(row = 2, column = method_idx+3).value == data['method_name']
-    '''
-    add columns for the new method
-    '''
-    if not method_exist:
-        prev_col_list= [(res_idx+1)*(method_idx)+3 for res_idx in range(len(data['res_list']))]
-        for col_idx in reversed(prev_col_list):
-            ws.insert_cols(col_idx)
 
     '''
     write down resolution & Method name
     '''
-    if method_idx == 0:
-        for res_idx, res in enumerate(data['res_list']):
-            col = res_idx*(method_idx+1)+3 
-            ws.cell(row=1, column=col, value='Res: ' + str(res)).font = Font(bold=True)
-            ws.cell(row=1, column=col).alignment = Alignment(horizontal='center')
+    
+    for res_idx, res in enumerate(data['res_list']):
+        col = res_idx*method_nums+3 
+        ws.cell(row=1, column=col, value='Res: ' + str(res)).font = Font(bold=True)
+        ws.cell(row=1, column=col).alignment = Alignment(horizontal='center')
         
     for res_idx, res in enumerate(data['res_list']):
         # write down method name
@@ -599,7 +592,7 @@ def write_to_excel (data, excel_name, sheet_name):
     '''
     headers
     '''
-    headers = ['NMI', 'Purity', '% nodes', '# of Comm'+ '|'+ str(data['num_comm'])]
+    headers = ['NMI', 'Purity', 'Preservation', '% nodes', '# of Comm'+ '|'+ str(data['num_comm'])]
     '''
     Write the results
     '''
@@ -608,8 +601,8 @@ def write_to_excel (data, excel_name, sheet_name):
             #nmi, purity, percent_nodes, num_comm = data[res][fr]
             lis = data[res][fr]
             
-            for i in range(4):
-                row_ = row+1+i+4*fr_idx
+            for i in range(5):
+                row_ = row+1+i+5*fr_idx
                 ws.cell(row = row_, column = col_list[res_idx], value = lis[i])
                 #Write the headers
                 ws.cell(row = row_, column = 2, value = headers[i]).font = Font(bold=True)
@@ -624,32 +617,28 @@ def write_to_excel (data, excel_name, sheet_name):
         ws = wb.create_sheet(title=data['data_name'])
     
     row = 2
-    '''
-    add columns for the new method
-    '''
-    method_exist = ws.cell(row = 2, column = method_idx+3).value == data['method_name']
-    if not method_exist:
-        prev_col_list= [(res_idx+1)*(method_idx)+3 for res_idx in range(len(data['res_list']))]
-        for col_idx in reversed(prev_col_list):
-            ws.insert_cols(col_idx)
+    
     '''
     write down resolution & Method name
     '''
     
-    if method_idx == 0:
-        for res_idx, res in enumerate(data['res_list']):
-            col = res_idx*(method_idx+1)+3 
-            ws.cell(row=1, column=col, value='Res: ' + str(res)).font = Font(bold=True)
-            ws.cell(row=1, column=col).alignment = Alignment(horizontal='center')
+    for res_idx, res in enumerate(data['res_list']):
+        col = res_idx*method_nums+3 
+        ws.cell(row=1, column=col, value='Res: ' + str(res)).font = Font(bold=True)
+        ws.cell(row=1, column=col).alignment = Alignment(horizontal='center')
         
     for res_idx, res in enumerate(data['res_list']):
         # write down method name
         ws.cell(row=2, column=col_list[res_idx], value = data['method_name']).alignment = Alignment(horizontal='center')
         ws.cell(row=2, column=col_list[res_idx]).font = Font(bold=True)
     '''
+    write down data name
+    '''
+    ws.cell(row = row, column = 1, value = data['data_name']).font = Font(bold=True)
+    '''
     headers
     '''
-    headers = ['NMI', 'Purity', '% nodes', '# of Comm'+ '|'+ str(data['num_comm'])]
+    headers = ['NMI', 'Purity', 'Preservation', '% nodes', '# of Comm'+ '|'+ str(data['num_comm'])]
     '''
     Write the results
     '''
@@ -658,8 +647,8 @@ def write_to_excel (data, excel_name, sheet_name):
             #nmi, purity, percent_nodes, num_comm = data[res][fr]
             lis = data[res][fr]
             
-            for i in range(4):
-                row_ = row+1+i+4*fr_idx
+            for i in range(5):
+                row_ = row+1+i+5*fr_idx
                 ws.cell(row = row_, column = col_list[res_idx], value = lis[i])
                 #Write the headers
                 ws.cell(row = row_, column = 2, value = headers[i]).font = Font(bold=True)
