@@ -374,16 +374,16 @@ def do_Louvain(Graph_to_part, G, res, seed, label):
     partition = debug.louvain_partitions(Graph_to_part, seed=seed,resolution=res)
     partition_ = deque(partition, maxlen=1).pop()
     label_ = part_to_full_label(partition_,G.number_of_nodes())
-    NMI_ = NMI(label_, label)
-    Purity_ = met.purity_score(label, label_)
+
+    NMI_, Purity_ = calc_NMI_Purity(label, label_)
     return label_, NMI_, Purity_
 
 def do_Leiden(Graph_to_part, G, res, seed, label):
     G_ig, mapping, _ = networkx_to_igraph(Graph_to_part) # Mapping = igraph index to networkx index
     partition = la.find_partition(G_ig, la.RBConfigurationVertexPartition, n_iterations=-1, resolution_parameter=res, seed=seed)
     label_ = part_to_full_label(partition, G.number_of_nodes(), mapping)
-    NMI_ = NMI(label_, label)
-    Purity_ = met.purity_score(label, label_)
+    
+    NMI_, Purity_ = calc_NMI_Purity(label, label_)
     return label_, NMI_, Purity_
 
 def do_random_walks(G,unselected_nodes, label, H_label, node_to_FR, walk_len = 5, walk_rep = 20):
