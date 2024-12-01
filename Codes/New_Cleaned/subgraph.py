@@ -483,80 +483,6 @@ def plot_to_pdf(resolution_list, data_for_plot, k, True_num_of_clusters, pdf_nam
     p.close() 
     plt.close('all')
 
-def write_to_excel2 (data, excel_name, sheet_name):
-    import openpyxl
-    from openpyxl import load_workbook
-    from openpyxl.styles import Alignment
-    from openpyxl.styles import Font
-
-    row = data['data_idx']*17+2
-    col = data['method_idx']*6+3
-
-    wb = load_workbook(excel_name)
-    ws = wb[sheet_name]
-
-    
-    '''
-    write down method name
-    '''
-    ws.merge_cells(start_row = 1, start_column = col, end_row = 1, end_column = col+5)
-    ws.cell(row=1, column=col, value=data['method_name']).font = Font(bold=True)
-    
-    ws.cell(row=1, column=col).alignment = Alignment(horizontal='center')
-    ws.cell(row = row, column = 1, value = data['data_name']).font = Font(bold=True)
-    '''
-    headers
-    '''
-    headers = ['NMI', 'Purity', '% nodes', '# of Comm'+ '|'+ str(data['num_comm'])]
-    '''
-    Write the results
-    '''
-    for res_idx, res in enumerate(data['res_list']):
-        ws.cell(row = row, column = col+res_idx, value = res).font = Font(bold=True)
-        ws.cell(row= row, column = 2, value = 'Resolution').font = Font(bold=True)
-        for fr_idx, fr in enumerate(data['fr_tp']):
-            #nmi, purity, percent_nodes, num_comm = data[res][fr]
-            lis = data[res][fr]
-            for i in range(4):
-                ws.cell(row = row+1+i+4*fr_idx, column = col+res_idx, value = lis[i])
-                #Write the headers
-                ws.cell(row = row+1+i+4*fr_idx, column = 2, value = headers[i]).font = Font(bold=True)
-                if i == 0:
-                    ws.cell(row = row+1+i+4*fr_idx, column = 1, value = fr).font = Font(bold=True)
-    '''
-    onto seprate sheet
-    '''
-    if data['data_name'] in wb.sheetnames:
-        ws = wb[data['data_name']]
-    else:
-        ws = wb.create_sheet(title=data['data_name'])
-    
-    row = 2
-    '''
-    write down method name
-    '''
-    ws.merge_cells(start_row = 1, start_column = col, end_row = 1, end_column = col+5)
-    ws.cell(row=1, column=col, value=data['method_name']+ '|#Comm:' + str(data['num_comm'])).font = Font(bold=True)
-    ws.cell(row=1, column=col).alignment = Alignment(horizontal='center')
-    ws.cell(row = row, column = 1, value = data['data_name']).font = Font(bold=True)
-
-    '''
-    Write the results
-    '''
-    for res_idx, res in enumerate(data['res_list']):
-        ws.cell(row = row, column = col+res_idx, value = res).font = Font(bold=True)
-        ws.cell(row= row, column = 2, value = 'Resolution').font = Font(bold=True)
-        for fr_idx, fr in enumerate(data['fr_tp']):
-            #nmi, purity, percent_nodes, num_comm = data[res][fr]
-            lis = data[res][fr]
-            for i in range(4):
-                ws.cell(row = row+1+i+4*fr_idx, column = col+res_idx, value = lis[i])
-                #Write the headers
-                ws.cell(row = row+1+i+4*fr_idx, column = 2, value = headers[i]).font = Font(bold=True)
-                if i == 0:
-                    ws.cell(row = row+1+i+4*fr_idx, column = 1, value = fr).font = Font(bold=True)
-    wb.save(excel_name)
-
 def write_to_excel (data, excel_name, sheet_name):
     import openpyxl
     from openpyxl import load_workbook
@@ -654,6 +580,143 @@ def write_to_excel (data, excel_name, sheet_name):
                 ws.cell(row = row_, column = 2, value = headers[i]).font = Font(bold=True)
                 if i == 0:
                     ws.cell(row = row_, column = 1, value = fr).font = Font(bold=True)
+    wb.save(excel_name)
+
+def calc_modularity (H, H_label, G, node_sorted_by_FR, res, label):
+    import debug
+    '''
+    Calculate modularity
+    '''
+    communities = label_to_partition(H_label)
+    mod_1 = nx.community.modularity(H, communities, resolution = 1)
+    mod_res = nx.community.modularity(H, communities, resolution = res)
+    '''
+    Comparison (Selecting same % of nodes & doing Louvain)
+    '''
+    num = H.number_of_nodes()
+    Comparison_graph = getInducedSubgraph(G, node_sorted_by_FR[:num])
+    
+    #Louvain on it
+    partition = debug.louvain_partitions(Comparison_graph, seed=0,resolution=res)
+    partition_ = deque(partition, maxlen=1).pop()
+    mod_1_comp = nx.community.modularity(Comparison_graph, partition_, resolution = 1)
+    mod_res_comp = nx.community.modularity(Comparison_graph, partition_, resolution = res)
+
+    '''
+    Comparsion (True Label on the nodes selected in induced subgraph)
+    '''
+    H_true_label = [-1]*len(H_label)
+    for idx, val in enumerate(label):
+        if H_label[idx] != -1:
+            H_true_label[idx] = val
+    part = label_to_partition(H_true_label)
+    mod_true_1 = nx.community.modularity(H, part, resolution = 1)
+    mod_true_res = nx.community.modularity(H, part, resolution = res)
+    return mod_1, mod_1_comp, mod_true_1, mod_res, mod_res_comp, mod_true_res
+
+def write_to_excel_with_modularity (data, excel_name, sheet_name):
+    import openpyxl
+    from openpyxl import load_workbook
+    from openpyxl.styles import Alignment
+    from openpyxl.styles import Font
+
+    method_idx = data['method_idx']
+    method_nums = 8
+    col_list = [res_idx*(method_nums)+3+method_idx for res_idx in range(len(data['res_list']))]
+    row = data['data_idx']*21+2
+
+    wb = load_workbook(excel_name)
+    ws = wb[sheet_name]
+
+
+    '''
+    write down resolution & Method name
+    '''
+    
+    for res_idx, res in enumerate(data['res_list']):
+        col = res_idx*method_nums+3 
+        ws.cell(row=1, column=col, value='Res: ' + str(res)).font = Font(bold=True)
+        ws.cell(row=1, column=col).alignment = Alignment(horizontal='center')
+        
+    for res_idx, res in enumerate(data['res_list']):
+        # write down method name
+        ws.cell(row=2, column=col_list[res_idx], value = data['method_name']).alignment = Alignment(horizontal='center')
+        ws.cell(row=2, column=col_list[res_idx]).font = Font(bold=True)
+    '''
+    write down data name
+    '''
+    ws.cell(row = row, column = 1, value = data['data_name']).font = Font(bold=True)
+    '''
+    headers
+    '''
+    headers = ['NMI', 'Purity', 'Preservation', '% nodes', '# of Comm'+ '|'+ str(data['num_comm'])]
+    '''
+    Write the results
+    '''
+    for res_idx, res in enumerate(data['res_list']):
+        for fr_idx, fr in enumerate(data['fr_tp']):
+            #nmi, purity, percent_nodes, num_comm = data[res][fr]
+            lis = data[res][fr]
+            
+            for i in range(5):
+                row_ = row+1+i+5*fr_idx
+                ws.cell(row = row_, column = col_list[res_idx], value = lis[i])
+                #Write the headers
+                ws.cell(row = row_, column = 2, value = headers[i]).font = Font(bold=True)
+                if i == 0:
+                    ws.cell(row = row_, column = 1, value = fr).font = Font(bold=True)
+    '''
+    onto seprate sheet
+    '''
+    if data['data_name'] in wb.sheetnames:
+        ws = wb[data['data_name']]
+    else:
+        ws = wb.create_sheet(title=data['data_name'])
+    
+    row = 2
+    
+    '''
+    write down resolution & Method name
+    '''
+    
+    for res_idx, res in enumerate(data['res_list']):
+        col = res_idx*method_nums+3 
+        ws.cell(row=1, column=col, value='Res: ' + str(res)).font = Font(bold=True)
+        ws.cell(row=1, column=col).alignment = Alignment(horizontal='center')
+        
+    for res_idx, res in enumerate(data['res_list']):
+        # write down method name
+        ws.cell(row=2, column=col_list[res_idx], value = data['method_name']).alignment = Alignment(horizontal='center')
+        ws.cell(row=2, column=col_list[res_idx]).font = Font(bold=True)
+    '''
+    write down data name
+    '''
+    ws.cell(row = row, column = 1, value = data['data_name']).font = Font(bold=True)
+    '''
+    headers
+    '''
+    headers = ['NMI', 'Purity', 'Preservation', '% nodes', '# of Comm'+ '|'+ str(data['num_comm']), 'mod_1', 'mod_1_comp', 'mod_1_true', 'mod_res', 'mod_res_comp', 'mod_res_true']
+    '''
+    Write the results
+    '''
+    for res_idx, res in enumerate(data['res_list']):
+        for fr_idx, fr in enumerate(data['fr_tp']):
+            #nmi, purity, percent_nodes, num_comm = data[res][fr]
+            lis = data[res][fr]
+            
+            for i in range(5):
+                #row_ = row+1+i+5*fr_idx
+                row_ = row+1+i+11*fr_idx
+                ws.cell(row = row_, column = col_list[res_idx], value = lis[i])
+                #Write the headers
+                ws.cell(row = row_, column = 2, value = headers[i]).font = Font(bold=True)
+                if i == 0:
+                    ws.cell(row = row_, column = 1, value = fr).font = Font(bold=True)
+            if len(lis) > 5:
+                #print('lis:',lis, 'len(lis):',len(lis))
+                for i in range(6):
+                    ws.cell(row = row+1+(i+5)+11*fr_idx, column = col_list[res_idx], value = round(lis[5][i],2))
+                    ws.cell(row = row+1+(i+5)+11*fr_idx, column = 2, value = headers[5+i]).font = Font(bold=True)
     wb.save(excel_name)
 
 def freeze_panes(excel_name):
